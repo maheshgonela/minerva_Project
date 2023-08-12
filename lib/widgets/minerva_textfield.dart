@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/design/colors.dart';
+import 'package:minerva/design/styles.dart';
 
 class MinervaTextField extends StatefulWidget {
   final String? autocorrect;
@@ -56,7 +57,7 @@ class _MinervaTextField extends State<MinervaTextField> {
       decoration: InputDecoration(
         counterText: '',
         prefixIcon: widget.prefixIcon,
-        suffixIcon: widget.hintText == 'Password' ||
+        suffixIcon: widget.labelText == 'Password' ||
                 widget.hintText == 'Enter your password'
             ? IconButton(
                 onPressed: () {
@@ -68,10 +69,10 @@ class _MinervaTextField extends State<MinervaTextField> {
               )
             : null,
         hintStyle: Theme.of(context).textTheme.bodyMedium,
-        hintText: widget.hintText,
+        //hintText: widget.hintText,
+
         labelText: widget.labelText,
-        labelStyle: GoogleFonts.istokWeb(
-            textStyle: Theme.of(context).textTheme.bodyMedium),
+        labelStyle: inputFieldCaptionStyle,
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(7),
           borderSide: const BorderSide(color: AppColors.redColor, width: 1),
@@ -89,11 +90,10 @@ class _MinervaTextField extends State<MinervaTextField> {
         ),
       ),
       style: GoogleFonts.istokWeb(
-        textStyle: Theme.of(context)
-            .textTheme
-            .bodyLarge!
-            .copyWith(fontWeight: FontWeight.bold),
-      ),
+        textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
+              fontWeight: FontWeight.w800,
+            ),
+      ).copyWith(fontSize: 18),
     );
   }
 }

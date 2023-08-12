@@ -16,16 +16,23 @@ class MinervaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-        statusBarColor: Color(0xff9A0007),
-        statusBarIconBrightness: Brightness.light),);
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+          statusBarColor: Color(0xff9A0007),
+          statusBarIconBrightness: Brightness.light),
+    );
 
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (BuildContext context) => sl.get<SignInBloc>(),),
         BlocProvider(
-            create: (BuildContext context) =>
-                sl.get<AuthBloc>()..add(const AuthEvent.authCheckRequested(),),),
+          create: (BuildContext context) => sl.get<SignInBloc>(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) => sl.get<AuthBloc>()
+            ..add(
+              const AuthEvent.authCheckRequested(),
+            ),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -46,27 +53,31 @@ class MinervaApp extends StatelessWidget {
             style: OutlinedButton.styleFrom(
               backgroundColor: const Color(0xff4336f4),
               padding: const EdgeInsets.all(16.0),
-              side: const BorderSide(color: Color(0xff4336f4),),
+              side: const BorderSide(
+                color: Color(0xff4336f4),
+              ),
             ),
           ),
           // accentColor: const Color(0xff4336f4),
-          tabBarTheme:
-              const TabBarTheme(labelStyle: TextStyle(color: Colors.black),),
+          tabBarTheme: const TabBarTheme(
+            labelStyle: TextStyle(color: Colors.black),
+          ),
           scaffoldBackgroundColor: AppColors.scaffoldBgColor,
           appBarTheme: const AppBarTheme(color: Color(0xffF44336)),
           textTheme: GoogleFonts.latoTextTheme().copyWith(
-              bodyMedium: GoogleFonts.jost(
-                textStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      letterSpacing: 1.2,
-                      fontSize: 18,
-                    ),
-              ),
-              bodySmall: const TextStyle(
-                letterSpacing: 1.2,
-                decorationStyle: TextDecorationStyle.double,
-                fontSize: 15,
-                fontFamily: "smallcaps",
-              ),),
+            bodyMedium: GoogleFonts.jost(
+              textStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    letterSpacing: 1.2,
+                    fontSize: 18,
+                  ),
+            ),
+            bodySmall: const TextStyle(
+              letterSpacing: 1.2,
+              decorationStyle: TextDecorationStyle.double,
+              fontSize: 15,
+              fontFamily: "smallcaps",
+            ),
+          ),
           fontFamily: GoogleFonts.jost().fontFamily,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
@@ -86,10 +97,10 @@ class MinervaApp extends StatelessWidget {
           },
           builder: (ctx, state) {
             return state.when(
-              loading: () =>const MinervaSplashScreen(),
+              loading: () => const MinervaSplashScreen(),
               authStateAuthenticated: () => const HomePage(),
-              authStateUnAuthenticated: () =>const SignInScreen(),
-              needAppUpdate: () => MinervaSplashScreen(),
+              authStateUnAuthenticated: () => const SignInScreen(),
+              needAppUpdate: () => const MinervaSplashScreen(),
             );
           },
         ),

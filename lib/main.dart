@@ -77,5 +77,5 @@ Future<void> main() async {
   if (kDebugMode) Bloc.observer = SimpleBlocObserver();
 
   // FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
-  runApp(MinervaApp());
+  runApp(const MinervaApp());
 }

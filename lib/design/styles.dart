@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
-const inputFieldCaptionStyle = TextStyle(
-  fontSize: 12,
-  fontWeight: FontWeight.bold,
-);
+const inputFieldCaptionStyle =
+    TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black);
 
-const captionStyle = TextStyle(
-  fontWeight: FontWeight.bold,
-  fontSize: 12,
-);
+const captionStyle =
+    TextStyle(fontWeight: FontWeight.w700, fontSize: 16, color: Colors.black54);

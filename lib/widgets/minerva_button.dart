@@ -29,8 +29,8 @@ class _MinervaButton extends State<MinervaButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: widget.height ?? 52,
-      width: widget.width ?? 290,
+      height: widget.height ?? 54,
+      width: widget.width ?? 240,
       child: ElevatedButton(
         onPressed: () => widget.onButtonPressed(),
         style: ButtonStyle(
@@ -44,26 +44,29 @@ class _MinervaButton extends State<MinervaButton> {
           ),
         ),
         child: Row(
+          mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (widget.prefixIcon != null) ...[
               Icon(
                 widget.prefixIcon,
-               size: 20,
+                size: 20,
                 color: Colors.white,
               ),
               const SizedBox(
                 width: 10,
               ),
             ],
-            Flexible(
-              child: Text(
-                widget.label!,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.istokWeb(
-                  textStyle: Theme.of(context).textTheme.titleLarge!.copyWith(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                ),
+            Text(
+              widget.label!,
+              style: GoogleFonts.istokWeb(
+                textStyle: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(color: Colors.white, fontWeight: FontWeight.bold)
+                    .copyWith(
+                      fontSize: 16,
+                    ),
               ),
             ),
             if (widget.suffixIcon != null) ...[
