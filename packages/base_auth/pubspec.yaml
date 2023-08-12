@@ -1,0 +1,25 @@
+name: base_auth
+description: A new Flutter package project.
+version: 0.0.8
+author:
+homepage:
+publish_to: none
+
+environment:
+  sdk: ">=2.18.5 <3.0.0"
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core:
+    path: ../core
+  freezed: ^2.3.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner:
+  json_serializable: ^6.6.1
+
+flutter:
