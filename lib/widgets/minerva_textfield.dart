@@ -45,60 +45,54 @@ class _MinervaTextField extends State<MinervaTextField> {
       });
     }
 
-    return SizedBox(
-      height: 56,
-      width: 350,
-      child: TextFormField(
-        cursorColor: AppColors.redColor,
-        keyboardType: widget.keyboardType ?? TextInputType.text,
-        autocorrect: false,
-        controller: widget.controller,
-        obscureText: widget.obsecure ?? false,
-        onChanged: (text) {},
-        maxLength: widget.maxlenght,
-        decoration: InputDecoration(
-          counterText: '',
-          prefixIcon: widget.prefixIcon,
-          suffixIcon: widget.suffixIcon,
-          suffix: widget.hintText == 'Password' ||
-                  widget.hintText == 'Enter your password'
-              ? InkWell(
-                
-                  child: widget.obsecure!
-                      ? const Icon(Icons.visibility)
-                      : const Icon(Icons.visibility_off),
-                  onTap: () {
-                    checkPasswordDisplay();
-                  },
-                )
-              : null,
-          hintStyle: Theme.of(context).textTheme.bodyMedium,
-          hintText: widget.hintText,
-          labelText: widget.labelText,
-          labelStyle: GoogleFonts.istokWeb(
-              textStyle: Theme.of(context).textTheme.bodyMedium),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-            borderSide: const BorderSide(color: AppColors.redColor, width: 1),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(width: 1, color: Color(0xff72787e)),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          fillColor: Colors.white,
-          filled: true,
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(
-              5.0,
-            ),
+    return TextFormField(
+      cursorColor: AppColors.redColor,
+      keyboardType: widget.keyboardType ?? TextInputType.text,
+      autocorrect: false,
+      controller: widget.controller,
+      obscureText: widget.obsecure ?? false,
+      onChanged: (text) {},
+      maxLength: widget.maxlenght,
+      decoration: InputDecoration(
+        counterText: '',
+        prefixIcon: widget.prefixIcon,
+        suffixIcon: widget.hintText == 'Password' ||
+                widget.hintText == 'Enter your password'
+            ? IconButton(
+                onPressed: () {
+                  checkPasswordDisplay();
+                },
+                icon: Icon(
+                  widget.obsecure! ? Icons.visibility : Icons.visibility_off,
+                ),
+              )
+            : null,
+        hintStyle: Theme.of(context).textTheme.bodyMedium,
+        hintText: widget.hintText,
+        labelText: widget.labelText,
+        labelStyle: GoogleFonts.istokWeb(
+            textStyle: Theme.of(context).textTheme.bodyMedium),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(7),
+          borderSide: const BorderSide(color: AppColors.redColor, width: 1),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(width: 1, color: Color(0xff72787e)),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        fillColor: Colors.white,
+        filled: true,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(
+            5.0,
           ),
         ),
-        style: GoogleFonts.istokWeb(
-          textStyle: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(fontWeight: FontWeight.bold),
-        ),
+      ),
+      style: GoogleFonts.istokWeb(
+        textStyle: Theme.of(context)
+            .textTheme
+            .bodyLarge!
+            .copyWith(fontWeight: FontWeight.bold),
       ),
     );
   }

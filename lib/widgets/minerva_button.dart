@@ -29,14 +29,14 @@ class _MinervaButton extends State<MinervaButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: widget.height ?? 40,
-      width: widget.width ?? 200,
+      height: widget.height ?? 52,
+      width: widget.width ?? 290,
       child: ElevatedButton(
         onPressed: () => widget.onButtonPressed(),
         style: ButtonStyle(
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(10),
             ),
           ),
           backgroundColor: MaterialStateProperty.all<Color>(
@@ -49,10 +49,12 @@ class _MinervaButton extends State<MinervaButton> {
             if (widget.prefixIcon != null) ...[
               Icon(
                 widget.prefixIcon,
-                size: 30,
+               size: 20,
                 color: Colors.white,
               ),
-              const SizedBox(width: 20),
+              const SizedBox(
+                width: 10,
+              ),
             ],
             Flexible(
               child: Text(
@@ -66,10 +68,12 @@ class _MinervaButton extends State<MinervaButton> {
             ),
             if (widget.suffixIcon != null) ...[
               const SizedBox(width: 20),
-              Icon(
-                widget.suffixIcon,
-                size: 30,
-                color: Colors.white,
+              Center(
+                child: Icon(
+                  widget.suffixIcon,
+                  size: 30,
+                  color: Colors.white,
+                ),
               ),
             ],
           ],

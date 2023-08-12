@@ -34,9 +34,7 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
             const SizedBox(
               height: 80,
             ),
-
             Container(
-
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
                 boxShadow: [
@@ -59,17 +57,13 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
                 ),
               ),
             ),
-            
-
-            const SizedBox(height: 50),
-            _buildUserNameText(context),
-            const SizedBox(height: 0),
+            const SizedBox(height: 100),
+          //  _buildUserNameText(context),
             _buildUserNameField(),
-            const SizedBox(height: 0),
-            _buildPassWordText(context),
-            const SizedBox(height: 0),
+           // _buildPassWordText(context),
+           const SizedBox(height: 8.0),
             _buildPasswordField(),
-            const SizedBox(height: 16),
+            const SizedBox(height: 80),
             _buildSignInButton(),
           ],
         ),
@@ -79,25 +73,31 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
 
   Text _buildUserNameText(BuildContext context) {
     return Text(
-      'Username',
+      'User name',
       style: GoogleFonts.istokWeb(
-        textStyle: Theme.of(context)
-            .textTheme
-            .headline5!
-            .copyWith(fontWeight: FontWeight.bold),
+        textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
+              fontWeight: FontWeight.bold,
+              
+            ),
       ),
     );
   }
 
-  Text _buildPassWordText(BuildContext context) {
-    return Text(
-      'Password'.toUpperCase(),
-      style: GoogleFonts.istokWeb(
-        textStyle: Theme.of(context).textTheme.headline5!.copyWith(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
-      ),
+  Row _buildPassWordText(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Text(
+          'password'.toUpperCase(),
+          style: GoogleFonts.istokWeb(
+            textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  
+                ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -128,7 +128,7 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
 
   Widget _buildPasswordField() {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(12),
       child: MinervaTextField(
         controller: password,
         obsecure: true,
@@ -138,12 +138,13 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
           color: Colors.black,
         ),
       ),
+
     );
   }
 
   Widget _buildUserNameField() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(12),
       child: MinervaTextField(
         controller: username,
         obsecure: false,
@@ -156,5 +157,25 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
     );
   }
 }
-
-
+//  TextFormField(
+//                           controller: _passwordController,
+//                           obscureText: !_isPasswordVisible,
+//                           style: myTextStyle().copyWith(fontSize: 12),
+//                           decoration: myInputDecoration().copyWith(
+//                             labelText: 'Password',
+//                             prefixIcon: const Icon(
+//                               Icons.lock,
+//                             ),
+//                             suffixIcon: IconButton(
+//                               onPressed: () {
+//                                 setState(() {
+//                                   _isPasswordVisible = !_isPasswordVisible;
+//                                 });
+//                               },
+//                               icon: Icon(
+//                                 _isPasswordVisible
+//                                     ? Icons.visibility
+//                                     : Icons.visibility_off,
+//                               ),
+//                             ),
+//                           )),
