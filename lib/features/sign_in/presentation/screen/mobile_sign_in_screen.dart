@@ -98,7 +98,7 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
             left: 16,
           ),
           child: Text(
-            'UserName *',
+            'UserName*',
             style: GoogleFonts.istokWeb(
               textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
                   color: Colors.black,
