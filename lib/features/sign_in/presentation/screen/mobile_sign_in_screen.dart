@@ -93,17 +93,14 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(
-            top: 4,
-            left: 16,
-          ),
+          padding: const EdgeInsets.only(left: 18),
           child: Text(
             'UserName*',
             style: GoogleFonts.istokWeb(
-              textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),
+              textStyle: Theme.of(context)
+                  .textTheme
+                  .headlineSmall!
+                  .copyWith(fontWeight: FontWeight.bold, fontSize: 20),
             ),
           ),
         ),
@@ -116,17 +113,14 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(
-            top: 4,
-            left: 16,
-          ),
+          padding: const EdgeInsets.only(left: 18),
           child: Text(
             'Password*',
             style: GoogleFonts.istokWeb(
-              textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),
+              textStyle: Theme.of(context)
+                  .textTheme
+                  .headlineSmall!
+                  .copyWith(fontWeight: FontWeight.bold, fontSize: 20),
             ),
           ),
         ),
@@ -153,7 +147,6 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
               );
             },
             label: 'LogIn',
-            color: Colors.purple[400],
           );
         },
       );
@@ -170,7 +163,6 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
         hintText: 'Enter your password',
         prefixIcon: const Icon(
           Icons.lock,
-          color: Colors.black,
         ),
       ),
     );
@@ -186,7 +178,6 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
         hintText: 'Username',
         prefixIcon: const Icon(
           Icons.person,
-          color: Colors.black,
         ),
       ),
     );

@@ -39,9 +39,6 @@ class _MinervaButton extends State<MinervaButton> {
               borderRadius: BorderRadius.circular(10),
             ),
           ),
-          backgroundColor: MaterialStateProperty.all<Color>(
-            widget.color ?? AppColors.raisedButtonColor,
-          ),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.max,
@@ -51,7 +48,6 @@ class _MinervaButton extends State<MinervaButton> {
               Icon(
                 widget.prefixIcon,
                 size: 20,
-                color: Colors.white,
               ),
               const SizedBox(
                 width: 10,
@@ -63,7 +59,7 @@ class _MinervaButton extends State<MinervaButton> {
                 textStyle: Theme.of(context)
                     .textTheme
                     .titleLarge!
-                    .copyWith(color: Colors.white, fontWeight: FontWeight.bold)
+                    .copyWith(fontWeight: FontWeight.bold)
                     .copyWith(
                       fontSize: 16,
                     ),
@@ -75,7 +71,6 @@ class _MinervaButton extends State<MinervaButton> {
                 child: Icon(
                   widget.suffixIcon,
                   size: 30,
-                  color: Colors.white,
                 ),
               ),
             ],

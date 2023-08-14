@@ -16,7 +16,6 @@ class SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.scaffoldBgColor,
       body: BlocListener<SignInBloc, SignInState>(
         listener: (BuildContext ctx, state) {
           state.maybeWhen(

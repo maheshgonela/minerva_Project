@@ -43,13 +43,10 @@ class AppDrawer extends StatelessWidget {
                           textStyle: Theme.of(context)
                               .textTheme
                               .titleMedium!
-                              .copyWith(
-                                  color: AppColors.darkText,
-                                  fontWeight: FontWeight.bold)),
+                              .copyWith(fontWeight: FontWeight.bold)),
                     ),
                     leading: const Icon(
                       Icons.apps,
-                      color: AppColors.raisedButtonColor,
                     ),
                     trailing: FutureBuilder<String?>(
                       future: _getAppVersion(),
@@ -85,16 +82,13 @@ class AppDrawer extends StatelessWidget {
                         const EdgeInsets.only(left: 16.0, right: 4.0),
                     leading: const Icon(
                       Icons.business,
-                      color: AppColors.raisedButtonColor,
                     ),
                     title: Text('Powered By'.toUpperCase(),
                         style: GoogleFonts.istokWeb(
                             textStyle: Theme.of(context)
                                 .textTheme
                                 .titleMedium!
-                                .copyWith(
-                                    color: AppColors.darkText,
-                                    fontWeight: FontWeight.bold))),
+                                .copyWith(fontWeight: FontWeight.bold))),
                     trailing: InkWell(
                       child: TextButton(
                         onPressed: _launchEasyCloud,
@@ -103,9 +97,7 @@ class AppDrawer extends StatelessWidget {
                                 textStyle: Theme.of(context)
                                     .textTheme
                                     .titleMedium!
-                                    .copyWith(
-                                        color: AppColors.darkText,
-                                        fontWeight: FontWeight.bold))),
+                                    .copyWith(fontWeight: FontWeight.bold))),
                       ),
                     ),
                   ),
@@ -113,7 +105,7 @@ class AppDrawer extends StatelessWidget {
                   ListTile(
                       leading: const Icon(
                         Icons.star,
-                        color: AppColors.raisedButtonColor,
+                        // color: AppColors.raisedButtonColor,
                       ),
                       title: TextButton(
                         child: Text(
@@ -122,30 +114,23 @@ class AppDrawer extends StatelessWidget {
                               textStyle: Theme.of(context)
                                   .textTheme
                                   .titleMedium!
-                                  .copyWith(
-                                      color: AppColors.redColor,
-                                      fontWeight: FontWeight.bold)),
+                                  .copyWith(fontWeight: FontWeight.bold)),
                         ),
                         onPressed: () => launchPlayStore(),
-                      )
-                     
-                      ),
+                      )),
                 ],
               ),
             ),
             ListTile(
-              tileColor: Colors.grey,
-              leading: const Icon(Icons.exit_to_app, color:AppColors.darkText ),
-              title: Text(
-                'Logout',
-                style: GoogleFonts.istokWeb(
-                              textStyle: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium!
-                                  .copyWith(
-                                      color: AppColors.darkText,
-                                      fontWeight: FontWeight.bold))
+              leading: const Icon(
+                Icons.exit_to_app,
               ),
+              title: Text('Logout',
+                  style: GoogleFonts.istokWeb(
+                      textStyle: Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(fontWeight: FontWeight.bold))),
               onTap: () => BlocProvider.of<AuthBloc>(context)
                   .add(const AuthEvent.signedOut()),
             ),
@@ -162,17 +147,21 @@ class AppDrawer extends StatelessWidget {
         contentPadding: const EdgeInsets.only(left: 16.0, right: 4.0),
         leading: const Icon(
           Icons.person_pin,
-          color: AppColors.raisedButtonColor,
+          //color: AppColors.raisedButtonColor,
         ),
         title: Text(user.name,
             style: GoogleFonts.istokWeb(
-                textStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: AppColors.darkText, fontWeight: FontWeight.bold))),
+                textStyle: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(fontWeight: FontWeight.bold))),
         subtitle: Text(
           user.organizationName,
           style: GoogleFonts.istokWeb(
-              textStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
-                  color: AppColors.darkText, fontWeight: FontWeight.bold)),
+              textStyle: Theme.of(context)
+                  .textTheme
+                  .titleSmall!
+                  .copyWith(fontWeight: FontWeight.bold)),
         ),
       ),
     );

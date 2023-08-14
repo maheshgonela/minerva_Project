@@ -15,6 +15,7 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.scaffoldBgColor,
+      //backgroundColor: AppColors.scaffoldBgColor,
       drawer: const AppDrawer(),
       appBar: AppBar(),
       body: SafeArea(
@@ -38,16 +39,15 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-            'assets/images/minervalogo.png',
-            alignment: Alignment.topCenter,
-            fit: BoxFit.fill,
-            height: 200,
-            width: 300,
-          ),
-            const SizedBox(height: 100),
-
+              'assets/images/home_page_img_with_bg.jpg',
+              alignment: Alignment.topCenter,
+              fit: BoxFit.fill,
+              height: 540,
+              width: double.maxFinite,
+            ),
+            const SizedBox(height: 3),
             _createGRN(context),
-            const SizedBox(height: 100),
+            const SizedBox(height: 30),
             _createIndent(context, Constants.sweetsSection),
           ],
         ),

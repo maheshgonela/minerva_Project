@@ -47,7 +47,6 @@ class _MinervaTextField extends State<MinervaTextField> {
     }
 
     return TextFormField(
-      cursorColor: AppColors.redColor,
       keyboardType: widget.keyboardType ?? TextInputType.text,
       autocorrect: false,
       controller: widget.controller,
@@ -75,13 +74,15 @@ class _MinervaTextField extends State<MinervaTextField> {
         labelStyle: inputFieldCaptionStyle,
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(7),
-          borderSide: const BorderSide(color: AppColors.redColor, width: 1),
+          borderSide: const BorderSide(width: 1),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(width: 1, color: Color(0xff72787e)),
+          borderSide: const BorderSide(
+            width: 1,
+          ),
           borderRadius: BorderRadius.circular(15),
         ),
-        fillColor: Colors.white,
+
         filled: true,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(
