@@ -29,14 +29,14 @@ class _MinervaButton extends State<MinervaButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: widget.height ?? 40,
-      width: widget.width ?? 200,
+      height: widget.height ?? 54,
+      width: widget.width ?? 240,
       child: ElevatedButton(
         onPressed: () => widget.onButtonPressed(),
         style: ButtonStyle(
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(10),
             ),
           ),
           backgroundColor: MaterialStateProperty.all<Color>(
@@ -44,32 +44,39 @@ class _MinervaButton extends State<MinervaButton> {
           ),
         ),
         child: Row(
+          mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (widget.prefixIcon != null) ...[
               Icon(
                 widget.prefixIcon,
-                size: 30,
+                size: 20,
                 color: Colors.white,
               ),
-              const SizedBox(width: 20),
+              const SizedBox(
+                width: 10,
+              ),
             ],
-            Flexible(
-              child: Text(
-                widget.label!,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.istokWeb(
-                  textStyle: Theme.of(context).textTheme.titleLarge!.copyWith(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                ),
+            Text(
+              widget.label!,
+              style: GoogleFonts.istokWeb(
+                textStyle: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(color: Colors.white, fontWeight: FontWeight.bold)
+                    .copyWith(
+                      fontSize: 16,
+                    ),
               ),
             ),
             if (widget.suffixIcon != null) ...[
               const SizedBox(width: 20),
-              Icon(
-                widget.suffixIcon,
-                size: 30,
-                color: Colors.white,
+              Center(
+                child: Icon(
+                  widget.suffixIcon,
+                  size: 30,
+                  color: Colors.white,
+                ),
               ),
             ],
           ],

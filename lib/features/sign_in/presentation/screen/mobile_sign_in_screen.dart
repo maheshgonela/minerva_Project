@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:minerva/design/styles.dart';
 import 'package:minerva/features/sign_in/presentation/bloc/sign_in_bloc/sign_in_bloc.dart';
 import 'package:minerva/widgets/minerva_button.dart';
 import 'package:minerva/widgets/minerva_textfield.dart';
@@ -25,79 +26,111 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(
-              height: 80,
-            ),
-
-            Container(
-
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.blue.withOpacity(0.3),
-                    spreadRadius: 3,
-                    blurRadius: 10,
-                    offset: Offset(0, 3), // changes the shadow position
-                  ),
-                ],
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.asset(
-                  'assets/images/minervalogo.png',
-                  alignment: Alignment.topCenter,
-                  height: 105,
-                  width: 300,
-                  fit: BoxFit.cover,
+    return Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const SizedBox(
+            height: 80,
+          ),
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8.0),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.blue.withOpacity(0.3),
+                  spreadRadius: 3,
+                  blurRadius: 10,
+                  offset: const Offset(0, 3), // changes the shadow position
                 ),
+              ],
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: Image.asset(
+                'assets/images/minervalogo.png',
+                alignment: Alignment.topCenter,
+                height: 105,
+                width: 300,
+                fit: BoxFit.cover,
               ),
             ),
-            
-
-            const SizedBox(height: 50),
-            _buildUserNameText(context),
-            const SizedBox(height: 0),
-            _buildUserNameField(),
-            const SizedBox(height: 0),
-            _buildPassWordText(context),
-            const SizedBox(height: 0),
-            _buildPasswordField(),
-            const SizedBox(height: 16),
-            _buildSignInButton(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Text _buildUserNameText(BuildContext context) {
-    return Text(
-      'Username',
-      style: GoogleFonts.istokWeb(
-        textStyle: Theme.of(context)
-            .textTheme
-            .headline5!
-            .copyWith(fontWeight: FontWeight.bold),
-      ),
-    );
-  }
-
-  Text _buildPassWordText(BuildContext context) {
-    return Text(
-      'Password'.toUpperCase(),
-      style: GoogleFonts.istokWeb(
-        textStyle: Theme.of(context).textTheme.headline5!.copyWith(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+          ),
+          const SizedBox(
+            height: 60,
+          ),
+          Expanded(
+              child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _buildUserNameText(context),
+                _buildUserNameField(),
+                _buildPassWordText(context),
+                _buildPasswordField(),
+                const SizedBox(
+                  height: 100,
+                ),
+                _buildSignInButton(),
+                const SizedBox(
+                  height: 60,
+                ),
+                const Text(
+                  'LogIn to continue !',
+                  style: captionStyle,
+                )
+              ],
             ),
+          ))
+        ],
       ),
+    );
+  }
+
+  Row _buildUserNameText(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 4,
+            left: 16,
+          ),
+          child: Text(
+            'UserName*',
+            style: GoogleFonts.istokWeb(
+              textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row _buildPassWordText(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(
+            top: 4,
+            left: 16,
+          ),
+          child: Text(
+            'Password*',
+            style: GoogleFonts.istokWeb(
+              textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -119,7 +152,8 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
                 ),
               );
             },
-            label: 'Sign In'.toUpperCase(),
+            label: 'LogIn',
+            color: Colors.purple[400],
           );
         },
       );
@@ -128,11 +162,12 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
 
   Widget _buildPasswordField() {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(12),
       child: MinervaTextField(
+        labelText: 'Password',
         controller: password,
         obsecure: true,
-        hintText: 'Password',
+        hintText: 'Enter your password',
         prefixIcon: const Icon(
           Icons.lock,
           color: Colors.black,
@@ -143,8 +178,9 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
 
   Widget _buildUserNameField() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(12),
       child: MinervaTextField(
+        labelText: 'Username',
         controller: username,
         obsecure: false,
         hintText: 'Username',
@@ -156,5 +192,25 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
     );
   }
 }
-
-
+//  TextFormField(
+//                           controller: _passwordController,
+//                           obscureText: !_isPasswordVisible,
+//                           style: myTextStyle().copyWith(fontSize: 12),
+//                           decoration: myInputDecoration().copyWith(
+//                             labelText: 'Password',
+//                             prefixIcon: const Icon(
+//                               Icons.lock,
+//                             ),
+//                             suffixIcon: IconButton(
+//                               onPressed: () {
+//                                 setState(() {
+//                                   _isPasswordVisible = !_isPasswordVisible;
+//                                 });
+//                               },
+//                               icon: Icon(
+//                                 _isPasswordVisible
+//                                     ? Icons.visibility
+//                                     : Icons.visibility_off,
+//                               ),
+//                             ),
+//                           )),
