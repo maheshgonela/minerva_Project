@@ -9,6 +9,7 @@ abstract class Shipment with _$Shipment {
     required String organization,
     required String documentNo,
     required String bpId,
+    
     required String bpName,
     required String partnerAddress,
     required String movementDate,

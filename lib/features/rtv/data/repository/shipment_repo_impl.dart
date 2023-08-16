@@ -126,7 +126,7 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
     final requestBody = jsonEncode({
       'data': {
         '_entityName': Entities.goodsReceipt,
-        'documentType': '2D8CFCFAE1B8432396F38BAF41653436',
+        'documentType': '22030AD7DD4284E2B936E261662EF735A',
         'warehouse': user.defaultWarehouse,
         'businessPartner': form.businessPartnerId,
         'partnerAddress': await _fetchBpLocationId(form.businessPartnerId),

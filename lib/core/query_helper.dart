@@ -21,6 +21,9 @@ abstract class QueryHelper {
   }
 
   Future<String> fetchQuery(String attribute) async {
+
+
+    
     const entityName = "ADPreference";
     try {
       final user = sl.get<LoggedInUser>();

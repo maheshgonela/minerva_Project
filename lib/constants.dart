@@ -18,7 +18,7 @@ abstract class Constants {
   static const oilCategoryId = "2D82FC7817D8464386FB1675914ECF8E";
   static const foodsLlpId = "108A02B1142045C185C07DCCA00F27BB";
   static const pullaReddySweetsId = "FAA8DB42FD4F4C22B1CF204BEBAB2514";
-  static const rtvShipmentId = "2D8CFCFAE1B8432396F38BAF41653436";
+  static const rtvShipmentId = "2030AD7DD4284E2B936E261662EF735A";
   static const pushNotifications = "EPN_PushNotification";
 }
 
