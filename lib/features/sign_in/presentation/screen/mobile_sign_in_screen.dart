@@ -65,21 +65,31 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                const SizedBox(
+                  height: 14,
+                ),
                 _buildUserNameText(context),
                 _buildUserNameField(),
                 _buildPassWordText(context),
                 _buildPasswordField(),
                 const SizedBox(
-                  height: 100,
+                  height: 150,
                 ),
                 _buildSignInButton(),
                 const SizedBox(
-                  height: 60,
+                  height: 40,
                 ),
-                const Text(
+                Text(
                   'LogIn to continue !',
-                  style: captionStyle,
-                )
+                  style: GoogleFonts.istokWeb(
+                    textStyle:
+                        Theme.of(context).textTheme.headlineSmall!.copyWith(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 14,
+                              letterSpacing: 1.2,
+                            ),
+                  ),
+                ),
               ],
             ),
           ))

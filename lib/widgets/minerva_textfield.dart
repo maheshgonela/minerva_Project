@@ -71,7 +71,12 @@ class _MinervaTextField extends State<MinervaTextField> {
         //hintText: widget.hintText,
 
         labelText: widget.labelText,
-        labelStyle: inputFieldCaptionStyle,
+        labelStyle: GoogleFonts.istokWeb(
+          textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+              ),
+        ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(7),
           borderSide: const BorderSide(width: 1),
