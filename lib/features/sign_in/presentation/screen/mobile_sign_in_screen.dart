@@ -34,22 +34,23 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
           const SizedBox(
             height: 80,
           ),
+          // ignore: avoid_unnecessary_containers
           Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8.0),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.blue.withOpacity(0.3),
-                  spreadRadius: 3,
-                  blurRadius: 10,
-                  offset: const Offset(0, 3), // changes the shadow position
-                ),
-              ],
-            ),
+            // decoration: BoxDecoration(
+            //   borderRadius: BorderRadius.circular(8.0),
+            //   boxShadow: [
+            //     BoxShadow(
+            //       color: Colors.blue.withOpacity(0.3),
+            //       spreadRadius: 3,
+            //       blurRadius: 10,
+            //       offset: const Offset(0, 3), // changes the shadow position
+            //     ),
+            //   ],
+            // ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.asset(
-                'assets/images/minervalogo.png',
+                'assets/images/minervalogo_without_bg.png',
                 alignment: Alignment.topCenter,
                 height: 105,
                 width: 300,
@@ -193,25 +194,3 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
     );
   }
 }
-//  TextFormField(
-//                           controller: _passwordController,
-//                           obscureText: !_isPasswordVisible,
-//                           style: myTextStyle().copyWith(fontSize: 12),
-//                           decoration: myInputDecoration().copyWith(
-//                             labelText: 'Password',
-//                             prefixIcon: const Icon(
-//                               Icons.lock,
-//                             ),
-//                             suffixIcon: IconButton(
-//                               onPressed: () {
-//                                 setState(() {
-//                                   _isPasswordVisible = !_isPasswordVisible;
-//                                 });
-//                               },
-//                               icon: Icon(
-//                                 _isPasswordVisible
-//                                     ? Icons.visibility
-//                                     : Icons.visibility_off,
-//                               ),
-//                             ),
-//                           )),

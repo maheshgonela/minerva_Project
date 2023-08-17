@@ -4,6 +4,7 @@ import 'package:minerva/design/colors.dart';
 import 'package:minerva/features/sign_in/presentation/bloc/auth/auth_bloc.dart';
 import 'package:minerva/features/sign_in/presentation/bloc/sign_in_bloc/sign_in_bloc.dart';
 import 'package:minerva/features/sign_in/presentation/screen/mobile_sign_in_screen.dart';
+import 'package:minerva/toast_message.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -25,8 +26,9 @@ class SignInScreenState extends State<SignInScreen> {
                   .add(const AuthEvent.authCheckRequested());
             },
             failure: (error) async {
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text(error.error)));
+              // ScaffoldMessenger.of(context)
+              //     .showSnackBar(SnackBar(content: Text(error.error)));
+              toastMessage(context: context, errorMessage: error.error);
             },
           );
         },

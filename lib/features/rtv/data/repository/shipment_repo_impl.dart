@@ -34,7 +34,8 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
       final shipment = await _createShipment(form);
 
       if (shipment == null) return left(const Failure(error: defErrMsg));
-      await _addShipmentLines(shipment.id, user.defaultWarehouse, form.products);
+      await _addShipmentLines(
+          shipment.id, user.defaultWarehouse, form.products);
       await _completeShipment(shipment.id);
       return right(shipment);
     } catch (e, st) {
@@ -47,7 +48,8 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
   Future<Either<Failure, List<IdName>>> fetchBusinessPartners() async {
     const String defErrMsg = 'Could not fetch details';
     try {
-      final list = jsonDecode(await getQuery(Constants.prefRtvBps)) as List<dynamic>;
+      final list =
+          jsonDecode(await getQuery(Constants.prefRtvBps)) as List<dynamic>;
       final result = list.map((e) => _toIdName(e)).toList();
       return right(result);
     } catch (e, st) {
@@ -56,19 +58,23 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
     }
   }
 
-  IdName _toIdName(e) => IdName(id: e['id'].toString(), name: e['name'].toString());
+  IdName _toIdName(e) =>
+      IdName(id: e['id'].toString(), name: e['name'].toString());
 
   @override
-  Future<Either<Failure, List<Product>>> fetchProducts(int start, int end, String bpId, String? query) async {
+  Future<Either<Failure, List<Product>>> fetchProducts(
+      int start, int end, String bpId, String? query) async {
     const String defErrMsg = 'Could not fetch products';
     try {
       var categoryFilter = '';
       if (bpId == Constants.pullaReddySweetsId) {
-        categoryFilter = "productCategory in ('${Constants.bakeryCategoryId}', '${Constants.sweetsCategoryId}')";
+        categoryFilter =
+            "productCategory in ('${Constants.bakeryCategoryId}', '${Constants.sweetsCategoryId}')";
       } else if (bpId == Constants.foodsLlpId) {
         categoryFilter = "productCategory in ('${Constants.oilCategoryId}')";
       }
-      final String url = "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end&"
+      final String url =
+          "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end&"
           "_where=$categoryFilter&"
           "_sortBy=name";
 
@@ -80,8 +86,10 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
       return data.fold(
         (Failure l) => left(Failure(error: l.error)),
         (r) {
-          final list =
-              (r as List<dynamic>).map((e) => ProductDto.fromJson(e as Map<String, dynamic>).toDomain()).toList();
+          final list = (r as List<dynamic>)
+              .map((e) =>
+                  ProductDto.fromJson(e as Map<String, dynamic>).toDomain())
+              .toList();
           return right(list);
         },
       );
@@ -92,17 +100,19 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
   }
 
   @override
-  Future<Either<Failure, List<Shipment>>> fetchShipments(DateTime movementDate, int start, int end) async {
+  Future<Either<Failure, List<Shipment>>> fetchShipments(
+      DateTime movementDate, int start, int end) async {
     const String defErrMsg = 'Could not fetch details';
     try {
       final user = sl.get<LoggedInUser>();
       print('$user');
-     // final minoutId = '8EA4C542ACF540F3A6A9EFCE4EB41DB2';
+      // final minoutId = '8EA4C542ACF540F3A6A9EFCE4EB41DB2';
       final docTypeFilter = "documentType='${Constants.rtvShipmentId}'";
       final url =
-          "${Constants.jsonWs}/${Entities.goodsReceipt}?_startRow=$start&_endRow=$end&_where=id='${Constants.rtvShipmentId}'&_sortBy=creationDate desc=";
- //final url = "${Constants.jsonWs}/${Entities.goodsReceipt}?_where=id='$minoutId'";
- print('Calling : $url');
+          "${Constants.jsonWs}/${Entities.goodsReceipt}?_startRow=$start&_endRow=$end&_where=id='${Constants.rtvShipmentId}'&_sortBy=creationDate";
+      // final url =
+      //     "${Constants.jsonWs}/${Entities.goodsReceipt}?_where=id='$minoutId'";
+      print('Calling : $url');
       final data = await safeApiCall(
         () => client.get(Uri.parse(url), headers: _authHeader()),
         defErrMsg,
@@ -111,8 +121,10 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
       return data.fold(
         (Failure l) => left(Failure(error: l.error)),
         (r) {
-          final list =
-              (r as List<dynamic>).map((e) => ShipmentDto.fromJson(e as Map<String, dynamic>).toDomain()).toList();
+          final list = (r as List<dynamic>)
+              .map((e) =>
+                  ShipmentDto.fromJson(e as Map<String, dynamic>).toDomain())
+              .toList();
           return right(list);
         },
       );
@@ -139,7 +151,8 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
     });
 
     final data = await safeApiCall(
-      () => client.post(Uri.parse(url), body: requestBody, headers: _authHeader()),
+      () => client.post(Uri.parse(url),
+          body: requestBody, headers: _authHeader()),
       defErrMsg,
     );
 
@@ -154,7 +167,8 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
     return getAuthHeader(user.userName, user.password);
   }
 
-  Future<void> _addShipmentLines(String receiptId, String warehouse, List<ShipmentFormLine> products) async {
+  Future<void> _addShipmentLines(String receiptId, String warehouse,
+      List<ShipmentFormLine> products) async {
     final url = Uri.parse("${Constants.jsonWs}/${Entities.goodsReceiptLines}");
 
     final storageBinId = await _fetchStorageBinId(warehouse);
@@ -191,7 +205,8 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
   }
 
   Future<String> _fetchStorageBinId(String warehouseId) async {
-    final url = Uri.parse("${Constants.jsonWs}/${Entities.storageBin}?_where=warehouse='$warehouseId'");
+    final url = Uri.parse(
+        "${Constants.jsonWs}/${Entities.storageBin}?_where=warehouse='$warehouseId'");
     final result = await safeApiCall(
       () => client.get(url, headers: _authHeader()),
       'Could not fetch storage bin id',
@@ -200,13 +215,16 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
       (l) => '',
       (r) {
         final list = r as List<dynamic>;
-        return list.isEmpty ? '' : (list[0] as Map<String, dynamic>)['id'].toString();
+        return list.isEmpty
+            ? ''
+            : (list[0] as Map<String, dynamic>)['id'].toString();
       },
     );
   }
 
   Future<String> _fetchBpLocationId(String bpId) async {
-    final url = Uri.parse("${Constants.jsonWs}/${Entities.businessPartnerLocation}?_where=businessPartner='$bpId'");
+    final url = Uri.parse(
+        "${Constants.jsonWs}/${Entities.businessPartnerLocation}?_where=businessPartner='$bpId'");
     final result = await safeApiCall(
       () => client.get(url, headers: _authHeader()),
       'Could not fetch bp location id',
@@ -215,13 +233,16 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
       (l) => '',
       (r) {
         final list = r as List<dynamic>;
-        return list.isEmpty ? '' : (list[0] as Map<String, dynamic>)['id'].toString();
+        return list.isEmpty
+            ? ''
+            : (list[0] as Map<String, dynamic>)['id'].toString();
       },
     );
   }
 
   Future<void> _completeShipment(String receiptId) async {
-    final url = Uri.parse("${Constants.customWs}/${CustomWebservices.processGRNOrOrder}");
+    final url = Uri.parse(
+        "${Constants.customWs}/${CustomWebservices.processGRNOrOrder}");
     final reqBody = json.encode({
       'data': {"OrderID": "", "MinoutID": receiptId}
     });

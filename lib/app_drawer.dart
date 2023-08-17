@@ -56,7 +56,11 @@ class AppDrawer extends StatelessWidget {
                       )),
                   const Divider(),
                   ListTile(
-                      onTap: () => _launchEasyCloud(),
+                      //onTap: () => _launchEasyCloud(),
+                      onTap: () async {
+                        // ignore: deprecated_member_use
+                        await launch('https://easycloud.in/');
+                      },
                       leading: const Icon(
                         Icons.business,
                       ),
@@ -193,92 +197,10 @@ class AppDrawer extends StatelessWidget {
     return packageInfo.version;
   }
 
-  Future _launchEasyCloud() async {
-    const url = 'https://easycloud.in';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+  // Future<void> _launchEasyCloud() async {
+  //   var url = Uri.parse(
+  //       'https://easycloud.in'); // Use Uri.parse instead of UriData.fromString
+
+  //   await launch(url); // Use launch instead of launchUrl
+  // }
 }
-
-
-//  return Drawer(
-//       child: ListView(
-//         padding: EdgeInsets.zero,
-//         children: <Widget>[
-//           UserAccountsDrawerHeader(
-//             decoration: BoxDecoration(color: Color.fromARGB(255, 8, 8, 8)),
-//             accountName: Text('Easy Cloud'),
-//             accountEmail: Text(
-//               user!.email!,
-//               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-//                     fontSize: 21,
-//                     color: Colors.white,
-//                   ),
-//             ),
-//             currentAccountPicture: CircleAvatar(
-//               backgroundImage: NetworkImage(
-//                   'https://png.pngtree.com/element_our/sm/20180410/sm_5acd1797b5783.jpg'),
-//             ),
-//           ),
-//           Divider(),
-//           ListTile(
-//             leading: Icon(Icons.home_outlined),
-//             title: Text('HOME'),
-//             onTap: () {
-//               Navigator.pop(context);
-//             },
-//           ),
-//           Divider(),
-//           ListTile(
-//             leading: Icon(Icons.corporate_fare),
-//             title: Text('POWERED BY'),
-//             trailing: Text(
-//               "Easy cloud",
-//               style: TextStyle(color: Color.fromARGB(255, 136, 135, 133)),
-//             ),
-//             onTap: () async {
-//               // ignore: deprecated_member_use
-//               await launch('https://easycloud.in/');
-//             },
-//           ),
-//           Divider(),
-//           ListTile(
-//             leading: Icon(Icons.star),
-//             title: Text('Rate Us'),
-//             trailing: Text(
-//               "OpenPlayStore",
-//               style: TextStyle(color: Color.fromARGB(255, 136, 135, 133)),
-//             ),
-//             onTap: () async {
-//               // ignore: deprecated_member_use
-//               await launch(
-//                   'https://play.google.com/store/apps/details?id=in.easycloud.mealmaven&pli=1');
-//             },
-//           ),
-//           // Divider(),
-//           // ListTile(
-//           //   leading: Icon(Icons.settings),
-//           //   title: Text('Settings'),
-//           //   onTap: () {
-
-//           //      Navigator.pop(context);
-//           //   },
-//           // ),
-//           Divider(),
-//           ListTile(
-//             leading: Icon(Icons.logout),
-//             title: Text(
-//               'logout',
-//               style: TextStyle(color: Color.fromARGB(255, 1, 0, 0)),
-//             ),
-//             onTap: () async {
-//               await FirebaseAuth.instance.signOut();
-//             },
-//           ),
-//           Divider(),
-//         ],
-//       ),
-//     );
