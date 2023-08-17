@@ -52,7 +52,7 @@ class MinervaSplashScreenState extends State<MinervaSplashScreen>
             FadeTransition(
               opacity: _fadeInFadeOut!,
               child: Image.asset(
-                'assets/images/minervalogo.png',
+                'assets/images/minervalogo_without_bg.png',
                 fit: BoxFit.contain,
                 width: 250,
                 height: 250,
