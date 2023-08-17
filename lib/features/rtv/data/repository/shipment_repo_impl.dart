@@ -96,10 +96,13 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
     const String defErrMsg = 'Could not fetch details';
     try {
       final user = sl.get<LoggedInUser>();
+      print('$user');
+     // final minoutId = '8EA4C542ACF540F3A6A9EFCE4EB41DB2';
       final docTypeFilter = "documentType='${Constants.rtvShipmentId}'";
       final url =
-          """${Constants.jsonWs}/${Entities.goodsReceipt}?_startRow=$start&_endRow=$end&_where=createdBy='${user.id}' and $docTypeFilter&_sortBy=creationDate desc""";
-      log(url);
+          "${Constants.jsonWs}/${Entities.goodsReceipt}?_startRow=$start&_endRow=$end&_where=id='${Constants.rtvShipmentId}'&_sortBy=creationDate desc=";
+ //final url = "${Constants.jsonWs}/${Entities.goodsReceipt}?_where=id='$minoutId'";
+ print('Calling : $url');
       final data = await safeApiCall(
         () => client.get(Uri.parse(url), headers: _authHeader()),
         defErrMsg,

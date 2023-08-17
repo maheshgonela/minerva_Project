@@ -48,7 +48,7 @@ class ShipmentListScreen extends StatelessWidget {
               return RefreshIndicator(
                 onRefresh: () {
                   _refresh(context);
-                  return Future.delayed(const Duration(seconds: 2));
+                  return Future.delayed(const Duration(seconds: 1));
                 },
                 child: ListView.separated(
                   itemCount: l.length,

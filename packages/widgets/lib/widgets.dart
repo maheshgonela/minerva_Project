@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 
 
 import 'package:url_launcher/url_launcher.dart';
+import 'package:widgets/loading_indicator.dart';
 
 part 'app_update_dialog.dart';
 part 'center_loading_indicator.dart';

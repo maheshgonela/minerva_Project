@@ -23,7 +23,10 @@ class EmptyListWidget extends StatelessWidget {
           ),
           // MinervaButton(onButtonPressed: onRefresh,
           // label: 'REFRESH',)
-          ElevatedButton(onPressed: (){}, child: Text('REFRESH')),
+          ElevatedButton(onPressed: (){
+            LoadingIndicator();
+           
+          }, child: Text('REFRESH')),
         ],
       ),
     );

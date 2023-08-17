@@ -5,6 +5,7 @@ Future openPhoneApp(String mobileNumber) async {
   assert(mobileNumber.isNotEmpty);
 
   try {
+    // ignore: deprecated_member_use
     await launch("tel://$mobileNumber");
   } catch (e, st) {
     logError(e, st, 'could not open phone app');
