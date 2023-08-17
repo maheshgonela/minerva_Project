@@ -22,13 +22,11 @@ class ShipmentListScreen extends StatelessWidget {
               textStyle: Theme.of(context)
                   .textTheme
                   .titleLarge!
-                  .copyWith(color: AppColors.darkText, fontWeight: FontWeight.bold)),
+                  .copyWith(fontWeight: FontWeight.bold)),
         ),
         iconTheme: const IconThemeData(
-          size: 30
-          , color: AppColors.darkText
+          size: 30,
         ),
-        backgroundColor: AppColors.appBarBgColor,
       ),
       body: BlocBuilder<FetchShipmentBloc, FetchShipmentState>(
         builder: (ctx, state) {

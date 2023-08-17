@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/app_drawer.dart';
 import 'package:minerva/constants.dart';
 import 'package:minerva/design/colors.dart';
@@ -15,6 +16,7 @@ class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -22,35 +24,80 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.scaffoldBgColor,
+      // backgroundColor: AppColors.scaffoldBgColor,
       drawer: const AppDrawer(),
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(
+                size: 32,
+                Icons.menu_rounded,
+              ),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            );
+          },
+        ),
+      ),
       body: SafeArea(
         child: _buildMobileLayout(context),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        padding: const EdgeInsets.all(0),
+        height: 154,
+        child: _buildMobileLayoutBtns(context),
       ),
     );
   }
 
-  SingleChildScrollView _buildMobileLayout(BuildContext context) {
-    return SingleChildScrollView(
-      child: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Image.asset(
-            'assets/images/minervalogo.png',
+  Center _buildMobileLayout(BuildContext context) {
+    return Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        //alignment: AlignmentDirectional.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Text(
+              'Home... ',
+              style: GoogleFonts.istokWeb(
+                textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 33,
+                      letterSpacing: 1,
+                    ),
+              ),
+            ),
+          ),
+          Image.asset(
+            'assets/images/home_page_img_without_bg.png',
             alignment: Alignment.topCenter,
             fit: BoxFit.fill,
-            height: 200,
-            width: 300,
+            height: 496,
+            width: double.maxFinite,
           ),
-            const SizedBox(height: 100),
+        ],
+      ),
+    );
+  }
 
-            _createGRN(context),
-            const SizedBox(height: 100),
-            _createIndent(context, Constants.sweetsSection),
-          ],
-        ),
+  _buildMobileLayoutBtns(BuildContext context) {
+    return Expanded(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(
+            height: 8,
+          ),
+          _createGRN(context),
+          const SizedBox(
+            height: 6,
+          ),
+          _createIndent(context, Constants.sweetsSection),
+        ],
       ),
     );
   }

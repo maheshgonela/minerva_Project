@@ -65,21 +65,31 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                const SizedBox(
+                  height: 14,
+                ),
                 _buildUserNameText(context),
                 _buildUserNameField(),
                 _buildPassWordText(context),
                 _buildPasswordField(),
                 const SizedBox(
-                  height: 100,
+                  height: 150,
                 ),
                 _buildSignInButton(),
                 const SizedBox(
-                  height: 60,
+                  height: 40,
                 ),
-                const Text(
+                Text(
                   'LogIn to continue !',
-                  style: captionStyle,
-                )
+                  style: GoogleFonts.istokWeb(
+                    textStyle:
+                        Theme.of(context).textTheme.headlineSmall!.copyWith(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 14,
+                              letterSpacing: 1.2,
+                            ),
+                  ),
+                ),
               ],
             ),
           ))
@@ -93,17 +103,14 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(
-            top: 4,
-            left: 16,
-          ),
+          padding: const EdgeInsets.only(left: 18),
           child: Text(
             'UserName*',
             style: GoogleFonts.istokWeb(
-              textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),
+              textStyle: Theme.of(context)
+                  .textTheme
+                  .headlineSmall!
+                  .copyWith(fontWeight: FontWeight.bold, fontSize: 20),
             ),
           ),
         ),
@@ -116,17 +123,14 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(
-            top: 4,
-            left: 16,
-          ),
+          padding: const EdgeInsets.only(left: 18),
           child: Text(
             'Password*',
             style: GoogleFonts.istokWeb(
-              textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),
+              textStyle: Theme.of(context)
+                  .textTheme
+                  .headlineSmall!
+                  .copyWith(fontWeight: FontWeight.bold, fontSize: 20),
             ),
           ),
         ),
@@ -153,7 +157,6 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
               );
             },
             label: 'LogIn',
-            color: Colors.purple[400],
           );
         },
       );
@@ -170,7 +173,6 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
         hintText: 'Enter your password',
         prefixIcon: const Icon(
           Icons.lock,
-          color: Colors.black,
         ),
       ),
     );
@@ -186,7 +188,6 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
         hintText: 'Username',
         prefixIcon: const Icon(
           Icons.person,
-          color: Colors.black,
         ),
       ),
     );
