@@ -32,7 +32,7 @@ Future toastMessage({
     overlayEntry = OverlayEntry(
       builder: (context) => Positioned(
         bottom: bottomSpace
-            ? MediaQuery.of(context).size.height * 0.2
+            ? MediaQuery.of(context).size.height * 0.73
             : MediaQuery.of(context).size.height *
                 0.1, // Adjust the position as needed
         left: 15,
