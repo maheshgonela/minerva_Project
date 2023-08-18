@@ -20,39 +20,76 @@ Future toastMessage({
   required BuildContext? context,
 }) async {
   if (context != null) {
-    bool bottomSpace = true;
-    if (errorMessage == 'Enter username and password') {
-      bottomSpace = true;
-    } else {
-      bottomSpace = false;
-    }
+    // If we want of show toast message at perticular area then we have to use
+    //∆
+    // bool bottomSpace = true;
+    // if (errorMessage == 'Enter username and password') {
+    //   bottomSpace = true;
+    // } else {
+    //   bottomSpace = false;
+    // }
+
     final overlay = Overlay.of(context);
 
     OverlayEntry overlayEntry;
     overlayEntry = OverlayEntry(
       builder: (context) => Positioned(
-        bottom: bottomSpace
-            ? MediaQuery.of(context).size.height * 0.73
-            : MediaQuery.of(context).size.height *
-                0.1, // Adjust the position as needed
+        //same purpose
+        //∆
+        // bottom: bottomSpace
+        //     ? MediaQuery.of(context).size.height * 0.73
+        //     : MediaQuery.of(context).size.height *
+        //         0.05, // Adjust the position as needed
+        bottom: MediaQuery.of(context).size.height *
+            0.05, // Adjust the position as needed
         left: 15,
         right: 15,
         child: Material(
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 12),
-            decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(8),
-              boxShadow: const [
-                BoxShadow(
-                  blurRadius: 10,
-                  offset: Offset(0, 2),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(188, 96, 118, 119),
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(
+                  width: 1.8,
+                  color: const Color.fromARGB(188, 96, 118, 200),
                 ),
-              ],
-            ),
-            child: Text(
-              errorMessage,
-              style: const TextStyle(color: Colors.pink),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.2), // Shadow color
+                    offset: const Offset(0, 3), // Offset in the x, y direction
+                    blurRadius: 8, // Spread radius
+                    spreadRadius: 0, // Spread radius
+                  ),
+                ],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.error_outline_rounded,
+                      color: Colors.white, size: 28),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  SizedBox(
+                    width: 260,
+                    child: Text(
+                      //for checking
+                      //'sdfghjksdfghjklasdfghjksdfghjkljqwertyuioytrewyuytretyuiuuyt',
+                      errorMessage,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -109,4 +146,3 @@ Future toastMessage({
 //     overlayEntry.remove();
 //   });
 // }
-

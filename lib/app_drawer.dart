@@ -59,7 +59,7 @@ class AppDrawer extends StatelessWidget {
                       //onTap: () => _launchEasyCloud(),
                       onTap: () async {
                         // ignore: deprecated_member_use
-                        await launch('https://easycloud.in/');
+                        await launch('https://easycloud.in');
                       },
                       leading: const Icon(
                         Icons.business,

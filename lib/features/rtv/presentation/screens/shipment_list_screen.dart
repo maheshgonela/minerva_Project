@@ -14,7 +14,6 @@ class ShipmentListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.scaffoldBgColor,
       appBar: AppBar(
         title: Text(
           'RTV Shipments',
@@ -52,14 +51,39 @@ class ShipmentListScreen extends StatelessWidget {
                   itemCount: l.length,
                   separatorBuilder: (ctx, idx) => const Divider(),
                   itemBuilder: (ctx, idx) {
-                    return ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Theme.of(context).primaryColorLight,
-                        child: Text(l[idx].bpName.characters.first),
+                    return Card(
+                      elevation: 8.0,
+                      margin: const EdgeInsets.symmetric(
+                          horizontal: 20.0, vertical: 6.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6.0),
+                        ),
+                        child: ListTile(
+                          contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 20.0, vertical: 10.0),
+                          leading: Container(
+                            padding: const EdgeInsets.only(right: 12.0),
+                            decoration: const BoxDecoration(
+                              border: Border(
+                                  right: BorderSide(
+                                      width: 1.0, color: Colors.white24)),
+                            ),
+                            child: CircleAvatar(
+                              radius: 23,
+                              child: Text(l[idx].bpName.characters.first,
+                                  style: const TextStyle(fontSize: 18)),
+                            ),
+                          ),
+                          title: Text(
+                            l[idx].documentNo,
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          subtitle: Text(l[idx].partnerAddress,
+                              style: const TextStyle()),
+                          trailing: Text(l[idx].movementDate),
+                        ),
                       ),
-                      title: Text(l[idx].documentNo),
-                      subtitle: Text(l[idx].partnerAddress),
-                      trailing: Text(l[idx].movementDate),
                     );
                   },
                 ),
@@ -110,3 +134,19 @@ class ShipmentListScreen extends StatelessWidget {
         .add(const FetchShipmentEvent.fetchInitialShipment());
   }
 }
+
+
+
+
+
+
+            // ListTile(
+            //               leading: CircleAvatar(
+            //                 backgroundColor:
+            //                     Theme.of(context).primaryColorLight,
+            //                 child: Text(l[idx].bpName.characters.first),
+            //               ),
+            //               title: Text(l[idx].documentNo),
+            //               subtitle: Text(l[idx].partnerAddress),
+            //               trailing: Text(l[idx].movementDate),
+            //             ),
