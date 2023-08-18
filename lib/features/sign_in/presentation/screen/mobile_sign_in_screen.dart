@@ -106,7 +106,7 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
         Padding(
           padding: const EdgeInsets.only(left: 18),
           child: Text(
-            'UserName*',
+            'Username*',
             style: GoogleFonts.istokWeb(
               textStyle: Theme.of(context)
                   .textTheme

@@ -15,6 +15,8 @@ class ShipmentListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
         title: Text(
           'RTV Shipments',
           style: GoogleFonts.istokWeb(

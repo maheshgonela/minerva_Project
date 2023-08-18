@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:base_auth/entity/logged_in_user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/dispatch/domain/entities/shop.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/create_dispatch/create_dispatch_cubit.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_sales_order/fetch_sales_order_bloc.dart';
@@ -49,7 +50,14 @@ class _ListOfShopsState extends State<ListOfShops> {
       appBar: AppBar(
         centerTitle: true,
         leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
-        title: Text('Dispatch ${widget.section}'),
+        title: Text(
+          'Dispatch ${widget.section}',
+          style: GoogleFonts.istokWeb(
+              textStyle: Theme.of(context)
+                  .textTheme
+                  .titleLarge!
+                  .copyWith(fontWeight: FontWeight.bold)),
+        ),
       ),
       body: _buildList(context),
     );
