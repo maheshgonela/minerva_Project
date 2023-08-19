@@ -35,24 +35,24 @@ class AppDrawer extends StatelessWidget {
                           needAppUpdate: (_) => Container());
                     },
                   ),
-                  // ListTile(
-                  //     onTap: () => Navigator.pop(context),
-                  //     title: Text(
-                  //       'Home',
-                  //       style: GoogleFonts.istokWeb(
-                  //           textStyle: Theme.of(context)
-                  //               .textTheme
-                  //               .titleMedium!
-                  //               .copyWith(fontWeight: FontWeight.bold)),
-                  //     ),
-                  //     leading: const Icon(
-                  //       Icons.home_outlined,
-                  //     ),
-                  //     trailing: const Text(
-                  //       ". . .",
-                  //       style: TextStyle(
-                  //           color: Color.fromARGB(255, 136, 135, 133)),
-                  //     )),
+                  ListTile(
+                      onTap: () => Navigator.pop(context),
+                      title: Text(
+                        'Home',
+                        style: GoogleFonts.istokWeb(
+                            textStyle: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(fontWeight: FontWeight.bold)),
+                      ),
+                      leading: const Icon(
+                        Icons.home_outlined,
+                      ),
+                   
+                      ),
+                           const Divider(
+                            color: Colors.grey,
+                           ),
                   ListTile(
                       //onTap: () => _launchEasyCloud(),
                       onTap: () async {
@@ -73,7 +73,7 @@ class AppDrawer extends StatelessWidget {
                         style: TextStyle(
                             color: Color.fromARGB(255, 136, 135, 133)),
                       )),
-                  const Divider(),
+                  const Divider(  color: Colors.grey,),
                   ListTile(
                       onTap: () => launchPlayStore(),
                       leading: const Icon(
@@ -90,7 +90,7 @@ class AppDrawer extends StatelessWidget {
                         style: TextStyle(
                             color: Color.fromARGB(255, 136, 135, 133)),
                       )),
-                  const Divider(),
+                  const Divider(  color: Colors.grey,),
                   ListTile(
                     leading: const Icon(
                       Icons.exit_to_app,
@@ -104,10 +104,11 @@ class AppDrawer extends StatelessWidget {
                     onTap: () => BlocProvider.of<AuthBloc>(context)
                         .add(const AuthEvent.signedOut()),
                   ),
-                  const Divider(),
+                  const Divider(  color: Colors.grey,),
                 ],
               ),
             ),
+             const Divider(  color: Colors.grey,),
             ListTile(
               leading: const Icon(
                 Icons.apps,

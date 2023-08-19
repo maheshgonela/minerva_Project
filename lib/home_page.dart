@@ -25,9 +25,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: AppColors.scaffoldBgColor,
+
       drawer: const AppDrawer(),
       appBar: AppBar(
-        title: const Text('Home'),
+        title: const Text(
+          'Home',
+          style: TextStyle(color: Colors.black),
+        ),
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -47,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             flex: 2,
             child: Image.asset('assets/images/home_page_img_without_bg.png'),
           ),
-         Expanded(child:  _buildMobileLayoutBtns(context))
+          Expanded(child: _buildMobileLayoutBtns(context))
         ],
       ),
       // bottomNavigationBar: BottomAppBar(
