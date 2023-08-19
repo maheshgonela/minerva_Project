@@ -16,7 +16,7 @@ dependencies:
   flutter:
     sdk: flutter
   freezed: ^2.3.3
-  http: ^0.13.5
+  http: ^1.0.0
   intl: ^0.18.1
 
 
