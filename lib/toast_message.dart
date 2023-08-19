@@ -96,7 +96,7 @@ Future toastMessage({
       ),
     );
 
-    overlay.insert(overlayEntry);
+    overlay!.insert(overlayEntry);
 
     // Remove the SnackBar after some duration
     Future.delayed(const Duration(seconds: 2), () {

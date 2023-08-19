@@ -33,7 +33,6 @@ dependencies:
   grouped_list: ^5.1.2
   open_file: ^3.3.2
   cloud_firestore: ^4.8.4
-  url_launcher: ^6.1.12
 
 dev_dependencies:
   flutter_test:

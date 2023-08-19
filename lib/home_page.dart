@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
       // backgroundColor: AppColors.scaffoldBgColor,
       drawer: const AppDrawer(),
       appBar: AppBar(
+        title: const Text('Home'),
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -34,57 +35,58 @@ class _HomePageState extends State<HomePage> {
                 size: 32,
                 Icons.menu_rounded,
               ),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
+              onPressed: () => Scaffold.of(context).openDrawer(),
             );
           },
         ),
       ),
-      body: SafeArea(
-        child: _buildMobileLayout(context),
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Flexible(
+            flex: 2,
+            child: Image.asset('assets/images/home_page_img_without_bg.png'),
+          ),
+         Expanded(child:  _buildMobileLayoutBtns(context))
+        ],
       ),
-      bottomNavigationBar: BottomAppBar(
-        padding: const EdgeInsets.all(0),
-        height: 154,
-        child: _buildMobileLayoutBtns(context),
-      ),
+      // bottomNavigationBar: BottomAppBar(
+      //   child: _buildMobileLayoutBtns(context),
+      // ),
     );
   }
 
-  Center _buildMobileLayout(BuildContext context) {
-    return Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        //alignment: AlignmentDirectional.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Text(
-              'Home... ',
-              style: GoogleFonts.istokWeb(
-                textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 33,
-                      letterSpacing: 1,
-                    ),
-              ),
+  Widget _buildMobileLayout(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      //alignment: AlignmentDirectional.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 15),
+          child: Text(
+            'Home... ',
+            style: GoogleFonts.istokWeb(
+              textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 33,
+                    letterSpacing: 1,
+                  ),
             ),
           ),
-          Image.asset(
-            'assets/images/home_page_img_without_bg.png',
-            alignment: Alignment.topCenter,
-            fit: BoxFit.fill,
-            height: 496,
-            width: double.maxFinite,
-          ),
-        ],
-      ),
+        ),
+        Image.asset(
+          'assets/images/home_page_img_without_bg.png',
+          alignment: Alignment.topCenter,
+          fit: BoxFit.fill,
+          height: 496,
+          width: double.maxFinite,
+        ),
+      ],
     );
   }
 
   _buildMobileLayoutBtns(BuildContext context) {
-    return Expanded(
+    return SizedBox.expand(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

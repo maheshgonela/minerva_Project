@@ -22,8 +22,7 @@ class AppDrawer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
-              child: ListView(
-                padding: EdgeInsets.zero,
+              child: Column(
                 children: [
                   BlocBuilder<AuthBloc, AuthState>(
                     builder: (ctx, state) {
@@ -36,25 +35,24 @@ class AppDrawer extends StatelessWidget {
                           needAppUpdate: (_) => Container());
                     },
                   ),
-                  ListTile(
-                      onTap: () => Navigator.pop(context),
-                      title: Text(
-                        'Home',
-                        style: GoogleFonts.istokWeb(
-                            textStyle: Theme.of(context)
-                                .textTheme
-                                .titleMedium!
-                                .copyWith(fontWeight: FontWeight.bold)),
-                      ),
-                      leading: const Icon(
-                        Icons.home_outlined,
-                      ),
-                      trailing: const Text(
-                        ". . .",
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 136, 135, 133)),
-                      )),
-                  const Divider(),
+                  // ListTile(
+                  //     onTap: () => Navigator.pop(context),
+                  //     title: Text(
+                  //       'Home',
+                  //       style: GoogleFonts.istokWeb(
+                  //           textStyle: Theme.of(context)
+                  //               .textTheme
+                  //               .titleMedium!
+                  //               .copyWith(fontWeight: FontWeight.bold)),
+                  //     ),
+                  //     leading: const Icon(
+                  //       Icons.home_outlined,
+                  //     ),
+                  //     trailing: const Text(
+                  //       ". . .",
+                  //       style: TextStyle(
+                  //           color: Color.fromARGB(255, 136, 135, 133)),
+                  //     )),
                   ListTile(
                       //onTap: () => _launchEasyCloud(),
                       onTap: () async {
@@ -106,10 +104,10 @@ class AppDrawer extends StatelessWidget {
                     onTap: () => BlocProvider.of<AuthBloc>(context)
                         .add(const AuthEvent.signedOut()),
                   ),
+                  const Divider(),
                 ],
               ),
             ),
-            const Divider(),
             ListTile(
               leading: const Icon(
                 Icons.apps,
@@ -161,7 +159,9 @@ class AppDrawer extends StatelessWidget {
   }
 
   Widget _buildUserAccountsDrawerHeader(
-      LoggedInUser user, BuildContext context) {
+    LoggedInUser user,
+    BuildContext context,
+  ) {
     return UserAccountsDrawerHeader(
       currentAccountPicture: CircleAvatar(
         child: Text(
@@ -173,11 +173,10 @@ class AppDrawer extends StatelessWidget {
         ),
       ),
       accountEmail: Text(user.name,
-          style: GoogleFonts.istokWeb(
-              textStyle: Theme.of(context)
+          style: Theme.of(context)
                   .textTheme
                   .titleMedium!
-                  .copyWith(fontWeight: FontWeight.bold, fontSize: 26))),
+                  .copyWith(fontWeight: FontWeight.bold, fontSize: 26)),
       accountName: Padding(
         padding: const EdgeInsets.only(
           top: 34,
