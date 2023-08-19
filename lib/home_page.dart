@@ -28,10 +28,6 @@ class _HomePageState extends State<HomePage> {
 
       drawer: const AppDrawer(),
       appBar: AppBar(
-        title: const Text(
-          'Home',
-          style: TextStyle(color: Colors.black),
-        ),
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -47,11 +43,38 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Flexible(
-            flex: 2,
-            child: Image.asset('assets/images/home_page_img_without_bg.png'),
+          Row(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Text(
+                  'Home... ',
+                  style: GoogleFonts.istokWeb(
+                    textStyle:
+                        Theme.of(context).textTheme.headlineSmall!.copyWith(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 33,
+                              letterSpacing: 1,
+                            ),
+                  ),
+                ),
+              ),
+            ],
           ),
-          Expanded(child: _buildMobileLayoutBtns(context))
+          // ignore: sized_box_for_whitespace
+          Container(
+              height: 480,
+              width: double.maxFinite,
+              child: Image.asset(
+                'assets/images/home_page_img_without_bg.png',
+                fit: BoxFit.fill,
+              )),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [_buildMobileLayoutBtns(context)],
+            ),
+          )
         ],
       ),
       // bottomNavigationBar: BottomAppBar(
@@ -60,51 +83,52 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildMobileLayout(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      //alignment: AlignmentDirectional.center,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 15),
-          child: Text(
-            'Home... ',
-            style: GoogleFonts.istokWeb(
-              textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 33,
-                    letterSpacing: 1,
-                  ),
-            ),
-          ),
-        ),
-        Image.asset(
-          'assets/images/home_page_img_without_bg.png',
-          alignment: Alignment.topCenter,
-          fit: BoxFit.fill,
-          height: 496,
-          width: double.maxFinite,
-        ),
-      ],
-    );
-  }
+  // Widget _buildMobileLayout(BuildContext context) {
+  //   return Column(
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     //alignment: AlignmentDirectional.center,
+  //     children: [
+  //       Padding(
+  //         padding: const EdgeInsets.only(left: 15),
+  //         child: Text(
+  //           'Home... ',
+  //           style: GoogleFonts.istokWeb(
+  //             textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
+  //                   fontWeight: FontWeight.bold,
+  //                   fontSize: 33,
+  //                   letterSpacing: 1,
+  //                 ),
+  //           ),
+  //         ),
+  //       ),
+  //       Image.asset(
+  //         'assets/images/home_page_img_without_bg.png',
+  //         alignment: Alignment.topCenter,
+  //         fit: BoxFit.fill,
+  //         height: 496,
+  //         width: double.maxFinite,
+  //       ),
+  //     ],
+  //   );
+  // }
 
   _buildMobileLayoutBtns(BuildContext context) {
-    return SizedBox.expand(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(
-            height: 8,
-          ),
-          _createGRN(context),
-          const SizedBox(
-            height: 6,
-          ),
-          _createIndent(context, Constants.sweetsSection),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const SizedBox(
+          height: 8,
+        ),
+        _createGRN(context),
+        const SizedBox(
+          height: 6,
+        ),
+        _createIndent(context, Constants.sweetsSection),
+        const SizedBox(
+          height: 10,
+        ),
+      ],
     );
   }
 

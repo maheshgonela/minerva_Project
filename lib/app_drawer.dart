@@ -48,11 +48,14 @@ class AppDrawer extends StatelessWidget {
                       leading: const Icon(
                         Icons.home_outlined,
                       ),
-                   
-                      ),
-                           const Divider(
-                            color: Colors.grey,
-                           ),
+                      trailing: const Text(
+                        ". . .",
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 136, 135, 133)),
+                      )),
+                  const Divider(
+                    color: Colors.grey,
+                  ),
                   ListTile(
                       //onTap: () => _launchEasyCloud(),
                       onTap: () async {
@@ -73,7 +76,9 @@ class AppDrawer extends StatelessWidget {
                         style: TextStyle(
                             color: Color.fromARGB(255, 136, 135, 133)),
                       )),
-                  const Divider(  color: Colors.grey,),
+                  const Divider(
+                    color: Colors.grey,
+                  ),
                   ListTile(
                       onTap: () => launchPlayStore(),
                       leading: const Icon(
@@ -90,7 +95,9 @@ class AppDrawer extends StatelessWidget {
                         style: TextStyle(
                             color: Color.fromARGB(255, 136, 135, 133)),
                       )),
-                  const Divider(  color: Colors.grey,),
+                  const Divider(
+                    color: Colors.grey,
+                  ),
                   ListTile(
                     leading: const Icon(
                       Icons.exit_to_app,
@@ -104,11 +111,15 @@ class AppDrawer extends StatelessWidget {
                     onTap: () => BlocProvider.of<AuthBloc>(context)
                         .add(const AuthEvent.signedOut()),
                   ),
-                  const Divider(  color: Colors.grey,),
+                  const Divider(
+                    color: Colors.grey,
+                  ),
                 ],
               ),
             ),
-             const Divider(  color: Colors.grey,),
+            const Divider(
+              color: Colors.grey,
+            ),
             ListTile(
               leading: const Icon(
                 Icons.apps,
@@ -175,9 +186,9 @@ class AppDrawer extends StatelessWidget {
       ),
       accountEmail: Text(user.name,
           style: Theme.of(context)
-                  .textTheme
-                  .titleMedium!
-                  .copyWith(fontWeight: FontWeight.bold, fontSize: 26)),
+              .textTheme
+              .titleMedium!
+              .copyWith(fontWeight: FontWeight.bold, fontSize: 26)),
       accountName: Padding(
         padding: const EdgeInsets.only(
           top: 34,

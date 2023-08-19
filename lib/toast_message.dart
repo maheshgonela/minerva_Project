@@ -69,24 +69,21 @@ Future toastMessage({
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Icon(Icons.error_outline_rounded,
-                      color: Colors.white, size: 28),
+                      color: Color.fromARGB(255, 233, 30, 64), size: 28),
                   const SizedBox(
-                    width: 10,
+                    width: 20,
                   ),
-                  SizedBox(
-                    width: 260,
-                    child: Text(
-                      //for checking
-                      //'sdfghjksdfghjklasdfghjksdfghjkljqwertyuioytrewyuytretyuiuuyt',
-                      errorMessage,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 2,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold),
-                    ),
+                  Text(
+                    //for checking
+                    //'sdfghjksdfghjklasdfghjksdfghjkljqwertyuioytrewyuytretyuiuuyt',
+                    errorMessage,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
