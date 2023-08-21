@@ -61,9 +61,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-          // ignore: sized_box_for_whitespace
-          Container(
-              height: 480,
+          SizedBox(
+              height: 548,
               width: double.maxFinite,
               child: Image.asset(
                 'assets/images/home_page_img_without_bg.png',
@@ -77,49 +76,14 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      // bottomNavigationBar: BottomAppBar(
-      //   child: _buildMobileLayoutBtns(context),
-      // ),
     );
   }
-
-  // Widget _buildMobileLayout(BuildContext context) {
-  //   return Column(
-  //     crossAxisAlignment: CrossAxisAlignment.start,
-  //     //alignment: AlignmentDirectional.center,
-  //     children: [
-  //       Padding(
-  //         padding: const EdgeInsets.only(left: 15),
-  //         child: Text(
-  //           'Home... ',
-  //           style: GoogleFonts.istokWeb(
-  //             textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
-  //                   fontWeight: FontWeight.bold,
-  //                   fontSize: 33,
-  //                   letterSpacing: 1,
-  //                 ),
-  //           ),
-  //         ),
-  //       ),
-  //       Image.asset(
-  //         'assets/images/home_page_img_without_bg.png',
-  //         alignment: Alignment.topCenter,
-  //         fit: BoxFit.fill,
-  //         height: 496,
-  //         width: double.maxFinite,
-  //       ),
-  //     ],
-  //   );
-  // }
 
   _buildMobileLayoutBtns(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const SizedBox(
-          height: 8,
-        ),
         _createGRN(context),
         const SizedBox(
           height: 6,

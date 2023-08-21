@@ -29,6 +29,7 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
     return Center(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
           const SizedBox(
@@ -65,12 +66,16 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
               child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 const SizedBox(
                   height: 14,
                 ),
                 _buildUserNameText(context),
                 _buildUserNameField(),
+                const SizedBox(
+                  height: 10,
+                ),
                 _buildPassWordText(context),
                 _buildPasswordField(),
                 const SizedBox(
@@ -78,7 +83,7 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
                 ),
                 _buildSignInButton(),
                 const SizedBox(
-                  height: 40,
+                  height: 30,
                 ),
                 Text(
                   'LogIn to continue !',
