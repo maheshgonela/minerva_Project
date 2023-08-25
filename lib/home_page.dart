@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           SizedBox(
-              height: 548,
+              height: 500,
               width: double.maxFinite,
               child: Image.asset(
                 'assets/images/home_page_img_without_bg.png',

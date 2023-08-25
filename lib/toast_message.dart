@@ -74,7 +74,7 @@ Future toastMessage({
                     width: 10,
                   ),
                   SizedBox(
-                    width: 240,
+                    width: 200,
                     child: Text(
                       //for checking
                       //'sdfghjksdfghjklasdfghjksdfghjkljqwertyuioytrewyuytretyuiuuyt',
