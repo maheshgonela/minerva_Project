@@ -1,5 +1,5 @@
 abstract class Constants {
- // static const String baseUrl = 'https://gprs.easycloud.co.in/gprserp';
+  //static const String baseUrl = 'https://gprs.easycloud.co.in/gprserp';
   static const String baseUrl = 'https://minerva.easycloud.co.in/openbravo1';
   static const String json = 'org.openbravo.service.json.jsonrest';
   static const String ws = 'ws';
@@ -31,7 +31,7 @@ abstract class CustomWebservices {
 
 abstract class Entities {
   static const String user = 'ADUser';
-  static const String mobileAccess= 'gpr_mobileaccess';
+  static const String mobileAccess = 'gpr_mobileaccess';
   static const String businessPartner = 'BusinessPartner';
   static const String businessPartnerLocation = 'BusinessPartnerLocation';
   static const String purchaseOrder = 'Order';

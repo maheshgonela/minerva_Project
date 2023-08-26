@@ -69,12 +69,12 @@ class ShipmentListScreen extends StatelessWidget {
                             decoration: const BoxDecoration(
                               border: Border(
                                   right: BorderSide(
-                                      width: 1.0, color: Colors.white24)),
+                                      width: 1.3, color: Colors.white)),
                             ),
                             child: CircleAvatar(
                               radius: 23,
                               child: Text(l[idx].bpName.characters.first,
-                                  style: const TextStyle(fontSize: 18)),
+                                  style: const TextStyle(fontSize: 28)),
                             ),
                           ),
                           title: Text(

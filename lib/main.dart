@@ -5,8 +5,6 @@ import 'package:minerva/app.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:injectable/injectable.dart';
 
-
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
