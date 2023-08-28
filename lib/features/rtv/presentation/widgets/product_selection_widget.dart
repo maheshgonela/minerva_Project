@@ -42,7 +42,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
         success: (pr, hasReachedMax, __) {
           if (!hasReachedMax) {
             BlocProvider.of<FetchProductBloc>(context)
-                .add(FetchProductEvent.fetchMoreProduct(widget.bpId));
+                .add(FetchProductEvent.fetchMoreProduct());
           }
         },
         orElse: () {},
@@ -76,22 +76,22 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
 
   AppSearchBar _buildAppSearchBar() {
     return AppSearchBar(
-        height: 80,
-        hintText: 'Search by product name',
-        onSearch: (query) {
-          _query = query;
-          _refresh();
-        },
-        onCancel: () {
-          _query = '';
-          _refresh();
-        },
-      );
+      height: 80,
+      hintText: 'Search by product name',
+      onSearch: (query) {
+        _query = query;
+        _refresh();
+      },
+      onCancel: () {
+        _query = '';
+        _refresh();
+      },
+    );
   }
 
   void _refresh() {
     BlocProvider.of<FetchProductBloc>(context)
-        .add(FetchProductEvent.fetchInitialProduct(widget.bpId));
+        .add(FetchProductEvent.fetchInitialProduct());
   }
 
   Widget _buildList(List<Product> products, bool hasReachedMax) {

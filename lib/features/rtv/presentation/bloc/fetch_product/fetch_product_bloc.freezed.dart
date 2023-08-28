@@ -16,24 +16,23 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FetchProductEvent {
-  String get bpId => throw _privateConstructorUsedError;
   String? get query => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String bpId, String? query) fetchInitialProduct,
-    required TResult Function(String bpId, String? query) fetchMoreProduct,
+    required TResult Function(String? query) fetchInitialProduct,
+    required TResult Function(String? query) fetchMoreProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String bpId, String? query)? fetchInitialProduct,
-    TResult? Function(String bpId, String? query)? fetchMoreProduct,
+    TResult? Function(String? query)? fetchInitialProduct,
+    TResult? Function(String? query)? fetchMoreProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String bpId, String? query)? fetchInitialProduct,
-    TResult Function(String bpId, String? query)? fetchMoreProduct,
+    TResult Function(String? query)? fetchInitialProduct,
+    TResult Function(String? query)? fetchMoreProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,7 +67,7 @@ abstract class $FetchProductEventCopyWith<$Res> {
           FetchProductEvent value, $Res Function(FetchProductEvent) then) =
       _$FetchProductEventCopyWithImpl<$Res, FetchProductEvent>;
   @useResult
-  $Res call({String bpId, String? query});
+  $Res call({String? query});
 }
 
 /// @nodoc
@@ -84,14 +83,9 @@ class _$FetchProductEventCopyWithImpl<$Res, $Val extends FetchProductEvent>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bpId = null,
     Object? query = freezed,
   }) {
     return _then(_value.copyWith(
-      bpId: null == bpId
-          ? _value.bpId
-          : bpId // ignore: cast_nullable_to_non_nullable
-              as String,
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -108,7 +102,7 @@ abstract class _$$_FetchInitialProductCopyWith<$Res>
       __$$_FetchInitialProductCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String bpId, String? query});
+  $Res call({String? query});
 }
 
 /// @nodoc
@@ -122,14 +116,9 @@ class __$$_FetchInitialProductCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bpId = null,
     Object? query = freezed,
   }) {
     return _then(_$_FetchInitialProduct(
-      null == bpId
-          ? _value.bpId
-          : bpId // ignore: cast_nullable_to_non_nullable
-              as String,
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -141,16 +130,14 @@ class __$$_FetchInitialProductCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FetchInitialProduct implements _FetchInitialProduct {
-  const _$_FetchInitialProduct(this.bpId, {this.query});
+  const _$_FetchInitialProduct({this.query});
 
-  @override
-  final String bpId;
   @override
   final String? query;
 
   @override
   String toString() {
-    return 'FetchProductEvent.fetchInitialProduct(bpId: $bpId, query: $query)';
+    return 'FetchProductEvent.fetchInitialProduct(query: $query)';
   }
 
   @override
@@ -158,12 +145,11 @@ class _$_FetchInitialProduct implements _FetchInitialProduct {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FetchInitialProduct &&
-            (identical(other.bpId, bpId) || other.bpId == bpId) &&
             (identical(other.query, query) || other.query == query));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bpId, query);
+  int get hashCode => Object.hash(runtimeType, query);
 
   @JsonKey(ignore: true)
   @override
@@ -175,30 +161,30 @@ class _$_FetchInitialProduct implements _FetchInitialProduct {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String bpId, String? query) fetchInitialProduct,
-    required TResult Function(String bpId, String? query) fetchMoreProduct,
+    required TResult Function(String? query) fetchInitialProduct,
+    required TResult Function(String? query) fetchMoreProduct,
   }) {
-    return fetchInitialProduct(bpId, query);
+    return fetchInitialProduct(query);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String bpId, String? query)? fetchInitialProduct,
-    TResult? Function(String bpId, String? query)? fetchMoreProduct,
+    TResult? Function(String? query)? fetchInitialProduct,
+    TResult? Function(String? query)? fetchMoreProduct,
   }) {
-    return fetchInitialProduct?.call(bpId, query);
+    return fetchInitialProduct?.call(query);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String bpId, String? query)? fetchInitialProduct,
-    TResult Function(String bpId, String? query)? fetchMoreProduct,
+    TResult Function(String? query)? fetchInitialProduct,
+    TResult Function(String? query)? fetchMoreProduct,
     required TResult orElse(),
   }) {
     if (fetchInitialProduct != null) {
-      return fetchInitialProduct(bpId, query);
+      return fetchInitialProduct(query);
     }
     return orElse();
   }
@@ -236,11 +222,9 @@ class _$_FetchInitialProduct implements _FetchInitialProduct {
 }
 
 abstract class _FetchInitialProduct implements FetchProductEvent {
-  const factory _FetchInitialProduct(final String bpId, {final String? query}) =
+  const factory _FetchInitialProduct({final String? query}) =
       _$_FetchInitialProduct;
 
-  @override
-  String get bpId;
   @override
   String? get query;
   @override
@@ -257,7 +241,7 @@ abstract class _$$_FetchMoreProductCopyWith<$Res>
       __$$_FetchMoreProductCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String bpId, String? query});
+  $Res call({String? query});
 }
 
 /// @nodoc
@@ -271,14 +255,9 @@ class __$$_FetchMoreProductCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bpId = null,
     Object? query = freezed,
   }) {
     return _then(_$_FetchMoreProduct(
-      null == bpId
-          ? _value.bpId
-          : bpId // ignore: cast_nullable_to_non_nullable
-              as String,
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -290,16 +269,14 @@ class __$$_FetchMoreProductCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FetchMoreProduct implements _FetchMoreProduct {
-  const _$_FetchMoreProduct(this.bpId, {this.query});
+  const _$_FetchMoreProduct({this.query});
 
-  @override
-  final String bpId;
   @override
   final String? query;
 
   @override
   String toString() {
-    return 'FetchProductEvent.fetchMoreProduct(bpId: $bpId, query: $query)';
+    return 'FetchProductEvent.fetchMoreProduct(query: $query)';
   }
 
   @override
@@ -307,12 +284,11 @@ class _$_FetchMoreProduct implements _FetchMoreProduct {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FetchMoreProduct &&
-            (identical(other.bpId, bpId) || other.bpId == bpId) &&
             (identical(other.query, query) || other.query == query));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bpId, query);
+  int get hashCode => Object.hash(runtimeType, query);
 
   @JsonKey(ignore: true)
   @override
@@ -323,30 +299,30 @@ class _$_FetchMoreProduct implements _FetchMoreProduct {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String bpId, String? query) fetchInitialProduct,
-    required TResult Function(String bpId, String? query) fetchMoreProduct,
+    required TResult Function(String? query) fetchInitialProduct,
+    required TResult Function(String? query) fetchMoreProduct,
   }) {
-    return fetchMoreProduct(bpId, query);
+    return fetchMoreProduct(query);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String bpId, String? query)? fetchInitialProduct,
-    TResult? Function(String bpId, String? query)? fetchMoreProduct,
+    TResult? Function(String? query)? fetchInitialProduct,
+    TResult? Function(String? query)? fetchMoreProduct,
   }) {
-    return fetchMoreProduct?.call(bpId, query);
+    return fetchMoreProduct?.call(query);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String bpId, String? query)? fetchInitialProduct,
-    TResult Function(String bpId, String? query)? fetchMoreProduct,
+    TResult Function(String? query)? fetchInitialProduct,
+    TResult Function(String? query)? fetchMoreProduct,
     required TResult orElse(),
   }) {
     if (fetchMoreProduct != null) {
-      return fetchMoreProduct(bpId, query);
+      return fetchMoreProduct(query);
     }
     return orElse();
   }
@@ -384,11 +360,8 @@ class _$_FetchMoreProduct implements _FetchMoreProduct {
 }
 
 abstract class _FetchMoreProduct implements FetchProductEvent {
-  const factory _FetchMoreProduct(final String bpId, {final String? query}) =
-      _$_FetchMoreProduct;
+  const factory _FetchMoreProduct({final String? query}) = _$_FetchMoreProduct;
 
-  @override
-  String get bpId;
   @override
   String? get query;
   @override

@@ -51,9 +51,8 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
           BpSelectionWidget(
             onSelected: (f) {
               _form = _form.copyWith(businessPartnerId: f.id);
-                BlocProvider.of<FetchProductBloc>(context).add(
-                    FetchProductEvent.fetchInitialProduct(
-                        _form.businessPartnerId));
+              BlocProvider.of<FetchProductBloc>(context)
+                  .add(FetchProductEvent.fetchInitialProduct());
             },
           ),
           const SizedBox(height: 8),
@@ -106,9 +105,14 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
               icon: const Icon(Icons.delete),
               onPressed: () {
                 setState(() {
-                  _form.products.removeWhere(
-                      (element) => element.productId == record.productId);
+                  _form = _form.copyWith(
+                    products: _form.products
+                        .where(
+                            (element) => element.productId != record.productId)
+                        .toList(),
+                  );
                 });
+                // (element) => element.productId == record.productId);
               },
             ),
           );
@@ -120,7 +124,8 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
   void _openProductSelection() {
     Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
       return BlocProvider.value(
-        value: BlocProvider.of<FetchProductBloc>(context),
+        value: BlocProvider.of<FetchProductBloc>(context)
+          ..add(FetchProductEvent.fetchInitialProduct()),
         child: ProductSelectionWidget(
           bpId: _form.businessPartnerId,
           onProductSelected: (product) async {
