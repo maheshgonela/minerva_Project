@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/core/widgets/search_bar.dart';
 import 'package:minerva/features/rtv/domain/entity/entities.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
@@ -54,8 +55,19 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Select Product'),
-        elevation: 0,
+        centerTitle: true,
+        leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
+        title: Text(
+          'Select Product',
+          style: GoogleFonts.istokWeb(
+              textStyle: Theme.of(context)
+                  .textTheme
+                  .titleLarge!
+                  .copyWith(fontWeight: FontWeight.bold)),
+        ),
+        iconTheme: const IconThemeData(
+          size: 30,
+        ),
       ),
       body: BlocBuilder<FetchProductBloc, FetchProductState>(
         builder: (ctx, state) {

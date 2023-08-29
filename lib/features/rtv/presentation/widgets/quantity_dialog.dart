@@ -42,21 +42,29 @@ class _QuantityDialogState extends State<QuantityDialog> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Divider(),
-            TextField(
+            TextFormField(
               autofocus: true,
               controller: _controller,
               decoration: InputDecoration(
-                labelText: 'QUANTITY',
-                errorText: _errorMessage,
-                errorMaxLines: 2,
-                labelStyle: Theme.of(context).textTheme.bodyText1,
-              ),
+                  labelText: 'QUANTITY',
+                  errorText: _errorMessage,
+                  errorMaxLines: 2,
+                  labelStyle: Theme.of(context).textTheme.bodyText1,
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                      borderSide: const BorderSide(
+                        width: 1,
+                      ))),
               style: const TextStyle(fontSize: 24.0),
+
               onChanged: (value) {
                 _processInput(value);
               },
-              onSubmitted: (value) {
+              //it is working when we using TextField
+              // onSubmitted: (value) {
+              //   _processInput(value);
+              // },
+              onFieldSubmitted: (value) {
                 _processInput(value);
               },
               keyboardType: TextInputType.number,

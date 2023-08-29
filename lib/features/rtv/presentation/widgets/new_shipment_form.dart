@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/rtv/domain/entity/entities.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
 import 'package:minerva/features/rtv/presentation/widgets/bp_selected_widget.dart';
 import 'package:minerva/features/rtv/presentation/widgets/product_selection_widget.dart';
 import 'package:minerva/loading_indicator.dart';
-import 'package:minerva/toast_message.dart';
+import 'package:widgets/widgets.dart';
 
 class NewShipmentForm extends StatefulWidget {
   const NewShipmentForm({Key? key}) : super(key: key);
@@ -21,7 +22,18 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('New RTV Shipment'),
+        leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
+        title: Text(
+          'New RTV Shipment',
+          style: GoogleFonts.istokWeb(
+              textStyle: Theme.of(context)
+                  .textTheme
+                  .titleLarge!
+                  .copyWith(fontWeight: FontWeight.bold)),
+        ),
+        iconTheme: const IconThemeData(
+          size: 30,
+        ),
         elevation: 0.0,
         titleSpacing: 0,
         actions: [
@@ -111,7 +123,6 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
                         .toList(),
                   );
                 });
-                // (element) => element.productId == record.productId);
               },
             ),
           );
