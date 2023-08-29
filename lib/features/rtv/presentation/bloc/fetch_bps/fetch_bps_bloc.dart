@@ -2,6 +2,7 @@ import 'package:base_auth/entity/id_name.dart';
 import 'package:bloc/bloc.dart';
 import 'package:core/failures/failure.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:minerva/features/rtv/domain/entity/business_partners.dart';
 import 'package:minerva/features/rtv/domain/repository/shipment_repo.dart';
 import 'package:injectable/injectable.dart';
 
@@ -10,7 +11,8 @@ part 'fetch_bps_event.dart';
 part 'fetch_bps_state.dart';
 
 @injectable
-class FetchBusinessPartnerBloc extends Bloc<FetchBusinessPartnerEvent, FetchBusinessPartnerState> {
+class FetchBusinessPartnerBloc
+    extends Bloc<FetchBusinessPartnerEvent, FetchBusinessPartnerState> {
   final ShipmentRepo repo;
   final int pageLength = 20;
 

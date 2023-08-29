@@ -50,7 +50,6 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
         children: [
           BpSelectionWidget(
             onSelected: (f) {
-              _form = _form.copyWith(businessPartnerId: f.id);
               BlocProvider.of<FetchProductBloc>(context)
                   .add(FetchProductEvent.fetchInitialProduct());
             },
