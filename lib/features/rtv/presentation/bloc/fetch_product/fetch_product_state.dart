@@ -11,5 +11,6 @@ class FetchProductState with _$FetchProductState {
       required bool hasReachedMax,
       String? query}) = _FetchProductSuccess;
 
-  const factory FetchProductState.failure(Failure failure) = _FetchProductFailure;
+  const factory FetchProductState.failure(Failure failure) =
+      _FetchProductFailure;
 }

@@ -78,9 +78,9 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
       // } else if (bpId == Constants.foodsLlpId) {
       //   categoryFilter = "productCategory in ('${Constants.oilCategoryId}')";
       // }
-      final String url = "${Constants.jsonWs}/${Entities.businessPartner}?"
-          "_sortBy=name";
-
+      const String url =
+          "${Constants.jsonWs}/${Entities.businessPartner}?_sortBy=name";
+      print(url);
       final data = await safeApiCall(
         () => client.get(Uri.parse(url), headers: _authHeader()),
         defErrMsg,
@@ -94,6 +94,7 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
                   BusinessPartnersDto.fromJson(e as Map<String, dynamic>)
                       .toDomain())
               .toList();
+          print('List SIze : ${list.length}');
           return right(list);
         },
       );
@@ -105,8 +106,10 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
 
   @override
   Future<Either<Failure, List<Product>>> fetchProducts(
-      int start, int end, String? query) async {
+      {String? searchText, int? start, int? end, String? query}) async {
     const String defErrMsg = 'Could not fetch products';
+    String finalsearchText = "$searchText";
+    String searchCondition = "";
     try {
       // var categoryFilter = '';
       // if (bpId == Constants.pullaReddySweetsId) {
@@ -115,10 +118,18 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
       // } else if (bpId == Constants.foodsLlpId) {
       //   categoryFilter = "productCategory in ('${Constants.oilCategoryId}')";
       // }
-      final String url =
-          "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end&"
-          "_sortBy=name";
 
+//https://minerva.easycloud.co.in/openbravo1/org.openbravo.service.json.jsonrest/Product/?_startRow=0&_endRow=20&_where=lower(name) like  lower('%25pinni%25')
+      if (finalsearchText.isEmpty || finalsearchText == null) {
+        searchCondition = " ";
+      } else {
+        searchCondition = "lower(name) like  lower('%25$finalsearchText%25')";
+      }
+      final String url =
+          "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end&_where=$searchCondition";
+      //  "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end&"
+      //     "_sortBy=name";
+      print(url);
       final data = await safeApiCall(
         () => client.get(Uri.parse(url), headers: _authHeader()),
         defErrMsg,

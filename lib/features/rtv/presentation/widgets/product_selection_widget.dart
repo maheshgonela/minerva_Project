@@ -19,6 +19,7 @@ class ProductSelectionWidget extends StatefulWidget {
   final Function(ShipmentFormLine product) onProductSelected;
 
   @override
+  // ignore: library_private_types_in_public_api, no_logic_in_create_state
   _ProductSelectionWidgetState createState() => _ProductSelectionWidgetState();
 }
 
@@ -74,8 +75,33 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
           return state.when(
             initial: () => const LoadingIndicator(),
             loading: () => const LoadingIndicator(),
-            success: (products, hasReachedMax, __) =>
-                _buildList(products, hasReachedMax),
+            success: (products, hasReachedMax, __) => Center(
+                child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: [
+                  TextField(
+                    // we have to use constants file to change the text of search
+                    //onChanged: (value) => repo.fetchProducts(searchText: value),
+                    decoration: InputDecoration(
+                      contentPadding: const EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 15),
+                      hintText: "Search",
+                      suffixIcon: const Icon(Icons.search),
+                      // prefix: Icon(Icons.search),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: const BorderSide(),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Expanded(child: _buildList(products, hasReachedMax)),
+                ],
+              ),
+            )),
             failure: (f) => AppErrorWidget(
               error: f.error,
               onRefresh: () => _refresh(),
@@ -113,7 +139,6 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
       separatorBuilder: (ctx, idx) => const Divider(),
       itemBuilder: (ctx, idx) {
         if (idx >= products.length) return LoadingIndicator();
-
         final product = products[idx];
         return ListTile(
           title: Text(product.name),

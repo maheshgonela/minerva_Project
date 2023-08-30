@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
         ),
         _createIndent(context, Constants.sweetsSection),
         const SizedBox(
-          height: 10,
+          height: 4,
         ),
       ],
     );
