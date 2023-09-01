@@ -42,36 +42,40 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 15),
-                child: Text(
-                  'Home... ',
-                  style: GoogleFonts.istokWeb(
-                    textStyle:
-                        Theme.of(context).textTheme.headlineSmall!.copyWith(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 33,
-                              letterSpacing: 1,
-                            ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          SizedBox(
-              height: 500,
-              width: double.maxFinite,
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 15),
+          //   child: Text(
+          //     'Home... ',
+          //     style: GoogleFonts.istokWeb(
+          //       textStyle: Theme.of(context).textTheme.headlineSmall!.copyWith(
+          //             fontWeight: FontWeight.bold,
+          //             fontSize: 33,
+          //             letterSpacing: 1,
+          //           ),
+          //     ),
+          //   ),
+          // ),
+
+          Flexible(
+            flex: 2,
+            child: Center(
               child: Image.asset(
-                'assets/images/home_page_img_without_bg.png',
+                'assets/images/minervalogo_without_bg.png',
                 fit: BoxFit.fill,
-              )),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [_buildMobileLayoutBtns(context)],
+              ),
+            ),
+          ),
+          Flexible(
+            flex: 3,
+            child: Container(
+              padding: const EdgeInsets.all(24),
+              color: Colors.blueGrey[100],
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [_buildMobileLayoutBtns(context)],
+              ),
             ),
           )
         ],
@@ -81,63 +85,54 @@ class _HomePageState extends State<HomePage> {
 
   _buildMobileLayoutBtns(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         _createGRN(context),
         const SizedBox(
-          height: 6,
+          height: 16,
         ),
         _createIndent(context, Constants.sweetsSection),
-        const SizedBox(
-          height: 4,
-        ),
       ],
     );
   }
 
-  Padding _createIndent(
+  Widget _createIndent(
     BuildContext context,
     String section,
   ) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: MinervaButton(
-        onButtonPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (ctx) => MultiBlocProvider(
-              providers: [
-                BlocProvider(create: (ctx) => sl.get<FetchShopBloc>()),
-                BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
-              ],
-              child: ListOfShops(section: section),
-            ),
-          ));
-        },
-        label: 'Create Indent',
-      ),
+    return MinervaButton(
+      suffixIcon: Icons.arrow_forward_ios_rounded,
+      onButtonPressed: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (ctx) => MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (ctx) => sl.get<FetchShopBloc>()),
+              BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
+            ],
+            child: ListOfShops(section: section),
+          ),
+        ));
+      },
+      label: 'Create Indent',
     );
   }
 
-  Padding _createGRN(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 24, right: 24),
-      child: MinervaButton(
-        onButtonPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (ctx) => MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (ctx) => sl.get<FetchShipmentBloc>()
-                    ..add(const FetchShipmentEvent.fetchInitialShipment()),
-                ),
-              ],
-              child: const ShipmentListScreen(),
-            ),
-          ));
-        },
-        label: 'Create GRN',
-      ),
+  Widget _createGRN(BuildContext context) {
+    return MinervaButton(
+      suffixIcon: Icons.arrow_forward_ios_rounded,
+      onButtonPressed: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (ctx) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (ctx) => sl.get<FetchShipmentBloc>()
+                  ..add(const FetchShipmentEvent.fetchInitialShipment()),
+              ),
+            ],
+            child: const ShipmentListScreen(),
+          ),
+        ));
+      },
+      label: 'Create GRN',
     );
   }
 }

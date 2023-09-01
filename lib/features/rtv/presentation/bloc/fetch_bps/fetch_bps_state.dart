@@ -9,7 +9,7 @@ class FetchBusinessPartnerState with _$FetchBusinessPartnerState {
       _FetchBusinessPartnerLoading;
 
   const factory FetchBusinessPartnerState.success(
-      {required List<BusinessPartners> records,
+      {required List<IdName> records,
       required bool hasReachedMax,
       String? query}) = _FetchBusinessPartnerSuccess;
 

@@ -22,14 +22,13 @@ class FetchProductBloc extends Bloc<FetchProductEvent, FetchProductState> {
         emit(FetchProductState.loading());
 
         var result = await repo.fetchProducts(
-            searchText: " ", start: 0, end: pageLength, query: e.query);
+            searchText: e.query, start: 0, end: pageLength, query: e.query);
         emit(result.fold(
           (l) => FetchProductState.failure(l),
           (r) => FetchProductState.success(
             records: r,
             hasReachedMax: r.length < pageLength,
             query: e.query,
-            //recordsforSearch: r,
           ),
         ));
       }, fetchMoreProduct: (e) async {
@@ -39,10 +38,10 @@ class FetchProductBloc extends Bloc<FetchProductEvent, FetchProductState> {
           success: (oldRecord, hasReachedMax, query) async {
             if (!hasReachedMax) {
               final result = await repo.fetchProducts(
-                start: oldRecord.length,
-                end: oldRecord.length + pageLength,
-                query: e.query,
-              );
+                  start: oldRecord.length,
+                  end: oldRecord.length + pageLength,
+                  query: e.query,
+                  searchText: e.query);
               return result.fold(
                 (f) => FetchProductState.failure(f),
                 (r) => FetchProductState.success(

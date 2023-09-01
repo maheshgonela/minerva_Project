@@ -49,9 +49,8 @@ class ShipmentListScreen extends StatelessWidget {
                   _refresh(context);
                   return Future.delayed(const Duration(seconds: 1));
                 },
-                child: ListView.separated(
+                child: ListView.builder(
                   itemCount: l.length,
-                  separatorBuilder: (ctx, idx) => const Divider(),
                   itemBuilder: (ctx, idx) {
                     return Card(
                       elevation: 8.0,

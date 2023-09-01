@@ -41,4 +41,5 @@ abstract class Entities {
   static const String storageBin = 'Locator';
   static const preference = "ADPreference";
   static const product = 'Product';
+  static const productCategory = 'ProductCategory';
 }

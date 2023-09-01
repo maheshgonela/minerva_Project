@@ -9,6 +9,7 @@ import 'package:minerva/features/dispatch/presentation/bloc/download_invoice/dow
 import 'package:minerva/features/dispatch/presentation/bloc/shop_trips/shop_trips_bloc.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/loading_indicator.dart';
+import 'package:minerva/toast_message.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:widgets/widgets.dart';
@@ -57,8 +58,7 @@ class _ShopTripsState extends State<ShopTrips> {
             success: (records, hasReachedMax, query) {
               if (records.shipped.isEmpty) {
                 return EmptyListWidget(
-                  title:
-                      'No trips found for ${widget.shop} today',
+                  title: 'No trips found for ${widget.shop} today',
                   onRefresh: () {
                     _refresh(context);
                   },
@@ -142,16 +142,21 @@ class _ShopTripsState extends State<ShopTrips> {
                     final open = await OpenFile.open(_file);
                     switch (open.type) {
                       case ResultType.fileNotFound:
-                        toastMessage(errorMessage: 'File not found', context: context);
+                        toastMessage(
+                            errorMessage: 'File not found', context: context);
                         break;
                       case ResultType.noAppToOpen:
-                        toastMessage(errorMessage: open.message, context: context);
+                        toastMessage(
+                            errorMessage: open.message, context: context);
                         break;
                       case ResultType.permissionDenied:
-                        toastMessage(errorMessage: 'Permission denied', context: context);
+                        toastMessage(
+                            errorMessage: 'Permission denied',
+                            context: context);
                         break;
                       case ResultType.error:
-                        toastMessage(errorMessage: open.message, context: context);
+                        toastMessage(
+                            errorMessage: open.message, context: context);
                         break;
                       default:
                         break;
@@ -238,8 +243,10 @@ class _ShopTripsState extends State<ShopTrips> {
   void _refresh(BuildContext context) {
     BlocProvider.of<ShopTripsBloc>(context).add(
       widget.section == Constants.bakerySection
-          ? ShopTripsEvent.fetchBakeryProducts(widget.orderId, fromDispatchSection: widget.fromDispatchSection)
-          : ShopTripsEvent.fetchSweetsProducts(widget.orderId, fromDispatchSection: widget.fromDispatchSection),
+          ? ShopTripsEvent.fetchBakeryProducts(widget.orderId,
+              fromDispatchSection: widget.fromDispatchSection)
+          : ShopTripsEvent.fetchSweetsProducts(widget.orderId,
+              fromDispatchSection: widget.fromDispatchSection),
     );
   }
 

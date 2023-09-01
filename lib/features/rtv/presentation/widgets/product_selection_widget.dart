@@ -25,6 +25,16 @@ class ProductSelectionWidget extends StatefulWidget {
 
 class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
   String? _query;
+  final testcatogres = [
+    "cat",
+    "titan",
+    "wall",
+    "horse",
+    "ball",
+    "dog",
+  ];
+  final QueryController = TextEditingController();
+
   late ScrollController _scrollController;
 
   @override
@@ -43,8 +53,9 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
       curState.maybeWhen(
         success: (pr, hasReachedMax, __) {
           if (!hasReachedMax) {
-            BlocProvider.of<FetchProductBloc>(context)
-                .add(FetchProductEvent.fetchMoreProduct());
+            BlocProvider.of<FetchProductBloc>(context).add(
+                FetchProductEvent.fetchMoreProduct(
+                    query: QueryController.text));
           }
         },
         orElse: () {},
@@ -70,19 +81,21 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
           size: 30,
         ),
       ),
-      body: BlocBuilder<FetchProductBloc, FetchProductState>(
-        builder: (ctx, state) {
-          return state.when(
-            initial: () => const LoadingIndicator(),
-            loading: () => const LoadingIndicator(),
-            success: (products, hasReachedMax, __) => Center(
-                child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                children: [
-                  TextField(
-                    // we have to use constants file to change the text of search
-                    //onChanged: (value) => repo.fetchProducts(searchText: value),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: QueryController,
+                    onChanged: (value) {
+                      print(value);
+                      BlocProvider.of<FetchProductBloc>(context).add(
+                          FetchProductEvent.fetchInitialProduct(query: value));
+                    },
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(
                           vertical: 10.0, horizontal: 15),
@@ -95,19 +108,119 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Expanded(child: _buildList(products, hasReachedMax)),
-                ],
-              ),
-            )),
-            failure: (f) => AppErrorWidget(
-              error: f.error,
-              onRefresh: () => _refresh(),
+                ),
+                IconButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Select category',
+                                      style: GoogleFonts.istokWeb(
+                                          textStyle: Theme.of(context)
+                                              .textTheme
+                                              .titleLarge!
+                                              .copyWith(
+                                                  fontWeight: FontWeight.bold)),
+                                    ),
+                                    IconButton(
+                                        onPressed: () =>
+                                            Navigator.of(context).pop(),
+                                        icon: const Icon(
+                                          Icons.close_rounded,
+                                        ))
+                                  ],
+                                ),
+                                const Divider(color: Colors.black26),
+                                Wrap(
+                                  spacing: 1,
+                                  children: [
+                                    ...testcatogres
+                                        .map((e) => ActionChip(label: Text(e)))
+                                        .toList()
+                                  ],
+                                ),
+                              ],
+                            ),
+                            actions: [
+                              Center(
+                                child: Container(
+                                  width: 220,
+                                  height: 42.0, // Set the desired height
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(50)),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color:
+                                            Color.fromARGB(255, 172, 219, 255)
+                                                .withOpacity(0.5),
+                                        spreadRadius: 3,
+                                        blurRadius: 6,
+                                        offset: const Offset(0, 1),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      TextButton(
+                                          onPressed: () {},
+                                          child: const Text("All")),
+                                      TextButton(
+                                          onPressed: () {},
+                                          child: const Text("Reset")),
+                                      ElevatedButton(
+                                          onPressed: () {},
+                                          child: const Text("Apply")),
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          );
+                        },
+                      );
+                    },
+                    icon: const Icon(
+                      Icons.filter_list,
+                      size: 36,
+                    ))
+              ],
             ),
-          );
-        },
+            const SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              child: BlocBuilder<FetchProductBloc, FetchProductState>(
+                builder: (ctx, state) {
+                  return state.when(
+                    initial: () => const LoadingIndicator(),
+                    loading: () => const LoadingIndicator(),
+                    success: (products, hasReachedMax, __) =>
+                        Center(child: _buildList(products, hasReachedMax)),
+                    failure: (f) => AppErrorWidget(
+                      error: f.error,
+                      onRefresh: () => _refresh(),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -134,6 +247,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
 
   Widget _buildList(List<Product> products, bool hasReachedMax) {
     return ListView.separated(
+      shrinkWrap: true,
       controller: _scrollController,
       itemCount: hasReachedMax ? products.length : products.length + 1,
       separatorBuilder: (ctx, idx) => const Divider(),

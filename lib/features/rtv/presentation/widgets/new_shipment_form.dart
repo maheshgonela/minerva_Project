@@ -6,6 +6,7 @@ import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
 import 'package:minerva/features/rtv/presentation/widgets/bp_selected_widget.dart';
 import 'package:minerva/features/rtv/presentation/widgets/product_selection_widget.dart';
 import 'package:minerva/loading_indicator.dart';
+import 'package:minerva/toast_message.dart';
 import 'package:widgets/widgets.dart';
 
 class NewShipmentForm extends StatefulWidget {
@@ -57,30 +58,40 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
           ),
         ],
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          BpSelectionWidget(
-            onSelected: (f) {
-              BlocProvider.of<FetchProductBloc>(context)
-                  .add(FetchProductEvent.fetchInitialProduct());
-            },
-          ),
-          const SizedBox(height: 8),
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(16.0),
-            child: OutlinedButton.icon(
-              onPressed: () {
-                _openProductSelection();
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            BpSelectionWidget(
+              onSelected: (f) {
+                BlocProvider.of<FetchProductBloc>(context)
+                    .add(FetchProductEvent.fetchInitialProduct());
               },
-              icon: const Icon(Icons.add),
-              label: const Text('Add Product'),
             ),
-          ),
-          const SizedBox(height: 8),
-          _buildProductList(),
-        ],
+            const SizedBox(height: 8),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16.0),
+              child: OutlinedButton.icon(
+                onPressed: () {
+                  _openProductSelection();
+                },
+                icon: const Icon(Icons.add),
+                label: Text(
+                  'Add Product'.toUpperCase(),
+                  // style: GoogleFonts.istokWeb(
+                  //     textStyle: Theme.of(context)
+                  //         .textTheme
+                  //         .titleMedium!
+                  //         .copyWith(fontWeight: FontWeight.bold)),
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
+            _buildProductList(),
+          ],
+        ),
       ),
     );
   }

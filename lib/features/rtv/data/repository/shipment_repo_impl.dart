@@ -67,8 +67,7 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
 // we have to work on fetchBusinessPartners at  ProductDto.fromJson(e as Map<String, dynamic>).toDomain())
 
   @override
-  Future<Either<Failure, List<BusinessPartners>>>
-      fetchBusinessPartners() async {
+  Future<Either<Failure, List<IdName>>> fetchBusinessPartners() async {
     const String defErrMsg = 'Could not fetch products';
     try {
       // var categoryFilter = '';
@@ -90,9 +89,7 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
         (Failure l) => left(Failure(error: l.error)),
         (r) {
           final list = (r as List<dynamic>)
-              .map((e) =>
-                  BusinessPartnersDto.fromJson(e as Map<String, dynamic>)
-                      .toDomain())
+              .map((e) => IdName.fromJson(e as Map<String, dynamic>))
               .toList();
           print('List SIze : ${list.length}');
           return right(list);
@@ -108,7 +105,7 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
   Future<Either<Failure, List<Product>>> fetchProducts(
       {String? searchText, int? start, int? end, String? query}) async {
     const String defErrMsg = 'Could not fetch products';
-    String finalsearchText = "$searchText";
+
     String searchCondition = "";
     try {
       // var categoryFilter = '';
@@ -118,15 +115,14 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
       // } else if (bpId == Constants.foodsLlpId) {
       //   categoryFilter = "productCategory in ('${Constants.oilCategoryId}')";
       // }
-
+      print(searchText);
 //https://minerva.easycloud.co.in/openbravo1/org.openbravo.service.json.jsonrest/Product/?_startRow=0&_endRow=20&_where=lower(name) like  lower('%25pinni%25')
-      if (finalsearchText.isEmpty || finalsearchText == null) {
-        searchCondition = " ";
-      } else {
-        searchCondition = "lower(name) like  lower('%25$finalsearchText%25')";
+      if (searchText != null && searchText.trim().isNotEmpty) {
+        searchCondition =
+            "&_where=lower(name) like  lower('%25$searchText%25')";
       }
       final String url =
-          "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end&_where=$searchCondition";
+          "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end$searchCondition&_sortBy=name";
       //  "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end&"
       //     "_sortBy=name";
       print(url);
@@ -159,9 +155,8 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
       final user = sl.get<LoggedInUser>();
       print('$user');
       // final minoutId = '8EA4C542ACF540F3A6A9EFCE4EB41DB2';
-      final docTypeFilter = "documentType='${Constants.rtvShipmentId}'";
       final url =
-          "${Constants.jsonWs}/${Entities.goodsReceipt}?_startRow=$start&_endRow=$end&_where=id='${Constants.rtvShipmentId}'&_sortBy=creationDate";
+          "${Constants.jsonWs}/${Entities.goodsReceipt}?_startRow=$start&_endRow=$end&_sortBy=creationDate";
       // final url =
       //     "${Constants.jsonWs}/${Entities.goodsReceipt}?_where=id='$minoutId'";
       print('Calling : $url');

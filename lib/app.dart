@@ -37,52 +37,43 @@ class MinervaApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Minerva',
         // theme: ThemeData(
-        //   brightness: Brightness.light,
-        //   primaryColor: const Color(0xffF44336),
-        //   primaryColorLight: const Color(0xffff7961),
-        //   primaryColorDark: const Color(0xffba000d),
+        // colorScheme: lightColorScheme,
 
-        //   elevatedButtonTheme: ElevatedButtonThemeData(
-        //     style: ElevatedButton.styleFrom(
-        //       backgroundColor: const Color(0xff4336f4),
-        //       padding: const EdgeInsets.all(16.0),
-        //     ),
+        // elevatedButtonTheme: ElevatedButtonThemeData(
+        //   style: ElevatedButton.styleFrom(
+        //     primary: lightColorScheme.primaryContainer,
+        //     padding: const EdgeInsets.all(16.0),
         //   ),
-        //   outlinedButtonTheme: OutlinedButtonThemeData(
-        //     style: OutlinedButton.styleFrom(
-        //       backgroundColor: const Color(0xff4336f4),
-        //       padding: const EdgeInsets.all(16.0),
-        //       side: const BorderSide(
-        //         color: Color(0xff4336f4),
-        //       ),
-        //     ),
+        // ),
+        // outlinedButtonTheme: OutlinedButtonThemeData(
+        //   style: OutlinedButton.styleFrom(
+        //     padding: const EdgeInsets.all(16.0),
+        //     side: const BorderSide(),
         //   ),
-        //   // accentColor: const Color(0xff4336f4),
-        //   tabBarTheme: const TabBarTheme(
-        //     labelStyle: TextStyle(color: Colors.black),
+        // ),
+        // // accentColor: const Color(0xff4336f4),
+        // tabBarTheme: const TabBarTheme(),
+
+        // textTheme: GoogleFonts.latoTextTheme().copyWith(
+        //   bodyMedium: GoogleFonts.jost(
+        //     textStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
+        //           letterSpacing: 1.2,
+        //           fontSize: 18,
+        //         ),
         //   ),
-        //   scaffoldBackgroundColor: AppColors.scaffoldBgColor,
-        //   appBarTheme: const AppBarTheme(color: Color(0xffF44336)),
-        //   textTheme: GoogleFonts.latoTextTheme().copyWith(
-        //     bodyMedium: GoogleFonts.jost(
-        //       textStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
-        //             letterSpacing: 1.2,
-        //             fontSize: 18,
-        //           ),
-        //     ),
-        //     bodySmall: const TextStyle(
-        //       letterSpacing: 1.2,
-        //       decorationStyle: TextDecorationStyle.double,
-        //       fontSize: 15,
-        //       fontFamily: "smallcaps",
-        //     ),
+        //   bodySmall: const TextStyle(
+        //     letterSpacing: 1.2,
+        //     decorationStyle: TextDecorationStyle.double,
+        //     fontSize: 15,
+        //     fontFamily: "smallcaps",
         //   ),
+        //  ),
 
         theme: ThemeData(useMaterial3: true, colorScheme: lightColorScheme),
         darkTheme: ThemeData(useMaterial3: true, colorScheme: darkColorScheme),
-        //     fontFamily: GoogleFonts.jost().fontFamily,
-        //     visualDensity: VisualDensity.adaptivePlatformDensity,
-        //   ),
+        // fontFamily: GoogleFonts.jost().fontFamily,
+        // visualDensity: VisualDensity.adaptivePlatformDensity,
+        //  ),
         home: BlocConsumer<AuthBloc, AuthState>(
           listener: (ctx, state) {
             state.maybeWhen(

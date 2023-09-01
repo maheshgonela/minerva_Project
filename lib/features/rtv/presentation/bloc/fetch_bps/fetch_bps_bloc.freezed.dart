@@ -401,7 +401,7 @@ mixin _$FetchBusinessPartnerState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)
+            List<IdName> records, bool hasReachedMax, String? query)
         success,
     required TResult Function(Failure failure) failure,
   }) =>
@@ -410,8 +410,7 @@ mixin _$FetchBusinessPartnerState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult? Function(Failure failure)? failure,
   }) =>
@@ -420,8 +419,7 @@ mixin _$FetchBusinessPartnerState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)?
+    TResult Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -518,7 +516,7 @@ class _$_FetchBusinessPartnerInitial implements _FetchBusinessPartnerInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)
+            List<IdName> records, bool hasReachedMax, String? query)
         success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -530,8 +528,7 @@ class _$_FetchBusinessPartnerInitial implements _FetchBusinessPartnerInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -543,8 +540,7 @@ class _$_FetchBusinessPartnerInitial implements _FetchBusinessPartnerInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)?
+    TResult Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -643,7 +639,7 @@ class _$_FetchBusinessPartnerLoading implements _FetchBusinessPartnerLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)
+            List<IdName> records, bool hasReachedMax, String? query)
         success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -655,8 +651,7 @@ class _$_FetchBusinessPartnerLoading implements _FetchBusinessPartnerLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -668,8 +663,7 @@ class _$_FetchBusinessPartnerLoading implements _FetchBusinessPartnerLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)?
+    TResult Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -730,8 +724,7 @@ abstract class _$$_FetchBusinessPartnerSuccessCopyWith<$Res> {
           $Res Function(_$_FetchBusinessPartnerSuccess) then) =
       __$$_FetchBusinessPartnerSuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {List<BusinessPartners> records, bool hasReachedMax, String? query});
+  $Res call({List<IdName> records, bool hasReachedMax, String? query});
 }
 
 /// @nodoc
@@ -755,7 +748,7 @@ class __$$_FetchBusinessPartnerSuccessCopyWithImpl<$Res>
       records: null == records
           ? _value._records
           : records // ignore: cast_nullable_to_non_nullable
-              as List<BusinessPartners>,
+              as List<IdName>,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
@@ -772,14 +765,14 @@ class __$$_FetchBusinessPartnerSuccessCopyWithImpl<$Res>
 
 class _$_FetchBusinessPartnerSuccess implements _FetchBusinessPartnerSuccess {
   const _$_FetchBusinessPartnerSuccess(
-      {required final List<BusinessPartners> records,
+      {required final List<IdName> records,
       required this.hasReachedMax,
       this.query})
       : _records = records;
 
-  final List<BusinessPartners> _records;
+  final List<IdName> _records;
   @override
-  List<BusinessPartners> get records {
+  List<IdName> get records {
     if (_records is EqualUnmodifiableListView) return _records;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_records);
@@ -823,7 +816,7 @@ class _$_FetchBusinessPartnerSuccess implements _FetchBusinessPartnerSuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)
+            List<IdName> records, bool hasReachedMax, String? query)
         success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -835,8 +828,7 @@ class _$_FetchBusinessPartnerSuccess implements _FetchBusinessPartnerSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -848,8 +840,7 @@ class _$_FetchBusinessPartnerSuccess implements _FetchBusinessPartnerSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)?
+    TResult Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -901,11 +892,11 @@ class _$_FetchBusinessPartnerSuccess implements _FetchBusinessPartnerSuccess {
 abstract class _FetchBusinessPartnerSuccess
     implements FetchBusinessPartnerState {
   const factory _FetchBusinessPartnerSuccess(
-      {required final List<BusinessPartners> records,
+      {required final List<IdName> records,
       required final bool hasReachedMax,
       final String? query}) = _$_FetchBusinessPartnerSuccess;
 
-  List<BusinessPartners> get records;
+  List<IdName> get records;
   bool get hasReachedMax;
   String? get query;
   @JsonKey(ignore: true)
@@ -994,7 +985,7 @@ class _$_FetchBusinessPartnerFailure implements _FetchBusinessPartnerFailure {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)
+            List<IdName> records, bool hasReachedMax, String? query)
         success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -1006,8 +997,7 @@ class _$_FetchBusinessPartnerFailure implements _FetchBusinessPartnerFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -1019,8 +1009,7 @@ class _$_FetchBusinessPartnerFailure implements _FetchBusinessPartnerFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(
-            List<BusinessPartners> records, bool hasReachedMax, String? query)?
+    TResult Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),

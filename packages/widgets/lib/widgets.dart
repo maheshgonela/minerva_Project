@@ -19,4 +19,3 @@ part 'labled_value_widget.dart';
 part 'simple_app_bar.dart';
 part 'simple_info_widget.dart';
 part 'spacings.dart';
-part 'toast.dart';

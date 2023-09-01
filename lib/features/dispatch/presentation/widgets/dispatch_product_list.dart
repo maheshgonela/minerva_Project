@@ -9,7 +9,7 @@ import 'package:minerva/features/dispatch/presentation/bloc/create_dispatch/crea
 import 'package:minerva/features/dispatch/presentation/widgets/dispatch_product_card.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:grouped_list/grouped_list.dart';
-import 'package:widgets/widgets.dart';
+import 'package:minerva/toast_message.dart';
 
 class DispatchProductList extends StatefulWidget {
   final SalesOrder order;

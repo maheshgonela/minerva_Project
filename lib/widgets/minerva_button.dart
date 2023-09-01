@@ -29,20 +29,19 @@ class _MinervaButton extends State<MinervaButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: widget.height ?? 54,
-      width: widget.width ?? 240,
+      //height: widget.height ?? 54,
+      // width: widget.width ?? 240,
       child: ElevatedButton(
         onPressed: () => widget.onButtonPressed(),
-        style: ButtonStyle(
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
+        style: ElevatedButton.styleFrom(
+          fixedSize: const Size(double.infinity, 60),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             if (widget.prefixIcon != null) ...[
               Icon(
@@ -54,16 +53,12 @@ class _MinervaButton extends State<MinervaButton> {
               ),
             ],
             Text(
-              widget.label!,
+              widget.label!.toUpperCase(),
               style: GoogleFonts.istokWeb(
-                textStyle: Theme.of(context)
-                    .textTheme
-                    .titleLarge!
-                    .copyWith(fontWeight: FontWeight.bold)
-                    .copyWith(
-                      fontSize: 16,
-                    ),
-              ),
+                  textStyle: Theme.of(context)
+                      .textTheme
+                      .titleLarge!
+                      .copyWith(fontWeight: FontWeight.bold)),
             ),
             if (widget.suffixIcon != null) ...[
               const SizedBox(width: 20),

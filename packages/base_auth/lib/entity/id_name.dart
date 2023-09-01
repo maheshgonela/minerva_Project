@@ -1,20 +1,13 @@
-class IdName {
-  final String id;
-  final String name;
-  final String? helperText;
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'id_name.freezed.dart';
+part 'id_name.g.dart';
 
-  IdName({
-    required this.id,
-    required this.name,
-    this.helperText,
-  });
-
-  factory IdName.empty() {
-    return IdName(id: '', name: '');
-  }
-
-  @override
-  String toString() {
-    return '{ $id: $name }';
-  }
+@freezed
+class IdName with _$IdName {
+  const factory IdName({
+    @JsonKey(name: 'id') required String id,
+    @JsonKey(name: 'name', defaultValue: '') required String name,
+  }) = _IdName;
+  const IdName._();
+  factory IdName.fromJson(Map<String, dynamic> json) => _$IdNameFromJson(json);
 }
