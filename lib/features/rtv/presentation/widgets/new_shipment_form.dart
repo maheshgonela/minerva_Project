@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/rtv/domain/entity/entities.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
+import 'package:minerva/features/rtv/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
 import 'package:minerva/features/rtv/presentation/widgets/bp_selected_widget.dart';
 import 'package:minerva/features/rtv/presentation/widgets/product_selection_widget.dart';
+import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/loading_indicator.dart';
 import 'package:minerva/toast_message.dart';
 import 'package:widgets/widgets.dart';
@@ -144,9 +146,17 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
 
   void _openProductSelection() {
     Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
-      return BlocProvider.value(
-        value: BlocProvider.of<FetchProductBloc>(context)
-          ..add(FetchProductEvent.fetchInitialProduct()),
+      return MultiBlocProvider(
+        providers: [
+          BlocProvider.value(
+            value: BlocProvider.of<FetchProductBloc>(context)
+              ..add(FetchProductEvent.fetchInitialProduct()),
+          ),
+          BlocProvider(
+              create: (ctx) => sl.get<FetchProductCategoryBloc>()
+                ..add(const FetchProductCategoryEvent
+                    .fetchInitialProductCategory())),
+        ],
         child: ProductSelectionWidget(
           bpId: _form.businessPartnerId,
           onProductSelected: (product) async {

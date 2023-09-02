@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/design/colors.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
+import 'package:minerva/features/rtv/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
 import 'package:minerva/features/rtv/presentation/widgets/new_shipment_form.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/loading_indicator.dart';
@@ -114,7 +115,7 @@ class ShipmentListScreen extends StatelessWidget {
                 BlocProvider(
                   create: (ctx) => sl.get<FetchProductBloc>(),
                 ),
-                BlocProvider(create: (ctx) => sl.get<NewShipmentBloc>())
+                BlocProvider(create: (ctx) => sl.get<NewShipmentBloc>()),
               ],
               child: const NewShipmentForm(),
             );

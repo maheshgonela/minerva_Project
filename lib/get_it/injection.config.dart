@@ -9,7 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:base_auth/base_auth.dart' as _i28;
+import 'package:base_auth/base_auth.dart' as _i29;
 import 'package:base_auth/repository/auth_repository.dart' as _i17;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:http/http.dart' as _i3;
@@ -42,7 +42,7 @@ import 'package:minerva/features/grn/presentation/blocs/create_grn/create_grn_cu
 import 'package:minerva/features/grn/presentation/blocs/fetch_orderedproduct/fetch_orderedproduct_bloc.dart'
     as _i22;
 import 'package:minerva/features/grn/presentation/blocs/fetch_purchase_order/fetch_purchase_order_bloc.dart'
-    as _i24;
+    as _i25;
 import 'package:minerva/features/rtv/data/repository/shipment_repo_impl.dart'
     as _i13;
 import 'package:minerva/features/rtv/domain/repository/shipment_repo.dart'
@@ -51,17 +51,19 @@ import 'package:minerva/features/rtv/presentation/bloc/fetch_bps/fetch_bps_bloc.
     as _i21;
 import 'package:minerva/features/rtv/presentation/bloc/fetch_product/fetch_product_bloc.dart'
     as _i23;
+import 'package:minerva/features/rtv/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart'
+    as _i24;
 import 'package:minerva/features/rtv/presentation/bloc/fetch_shipment/fetch_shipment_bloc.dart'
-    as _i25;
-import 'package:minerva/features/rtv/presentation/bloc/new_shipment/new_shipment_bloc.dart'
     as _i26;
+import 'package:minerva/features/rtv/presentation/bloc/new_shipment/new_shipment_bloc.dart'
+    as _i27;
 import 'package:minerva/features/sign_in/data/repository/sign_in_repo_impl.dart'
     as _i18;
 import 'package:minerva/features/sign_in/presentation/bloc/auth/auth_bloc.dart'
-    as _i29;
+    as _i30;
 import 'package:minerva/features/sign_in/presentation/bloc/sign_in_bloc/sign_in_bloc.dart'
-    as _i27;
-import 'package:minerva/get_it/external_libs_injection_module.dart' as _i30;
+    as _i28;
+import 'package:minerva/get_it/external_libs_injection_module.dart' as _i31;
 
 extension GetItInjectableX on _i1.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -108,20 +110,22 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i22.FetchOrderedproductBloc(gh<_i10.GRNRepository>()));
     gh.factory<_i23.FetchProductBloc>(
         () => _i23.FetchProductBloc(gh<_i12.ShipmentRepo>()));
-    gh.factory<_i24.FetchPurchaseOrderBloc>(
-        () => _i24.FetchPurchaseOrderBloc(gh<_i10.GRNRepository>()));
-    gh.factory<_i25.FetchShipmentBloc>(
-        () => _i25.FetchShipmentBloc(gh<_i12.ShipmentRepo>()));
-    gh.factory<_i26.NewShipmentBloc>(
-        () => _i26.NewShipmentBloc(gh<_i12.ShipmentRepo>()));
-    gh.factory<_i27.SignInBloc>(
-        () => _i27.SignInBloc(signInRepo: gh<_i28.AuthRepository>()));
-    gh.factory<_i29.AuthBloc>(() => _i29.AuthBloc(
-          repository: gh<_i28.AuthRepository>(),
+    gh.factory<_i24.FetchProductCategoryBloc>(
+        () => _i24.FetchProductCategoryBloc(gh<_i12.ShipmentRepo>()));
+    gh.factory<_i25.FetchPurchaseOrderBloc>(
+        () => _i25.FetchPurchaseOrderBloc(gh<_i10.GRNRepository>()));
+    gh.factory<_i26.FetchShipmentBloc>(
+        () => _i26.FetchShipmentBloc(gh<_i12.ShipmentRepo>()));
+    gh.factory<_i27.NewShipmentBloc>(
+        () => _i27.NewShipmentBloc(gh<_i12.ShipmentRepo>()));
+    gh.factory<_i28.SignInBloc>(
+        () => _i28.SignInBloc(signInRepo: gh<_i29.AuthRepository>()));
+    gh.factory<_i30.AuthBloc>(() => _i30.AuthBloc(
+          repository: gh<_i29.AuthRepository>(),
           appVersionUseCase: gh<_i16.AppVersionUseCase>(),
         ));
     return this;
   }
 }
 
-class _$ExternalLibs extends _i30.ExternalLibs {}
+class _$ExternalLibs extends _i31.ExternalLibs {}

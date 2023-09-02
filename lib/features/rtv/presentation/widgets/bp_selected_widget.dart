@@ -1,7 +1,6 @@
 import 'package:base_auth/entity/id_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:minerva/features/rtv/domain/entity/business_partners.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
 import 'package:minerva/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
@@ -68,11 +67,11 @@ class _BpSelectionWidgetState extends State<BpSelectionWidget> {
         value: bps.first.name,
         onChanged: (value) {},
         // onChanged: (v) {
-        //     setState(() {
-        //       widget.onSelected(bps[]);
-        //       _selected = v;
-        //     });
-        //   },
+        //   setState(() {
+        //     widget.onSelected(v as IdName);
+        //     _selected = v;
+        //   });
+        // },
         items: bps
             .map(
               (e) => DropdownMenuItem(

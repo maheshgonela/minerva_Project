@@ -9,9 +9,7 @@ import 'package:dartz/dartz.dart';
 import 'package:minerva/auth_helper.dart';
 import 'package:minerva/constants.dart';
 import 'package:minerva/core/query_helper.dart';
-import 'package:minerva/features/rtv/data/model/business_partners_dto.dart';
 import 'package:minerva/features/rtv/data/model/models.dart';
-import 'package:minerva/features/rtv/domain/entity/business_partners.dart';
 import 'package:minerva/features/rtv/domain/entity/entities.dart';
 import 'package:minerva/features/rtv/domain/entity/shipment.dart';
 import 'package:minerva/features/rtv/domain/entity/shipment_form.dart';
@@ -46,45 +44,17 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
     }
   }
 
-  // @override
-  // Future<Either<Failure, List<IdName>>> fetchBusinessPartners() async {
-  //   const String defErrMsg = 'Could not fetch details';
-  //   try {
-  //     final list =
-  //         jsonDecode(await getQuery(Constants.prefRtvBps)) as List<dynamic>;
-  //     final result = list.map((e) => _toIdName(e)).toList();
-  //     return right(result);
-  //   } catch (e, st) {
-  //     logError(e, st, defErrMsg);
-  //     return left(const Failure(error: defErrMsg));
-  //   }
-  // }
-
-  // IdName _toIdName(e) =>
-  //     IdName(id: e['id'].toString(), name: e['name'].toString());
-
-// we have to close above function and work on below function by using below line
-// we have to work on fetchBusinessPartners at  ProductDto.fromJson(e as Map<String, dynamic>).toDomain())
-
   @override
   Future<Either<Failure, List<IdName>>> fetchBusinessPartners() async {
     const String defErrMsg = 'Could not fetch products';
     try {
-      // var categoryFilter = '';
-      // if (bpId == Constants.pullaReddySweetsId) {
-      //   categoryFilter =
-      //       "productCategory in ('${Constants.bakeryCategoryId}', '${Constants.sweetsCategoryId}')";
-      // } else if (bpId == Constants.foodsLlpId) {
-      //   categoryFilter = "productCategory in ('${Constants.oilCategoryId}')";
-      // }
       const String url =
-          "${Constants.jsonWs}/${Entities.businessPartner}?_sortBy=name";
+          "${Constants.jsonWs}/${Entities.businessPartner}?_selectedProperties=id,name&_sortBy=name";
       print(url);
       final data = await safeApiCall(
         () => client.get(Uri.parse(url), headers: _authHeader()),
         defErrMsg,
       );
-
       return data.fold(
         (Failure l) => left(Failure(error: l.error)),
         (r) {
@@ -123,8 +93,6 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
       }
       final String url =
           "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end$searchCondition&_sortBy=name";
-      //  "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end&"
-      //     "_sortBy=name";
       print(url);
       final data = await safeApiCall(
         () => client.get(Uri.parse(url), headers: _authHeader()),
@@ -138,6 +106,33 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
               .map((e) =>
                   ProductDto.fromJson(e as Map<String, dynamic>).toDomain())
               .toList();
+          return right(list);
+        },
+      );
+    } catch (e, st) {
+      logError(e, st, defErrMsg);
+      return left(const Failure(error: defErrMsg));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<IdName>>> fetchProductCategory() async {
+    const String defErrMsg = 'Could not fetch products';
+    try {
+      const String url =
+          "${Constants.jsonWs}/${Entities.productCategory}?_selectedProperties=id,name&_sortBy=name";
+      print(url);
+      final data = await safeApiCall(
+        () => client.get(Uri.parse(url), headers: _authHeader()),
+        defErrMsg,
+      );
+      return data.fold(
+        (Failure l) => left(Failure(error: l.error)),
+        (r) {
+          final list = (r as List<dynamic>)
+              .map((e) => IdName.fromJson(e as Map<String, dynamic>))
+              .toList();
+          print('List SIze : ${list.length}');
           return right(list);
         },
       );

@@ -91,7 +91,7 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
                     textStyle:
                         Theme.of(context).textTheme.headlineSmall!.copyWith(
                               fontWeight: FontWeight.w700,
-                              fontSize: 14,
+                              fontSize: 12,
                               letterSpacing: 1.2,
                             ),
                   ),
@@ -153,17 +153,19 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
           );
         },
         orElse: () {
-          return MinervaButton(
-            onButtonPressed: () {
-              BlocProvider.of<SignInBloc>(context).add(
-                SignInEvent.signInButtonPressed(
-                  username: username.text,
-                  password: password.text,
-                ),
-              );
-            },
-            label: 'LogIn',
-          );
+          return ElevatedButton(
+              onPressed: () {
+                BlocProvider.of<SignInBloc>(context).add(
+                  SignInEvent.signInButtonPressed(
+                    username: username.text,
+                    password: password.text,
+                  ),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text('LogIn'.toUpperCase()),
+              ));
         },
       );
     });

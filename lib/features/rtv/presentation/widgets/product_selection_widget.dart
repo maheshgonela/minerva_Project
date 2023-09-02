@@ -4,7 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/core/widgets/search_bar.dart';
 import 'package:minerva/features/rtv/domain/entity/entities.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
+import 'package:minerva/features/rtv/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
 import 'package:minerva/features/rtv/presentation/widgets/quantity_dialog.dart';
+import 'package:minerva/features/rtv/presentation/widgets/category_selecter_alertdialog.dart';
+import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
@@ -103,7 +106,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                       suffixIcon: const Icon(Icons.search),
                       // prefix: Icon(Icons.search),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
+                        borderRadius: BorderRadius.circular(30.0),
                         borderSide: const BorderSide(),
                       ),
                     ),
@@ -114,89 +117,38 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                       showDialog(
                         context: context,
                         builder: (context) {
-                          return AlertDialog(
-                            content: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Select category',
-                                      style: GoogleFonts.istokWeb(
-                                          textStyle: Theme.of(context)
-                                              .textTheme
-                                              .titleLarge!
-                                              .copyWith(
-                                                  fontWeight: FontWeight.bold)),
-                                    ),
-                                    IconButton(
-                                        onPressed: () =>
-                                            Navigator.of(context).pop(),
-                                        icon: const Icon(
-                                          Icons.close_rounded,
-                                        ))
-                                  ],
-                                ),
-                                const Divider(color: Colors.black26),
-                                Wrap(
-                                  spacing: 1,
-                                  children: [
-                                    ...testcatogres
-                                        .map((e) => ActionChip(label: Text(e)))
-                                        .toList()
-                                  ],
-                                ),
-                              ],
-                            ),
-                            actions: [
-                              Center(
-                                child: Container(
-                                  width: 220,
-                                  height: 42.0, // Set the desired height
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(50)),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color:
-                                            Color.fromARGB(255, 172, 219, 255)
-                                                .withOpacity(0.5),
-                                        spreadRadius: 3,
-                                        blurRadius: 6,
-                                        offset: const Offset(0, 1),
-                                      ),
-                                    ],
-                                  ),
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      TextButton(
-                                          onPressed: () {},
-                                          child: const Text("All")),
-                                      TextButton(
-                                          onPressed: () {},
-                                          child: const Text("Reset")),
-                                      ElevatedButton(
-                                          onPressed: () {},
-                                          child: const Text("Apply")),
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
+                          return BlocProvider.value(
+                            value: sl.get<FetchProductCategoryBloc>()
+                              ..add(FetchProductCategoryEvent
+                                  .fetchInitialProductCategory()),
+                            child: CategorySelecter(testcatogres: testcatogres),
                           );
                         },
                       );
                     },
+                    // onPressed: () {
+                    //   Navigator.of(context)
+                    //       .push(MaterialPageRoute(builder: (ctx) {
+                    //     return MultiBlocProvider(
+                    //       providers: [
+                    //         BlocProvider(
+                    //           create: (ctx) =>
+                    //               sl.get<FetchProductCategoryBloc>()
+                    //                 ..add(const FetchProductCategoryEvent
+                    //                     .fetchInitialProductCategory()),
+                    //         )
+                    //       ],
+                    //       child: CategorySelecter(testcatogres: testcatogres),
+                    //     );
+                    //   })).then((value) {
+                    //     if (value == true) {
+                    //       _refresh(context);
+                    //     }
+                    //   });
+                    // },
                     icon: const Icon(
                       Icons.filter_list,
-                      size: 36,
+                      size: 38,
                     ))
               ],
             ),
@@ -213,7 +165,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                         Center(child: _buildList(products, hasReachedMax)),
                     failure: (f) => AppErrorWidget(
                       error: f.error,
-                      onRefresh: () => _refresh(),
+                      onRefresh: () => _refresh(context),
                     ),
                   );
                 },
@@ -225,22 +177,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
     );
   }
 
-  AppSearchBar _buildAppSearchBar() {
-    return AppSearchBar(
-      height: 80,
-      hintText: 'Search by product name',
-      onSearch: (query) {
-        _query = query;
-        _refresh();
-      },
-      onCancel: () {
-        _query = '';
-        _refresh();
-      },
-    );
-  }
-
-  void _refresh() {
+  void _refresh(Object buildContext) {
     BlocProvider.of<FetchProductBloc>(context)
         .add(FetchProductEvent.fetchInitialProduct());
   }
