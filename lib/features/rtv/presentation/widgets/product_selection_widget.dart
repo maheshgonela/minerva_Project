@@ -1,7 +1,9 @@
+import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:minerva/core/widgets/search_bar.dart';
 import 'package:minerva/features/rtv/domain/entity/entities.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
 import 'package:minerva/features/rtv/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
@@ -28,14 +30,7 @@ class ProductSelectionWidget extends StatefulWidget {
 
 class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
   String? _query;
-  final testcatogres = [
-    "cat",
-    "titan",
-    "wall",
-    "horse",
-    "ball",
-    "dog",
-  ];
+
   final QueryController = TextEditingController();
 
   late ScrollController _scrollController;
@@ -58,7 +53,9 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
           if (!hasReachedMax) {
             BlocProvider.of<FetchProductBloc>(context).add(
                 FetchProductEvent.fetchMoreProduct(
-                    query: QueryController.text));
+                    query: QueryController.text,
+                    searchquery: QueryController.text,
+                    selectedCategorysquery: QueryController.text));
           }
         },
         orElse: () {},
@@ -97,7 +94,8 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                     onChanged: (value) {
                       print(value);
                       BlocProvider.of<FetchProductBloc>(context).add(
-                          FetchProductEvent.fetchInitialProduct(query: value));
+                          FetchProductEvent.fetchInitialProduct(
+                              searchquery: value));
                     },
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(
@@ -119,37 +117,34 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                         builder: (context) {
                           return BlocProvider.value(
                             value: sl.get<FetchProductCategoryBloc>()
-                              ..add(FetchProductCategoryEvent
+                              ..add(const FetchProductCategoryEvent
                                   .fetchInitialProductCategory()),
-                            child: CategorySelecter(testcatogres: testcatogres),
+                            child: CategorySelecter(
+                              fetchProductBlocContext: context,
+                            ),
                           );
                         },
                       );
+                      // showDialog(
+                      //     context: context,
+                      //     builder: (context) {
+                      //       return CategorySelecter(
+                      //         fetchProductBlocContext: context,
+                      //       );
+                      //     });
                     },
-                    // onPressed: () {
-                    //   Navigator.of(context)
-                    //       .push(MaterialPageRoute(builder: (ctx) {
-                    //     return MultiBlocProvider(
-                    //       providers: [
-                    //         BlocProvider(
-                    //           create: (ctx) =>
-                    //               sl.get<FetchProductCategoryBloc>()
-                    //                 ..add(const FetchProductCategoryEvent
-                    //                     .fetchInitialProductCategory()),
-                    //         )
-                    //       ],
-                    //       child: CategorySelecter(testcatogres: testcatogres),
-                    //     );
-                    //   })).then((value) {
-                    //     if (value == true) {
-                    //       _refresh(context);
-                    //     }
-                    //   });
-                    // },
                     icon: const Icon(
                       Icons.filter_list,
-                      size: 38,
-                    ))
+                      size: 32,
+                    )),
+                IconButton(
+                    onPressed: () {
+                      scanBarcode();
+                    },
+                    icon: const Icon(
+                      Icons.qr_code_scanner_rounded,
+                      size: 32,
+                    )),
               ],
             ),
             const SizedBox(
@@ -162,7 +157,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                     initial: () => const LoadingIndicator(),
                     loading: () => const LoadingIndicator(),
                     success: (products, hasReachedMax, __) =>
-                        Center(child: _buildList(products, hasReachedMax)),
+                        _buildList(products, hasReachedMax),
                     failure: (f) => AppErrorWidget(
                       error: f.error,
                       onRefresh: () => _refresh(context),
@@ -223,5 +218,28 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
     ).then((value) {
       Navigator.of(context).pop();
     });
+  }
+
+  Future<void> scanBarcode() async {
+    try {
+      final barCode = await FlutterBarcodeScanner.scanBarcode(
+          '#ff6666', 'Cancel', true, ScanMode.BARCODE);
+
+      if (!mounted) return;
+      bool ismione = true;
+      if (barCode == "-1") {
+        ismione = false;
+      } else {
+        ismione = true;
+      }
+      String finalbarCode = ismione ? barCode : '';
+      BlocProvider.of<FetchProductBloc>(context).add(
+          FetchProductEvent.fetchInitialProduct(barcodequery: finalbarCode));
+      print("BarCode_Result:-- $barCode");
+
+      print("FinalBarCode_Result:-- $finalbarCode");
+    } on PlatformException {
+      print('Failed to scan QR Code.');
+    }
   }
 }

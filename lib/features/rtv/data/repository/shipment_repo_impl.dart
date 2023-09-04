@@ -73,26 +73,35 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
 
   @override
   Future<Either<Failure, List<Product>>> fetchProducts(
-      {String? searchText, int? start, int? end, String? query}) async {
+      {String? searchText,
+      String? barCode,
+      String? selectedCategorys,
+      int? start,
+      int? end,
+      String? query}) async {
     const String defErrMsg = 'Could not fetch products';
 
     String searchCondition = "";
+    String barcodeCondition = "";
+    String categoryCondition = "";
     try {
-      // var categoryFilter = '';
-      // if (bpId == Constants.pullaReddySweetsId) {
-      //   categoryFilter =
-      //       "productCategory in ('${Constants.bakeryCategoryId}', '${Constants.sweetsCategoryId}')";
-      // } else if (bpId == Constants.foodsLlpId) {
-      //   categoryFilter = "productCategory in ('${Constants.oilCategoryId}')";
-      // }
-      print(searchText);
+      print('searchText : $searchText');
+      print('barCode : $barCode');
+      print('selectedCategorys : $selectedCategorys');
 //https://minerva.easycloud.co.in/openbravo1/org.openbravo.service.json.jsonrest/Product/?_startRow=0&_endRow=20&_where=lower(name) like  lower('%25pinni%25')
       if (searchText != null && searchText.trim().isNotEmpty) {
         searchCondition =
             "&_where=lower(name) like  lower('%25$searchText%25')";
       }
+      if (barCode != null && barCode.trim().isNotEmpty) {
+        barcodeCondition =
+            "&_where=lower(uPCEAN) like  lower('%25$barCode%25')";
+      }
+      if (selectedCategorys != null && selectedCategorys.trim().isNotEmpty) {
+        categoryCondition = "&_where=productCategory IN ('$selectedCategorys')";
+      }
       final String url =
-          "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end$searchCondition&_sortBy=name";
+          "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end$searchCondition$barcodeCondition$categoryCondition&_sortBy=name";
       print(url);
       final data = await safeApiCall(
         () => client.get(Uri.parse(url), headers: _authHeader()),

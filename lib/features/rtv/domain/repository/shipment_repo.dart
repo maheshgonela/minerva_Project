@@ -8,7 +8,12 @@ abstract class ShipmentRepo {
       DateTime movementDate, int start, int end);
   Future<Either<Failure, Shipment>> createShipment(ShipmentForm form);
   Future<Either<Failure, List<Product>>> fetchProducts(
-      {String? searchText, int start, int end, String? query});
+      {String? searchText,
+      String? barCode,
+      String? selectedCategorys,
+      int start,
+      int end,
+      String? query});
   Future<Either<Failure, List<IdName>>> fetchBusinessPartners();
   Future<Either<Failure, List<IdName>>> fetchProductCategory();
 }

@@ -17,22 +17,36 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$FetchProductEvent {
   String? get query => throw _privateConstructorUsedError;
+  String? get searchquery => throw _privateConstructorUsedError;
+  String? get selectedCategorysquery => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? query) fetchInitialProduct,
-    required TResult Function(String? query) fetchMoreProduct,
+    required TResult Function(String? query, String? searchquery,
+            String? barcodequery, String? selectedCategorysquery)
+        fetchInitialProduct,
+    required TResult Function(
+            String? query, String? searchquery, String? selectedCategorysquery)
+        fetchMoreProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? query)? fetchInitialProduct,
-    TResult? Function(String? query)? fetchMoreProduct,
+    TResult? Function(String? query, String? searchquery, String? barcodequery,
+            String? selectedCategorysquery)?
+        fetchInitialProduct,
+    TResult? Function(
+            String? query, String? searchquery, String? selectedCategorysquery)?
+        fetchMoreProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? query)? fetchInitialProduct,
-    TResult Function(String? query)? fetchMoreProduct,
+    TResult Function(String? query, String? searchquery, String? barcodequery,
+            String? selectedCategorysquery)?
+        fetchInitialProduct,
+    TResult Function(
+            String? query, String? searchquery, String? selectedCategorysquery)?
+        fetchMoreProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,7 +81,8 @@ abstract class $FetchProductEventCopyWith<$Res> {
           FetchProductEvent value, $Res Function(FetchProductEvent) then) =
       _$FetchProductEventCopyWithImpl<$Res, FetchProductEvent>;
   @useResult
-  $Res call({String? query});
+  $Res call(
+      {String? query, String? searchquery, String? selectedCategorysquery});
 }
 
 /// @nodoc
@@ -84,11 +99,21 @@ class _$FetchProductEventCopyWithImpl<$Res, $Val extends FetchProductEvent>
   @override
   $Res call({
     Object? query = freezed,
+    Object? searchquery = freezed,
+    Object? selectedCategorysquery = freezed,
   }) {
     return _then(_value.copyWith(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
+              as String?,
+      searchquery: freezed == searchquery
+          ? _value.searchquery
+          : searchquery // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedCategorysquery: freezed == selectedCategorysquery
+          ? _value.selectedCategorysquery
+          : selectedCategorysquery // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -102,7 +127,11 @@ abstract class _$$_FetchInitialProductCopyWith<$Res>
       __$$_FetchInitialProductCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? query});
+  $Res call(
+      {String? query,
+      String? searchquery,
+      String? barcodequery,
+      String? selectedCategorysquery});
 }
 
 /// @nodoc
@@ -117,11 +146,26 @@ class __$$_FetchInitialProductCopyWithImpl<$Res>
   @override
   $Res call({
     Object? query = freezed,
+    Object? searchquery = freezed,
+    Object? barcodequery = freezed,
+    Object? selectedCategorysquery = freezed,
   }) {
     return _then(_$_FetchInitialProduct(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
+              as String?,
+      searchquery: freezed == searchquery
+          ? _value.searchquery
+          : searchquery // ignore: cast_nullable_to_non_nullable
+              as String?,
+      barcodequery: freezed == barcodequery
+          ? _value.barcodequery
+          : barcodequery // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedCategorysquery: freezed == selectedCategorysquery
+          ? _value.selectedCategorysquery
+          : selectedCategorysquery // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -130,14 +174,24 @@ class __$$_FetchInitialProductCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FetchInitialProduct implements _FetchInitialProduct {
-  const _$_FetchInitialProduct({this.query});
+  const _$_FetchInitialProduct(
+      {this.query,
+      this.searchquery,
+      this.barcodequery,
+      this.selectedCategorysquery});
 
   @override
   final String? query;
+  @override
+  final String? searchquery;
+  @override
+  final String? barcodequery;
+  @override
+  final String? selectedCategorysquery;
 
   @override
   String toString() {
-    return 'FetchProductEvent.fetchInitialProduct(query: $query)';
+    return 'FetchProductEvent.fetchInitialProduct(query: $query, searchquery: $searchquery, barcodequery: $barcodequery, selectedCategorysquery: $selectedCategorysquery)';
   }
 
   @override
@@ -145,11 +199,18 @@ class _$_FetchInitialProduct implements _FetchInitialProduct {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FetchInitialProduct &&
-            (identical(other.query, query) || other.query == query));
+            (identical(other.query, query) || other.query == query) &&
+            (identical(other.searchquery, searchquery) ||
+                other.searchquery == searchquery) &&
+            (identical(other.barcodequery, barcodequery) ||
+                other.barcodequery == barcodequery) &&
+            (identical(other.selectedCategorysquery, selectedCategorysquery) ||
+                other.selectedCategorysquery == selectedCategorysquery));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, query);
+  int get hashCode => Object.hash(
+      runtimeType, query, searchquery, barcodequery, selectedCategorysquery);
 
   @JsonKey(ignore: true)
   @override
@@ -161,30 +222,45 @@ class _$_FetchInitialProduct implements _FetchInitialProduct {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? query) fetchInitialProduct,
-    required TResult Function(String? query) fetchMoreProduct,
+    required TResult Function(String? query, String? searchquery,
+            String? barcodequery, String? selectedCategorysquery)
+        fetchInitialProduct,
+    required TResult Function(
+            String? query, String? searchquery, String? selectedCategorysquery)
+        fetchMoreProduct,
   }) {
-    return fetchInitialProduct(query);
+    return fetchInitialProduct(
+        query, searchquery, barcodequery, selectedCategorysquery);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? query)? fetchInitialProduct,
-    TResult? Function(String? query)? fetchMoreProduct,
+    TResult? Function(String? query, String? searchquery, String? barcodequery,
+            String? selectedCategorysquery)?
+        fetchInitialProduct,
+    TResult? Function(
+            String? query, String? searchquery, String? selectedCategorysquery)?
+        fetchMoreProduct,
   }) {
-    return fetchInitialProduct?.call(query);
+    return fetchInitialProduct?.call(
+        query, searchquery, barcodequery, selectedCategorysquery);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? query)? fetchInitialProduct,
-    TResult Function(String? query)? fetchMoreProduct,
+    TResult Function(String? query, String? searchquery, String? barcodequery,
+            String? selectedCategorysquery)?
+        fetchInitialProduct,
+    TResult Function(
+            String? query, String? searchquery, String? selectedCategorysquery)?
+        fetchMoreProduct,
     required TResult orElse(),
   }) {
     if (fetchInitialProduct != null) {
-      return fetchInitialProduct(query);
+      return fetchInitialProduct(
+          query, searchquery, barcodequery, selectedCategorysquery);
     }
     return orElse();
   }
@@ -222,11 +298,19 @@ class _$_FetchInitialProduct implements _FetchInitialProduct {
 }
 
 abstract class _FetchInitialProduct implements FetchProductEvent {
-  const factory _FetchInitialProduct({final String? query}) =
-      _$_FetchInitialProduct;
+  const factory _FetchInitialProduct(
+      {final String? query,
+      final String? searchquery,
+      final String? barcodequery,
+      final String? selectedCategorysquery}) = _$_FetchInitialProduct;
 
   @override
   String? get query;
+  @override
+  String? get searchquery;
+  String? get barcodequery;
+  @override
+  String? get selectedCategorysquery;
   @override
   @JsonKey(ignore: true)
   _$$_FetchInitialProductCopyWith<_$_FetchInitialProduct> get copyWith =>
@@ -241,7 +325,8 @@ abstract class _$$_FetchMoreProductCopyWith<$Res>
       __$$_FetchMoreProductCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? query});
+  $Res call(
+      {String? query, String? searchquery, String? selectedCategorysquery});
 }
 
 /// @nodoc
@@ -256,11 +341,21 @@ class __$$_FetchMoreProductCopyWithImpl<$Res>
   @override
   $Res call({
     Object? query = freezed,
+    Object? searchquery = freezed,
+    Object? selectedCategorysquery = freezed,
   }) {
     return _then(_$_FetchMoreProduct(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
+              as String?,
+      searchquery: freezed == searchquery
+          ? _value.searchquery
+          : searchquery // ignore: cast_nullable_to_non_nullable
+              as String?,
+      selectedCategorysquery: freezed == selectedCategorysquery
+          ? _value.selectedCategorysquery
+          : selectedCategorysquery // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -269,14 +364,19 @@ class __$$_FetchMoreProductCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FetchMoreProduct implements _FetchMoreProduct {
-  const _$_FetchMoreProduct({this.query});
+  const _$_FetchMoreProduct(
+      {this.query, this.searchquery, this.selectedCategorysquery});
 
   @override
   final String? query;
+  @override
+  final String? searchquery;
+  @override
+  final String? selectedCategorysquery;
 
   @override
   String toString() {
-    return 'FetchProductEvent.fetchMoreProduct(query: $query)';
+    return 'FetchProductEvent.fetchMoreProduct(query: $query, searchquery: $searchquery, selectedCategorysquery: $selectedCategorysquery)';
   }
 
   @override
@@ -284,11 +384,16 @@ class _$_FetchMoreProduct implements _FetchMoreProduct {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FetchMoreProduct &&
-            (identical(other.query, query) || other.query == query));
+            (identical(other.query, query) || other.query == query) &&
+            (identical(other.searchquery, searchquery) ||
+                other.searchquery == searchquery) &&
+            (identical(other.selectedCategorysquery, selectedCategorysquery) ||
+                other.selectedCategorysquery == selectedCategorysquery));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, query);
+  int get hashCode =>
+      Object.hash(runtimeType, query, searchquery, selectedCategorysquery);
 
   @JsonKey(ignore: true)
   @override
@@ -299,30 +404,42 @@ class _$_FetchMoreProduct implements _FetchMoreProduct {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? query) fetchInitialProduct,
-    required TResult Function(String? query) fetchMoreProduct,
+    required TResult Function(String? query, String? searchquery,
+            String? barcodequery, String? selectedCategorysquery)
+        fetchInitialProduct,
+    required TResult Function(
+            String? query, String? searchquery, String? selectedCategorysquery)
+        fetchMoreProduct,
   }) {
-    return fetchMoreProduct(query);
+    return fetchMoreProduct(query, searchquery, selectedCategorysquery);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? query)? fetchInitialProduct,
-    TResult? Function(String? query)? fetchMoreProduct,
+    TResult? Function(String? query, String? searchquery, String? barcodequery,
+            String? selectedCategorysquery)?
+        fetchInitialProduct,
+    TResult? Function(
+            String? query, String? searchquery, String? selectedCategorysquery)?
+        fetchMoreProduct,
   }) {
-    return fetchMoreProduct?.call(query);
+    return fetchMoreProduct?.call(query, searchquery, selectedCategorysquery);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? query)? fetchInitialProduct,
-    TResult Function(String? query)? fetchMoreProduct,
+    TResult Function(String? query, String? searchquery, String? barcodequery,
+            String? selectedCategorysquery)?
+        fetchInitialProduct,
+    TResult Function(
+            String? query, String? searchquery, String? selectedCategorysquery)?
+        fetchMoreProduct,
     required TResult orElse(),
   }) {
     if (fetchMoreProduct != null) {
-      return fetchMoreProduct(query);
+      return fetchMoreProduct(query, searchquery, selectedCategorysquery);
     }
     return orElse();
   }
@@ -360,10 +477,17 @@ class _$_FetchMoreProduct implements _FetchMoreProduct {
 }
 
 abstract class _FetchMoreProduct implements FetchProductEvent {
-  const factory _FetchMoreProduct({final String? query}) = _$_FetchMoreProduct;
+  const factory _FetchMoreProduct(
+      {final String? query,
+      final String? searchquery,
+      final String? selectedCategorysquery}) = _$_FetchMoreProduct;
 
   @override
   String? get query;
+  @override
+  String? get searchquery;
+  @override
+  String? get selectedCategorysquery;
   @override
   @JsonKey(ignore: true)
   _$$_FetchMoreProductCopyWith<_$_FetchMoreProduct> get copyWith =>

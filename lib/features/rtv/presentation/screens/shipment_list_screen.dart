@@ -115,6 +115,11 @@ class ShipmentListScreen extends StatelessWidget {
                 BlocProvider(
                   create: (ctx) => sl.get<FetchProductBloc>(),
                 ),
+                BlocProvider(
+                  create: (ctx) => sl.get<FetchProductCategoryBloc>()
+                    ..add(const FetchProductCategoryEvent
+                        .fetchInitialProductCategory()),
+                ),
                 BlocProvider(create: (ctx) => sl.get<NewShipmentBloc>()),
               ],
               child: const NewShipmentForm(),

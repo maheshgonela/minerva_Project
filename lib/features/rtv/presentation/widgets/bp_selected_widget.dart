@@ -16,7 +16,7 @@ class BpSelectionWidget extends StatefulWidget {
 }
 
 class _BpSelectionWidgetState extends State<BpSelectionWidget> {
-  IdName? _selected;
+  String? _selected;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +26,8 @@ class _BpSelectionWidgetState extends State<BpSelectionWidget> {
           success: (list, _, __) {
             if (list.isNotEmpty) {
               setState(() {
-                _selected = list[0];
-                widget.onSelected(list[0]);
+                _selected = list[0].name;
+                // widget.onSelected(list[0]);
               });
             }
           },
@@ -64,14 +64,14 @@ class _BpSelectionWidgetState extends State<BpSelectionWidget> {
         ),
       ),
       child: DropdownButton(
-        value: bps.first.name,
-        onChanged: (value) {},
-        // onChanged: (v) {
-        //   setState(() {
-        //     widget.onSelected(v as IdName);
-        //     _selected = v;
-        //   });
-        // },
+        value: _selected,
+        //onChanged: (value) {},
+        onChanged: (v) {
+          setState(() {
+            // widget.onSelected(v as IdName);
+            _selected = v;
+          });
+        },
         items: bps
             .map(
               (e) => DropdownMenuItem(

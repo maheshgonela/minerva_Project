@@ -22,7 +22,12 @@ class FetchProductBloc extends Bloc<FetchProductEvent, FetchProductState> {
         emit(FetchProductState.loading());
 
         var result = await repo.fetchProducts(
-            searchText: e.query, start: 0, end: pageLength, query: e.query);
+            searchText: e.searchquery,
+            barCode: e.barcodequery,
+            selectedCategorys: e.selectedCategorysquery,
+            start: 0,
+            end: pageLength,
+            query: e.query);
         emit(result.fold(
           (l) => FetchProductState.failure(l),
           (r) => FetchProductState.success(
@@ -41,7 +46,8 @@ class FetchProductBloc extends Bloc<FetchProductEvent, FetchProductState> {
                   start: oldRecord.length,
                   end: oldRecord.length + pageLength,
                   query: e.query,
-                  searchText: e.query);
+                  searchText: e.searchquery,
+                  selectedCategorys: e.selectedCategorysquery);
               return result.fold(
                 (f) => FetchProductState.failure(f),
                 (r) => FetchProductState.success(
