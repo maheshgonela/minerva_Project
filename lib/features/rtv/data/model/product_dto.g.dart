@@ -12,6 +12,8 @@ _$_ProductDto _$$_ProductDtoFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       uomId: json['uOM'] as String,
       uomName: json[r'uOM$_identifier'] as String,
+      productCategoryId: json['productCategory'] as String,
+      productCategoryName: json[r'productCategory$_identifier'] as String,
     );
 
 Map<String, dynamic> _$$_ProductDtoToJson(_$_ProductDto instance) =>
@@ -20,4 +22,6 @@ Map<String, dynamic> _$$_ProductDtoToJson(_$_ProductDto instance) =>
       'name': instance.name,
       'uOM': instance.uomId,
       r'uOM$_identifier': instance.uomName,
+      'productCategory': instance.productCategoryId,
+      r'productCategory$_identifier': instance.productCategoryName,
     };

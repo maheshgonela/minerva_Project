@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -30,7 +32,7 @@ class ProductSelectionWidget extends StatefulWidget {
 
 class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
   String? _query;
-
+  Timer? _debounce;
   final QueryController = TextEditingController();
 
   late ScrollController _scrollController;
@@ -46,21 +48,34 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
     if (_scrollController.offset >=
             _scrollController.position.maxScrollExtent &&
         !_scrollController.position.outOfRange) {
-      final curState = BlocProvider.of<FetchProductBloc>(context).state;
-
-      curState.maybeWhen(
-        success: (pr, hasReachedMax, __) {
-          if (!hasReachedMax) {
-            BlocProvider.of<FetchProductBloc>(context).add(
-                FetchProductEvent.fetchMoreProduct(
-                    query: QueryController.text,
-                    searchquery: QueryController.text,
-                    selectedCategorysquery: QueryController.text));
-          }
-        },
-        orElse: () {},
-      );
+      BlocProvider.of<FetchProductBloc>(context)
+          .add(FetchProductEvent.fetchMoreProduct(
+        query: QueryController.text,
+        selectedCategorys: fetchSelectedCategories(),
+      ));
     }
+  }
+
+  List<String> fetchSelectedCategories() {
+    final curState = BlocProvider.of<FetchProductBloc>(context).state;
+    final categories = curState.maybeWhen(
+      orElse: () => <String>[],
+      success: (records, hasReachedMax, categories, query, barCode) =>
+          categories,
+    );
+    return categories;
+  }
+
+  void onSearch(String query) {
+    if (_debounce?.isActive ?? false) _debounce!.cancel();
+    _debounce = Timer(const Duration(milliseconds: 300), () {
+      final cats = fetchSelectedCategories();
+      BlocProvider.of<FetchProductBloc>(context)
+          .add(FetchProductEvent.fetchInitialProduct(
+        query: query,
+        selectedCategorys: cats,
+      ));
+    });
   }
 
   @override
@@ -91,15 +106,12 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                 Expanded(
                   child: TextField(
                     controller: QueryController,
-                    onChanged: (value) {
-                      print(value);
-                      BlocProvider.of<FetchProductBloc>(context).add(
-                          FetchProductEvent.fetchInitialProduct(
-                              searchquery: value));
-                    },
+                    onChanged: (value) => onSearch(value),
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 15),
+                        vertical: 10.0,
+                        horizontal: 15,
+                      ),
                       hintText: "Search",
                       suffixIcon: const Icon(Icons.search),
                       // prefix: Icon(Icons.search),
@@ -111,40 +123,46 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                   ),
                 ),
                 IconButton(
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return BlocProvider.value(
-                            value: sl.get<FetchProductCategoryBloc>()
-                              ..add(const FetchProductCategoryEvent
-                                  .fetchInitialProductCategory()),
-                            child: CategorySelecter(
-                              fetchProductBlocContext: context,
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return MultiBlocProvider(
+                          providers: [
+                            BlocProvider.value(
+                              value: sl.get<FetchProductCategoryBloc>()
+                                ..add(const FetchProductCategoryEvent
+                                    .fetchInitialProductCategory()),
                             ),
-                          );
-                        },
-                      );
-                      // showDialog(
-                      //     context: context,
-                      //     builder: (context) {
-                      //       return CategorySelecter(
-                      //         fetchProductBlocContext: context,
-                      //       );
-                      //     });
-                    },
-                    icon: const Icon(
-                      Icons.filter_list,
-                      size: 32,
-                    )),
+                            BlocProvider(
+                              create: (ctx) => sl.get<FetchProductBloc>(),
+                            ),
+                          ],
+                          child: const CategorySelecter(),
+                        );
+                      },
+                    ).then((value) {
+                      if (value is List<String>) {
+                        if (value.isNotEmpty) {
+                          BlocProvider.of<FetchProductBloc>(context).add(
+                              FetchProductEvent.fetchInitialProduct(
+                                  selectedCategorys: value));
+                        }
+                      }
+                    });
+                  },
+                  icon: const Icon(
+                    Icons.filter_list,
+                    size: 32,
+                  ),
+                ),
                 IconButton(
-                    onPressed: () {
-                      scanBarcode();
-                    },
-                    icon: const Icon(
-                      Icons.qr_code_scanner_rounded,
-                      size: 32,
-                    )),
+                  onPressed: () => scanBarcode(),
+                  icon: const Icon(
+                    Icons.qr_code_scanner_rounded,
+                    size: 32,
+                  ),
+                ),
               ],
             ),
             const SizedBox(
@@ -156,7 +174,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                   return state.when(
                     initial: () => const LoadingIndicator(),
                     loading: () => const LoadingIndicator(),
-                    success: (products, hasReachedMax, __) =>
+                    success: (products, hasReachedMax, ___, __, _) =>
                         _buildList(products, hasReachedMax),
                     failure: (f) => AppErrorWidget(
                       error: f.error,
@@ -173,23 +191,25 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
   }
 
   void _refresh(Object buildContext) {
-    BlocProvider.of<FetchProductBloc>(context)
-        .add(FetchProductEvent.fetchInitialProduct());
+    BlocProvider.of<FetchProductBloc>(context).add(
+        FetchProductEvent.fetchInitialProduct(query: QueryController.text));
   }
 
   Widget _buildList(List<Product> products, bool hasReachedMax) {
-    return ListView.separated(
+    return ListView.builder(
       shrinkWrap: true,
       controller: _scrollController,
       itemCount: hasReachedMax ? products.length : products.length + 1,
-      separatorBuilder: (ctx, idx) => const Divider(),
       itemBuilder: (ctx, idx) {
-        if (idx >= products.length) return LoadingIndicator();
+        if (idx >= products.length) return const LoadingIndicator();
         final product = products[idx];
-        return ListTile(
-          title: Text(product.name),
-          subtitle: Text(product.uomName),
-          onTap: () => _askForQuantity(context, product),
+        return Card(
+          child: ListTile(
+            title: Text(product.name),
+            subtitle: Text(product.productCategoryName),
+            trailing: Text(product.uomName),
+            onTap: () => _askForQuantity(context, product),
+          ),
         );
       },
     );
@@ -233,8 +253,8 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
         ismione = true;
       }
       String finalbarCode = ismione ? barCode : '';
-      BlocProvider.of<FetchProductBloc>(context).add(
-          FetchProductEvent.fetchInitialProduct(barcodequery: finalbarCode));
+      BlocProvider.of<FetchProductBloc>(context)
+          .add(FetchProductEvent.fetchInitialProduct(barCode: finalbarCode));
       print("BarCode_Result:-- $barCode");
 
       print("FinalBarCode_Result:-- $finalbarCode");

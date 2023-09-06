@@ -28,6 +28,10 @@ mixin _$ProductDto {
   String get uomId => throw _privateConstructorUsedError;
   @JsonKey(name: 'uOM\$_identifier')
   String get uomName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'productCategory')
+  String get productCategoryId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'productCategory\$_identifier')
+  String get productCategoryName => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,10 +46,18 @@ abstract class $ProductDtoCopyWith<$Res> {
       _$ProductDtoCopyWithImpl<$Res, ProductDto>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') String id,
-      @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'uOM') String uomId,
-      @JsonKey(name: 'uOM\$_identifier') String uomName});
+      {@JsonKey(name: 'id')
+          String id,
+      @JsonKey(name: 'name')
+          String name,
+      @JsonKey(name: 'uOM')
+          String uomId,
+      @JsonKey(name: 'uOM\$_identifier')
+          String uomName,
+      @JsonKey(name: 'productCategory')
+          String productCategoryId,
+      @JsonKey(name: 'productCategory\$_identifier')
+          String productCategoryName});
 }
 
 /// @nodoc
@@ -65,6 +77,8 @@ class _$ProductDtoCopyWithImpl<$Res, $Val extends ProductDto>
     Object? name = null,
     Object? uomId = null,
     Object? uomName = null,
+    Object? productCategoryId = null,
+    Object? productCategoryName = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -83,6 +97,14 @@ class _$ProductDtoCopyWithImpl<$Res, $Val extends ProductDto>
           ? _value.uomName
           : uomName // ignore: cast_nullable_to_non_nullable
               as String,
+      productCategoryId: null == productCategoryId
+          ? _value.productCategoryId
+          : productCategoryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      productCategoryName: null == productCategoryName
+          ? _value.productCategoryName
+          : productCategoryName // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -96,10 +118,18 @@ abstract class _$$_ProductDtoCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'id') String id,
-      @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'uOM') String uomId,
-      @JsonKey(name: 'uOM\$_identifier') String uomName});
+      {@JsonKey(name: 'id')
+          String id,
+      @JsonKey(name: 'name')
+          String name,
+      @JsonKey(name: 'uOM')
+          String uomId,
+      @JsonKey(name: 'uOM\$_identifier')
+          String uomName,
+      @JsonKey(name: 'productCategory')
+          String productCategoryId,
+      @JsonKey(name: 'productCategory\$_identifier')
+          String productCategoryName});
 }
 
 /// @nodoc
@@ -117,6 +147,8 @@ class __$$_ProductDtoCopyWithImpl<$Res>
     Object? name = null,
     Object? uomId = null,
     Object? uomName = null,
+    Object? productCategoryId = null,
+    Object? productCategoryName = null,
   }) {
     return _then(_$_ProductDto(
       id: null == id
@@ -135,6 +167,14 @@ class __$$_ProductDtoCopyWithImpl<$Res>
           ? _value.uomName
           : uomName // ignore: cast_nullable_to_non_nullable
               as String,
+      productCategoryId: null == productCategoryId
+          ? _value.productCategoryId
+          : productCategoryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      productCategoryName: null == productCategoryName
+          ? _value.productCategoryName
+          : productCategoryName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -144,10 +184,18 @@ class __$$_ProductDtoCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true)
 class _$_ProductDto extends _ProductDto {
   const _$_ProductDto(
-      {@JsonKey(name: 'id') required this.id,
-      @JsonKey(name: 'name') required this.name,
-      @JsonKey(name: 'uOM') required this.uomId,
-      @JsonKey(name: 'uOM\$_identifier') required this.uomName})
+      {@JsonKey(name: 'id')
+          required this.id,
+      @JsonKey(name: 'name')
+          required this.name,
+      @JsonKey(name: 'uOM')
+          required this.uomId,
+      @JsonKey(name: 'uOM\$_identifier')
+          required this.uomName,
+      @JsonKey(name: 'productCategory')
+          required this.productCategoryId,
+      @JsonKey(name: 'productCategory\$_identifier')
+          required this.productCategoryName})
       : super._();
 
   factory _$_ProductDto.fromJson(Map<String, dynamic> json) =>
@@ -165,10 +213,16 @@ class _$_ProductDto extends _ProductDto {
   @override
   @JsonKey(name: 'uOM\$_identifier')
   final String uomName;
+  @override
+  @JsonKey(name: 'productCategory')
+  final String productCategoryId;
+  @override
+  @JsonKey(name: 'productCategory\$_identifier')
+  final String productCategoryName;
 
   @override
   String toString() {
-    return 'ProductDto(id: $id, name: $name, uomId: $uomId, uomName: $uomName)';
+    return 'ProductDto(id: $id, name: $name, uomId: $uomId, uomName: $uomName, productCategoryId: $productCategoryId, productCategoryName: $productCategoryName)';
   }
 
   @override
@@ -179,12 +233,17 @@ class _$_ProductDto extends _ProductDto {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.uomId, uomId) || other.uomId == uomId) &&
-            (identical(other.uomName, uomName) || other.uomName == uomName));
+            (identical(other.uomName, uomName) || other.uomName == uomName) &&
+            (identical(other.productCategoryId, productCategoryId) ||
+                other.productCategoryId == productCategoryId) &&
+            (identical(other.productCategoryName, productCategoryName) ||
+                other.productCategoryName == productCategoryName));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, uomId, uomName);
+  int get hashCode => Object.hash(runtimeType, id, name, uomId, uomName,
+      productCategoryId, productCategoryName);
 
   @JsonKey(ignore: true)
   @override
@@ -202,11 +261,18 @@ class _$_ProductDto extends _ProductDto {
 
 abstract class _ProductDto extends ProductDto {
   const factory _ProductDto(
-          {@JsonKey(name: 'id') required final String id,
-          @JsonKey(name: 'name') required final String name,
-          @JsonKey(name: 'uOM') required final String uomId,
-          @JsonKey(name: 'uOM\$_identifier') required final String uomName}) =
-      _$_ProductDto;
+      {@JsonKey(name: 'id')
+          required final String id,
+      @JsonKey(name: 'name')
+          required final String name,
+      @JsonKey(name: 'uOM')
+          required final String uomId,
+      @JsonKey(name: 'uOM\$_identifier')
+          required final String uomName,
+      @JsonKey(name: 'productCategory')
+          required final String productCategoryId,
+      @JsonKey(name: 'productCategory\$_identifier')
+          required final String productCategoryName}) = _$_ProductDto;
   const _ProductDto._() : super._();
 
   factory _ProductDto.fromJson(Map<String, dynamic> json) =
@@ -224,6 +290,12 @@ abstract class _ProductDto extends ProductDto {
   @override
   @JsonKey(name: 'uOM\$_identifier')
   String get uomName;
+  @override
+  @JsonKey(name: 'productCategory')
+  String get productCategoryId;
+  @override
+  @JsonKey(name: 'productCategory\$_identifier')
+  String get productCategoryName;
   @override
   @JsonKey(ignore: true)
   _$$_ProductDtoCopyWith<_$_ProductDto> get copyWith =>

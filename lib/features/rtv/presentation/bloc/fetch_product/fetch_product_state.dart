@@ -9,7 +9,9 @@ class FetchProductState with _$FetchProductState {
   const factory FetchProductState.success(
       {required List<Product> records,
       required bool hasReachedMax,
-      String? query}) = _FetchProductSuccess;
+      required List<String> categories,
+      String? query,
+      String? barCode}) = _FetchProductSuccess;
 
   const factory FetchProductState.failure(Failure failure) =
       _FetchProductFailure;

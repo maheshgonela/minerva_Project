@@ -4,13 +4,11 @@ part of 'fetch_product_bloc.dart';
 class FetchProductEvent with _$FetchProductEvent {
   const factory FetchProductEvent.fetchInitialProduct({
     String? query,
-    String? searchquery,
-    String? barcodequery,
-    String? selectedCategorysquery,
+    List<String>? selectedCategorys,
+    String? barCode,
   }) = _FetchInitialProduct;
   const factory FetchProductEvent.fetchMoreProduct({
     String? query,
-    String? searchquery,
-    String? selectedCategorysquery,
+    List<String>? selectedCategorys,
   }) = _FetchMoreProduct;
 }

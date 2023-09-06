@@ -15,24 +15,29 @@ abstract class ProductDto implements _$ProductDto {
     @JsonKey(name: 'name') required String name,
     @JsonKey(name: 'uOM') required String uomId,
     @JsonKey(name: 'uOM\$_identifier') required String uomName,
+    @JsonKey(name: 'productCategory') required String productCategoryId,
+    @JsonKey(name: 'productCategory\$_identifier')
+    required String productCategoryName,
   }) = _ProductDto;
 
   factory ProductDto.fromDomain(Product details) {
     return ProductDto(
-      id: details.id,
-      name: details.name,
-      uomId: details.uomId,
-      uomName: details.uomName,
-    );
+        id: details.id,
+        name: details.name,
+        uomId: details.uomId,
+        uomName: details.uomName,
+        productCategoryId: details.productCategoryId,
+        productCategoryName: details.productCategoryName);
   }
 
   Product toDomain() {
     return Product(
-      id: this.id,
-      name: this.name,
-      uomId: this.uomId,
-      uomName: this.uomName,
-    );
+        id: this.id,
+        name: this.name,
+        uomId: this.uomId,
+        uomName: this.uomName,
+        productCategoryId: this.productCategoryId,
+        productCategoryName: this.productCategoryName);
   }
 
   factory ProductDto.fromJson(Map<String, dynamic> json) =>

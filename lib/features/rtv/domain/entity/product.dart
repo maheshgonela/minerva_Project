@@ -9,5 +9,7 @@ abstract class Product with _$Product {
     required String name,
     required String uomId,
     required String uomName,
+    required String productCategoryId,
+    required String productCategoryName,
   }) = _Product;
 }

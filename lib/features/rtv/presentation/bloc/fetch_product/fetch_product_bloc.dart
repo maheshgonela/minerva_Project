@@ -21,38 +21,42 @@ class FetchProductBloc extends Bloc<FetchProductEvent, FetchProductState> {
       await event.map(fetchInitialProduct: (e) async {
         emit(FetchProductState.loading());
 
-        var result = await repo.fetchProducts(
-            searchText: e.searchquery,
-            barCode: e.barcodequery,
-            selectedCategorys: e.selectedCategorysquery,
+        final result = await repo.fetchProducts(
             start: 0,
             end: pageLength,
-            query: e.query);
+            query: e.query,
+            selectedCategorys: e.selectedCategorys,
+            barCode: e.barCode);
         emit(result.fold(
           (l) => FetchProductState.failure(l),
           (r) => FetchProductState.success(
-            records: r,
-            hasReachedMax: r.length < pageLength,
-            query: e.query,
-          ),
+              categories: e.selectedCategorys ?? <String>[],
+              hasReachedMax: r.length < pageLength,
+              records: r,
+              query: e.query,
+              barCode: e.barCode),
         ));
       }, fetchMoreProduct: (e) async {
         emit(await state.when(
           initial: () => state,
           loading: () => state,
-          success: (oldRecord, hasReachedMax, query) async {
+          success:
+              (oldRecord, hasReachedMax, categories, query, barCode) async {
             if (!hasReachedMax) {
               final result = await repo.fetchProducts(
-                  start: oldRecord.length,
-                  end: oldRecord.length + pageLength,
-                  query: e.query,
-                  searchText: e.searchquery,
-                  selectedCategorys: e.selectedCategorysquery);
+                start: oldRecord.length,
+                end: oldRecord.length + pageLength,
+                query: e.query,
+                selectedCategorys: e.selectedCategorys,
+              );
+
               return result.fold(
                 (f) => FetchProductState.failure(f),
                 (r) => FetchProductState.success(
-                  records: oldRecord + r,
+                  categories: e.selectedCategorys ?? <String>[],
                   hasReachedMax: r.length < pageLength,
+                  records: oldRecord + r,
+                  query: e.query,
                 ),
               );
             }

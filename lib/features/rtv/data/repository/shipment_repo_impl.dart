@@ -75,33 +75,40 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
   Future<Either<Failure, List<Product>>> fetchProducts(
       {String? searchText,
       String? barCode,
-      String? selectedCategorys,
+      List<String>? selectedCategorys,
       int? start,
       int? end,
       String? query}) async {
     const String defErrMsg = 'Could not fetch products';
-
+    String? finalSelectedCategorys = selectedCategorys?.join("','");
     String searchCondition = "";
     String barcodeCondition = "";
     String categoryCondition = "";
     try {
-      print('searchText : $searchText');
+      print('searchText : $query');
       print('barCode : $barCode');
-      print('selectedCategorys : $selectedCategorys');
-//https://minerva.easycloud.co.in/openbravo1/org.openbravo.service.json.jsonrest/Product/?_startRow=0&_endRow=20&_where=lower(name) like  lower('%25pinni%25')
-      if (searchText != null && searchText.trim().isNotEmpty) {
-        searchCondition =
-            "&_where=lower(name) like  lower('%25$searchText%25')";
+      print('finalSelectedCategorys : $finalSelectedCategorys');
+      final filters = <String>[];
+      if (query != null && query.trim().isNotEmpty) {
+        searchCondition = "lower(name) like  lower('%25$query%25')";
+        filters.add(searchCondition);
+      }
+      if (finalSelectedCategorys != null &&
+          finalSelectedCategorys.trim().isNotEmpty) {
+        categoryCondition = "productCategory IN ('$finalSelectedCategorys')";
+        filters.add(categoryCondition);
       }
       if (barCode != null && barCode.trim().isNotEmpty) {
-        barcodeCondition =
-            "&_where=lower(uPCEAN) like  lower('%25$barCode%25')";
+        barcodeCondition = "lower(uPCEAN) like  lower('%25$barCode%25')";
+        filters.add(barcodeCondition);
       }
-      if (selectedCategorys != null && selectedCategorys.trim().isNotEmpty) {
-        categoryCondition = "&_where=productCategory IN ('$selectedCategorys')";
-      }
+      print('filters : $filters');
+      // ignore: no_leading_underscores_for_local_identifiers
+      final _condition =
+          filters.isEmpty ? "" : "&_where=${filters.join(" and ")}";
+      print('_condition : $_condition');
       final String url =
-          "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end$searchCondition$barcodeCondition$categoryCondition&_sortBy=name";
+          "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end$_condition&_sortBy=name";
       print(url);
       final data = await safeApiCall(
         () => client.get(Uri.parse(url), headers: _authHeader()),

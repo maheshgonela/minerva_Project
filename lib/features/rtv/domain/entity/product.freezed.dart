@@ -20,6 +20,8 @@ mixin _$Product {
   String get name => throw _privateConstructorUsedError;
   String get uomId => throw _privateConstructorUsedError;
   String get uomName => throw _privateConstructorUsedError;
+  String get productCategoryId => throw _privateConstructorUsedError;
+  String get productCategoryName => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
@@ -30,7 +32,13 @@ abstract class $ProductCopyWith<$Res> {
   factory $ProductCopyWith(Product value, $Res Function(Product) then) =
       _$ProductCopyWithImpl<$Res, Product>;
   @useResult
-  $Res call({String id, String name, String uomId, String uomName});
+  $Res call(
+      {String id,
+      String name,
+      String uomId,
+      String uomName,
+      String productCategoryId,
+      String productCategoryName});
 }
 
 /// @nodoc
@@ -50,6 +58,8 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? name = null,
     Object? uomId = null,
     Object? uomName = null,
+    Object? productCategoryId = null,
+    Object? productCategoryName = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -68,6 +78,14 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.uomName
           : uomName // ignore: cast_nullable_to_non_nullable
               as String,
+      productCategoryId: null == productCategoryId
+          ? _value.productCategoryId
+          : productCategoryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      productCategoryName: null == productCategoryName
+          ? _value.productCategoryName
+          : productCategoryName // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -79,7 +97,13 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       __$$_ProductCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String uomId, String uomName});
+  $Res call(
+      {String id,
+      String name,
+      String uomId,
+      String uomName,
+      String productCategoryId,
+      String productCategoryName});
 }
 
 /// @nodoc
@@ -96,6 +120,8 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? name = null,
     Object? uomId = null,
     Object? uomName = null,
+    Object? productCategoryId = null,
+    Object? productCategoryName = null,
   }) {
     return _then(_$_Product(
       id: null == id
@@ -114,6 +140,14 @@ class __$$_ProductCopyWithImpl<$Res>
           ? _value.uomName
           : uomName // ignore: cast_nullable_to_non_nullable
               as String,
+      productCategoryId: null == productCategoryId
+          ? _value.productCategoryId
+          : productCategoryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      productCategoryName: null == productCategoryName
+          ? _value.productCategoryName
+          : productCategoryName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -125,7 +159,9 @@ class _$_Product implements _Product {
       {required this.id,
       required this.name,
       required this.uomId,
-      required this.uomName});
+      required this.uomName,
+      required this.productCategoryId,
+      required this.productCategoryName});
 
   @override
   final String id;
@@ -135,10 +171,14 @@ class _$_Product implements _Product {
   final String uomId;
   @override
   final String uomName;
+  @override
+  final String productCategoryId;
+  @override
+  final String productCategoryName;
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, uomId: $uomId, uomName: $uomName)';
+    return 'Product(id: $id, name: $name, uomId: $uomId, uomName: $uomName, productCategoryId: $productCategoryId, productCategoryName: $productCategoryName)';
   }
 
   @override
@@ -149,11 +189,16 @@ class _$_Product implements _Product {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.uomId, uomId) || other.uomId == uomId) &&
-            (identical(other.uomName, uomName) || other.uomName == uomName));
+            (identical(other.uomName, uomName) || other.uomName == uomName) &&
+            (identical(other.productCategoryId, productCategoryId) ||
+                other.productCategoryId == productCategoryId) &&
+            (identical(other.productCategoryName, productCategoryName) ||
+                other.productCategoryName == productCategoryName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, uomId, uomName);
+  int get hashCode => Object.hash(runtimeType, id, name, uomId, uomName,
+      productCategoryId, productCategoryName);
 
   @JsonKey(ignore: true)
   @override
@@ -167,7 +212,9 @@ abstract class _Product implements Product {
       {required final String id,
       required final String name,
       required final String uomId,
-      required final String uomName}) = _$_Product;
+      required final String uomName,
+      required final String productCategoryId,
+      required final String productCategoryName}) = _$_Product;
 
   @override
   String get id;
@@ -177,6 +224,10 @@ abstract class _Product implements Product {
   String get uomId;
   @override
   String get uomName;
+  @override
+  String get productCategoryId;
+  @override
+  String get productCategoryName;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCopyWith<_$_Product> get copyWith =>

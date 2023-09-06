@@ -17,35 +17,31 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$FetchProductEvent {
   String? get query => throw _privateConstructorUsedError;
-  String? get searchquery => throw _privateConstructorUsedError;
-  String? get selectedCategorysquery => throw _privateConstructorUsedError;
+  List<String>? get selectedCategorys => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? query, String? searchquery,
-            String? barcodequery, String? selectedCategorysquery)
-        fetchInitialProduct,
     required TResult Function(
-            String? query, String? searchquery, String? selectedCategorysquery)
+            String? query, List<String>? selectedCategorys, String? barCode)
+        fetchInitialProduct,
+    required TResult Function(String? query, List<String>? selectedCategorys)
         fetchMoreProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? query, String? searchquery, String? barcodequery,
-            String? selectedCategorysquery)?
-        fetchInitialProduct,
     TResult? Function(
-            String? query, String? searchquery, String? selectedCategorysquery)?
+            String? query, List<String>? selectedCategorys, String? barCode)?
+        fetchInitialProduct,
+    TResult? Function(String? query, List<String>? selectedCategorys)?
         fetchMoreProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? query, String? searchquery, String? barcodequery,
-            String? selectedCategorysquery)?
-        fetchInitialProduct,
     TResult Function(
-            String? query, String? searchquery, String? selectedCategorysquery)?
+            String? query, List<String>? selectedCategorys, String? barCode)?
+        fetchInitialProduct,
+    TResult Function(String? query, List<String>? selectedCategorys)?
         fetchMoreProduct,
     required TResult orElse(),
   }) =>
@@ -81,8 +77,7 @@ abstract class $FetchProductEventCopyWith<$Res> {
           FetchProductEvent value, $Res Function(FetchProductEvent) then) =
       _$FetchProductEventCopyWithImpl<$Res, FetchProductEvent>;
   @useResult
-  $Res call(
-      {String? query, String? searchquery, String? selectedCategorysquery});
+  $Res call({String? query, List<String>? selectedCategorys});
 }
 
 /// @nodoc
@@ -99,22 +94,17 @@ class _$FetchProductEventCopyWithImpl<$Res, $Val extends FetchProductEvent>
   @override
   $Res call({
     Object? query = freezed,
-    Object? searchquery = freezed,
-    Object? selectedCategorysquery = freezed,
+    Object? selectedCategorys = freezed,
   }) {
     return _then(_value.copyWith(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String?,
-      searchquery: freezed == searchquery
-          ? _value.searchquery
-          : searchquery // ignore: cast_nullable_to_non_nullable
-              as String?,
-      selectedCategorysquery: freezed == selectedCategorysquery
-          ? _value.selectedCategorysquery
-          : selectedCategorysquery // ignore: cast_nullable_to_non_nullable
-              as String?,
+      selectedCategorys: freezed == selectedCategorys
+          ? _value.selectedCategorys
+          : selectedCategorys // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ) as $Val);
   }
 }
@@ -127,11 +117,7 @@ abstract class _$$_FetchInitialProductCopyWith<$Res>
       __$$_FetchInitialProductCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String? query,
-      String? searchquery,
-      String? barcodequery,
-      String? selectedCategorysquery});
+  $Res call({String? query, List<String>? selectedCategorys, String? barCode});
 }
 
 /// @nodoc
@@ -146,26 +132,21 @@ class __$$_FetchInitialProductCopyWithImpl<$Res>
   @override
   $Res call({
     Object? query = freezed,
-    Object? searchquery = freezed,
-    Object? barcodequery = freezed,
-    Object? selectedCategorysquery = freezed,
+    Object? selectedCategorys = freezed,
+    Object? barCode = freezed,
   }) {
     return _then(_$_FetchInitialProduct(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String?,
-      searchquery: freezed == searchquery
-          ? _value.searchquery
-          : searchquery // ignore: cast_nullable_to_non_nullable
-              as String?,
-      barcodequery: freezed == barcodequery
-          ? _value.barcodequery
-          : barcodequery // ignore: cast_nullable_to_non_nullable
-              as String?,
-      selectedCategorysquery: freezed == selectedCategorysquery
-          ? _value.selectedCategorysquery
-          : selectedCategorysquery // ignore: cast_nullable_to_non_nullable
+      selectedCategorys: freezed == selectedCategorys
+          ? _value._selectedCategorys
+          : selectedCategorys // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      barCode: freezed == barCode
+          ? _value.barCode
+          : barCode // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -175,23 +156,28 @@ class __$$_FetchInitialProductCopyWithImpl<$Res>
 
 class _$_FetchInitialProduct implements _FetchInitialProduct {
   const _$_FetchInitialProduct(
-      {this.query,
-      this.searchquery,
-      this.barcodequery,
-      this.selectedCategorysquery});
+      {this.query, final List<String>? selectedCategorys, this.barCode})
+      : _selectedCategorys = selectedCategorys;
 
   @override
   final String? query;
+  final List<String>? _selectedCategorys;
   @override
-  final String? searchquery;
+  List<String>? get selectedCategorys {
+    final value = _selectedCategorys;
+    if (value == null) return null;
+    if (_selectedCategorys is EqualUnmodifiableListView)
+      return _selectedCategorys;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
-  final String? barcodequery;
-  @override
-  final String? selectedCategorysquery;
+  final String? barCode;
 
   @override
   String toString() {
-    return 'FetchProductEvent.fetchInitialProduct(query: $query, searchquery: $searchquery, barcodequery: $barcodequery, selectedCategorysquery: $selectedCategorysquery)';
+    return 'FetchProductEvent.fetchInitialProduct(query: $query, selectedCategorys: $selectedCategorys, barCode: $barCode)';
   }
 
   @override
@@ -200,17 +186,14 @@ class _$_FetchInitialProduct implements _FetchInitialProduct {
         (other.runtimeType == runtimeType &&
             other is _$_FetchInitialProduct &&
             (identical(other.query, query) || other.query == query) &&
-            (identical(other.searchquery, searchquery) ||
-                other.searchquery == searchquery) &&
-            (identical(other.barcodequery, barcodequery) ||
-                other.barcodequery == barcodequery) &&
-            (identical(other.selectedCategorysquery, selectedCategorysquery) ||
-                other.selectedCategorysquery == selectedCategorysquery));
+            const DeepCollectionEquality()
+                .equals(other._selectedCategorys, _selectedCategorys) &&
+            (identical(other.barCode, barCode) || other.barCode == barCode));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, query, searchquery, barcodequery, selectedCategorysquery);
+  int get hashCode => Object.hash(runtimeType, query,
+      const DeepCollectionEquality().hash(_selectedCategorys), barCode);
 
   @JsonKey(ignore: true)
   @override
@@ -222,45 +205,39 @@ class _$_FetchInitialProduct implements _FetchInitialProduct {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? query, String? searchquery,
-            String? barcodequery, String? selectedCategorysquery)
-        fetchInitialProduct,
     required TResult Function(
-            String? query, String? searchquery, String? selectedCategorysquery)
+            String? query, List<String>? selectedCategorys, String? barCode)
+        fetchInitialProduct,
+    required TResult Function(String? query, List<String>? selectedCategorys)
         fetchMoreProduct,
   }) {
-    return fetchInitialProduct(
-        query, searchquery, barcodequery, selectedCategorysquery);
+    return fetchInitialProduct(query, selectedCategorys, barCode);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? query, String? searchquery, String? barcodequery,
-            String? selectedCategorysquery)?
-        fetchInitialProduct,
     TResult? Function(
-            String? query, String? searchquery, String? selectedCategorysquery)?
+            String? query, List<String>? selectedCategorys, String? barCode)?
+        fetchInitialProduct,
+    TResult? Function(String? query, List<String>? selectedCategorys)?
         fetchMoreProduct,
   }) {
-    return fetchInitialProduct?.call(
-        query, searchquery, barcodequery, selectedCategorysquery);
+    return fetchInitialProduct?.call(query, selectedCategorys, barCode);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? query, String? searchquery, String? barcodequery,
-            String? selectedCategorysquery)?
-        fetchInitialProduct,
     TResult Function(
-            String? query, String? searchquery, String? selectedCategorysquery)?
+            String? query, List<String>? selectedCategorys, String? barCode)?
+        fetchInitialProduct,
+    TResult Function(String? query, List<String>? selectedCategorys)?
         fetchMoreProduct,
     required TResult orElse(),
   }) {
     if (fetchInitialProduct != null) {
-      return fetchInitialProduct(
-          query, searchquery, barcodequery, selectedCategorysquery);
+      return fetchInitialProduct(query, selectedCategorys, barCode);
     }
     return orElse();
   }
@@ -300,17 +277,14 @@ class _$_FetchInitialProduct implements _FetchInitialProduct {
 abstract class _FetchInitialProduct implements FetchProductEvent {
   const factory _FetchInitialProduct(
       {final String? query,
-      final String? searchquery,
-      final String? barcodequery,
-      final String? selectedCategorysquery}) = _$_FetchInitialProduct;
+      final List<String>? selectedCategorys,
+      final String? barCode}) = _$_FetchInitialProduct;
 
   @override
   String? get query;
   @override
-  String? get searchquery;
-  String? get barcodequery;
-  @override
-  String? get selectedCategorysquery;
+  List<String>? get selectedCategorys;
+  String? get barCode;
   @override
   @JsonKey(ignore: true)
   _$$_FetchInitialProductCopyWith<_$_FetchInitialProduct> get copyWith =>
@@ -325,8 +299,7 @@ abstract class _$$_FetchMoreProductCopyWith<$Res>
       __$$_FetchMoreProductCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String? query, String? searchquery, String? selectedCategorysquery});
+  $Res call({String? query, List<String>? selectedCategorys});
 }
 
 /// @nodoc
@@ -341,22 +314,17 @@ class __$$_FetchMoreProductCopyWithImpl<$Res>
   @override
   $Res call({
     Object? query = freezed,
-    Object? searchquery = freezed,
-    Object? selectedCategorysquery = freezed,
+    Object? selectedCategorys = freezed,
   }) {
     return _then(_$_FetchMoreProduct(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String?,
-      searchquery: freezed == searchquery
-          ? _value.searchquery
-          : searchquery // ignore: cast_nullable_to_non_nullable
-              as String?,
-      selectedCategorysquery: freezed == selectedCategorysquery
-          ? _value.selectedCategorysquery
-          : selectedCategorysquery // ignore: cast_nullable_to_non_nullable
-              as String?,
+      selectedCategorys: freezed == selectedCategorys
+          ? _value._selectedCategorys
+          : selectedCategorys // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
     ));
   }
 }
@@ -364,19 +332,25 @@ class __$$_FetchMoreProductCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FetchMoreProduct implements _FetchMoreProduct {
-  const _$_FetchMoreProduct(
-      {this.query, this.searchquery, this.selectedCategorysquery});
+  const _$_FetchMoreProduct({this.query, final List<String>? selectedCategorys})
+      : _selectedCategorys = selectedCategorys;
 
   @override
   final String? query;
+  final List<String>? _selectedCategorys;
   @override
-  final String? searchquery;
-  @override
-  final String? selectedCategorysquery;
+  List<String>? get selectedCategorys {
+    final value = _selectedCategorys;
+    if (value == null) return null;
+    if (_selectedCategorys is EqualUnmodifiableListView)
+      return _selectedCategorys;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'FetchProductEvent.fetchMoreProduct(query: $query, searchquery: $searchquery, selectedCategorysquery: $selectedCategorysquery)';
+    return 'FetchProductEvent.fetchMoreProduct(query: $query, selectedCategorys: $selectedCategorys)';
   }
 
   @override
@@ -385,15 +359,13 @@ class _$_FetchMoreProduct implements _FetchMoreProduct {
         (other.runtimeType == runtimeType &&
             other is _$_FetchMoreProduct &&
             (identical(other.query, query) || other.query == query) &&
-            (identical(other.searchquery, searchquery) ||
-                other.searchquery == searchquery) &&
-            (identical(other.selectedCategorysquery, selectedCategorysquery) ||
-                other.selectedCategorysquery == selectedCategorysquery));
+            const DeepCollectionEquality()
+                .equals(other._selectedCategorys, _selectedCategorys));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, query, searchquery, selectedCategorysquery);
+  int get hashCode => Object.hash(runtimeType, query,
+      const DeepCollectionEquality().hash(_selectedCategorys));
 
   @JsonKey(ignore: true)
   @override
@@ -404,42 +376,39 @@ class _$_FetchMoreProduct implements _FetchMoreProduct {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String? query, String? searchquery,
-            String? barcodequery, String? selectedCategorysquery)
-        fetchInitialProduct,
     required TResult Function(
-            String? query, String? searchquery, String? selectedCategorysquery)
+            String? query, List<String>? selectedCategorys, String? barCode)
+        fetchInitialProduct,
+    required TResult Function(String? query, List<String>? selectedCategorys)
         fetchMoreProduct,
   }) {
-    return fetchMoreProduct(query, searchquery, selectedCategorysquery);
+    return fetchMoreProduct(query, selectedCategorys);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? query, String? searchquery, String? barcodequery,
-            String? selectedCategorysquery)?
-        fetchInitialProduct,
     TResult? Function(
-            String? query, String? searchquery, String? selectedCategorysquery)?
+            String? query, List<String>? selectedCategorys, String? barCode)?
+        fetchInitialProduct,
+    TResult? Function(String? query, List<String>? selectedCategorys)?
         fetchMoreProduct,
   }) {
-    return fetchMoreProduct?.call(query, searchquery, selectedCategorysquery);
+    return fetchMoreProduct?.call(query, selectedCategorys);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? query, String? searchquery, String? barcodequery,
-            String? selectedCategorysquery)?
-        fetchInitialProduct,
     TResult Function(
-            String? query, String? searchquery, String? selectedCategorysquery)?
+            String? query, List<String>? selectedCategorys, String? barCode)?
+        fetchInitialProduct,
+    TResult Function(String? query, List<String>? selectedCategorys)?
         fetchMoreProduct,
     required TResult orElse(),
   }) {
     if (fetchMoreProduct != null) {
-      return fetchMoreProduct(query, searchquery, selectedCategorysquery);
+      return fetchMoreProduct(query, selectedCategorys);
     }
     return orElse();
   }
@@ -479,15 +448,12 @@ class _$_FetchMoreProduct implements _FetchMoreProduct {
 abstract class _FetchMoreProduct implements FetchProductEvent {
   const factory _FetchMoreProduct(
       {final String? query,
-      final String? searchquery,
-      final String? selectedCategorysquery}) = _$_FetchMoreProduct;
+      final List<String>? selectedCategorys}) = _$_FetchMoreProduct;
 
   @override
   String? get query;
   @override
-  String? get searchquery;
-  @override
-  String? get selectedCategorysquery;
+  List<String>? get selectedCategorys;
   @override
   @JsonKey(ignore: true)
   _$$_FetchMoreProductCopyWith<_$_FetchMoreProduct> get copyWith =>
@@ -500,8 +466,8 @@ mixin _$FetchProductState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<Product> records, bool hasReachedMax, String? query)
+    required TResult Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)
         success,
     required TResult Function(Failure failure) failure,
   }) =>
@@ -510,7 +476,8 @@ mixin _$FetchProductState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Product> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)?
         success,
     TResult? Function(Failure failure)? failure,
   }) =>
@@ -519,7 +486,8 @@ mixin _$FetchProductState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Product> records, bool hasReachedMax, String? query)?
+    TResult Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -610,8 +578,8 @@ class _$_FetchProductInitial implements _FetchProductInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<Product> records, bool hasReachedMax, String? query)
+    required TResult Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)
         success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -623,7 +591,8 @@ class _$_FetchProductInitial implements _FetchProductInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Product> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)?
         success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -635,7 +604,8 @@ class _$_FetchProductInitial implements _FetchProductInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Product> records, bool hasReachedMax, String? query)?
+    TResult Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -728,8 +698,8 @@ class _$_FetchProductLoading implements _FetchProductLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<Product> records, bool hasReachedMax, String? query)
+    required TResult Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)
         success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -741,7 +711,8 @@ class _$_FetchProductLoading implements _FetchProductLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Product> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)?
         success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -753,7 +724,8 @@ class _$_FetchProductLoading implements _FetchProductLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Product> records, bool hasReachedMax, String? query)?
+    TResult Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -812,7 +784,12 @@ abstract class _$$_FetchProductSuccessCopyWith<$Res> {
           $Res Function(_$_FetchProductSuccess) then) =
       __$$_FetchProductSuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Product> records, bool hasReachedMax, String? query});
+  $Res call(
+      {List<Product> records,
+      bool hasReachedMax,
+      List<String> categories,
+      String? query,
+      String? barCode});
 }
 
 /// @nodoc
@@ -828,7 +805,9 @@ class __$$_FetchProductSuccessCopyWithImpl<$Res>
   $Res call({
     Object? records = null,
     Object? hasReachedMax = null,
+    Object? categories = null,
     Object? query = freezed,
+    Object? barCode = freezed,
   }) {
     return _then(_$_FetchProductSuccess(
       records: null == records
@@ -839,9 +818,17 @@ class __$$_FetchProductSuccessCopyWithImpl<$Res>
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
               as bool,
+      categories: null == categories
+          ? _value._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
+              as String?,
+      barCode: freezed == barCode
+          ? _value.barCode
+          : barCode // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -853,8 +840,11 @@ class _$_FetchProductSuccess implements _FetchProductSuccess {
   const _$_FetchProductSuccess(
       {required final List<Product> records,
       required this.hasReachedMax,
-      this.query})
-      : _records = records;
+      required final List<String> categories,
+      this.query,
+      this.barCode})
+      : _records = records,
+        _categories = categories;
 
   final List<Product> _records;
   @override
@@ -866,12 +856,22 @@ class _$_FetchProductSuccess implements _FetchProductSuccess {
 
   @override
   final bool hasReachedMax;
+  final List<String> _categories;
+  @override
+  List<String> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categories);
+  }
+
   @override
   final String? query;
+  @override
+  final String? barCode;
 
   @override
   String toString() {
-    return 'FetchProductState.success(records: $records, hasReachedMax: $hasReachedMax, query: $query)';
+    return 'FetchProductState.success(records: $records, hasReachedMax: $hasReachedMax, categories: $categories, query: $query, barCode: $barCode)';
   }
 
   @override
@@ -882,12 +882,20 @@ class _$_FetchProductSuccess implements _FetchProductSuccess {
             const DeepCollectionEquality().equals(other._records, _records) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
-            (identical(other.query, query) || other.query == query));
+            const DeepCollectionEquality()
+                .equals(other._categories, _categories) &&
+            (identical(other.query, query) || other.query == query) &&
+            (identical(other.barCode, barCode) || other.barCode == barCode));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_records), hasReachedMax, query);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_records),
+      hasReachedMax,
+      const DeepCollectionEquality().hash(_categories),
+      query,
+      barCode);
 
   @JsonKey(ignore: true)
   @override
@@ -901,12 +909,12 @@ class _$_FetchProductSuccess implements _FetchProductSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<Product> records, bool hasReachedMax, String? query)
+    required TResult Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)
         success,
     required TResult Function(Failure failure) failure,
   }) {
-    return success(records, hasReachedMax, query);
+    return success(records, hasReachedMax, categories, query, barCode);
   }
 
   @override
@@ -914,11 +922,12 @@ class _$_FetchProductSuccess implements _FetchProductSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Product> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)?
         success,
     TResult? Function(Failure failure)? failure,
   }) {
-    return success?.call(records, hasReachedMax, query);
+    return success?.call(records, hasReachedMax, categories, query, barCode);
   }
 
   @override
@@ -926,13 +935,14 @@ class _$_FetchProductSuccess implements _FetchProductSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Product> records, bool hasReachedMax, String? query)?
+    TResult Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(records, hasReachedMax, query);
+      return success(records, hasReachedMax, categories, query, barCode);
     }
     return orElse();
   }
@@ -979,11 +989,15 @@ abstract class _FetchProductSuccess implements FetchProductState {
   const factory _FetchProductSuccess(
       {required final List<Product> records,
       required final bool hasReachedMax,
-      final String? query}) = _$_FetchProductSuccess;
+      required final List<String> categories,
+      final String? query,
+      final String? barCode}) = _$_FetchProductSuccess;
 
   List<Product> get records;
   bool get hasReachedMax;
+  List<String> get categories;
   String? get query;
+  String? get barCode;
   @JsonKey(ignore: true)
   _$$_FetchProductSuccessCopyWith<_$_FetchProductSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1066,8 +1080,8 @@ class _$_FetchProductFailure implements _FetchProductFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(
-            List<Product> records, bool hasReachedMax, String? query)
+    required TResult Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)
         success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -1079,7 +1093,8 @@ class _$_FetchProductFailure implements _FetchProductFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Product> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)?
         success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -1091,7 +1106,8 @@ class _$_FetchProductFailure implements _FetchProductFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Product> records, bool hasReachedMax, String? query)?
+    TResult Function(List<Product> records, bool hasReachedMax,
+            List<String> categories, String? query, String? barCode)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),

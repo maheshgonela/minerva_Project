@@ -10,7 +10,7 @@ abstract class ShipmentRepo {
   Future<Either<Failure, List<Product>>> fetchProducts(
       {String? searchText,
       String? barCode,
-      String? selectedCategorys,
+      List<String>? selectedCategorys,
       int start,
       int end,
       String? query});
