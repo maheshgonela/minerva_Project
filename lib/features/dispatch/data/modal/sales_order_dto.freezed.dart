@@ -286,7 +286,7 @@ abstract class _SalesOrderDto extends SalesOrderDto {
       required final String documentNo,
       required final String businessPartner,
       @JsonKey(name: 'partnerAddress')
-          required final String businessPartnerLocation,
+      required final String businessPartnerLocation,
       required final String warehouse,
       required final String scheduledDeliveryDate,
       final String? deliveryLocation}) = _$_SalesOrderDto;

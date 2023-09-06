@@ -42,7 +42,6 @@ class _QuantityDialogState extends State<QuantityDialog> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Divider(),
             TextField(
               autofocus: true,
               controller: _controller,

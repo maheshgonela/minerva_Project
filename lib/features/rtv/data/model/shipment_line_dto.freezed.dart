@@ -244,16 +244,12 @@ class _$_ShipmentLineDto extends _ShipmentLineDto {
 abstract class _ShipmentLineDto extends ShipmentLineDto {
   const factory _ShipmentLineDto(
       {required final String id,
-      @JsonKey(name: 'product')
-          required final String productId,
-      @JsonKey(name: 'product\$_identifier')
-          required final String productName,
-      @JsonKey(name: 'uOM')
-          required final String uomName,
-      @JsonKey(name: 'uOM\$_identifier')
-          required final String storageBinName,
+      @JsonKey(name: 'product') required final String productId,
+      @JsonKey(name: 'product\$_identifier') required final String productName,
+      @JsonKey(name: 'uOM') required final String uomName,
+      @JsonKey(name: 'uOM\$_identifier') required final String storageBinName,
       @JsonKey(name: 'movementQuantity')
-          required final double movementQty}) = _$_ShipmentLineDto;
+      required final double movementQty}) = _$_ShipmentLineDto;
   const _ShipmentLineDto._() : super._();
 
   factory _ShipmentLineDto.fromJson(Map<String, dynamic> json) =

@@ -198,12 +198,10 @@ class _$_ShipmentDto extends _ShipmentDto {
       {required this.id,
       required this.organization,
       required this.documentNo,
-      @JsonKey(name: 'businessPartner')
-          required this.bpId,
-      @JsonKey(name: 'businessPartner\$_identifier')
-          required this.bpName,
+      @JsonKey(name: 'businessPartner') required this.bpId,
+      @JsonKey(name: 'businessPartner\$_identifier') required this.bpName,
       @JsonKey(name: 'partnerAddress\$_identifier')
-          required this.partnerAddress,
+      required this.partnerAddress,
       required this.movementDate,
       this.description})
       : super._();
@@ -280,12 +278,11 @@ abstract class _ShipmentDto extends ShipmentDto {
       {required final String id,
       required final String organization,
       required final String documentNo,
-      @JsonKey(name: 'businessPartner')
-          required final String bpId,
+      @JsonKey(name: 'businessPartner') required final String bpId,
       @JsonKey(name: 'businessPartner\$_identifier')
-          required final String bpName,
+      required final String bpName,
       @JsonKey(name: 'partnerAddress\$_identifier')
-          required final String partnerAddress,
+      required final String partnerAddress,
       required final String movementDate,
       final String? description}) = _$_ShipmentDto;
   const _ShipmentDto._() : super._();

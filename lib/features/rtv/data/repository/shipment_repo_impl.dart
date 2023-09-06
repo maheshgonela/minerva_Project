@@ -63,19 +63,19 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
 
   @override
   Future<Either<Failure, List<Product>>> fetchProducts(
-      int start, int end, String bpId, String? query) async {
+      int start, int end, String? query) async {
     const String defErrMsg = 'Could not fetch products';
     try {
-      var categoryFilter = '';
-      if (bpId == Constants.pullaReddySweetsId) {
-        categoryFilter =
-            "productCategory in ('${Constants.bakeryCategoryId}', '${Constants.sweetsCategoryId}')";
-      } else if (bpId == Constants.foodsLlpId) {
-        categoryFilter = "productCategory in ('${Constants.oilCategoryId}')";
-      }
+      // var categoryFilter = '';
+      // if (bpId == Constants.pullaReddySweetsId) {
+      //   categoryFilter =
+      //       "productCategory in ('${Constants.bakeryCategoryId}', '${Constants.sweetsCategoryId}')";
+      // } else if (bpId == Constants.foodsLlpId) {
+      //   categoryFilter = "productCategory in ('${Constants.oilCategoryId}')";
+      // }
       final String url =
           "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end&"
-          "_where=$categoryFilter&"
+
           "_sortBy=name";
 
       final data = await safeApiCall(

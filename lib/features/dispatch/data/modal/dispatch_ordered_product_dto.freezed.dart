@@ -375,27 +375,20 @@ class _$_DispatchOrderedProductDto extends _DispatchOrderedProductDto {
 
 abstract class _DispatchOrderedProductDto extends DispatchOrderedProductDto {
   const factory _DispatchOrderedProductDto(
-      {required final String id,
-      required final String organization,
-      required final String product,
-      @JsonKey(name: 'code')
-          required final String productCode,
-      @JsonKey(name: 'productcat')
-          required final String productCategory,
-      @JsonKey(name: 'subcategory')
-          required final String subCategory,
-      @JsonKey(name: 'product_name')
-          required final String productName,
-      @JsonKey(name: 'uom')
-          required final String uOM,
-      @JsonKey(name: 'uom_name', defaultValue: '')
+          {required final String id,
+          required final String organization,
+          required final String product,
+          @JsonKey(name: 'code') required final String productCode,
+          @JsonKey(name: 'productcat') required final String productCategory,
+          @JsonKey(name: 'subcategory') required final String subCategory,
+          @JsonKey(name: 'product_name') required final String productName,
+          @JsonKey(name: 'uom') required final String uOM,
+          @JsonKey(name: 'uom_name', defaultValue: '')
           required final String uOMName,
-      @JsonKey(name: 'ordered_qty')
-          required final String orderedQuantity,
-      @JsonKey(name: 'pending_qty')
-          required final String pendingQty,
-      @JsonKey(name: 'dispatch_qty')
-          required final String dispatchQty}) = _$_DispatchOrderedProductDto;
+          @JsonKey(name: 'ordered_qty') required final String orderedQuantity,
+          @JsonKey(name: 'pending_qty') required final String pendingQty,
+          @JsonKey(name: 'dispatch_qty') required final String dispatchQty}) =
+      _$_DispatchOrderedProductDto;
   const _DispatchOrderedProductDto._() : super._();
 
   factory _DispatchOrderedProductDto.fromJson(Map<String, dynamic> json) =

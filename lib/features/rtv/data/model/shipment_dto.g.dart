@@ -12,7 +12,6 @@ _$_ShipmentDto _$$_ShipmentDtoFromJson(Map<String, dynamic> json) =>
       organization: json['organization'] as String,
       documentNo: json['documentNo'] as String,
       bpId: json['businessPartner'] as String,
-      
       bpName: json[r'businessPartner$_identifier'] as String,
       partnerAddress: json[r'partnerAddress$_identifier'] as String,
       movementDate: json['movementDate'] as String,

@@ -42,7 +42,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
         success: (pr, hasReachedMax, __) {
           if (!hasReachedMax) {
             BlocProvider.of<FetchProductBloc>(context)
-                .add(FetchProductEvent.fetchMoreProduct(widget.bpId));
+                .add(FetchProductEvent.fetchMoreProduct());
           }
         },
         orElse: () {},
@@ -91,7 +91,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
 
   void _refresh() {
     BlocProvider.of<FetchProductBloc>(context)
-        .add(FetchProductEvent.fetchInitialProduct(widget.bpId));
+        .add(FetchProductEvent.fetchInitialProduct());
   }
 
   Widget _buildList(List<Product> products, bool hasReachedMax) {

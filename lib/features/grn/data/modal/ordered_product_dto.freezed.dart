@@ -373,24 +373,17 @@ abstract class _OrderedProductDto extends OrderedProductDto {
       {required final String id,
       required final String organization,
       required final String product,
-      @JsonKey(name: 'code')
-          required final String productCode,
-      @JsonKey(name: 'productcat')
-          required final String productCategory,
-      @JsonKey(name: 'subcategory')
-          required final String subCategory,
-      @JsonKey(name: 'product_name')
-          required final String productName,
-      @JsonKey(name: 'uom')
-          required final String uOM,
+      @JsonKey(name: 'code') required final String productCode,
+      @JsonKey(name: 'productcat') required final String productCategory,
+      @JsonKey(name: 'subcategory') required final String subCategory,
+      @JsonKey(name: 'product_name') required final String productName,
+      @JsonKey(name: 'uom') required final String uOM,
       @JsonKey(name: 'uom_name', defaultValue: '')
-          required final String uOMName,
-      @JsonKey(name: 'ordered_qty')
-          required final String orderedQuantity,
-      @JsonKey(name: 'pending_qty')
-          required final String pendingQty,
+      required final String uOMName,
+      @JsonKey(name: 'ordered_qty') required final String orderedQuantity,
+      @JsonKey(name: 'pending_qty') required final String pendingQty,
       @JsonKey(name: 'dispatch_qty')
-          required final String selectedReceivedQty}) = _$_OrderedProductDto;
+      required final String selectedReceivedQty}) = _$_OrderedProductDto;
   const _OrderedProductDto._() : super._();
 
   factory _OrderedProductDto.fromJson(Map<String, dynamic> json) =
