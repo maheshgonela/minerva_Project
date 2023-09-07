@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
             flex: 3,
             child: Container(
               padding: const EdgeInsets.all(24),
-              color: Colors.teal[50],
+              color: Colors.transparent,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [_buildMobileLayoutBtns(context)],

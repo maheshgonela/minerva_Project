@@ -8,6 +8,7 @@ abstract class ShipmentFormLine with _$ShipmentFormLine {
     required String productId,
     required String productName,
     required String uomId,
+    required String uomName,
     required double movementQty,
   }) = _ShipmentFormLine;
 }

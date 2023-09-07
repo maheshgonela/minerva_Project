@@ -48,6 +48,7 @@ class _QuantityDialogState extends State<QuantityDialog> {
               decoration: InputDecoration(
                   labelText: 'QUANTITY',
                   errorText: _errorMessage,
+                  hintText: widget.product.uomName,
                   errorMaxLines: 2,
                   labelStyle: Theme.of(context).textTheme.bodyText1,
                   border: OutlineInputBorder(
@@ -58,15 +59,15 @@ class _QuantityDialogState extends State<QuantityDialog> {
               style: const TextStyle(fontSize: 24.0),
 
               onChanged: (value) {
-                _processInput(value);
+                _processInput(value, widget.product.uomName);
               },
               //it is working when we using TextField
               // onSubmitted: (value) {
               //   _processInput(value);
               // },
-              onFieldSubmitted: (value) {
-                _processInput(value);
-              },
+              // onFieldSubmitted: (value) {
+              //   _processInput(value);
+              // },
               keyboardType: TextInputType.number,
             ),
           ],
@@ -95,9 +96,10 @@ class _QuantityDialogState extends State<QuantityDialog> {
     );
   }
 
-  void _processInput(String value) {
-    if (value.trim().isNotEmpty) {
+  void _processInput(String value, String mesurments) {
+    if (mesurments == 'Kilogram' && value.trim().isNotEmpty) {
       final parsed = double.tryParse(value);
+
       if (parsed == null || parsed <= 0) {
         setState(() {
           _errorMessage = 'Invalid quantity';
@@ -108,9 +110,17 @@ class _QuantityDialogState extends State<QuantityDialog> {
         });
       }
     } else {
-      setState(() {
-        _errorMessage = '';
-      });
+      final parsed = int.tryParse(value);
+
+      if (parsed == null || parsed <= 0) {
+        setState(() {
+          _errorMessage = 'Invalid quantity';
+        });
+      } else {
+        setState(() {
+          _errorMessage = '';
+        });
+      }
     }
   }
 }

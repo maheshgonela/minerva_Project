@@ -113,11 +113,13 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                         horizontal: 15,
                       ),
                       hintText: "Search",
-                      suffixIcon: const Icon(Icons.search),
-                      // prefix: Icon(Icons.search),
+                      suffixIcon: const Icon(
+                        Icons.search,
+                        size: 29,
+                      ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30.0),
-                        borderSide: const BorderSide(),
+                        // borderSide: const BorderSide(style: BorderStyle.solid),
                       ),
                     ),
                   ),
@@ -175,7 +177,11 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                     initial: () => const LoadingIndicator(),
                     loading: () => const LoadingIndicator(),
                     success: (products, hasReachedMax, ___, __, _) =>
-                        _buildList(products, hasReachedMax),
+                        products.isEmpty
+                            ? const Center(
+                                child: Text("Product not found !"),
+                              )
+                            : _buildList(products, hasReachedMax),
                     failure: (f) => AppErrorWidget(
                       error: f.error,
                       onRefresh: () => _refresh(context),
@@ -230,6 +236,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
               productId: product.id,
               productName: product.name,
               uomId: product.uomId,
+              uomName: product.uomName,
               movementQty: enteredQty,
             ));
           });

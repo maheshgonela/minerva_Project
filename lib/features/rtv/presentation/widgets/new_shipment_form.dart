@@ -5,7 +5,9 @@ import 'package:minerva/features/rtv/domain/entity/entities.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
 import 'package:minerva/features/rtv/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
 import 'package:minerva/features/rtv/presentation/widgets/bp_selected_widget.dart';
+import 'package:minerva/features/rtv/presentation/widgets/edite_quantity_dialog.dart';
 import 'package:minerva/features/rtv/presentation/widgets/product_selection_widget.dart';
+import 'package:minerva/features/rtv/presentation/widgets/quantity_dialog.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/loading_indicator.dart';
 import 'package:minerva/toast_message.dart';
@@ -61,7 +63,7 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -117,26 +119,50 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
 
   Widget _buildProductList() {
     return Expanded(
-      child: ListView.separated(
+      child: ListView.builder(
         itemCount: _form.products.length,
-        separatorBuilder: (ctx, idx) => const Divider(),
         itemBuilder: (ctx, idx) {
           final record = _form.products[idx];
-          return ListTile(
-            title: Text(record.productName),
-            subtitle: Text(record.movementQty.toString()),
-            trailing: IconButton(
-              icon: const Icon(Icons.delete),
-              onPressed: () {
-                setState(() {
-                  _form = _form.copyWith(
-                    products: _form.products
-                        .where(
-                            (element) => element.productId != record.productId)
-                        .toList(),
-                  );
-                });
-              },
+          return Card(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 12),
+              child: ListTile(
+                contentPadding: const EdgeInsets.all(2),
+                title: Text(record.productName),
+                subtitle:
+                    Text("${record.movementQty.toString()}  ${record.uomName}"),
+                trailing: SizedBox(
+                  width: 80,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Expanded(
+                        child: IconButton(
+                          icon: const Icon(Icons.delete),
+                          onPressed: () {
+                            setState(() {
+                              _form = _form.copyWith(
+                                products: _form.products
+                                    .where((element) =>
+                                        element.productId != record.productId)
+                                    .toList(),
+                              );
+                            });
+                          },
+                        ),
+                      ),
+                      Expanded(
+                        child: IconButton(
+                          icon: const Icon(Icons.edit),
+                          onPressed: () {
+                            _quantityEditDialog(record);
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           );
         },
@@ -173,6 +199,37 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
     }));
   }
 
+  void _quantityEditDialog(ShipmentFormLine record) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => EditeQuantityDialog(
+        record: record,
+        onQuantityUpdated: (newQty) {
+          setState(() {
+            // Create a copy of the old record with the updated quantity
+            ShipmentFormLine updatedRecord = ShipmentFormLine(
+              productId: record.productId,
+              productName: record.productName,
+              uomId: record.uomId,
+              uomName: record.uomName,
+              movementQty: newQty,
+            );
+
+            // Create a copy of the _form object with the updated record
+            List<ShipmentFormLine> updatedProducts = List.from(_form.products);
+            int index = updatedProducts
+                .indexWhere((element) => element.productId == record.productId);
+            if (index != -1) {
+              updatedProducts[index] = updatedRecord;
+            }
+
+            _form = _form.copyWith(products: updatedProducts);
+          });
+        },
+      ),
+    );
+  }
+
   void _showSuccessDialog() {
     showDialog(
       context: context,
@@ -202,3 +259,94 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
     });
   }
 }
+
+
+
+//  void processInput(String value, String mesurments) {
+//     if (mesurments == 'Kilogram' && value.trim().isNotEmpty) {
+//       final parsed = double.tryParse(value);
+
+//       if (parsed == null || parsed <= 0) {
+//         setState(() {
+//           _errorMessage = 'Invalid quantity';
+//         });
+//       } else {
+//         setState(() {
+//           _errorMessage = '';
+//         });
+//       }
+//     } else {
+//       final parsed = int.tryParse(value);
+
+//       if (parsed == null || parsed <= 0) {
+//         setState(() {
+//           _errorMessage = 'Invalid quantity';
+//         });
+//       } else {
+//         setState(() {
+//           _errorMessage = '';
+//         });
+//       }
+//     }
+//   }
+
+
+
+
+// AlertDialog(
+//           title: Text('Edit Movement Quantity'),
+//           content: TextFormField(
+//             controller: _controller,
+//             keyboardType: TextInputType.number,
+//             decoration: InputDecoration(
+//               labelText: 'New Quantity',
+//               errorText: _errorMessage,
+//             ),
+//             onChanged: (value) {
+//               //processInput(value,record.uomName );
+//             },
+//           ),
+//           actions: [
+//             TextButton(
+//               onPressed: () {
+//                 Navigator.of(ctx).pop();
+//               },
+//               child: Text('Cancel'),
+//             ),
+//             TextButton(
+//               onPressed: () {
+//                 final newQty = double.tryParse(_controller.text);
+//                 _errorMessage.isNotEmpty
+//                     ? null
+//                     : () {
+//                         if (newQty != null) {
+//                           // Create a copy of the old record with the updated quantity
+//                           ShipmentFormLine updatedRecord = ShipmentFormLine(
+//                             productId: record.productId,
+//                             productName: record.productName,
+//                             uomId: record.uomId,
+//                             uomName: record.uomName,
+//                             movementQty: newQty,
+//                           );
+
+//                           // Create a copy of the _form object with the updated record
+//                           List<ShipmentFormLine> updatedProducts =
+//                               List.from(_form.products);
+//                           int index = updatedProducts.indexWhere((element) =>
+//                               element.productId == record.productId);
+//                           if (index != -1) {
+//                             updatedProducts[index] = updatedRecord;
+//                           }
+
+//                           setState(() {
+//                             _form = _form.copyWith(products: updatedProducts);
+//                           });
+
+//                           Navigator.of(ctx).pop();
+//                         }
+//                       };
+//               },
+//               child: Text('Save'),
+//             ),
+//           ],
+//         );

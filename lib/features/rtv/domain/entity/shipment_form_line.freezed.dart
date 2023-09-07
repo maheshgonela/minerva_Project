@@ -19,6 +19,7 @@ mixin _$ShipmentFormLine {
   String get productId => throw _privateConstructorUsedError;
   String get productName => throw _privateConstructorUsedError;
   String get uomId => throw _privateConstructorUsedError;
+  String get uomName => throw _privateConstructorUsedError;
   double get movementQty => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -33,7 +34,11 @@ abstract class $ShipmentFormLineCopyWith<$Res> {
       _$ShipmentFormLineCopyWithImpl<$Res, ShipmentFormLine>;
   @useResult
   $Res call(
-      {String productId, String productName, String uomId, double movementQty});
+      {String productId,
+      String productName,
+      String uomId,
+      String uomName,
+      double movementQty});
 }
 
 /// @nodoc
@@ -52,6 +57,7 @@ class _$ShipmentFormLineCopyWithImpl<$Res, $Val extends ShipmentFormLine>
     Object? productId = null,
     Object? productName = null,
     Object? uomId = null,
+    Object? uomName = null,
     Object? movementQty = null,
   }) {
     return _then(_value.copyWith(
@@ -66,6 +72,10 @@ class _$ShipmentFormLineCopyWithImpl<$Res, $Val extends ShipmentFormLine>
       uomId: null == uomId
           ? _value.uomId
           : uomId // ignore: cast_nullable_to_non_nullable
+              as String,
+      uomName: null == uomName
+          ? _value.uomName
+          : uomName // ignore: cast_nullable_to_non_nullable
               as String,
       movementQty: null == movementQty
           ? _value.movementQty
@@ -84,7 +94,11 @@ abstract class _$$_ShipmentFormLineCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String productId, String productName, String uomId, double movementQty});
+      {String productId,
+      String productName,
+      String uomId,
+      String uomName,
+      double movementQty});
 }
 
 /// @nodoc
@@ -101,6 +115,7 @@ class __$$_ShipmentFormLineCopyWithImpl<$Res>
     Object? productId = null,
     Object? productName = null,
     Object? uomId = null,
+    Object? uomName = null,
     Object? movementQty = null,
   }) {
     return _then(_$_ShipmentFormLine(
@@ -115,6 +130,10 @@ class __$$_ShipmentFormLineCopyWithImpl<$Res>
       uomId: null == uomId
           ? _value.uomId
           : uomId // ignore: cast_nullable_to_non_nullable
+              as String,
+      uomName: null == uomName
+          ? _value.uomName
+          : uomName // ignore: cast_nullable_to_non_nullable
               as String,
       movementQty: null == movementQty
           ? _value.movementQty
@@ -131,6 +150,7 @@ class _$_ShipmentFormLine implements _ShipmentFormLine {
       {required this.productId,
       required this.productName,
       required this.uomId,
+      required this.uomName,
       required this.movementQty});
 
   @override
@@ -140,11 +160,13 @@ class _$_ShipmentFormLine implements _ShipmentFormLine {
   @override
   final String uomId;
   @override
+  final String uomName;
+  @override
   final double movementQty;
 
   @override
   String toString() {
-    return 'ShipmentFormLine(productId: $productId, productName: $productName, uomId: $uomId, movementQty: $movementQty)';
+    return 'ShipmentFormLine(productId: $productId, productName: $productName, uomId: $uomId, uomName: $uomName, movementQty: $movementQty)';
   }
 
   @override
@@ -157,13 +179,14 @@ class _$_ShipmentFormLine implements _ShipmentFormLine {
             (identical(other.productName, productName) ||
                 other.productName == productName) &&
             (identical(other.uomId, uomId) || other.uomId == uomId) &&
+            (identical(other.uomName, uomName) || other.uomName == uomName) &&
             (identical(other.movementQty, movementQty) ||
                 other.movementQty == movementQty));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, productId, productName, uomId, movementQty);
+  int get hashCode => Object.hash(
+      runtimeType, productId, productName, uomId, uomName, movementQty);
 
   @JsonKey(ignore: true)
   @override
@@ -177,6 +200,7 @@ abstract class _ShipmentFormLine implements ShipmentFormLine {
       {required final String productId,
       required final String productName,
       required final String uomId,
+      required final String uomName,
       required final double movementQty}) = _$_ShipmentFormLine;
 
   @override
@@ -185,6 +209,8 @@ abstract class _ShipmentFormLine implements ShipmentFormLine {
   String get productName;
   @override
   String get uomId;
+  @override
+  String get uomName;
   @override
   double get movementQty;
   @override
