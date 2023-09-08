@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
@@ -33,6 +32,7 @@ class ProductSelectionWidget extends StatefulWidget {
 class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
   String? _query;
   Timer? _debounce;
+
   final QueryController = TextEditingController();
 
   late ScrollController _scrollController;
@@ -129,6 +129,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                     showDialog(
                       context: context,
                       builder: (context) {
+                        final cats = fetchSelectedCategories();
                         return MultiBlocProvider(
                           providers: [
                             BlocProvider.value(
@@ -140,7 +141,9 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                               create: (ctx) => sl.get<FetchProductBloc>(),
                             ),
                           ],
-                          child: const CategorySelecter(),
+                          child: CategorySelecter(
+                            fetchedCategories: cats,
+                          ),
                         );
                       },
                     ).then((value) {
@@ -214,7 +217,9 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
             title: Text(product.name),
             subtitle: Text(product.productCategoryName),
             trailing: Text(product.uomName),
-            onTap: () => _askForQuantity(context, product),
+            onTap: () {
+              _askForQuantity(context, product);
+            },
           ),
         );
       },
@@ -260,6 +265,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
         ismione = true;
       }
       String finalbarCode = ismione ? barCode : '';
+
       BlocProvider.of<FetchProductBloc>(context)
           .add(FetchProductEvent.fetchInitialProduct(barCode: finalbarCode));
       print("BarCode_Result:-- $barCode");
@@ -268,5 +274,20 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
     } on PlatformException {
       print('Failed to scan QR Code.');
     }
+
+    // final curState = BlocProvider.of<FetchProductBloc>(context).state;
+    // final Product product = curState.maybeWhen(
+    //   orElse: () => const Product(
+    //       id: "",
+    //       name: "",
+    //       uomId: "",
+    //       uomName: "",
+    //       productCategoryId: "",
+    //       productCategoryName: ""),
+    //   success: (records, hasReachedMax, categories, query, barCode) =>
+    //       records.first,
+    // );
+
+    //_askForQuantity(context,product);
   }
 }

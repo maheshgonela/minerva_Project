@@ -29,7 +29,7 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
       appBar: AppBar(
         leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
         title: Text(
-          'New RTV Shipment',
+          'New GRN Shipment',
           style: GoogleFonts.istokWeb(
               textStyle: Theme.of(context)
                   .textTheme

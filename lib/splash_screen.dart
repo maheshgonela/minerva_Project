@@ -43,7 +43,7 @@ class MinervaSplashScreenState extends State<MinervaSplashScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
-      //color: AppColors.appBarBgColor,
+      color: AppColors.appBarBgColor,
       child: Padding(
         padding: const EdgeInsets.only(left: 22, right: 22),
         child: Column(

@@ -19,7 +19,7 @@ class ShipmentListScreen extends StatelessWidget {
         centerTitle: true,
         leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
         title: Text(
-          'RTV Shipments',
+          'GRN Shipments',
           style: GoogleFonts.istokWeb(
               textStyle: Theme.of(context)
                   .textTheme
