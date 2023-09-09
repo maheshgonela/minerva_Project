@@ -11,5 +11,6 @@ abstract class Product with _$Product {
     required String uomName,
     required String productCategoryId,
     required String productCategoryName,
+    required String uPCEAN,
   }) = _Product;
 }

@@ -32,7 +32,6 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
     try {
       final user = sl.get<LoggedInUser>();
       final shipment = await _createShipment(form);
-
       if (shipment == null) return left(const Failure(error: defErrMsg));
       await _addShipmentLines(
           shipment.id, user.defaultWarehouse, form.products);
@@ -195,6 +194,7 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
   Future<Shipment?> _createShipment(ShipmentForm form) async {
     const defErrMsg = 'Could not create shipment';
     final url = "${Constants.jsonWs}/${Entities.goodsReceipt}";
+    print(url);
     final user = sl.get<LoggedInUser>();
     final requestBody = jsonEncode({
       'data': {
@@ -213,7 +213,7 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
           body: requestBody, headers: _authHeader()),
       defErrMsg,
     );
-
+    print(data);
     return data.fold(
       (l) => null,
       (r) => ShipmentDto.fromJson(r[0] as Map<String, dynamic>).toDomain(),

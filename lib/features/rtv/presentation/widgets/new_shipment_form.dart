@@ -22,7 +22,7 @@ class NewShipmentForm extends StatefulWidget {
 
 class _NewShipmentFormState extends State<NewShipmentForm> {
   ShipmentForm _form = ShipmentForm.initial();
-
+  bool isfinalSelected = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,9 +68,11 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BpSelectionWidget(
-              onSelected: (f) {
-                BlocProvider.of<FetchProductBloc>(context)
-                    .add(FetchProductEvent.fetchInitialProduct());
+              onSelected: (f, bool isSelected) {
+                isfinalSelected = isSelected;
+                print(isSelected);
+                // we have to use isSelected to disable or nable the +Product
+                setState(() {});
               },
             ),
             const SizedBox(height: 8),
@@ -78,21 +80,28 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
               width: double.infinity,
               padding: const EdgeInsets.all(16.0),
               child: OutlinedButton.icon(
-                onPressed: () {
-                  _openProductSelection();
-                },
+                onPressed: isfinalSelected == false
+                    ? null
+                    : () {
+                        _openProductSelection();
+                      },
                 icon: const Icon(Icons.add),
                 label: Text(
                   'Add Product'.toUpperCase(),
-                  // style: GoogleFonts.istokWeb(
-                  //     textStyle: Theme.of(context)
-                  //         .textTheme
-                  //         .titleMedium!
-                  //         .copyWith(fontWeight: FontWeight.bold)),
                 ),
               ),
             ),
             const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: Text(
+                _form.products.isEmpty ? " " : "Selected Products",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium
+                    ?.copyWith(fontWeight: FontWeight.bold),
+              ),
+            ),
             _buildProductList(),
           ],
         ),
@@ -109,6 +118,8 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
           padding: EdgeInsets.zero,
         ),
         onPressed: () {
+          print('HIHIH');
+          print(_form);
           BlocProvider.of<NewShipmentBloc>(context)
               .add(NewShipmentEvent.createShipment(_form));
         },

@@ -10,15 +10,15 @@ abstract class ProductDto implements _$ProductDto {
   const ProductDto._();
 
   @JsonSerializable(explicitToJson: true)
-  const factory ProductDto({
-    @JsonKey(name: 'id') required String id,
-    @JsonKey(name: 'name') required String name,
-    @JsonKey(name: 'uOM') required String uomId,
-    @JsonKey(name: 'uOM\$_identifier') required String uomName,
-    @JsonKey(name: 'productCategory') required String productCategoryId,
-    @JsonKey(name: 'productCategory\$_identifier')
-    required String productCategoryName,
-  }) = _ProductDto;
+  const factory ProductDto(
+      {@JsonKey(name: 'id') required String id,
+      @JsonKey(name: 'name') required String name,
+      @JsonKey(name: 'uOM') required String uomId,
+      @JsonKey(name: 'uOM\$_identifier') required String uomName,
+      @JsonKey(name: 'productCategory') required String productCategoryId,
+      @JsonKey(name: 'productCategory\$_identifier')
+      required String productCategoryName,
+      @JsonKey(name: 'uPCEAN') required String uPCEAN}) = _ProductDto;
 
   factory ProductDto.fromDomain(Product details) {
     return ProductDto(
@@ -27,7 +27,8 @@ abstract class ProductDto implements _$ProductDto {
         uomId: details.uomId,
         uomName: details.uomName,
         productCategoryId: details.productCategoryId,
-        productCategoryName: details.productCategoryName);
+        productCategoryName: details.productCategoryName,
+        uPCEAN: details.uPCEAN);
   }
 
   Product toDomain() {
@@ -37,7 +38,8 @@ abstract class ProductDto implements _$ProductDto {
         uomId: this.uomId,
         uomName: this.uomName,
         productCategoryId: this.productCategoryId,
-        productCategoryName: this.productCategoryName);
+        productCategoryName: this.productCategoryName,
+        uPCEAN: this.uPCEAN);
   }
 
   factory ProductDto.fromJson(Map<String, dynamic> json) =>

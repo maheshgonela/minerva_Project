@@ -174,15 +174,31 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
               height: 10,
             ),
             Expanded(
-              child: BlocBuilder<FetchProductBloc, FetchProductState>(
+              child: BlocConsumer<FetchProductBloc, FetchProductState>(
+                listener: (ctx, state) {
+                  state.maybeWhen(
+                    orElse: () {},
+                    success: (records, hasReachedMax, categories, query,
+                        barCode) async {
+                      if (barCode != null &&
+                          barCode.isNotEmpty &&
+                          records.isNotEmpty) {
+                        _askForQuantity(context, records.first);
+                      }
+                    },
+                  );
+                },
                 builder: (ctx, state) {
                   return state.when(
                     initial: () => const LoadingIndicator(),
                     loading: () => const LoadingIndicator(),
                     success: (products, hasReachedMax, ___, __, _) =>
                         products.isEmpty
-                            ? const Center(
-                                child: Text("Product not found !"),
+                            ? Center(
+                                child: AppErrorWidget(
+                                  error: "Product not found !",
+                                  onRefresh: () => _refresh(context),
+                                ),
                               )
                             : _buildList(products, hasReachedMax),
                     failure: (f) => AppErrorWidget(
@@ -226,7 +242,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
     );
   }
 
-  void _askForQuantity(BuildContext context, Product product) {
+  Future<void> _askForQuantity(BuildContext context, Product product) async {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -271,23 +287,33 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
       print("BarCode_Result:-- $barCode");
 
       print("FinalBarCode_Result:-- $finalbarCode");
+      //popofBarcodeproduct(finalbarCode);
     } on PlatformException {
       print('Failed to scan QR Code.');
     }
-
-    // final curState = BlocProvider.of<FetchProductBloc>(context).state;
-    // final Product product = curState.maybeWhen(
-    //   orElse: () => const Product(
-    //       id: "",
-    //       name: "",
-    //       uomId: "",
-    //       uomName: "",
-    //       productCategoryId: "",
-    //       productCategoryName: ""),
-    //   success: (records, hasReachedMax, categories, query, barCode) =>
-    //       records.first,
-    // );
-
-    //_askForQuantity(context,product);
   }
+
+  // void popofBarcodeproduct(String finalbarCode) {
+  //   final curState = BlocProvider.of<FetchProductBloc>(context).state;
+  //   final List<Product> products = curState.maybeWhen(
+  //     orElse: () => <Product>[],
+  //     success: (products, hasReachedMax, categories, query, barCode) =>
+  //         products,
+  //   );
+
+  //   List<Product> matchingProducts =
+  //       products.where((product) => product.uPCEAN == finalbarCode).toList();
+  //   Product product = matchingProducts.first;
+  //   _askForQuantity(context, product);
+  // }
 }
+
+
+// const Product(
+//           id: "",
+//           name: "",
+//           uomId: "",
+//           uomName: "",
+//           productCategoryId: "",
+//           productCategoryName: "",
+//           uPCEAN: ""),

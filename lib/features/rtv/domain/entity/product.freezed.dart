@@ -22,6 +22,7 @@ mixin _$Product {
   String get uomName => throw _privateConstructorUsedError;
   String get productCategoryId => throw _privateConstructorUsedError;
   String get productCategoryName => throw _privateConstructorUsedError;
+  String get uPCEAN => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
@@ -38,7 +39,8 @@ abstract class $ProductCopyWith<$Res> {
       String uomId,
       String uomName,
       String productCategoryId,
-      String productCategoryName});
+      String productCategoryName,
+      String uPCEAN});
 }
 
 /// @nodoc
@@ -60,6 +62,7 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
     Object? uomName = null,
     Object? productCategoryId = null,
     Object? productCategoryName = null,
+    Object? uPCEAN = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -86,6 +89,10 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
           ? _value.productCategoryName
           : productCategoryName // ignore: cast_nullable_to_non_nullable
               as String,
+      uPCEAN: null == uPCEAN
+          ? _value.uPCEAN
+          : uPCEAN // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -103,7 +110,8 @@ abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
       String uomId,
       String uomName,
       String productCategoryId,
-      String productCategoryName});
+      String productCategoryName,
+      String uPCEAN});
 }
 
 /// @nodoc
@@ -122,6 +130,7 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? uomName = null,
     Object? productCategoryId = null,
     Object? productCategoryName = null,
+    Object? uPCEAN = null,
   }) {
     return _then(_$_Product(
       id: null == id
@@ -148,6 +157,10 @@ class __$$_ProductCopyWithImpl<$Res>
           ? _value.productCategoryName
           : productCategoryName // ignore: cast_nullable_to_non_nullable
               as String,
+      uPCEAN: null == uPCEAN
+          ? _value.uPCEAN
+          : uPCEAN // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -161,7 +174,8 @@ class _$_Product implements _Product {
       required this.uomId,
       required this.uomName,
       required this.productCategoryId,
-      required this.productCategoryName});
+      required this.productCategoryName,
+      required this.uPCEAN});
 
   @override
   final String id;
@@ -175,10 +189,12 @@ class _$_Product implements _Product {
   final String productCategoryId;
   @override
   final String productCategoryName;
+  @override
+  final String uPCEAN;
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, uomId: $uomId, uomName: $uomName, productCategoryId: $productCategoryId, productCategoryName: $productCategoryName)';
+    return 'Product(id: $id, name: $name, uomId: $uomId, uomName: $uomName, productCategoryId: $productCategoryId, productCategoryName: $productCategoryName, uPCEAN: $uPCEAN)';
   }
 
   @override
@@ -193,12 +209,13 @@ class _$_Product implements _Product {
             (identical(other.productCategoryId, productCategoryId) ||
                 other.productCategoryId == productCategoryId) &&
             (identical(other.productCategoryName, productCategoryName) ||
-                other.productCategoryName == productCategoryName));
+                other.productCategoryName == productCategoryName) &&
+            (identical(other.uPCEAN, uPCEAN) || other.uPCEAN == uPCEAN));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, id, name, uomId, uomName,
-      productCategoryId, productCategoryName);
+      productCategoryId, productCategoryName, uPCEAN);
 
   @JsonKey(ignore: true)
   @override
@@ -214,7 +231,8 @@ abstract class _Product implements Product {
       required final String uomId,
       required final String uomName,
       required final String productCategoryId,
-      required final String productCategoryName}) = _$_Product;
+      required final String productCategoryName,
+      required final String uPCEAN}) = _$_Product;
 
   @override
   String get id;
@@ -228,6 +246,8 @@ abstract class _Product implements Product {
   String get productCategoryId;
   @override
   String get productCategoryName;
+  @override
+  String get uPCEAN;
   @override
   @JsonKey(ignore: true)
   _$$_ProductCopyWith<_$_Product> get copyWith =>

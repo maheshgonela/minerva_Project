@@ -22,7 +22,8 @@ class NewShipmentBloc extends Bloc<NewShipmentEvent, NewShipmentState> {
 
           try {
             if (e.form.products.isEmpty) {
-              emit(const NewShipmentState.failure(Failure(error: 'Please add at least one product')));
+              emit(const NewShipmentState.failure(
+                  Failure(error: 'Please add at least one product')));
             } else {
               final result = await repo.createShipment(e.form);
               emit(result.fold(
@@ -31,6 +32,8 @@ class NewShipmentBloc extends Bloc<NewShipmentEvent, NewShipmentState> {
               ));
             }
           } catch (e, st) {
+            print(e);
+            print(st);
             logError(e, st, '[bloc] could not create shipment');
             emit(NewShipmentState.failure(Failure(error: e.toString())));
           }
