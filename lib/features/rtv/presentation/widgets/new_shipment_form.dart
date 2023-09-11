@@ -1,3 +1,4 @@
+import 'package:base_auth/entity/id_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,14 +23,23 @@ class NewShipmentForm extends StatefulWidget {
 
 class _NewShipmentFormState extends State<NewShipmentForm> {
   ShipmentForm _form = ShipmentForm.initial();
-  bool isfinalSelected = true;
+  bool isfinalSelected = false;
+  void disablebtn(IdName f, bool isSelected) {
+    setState(() {
+      isfinalSelected = isSelected;
+      //_form.copyWith(businessPartnerId: f.id);
+      _form = _form.copyWith(businessPartnerId: f.id);
+      print('_form : ?? / $_form');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
         title: Text(
-          'New GRN Shipment',
+          'New GRN ',
           style: GoogleFonts.istokWeb(
               textStyle: Theme.of(context)
                   .textTheme
@@ -68,11 +78,8 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             BpSelectionWidget(
-              onSelected: (f, bool isSelected) {
-                isfinalSelected = isSelected;
-                print(isSelected);
-                // we have to use isSelected to disable or nable the +Product
-                setState(() {});
+              onSelected: (f, isSelected) {
+                disablebtn(f, isSelected);
               },
             ),
             const SizedBox(height: 8),
@@ -119,7 +126,7 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
         ),
         onPressed: () {
           print('HIHIH');
-          print(_form);
+          print('_form $_form');
           BlocProvider.of<NewShipmentBloc>(context)
               .add(NewShipmentEvent.createShipment(_form));
         },

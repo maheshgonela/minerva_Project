@@ -7,7 +7,8 @@ import 'package:widgets/widgets.dart';
 
 class BPartnersList extends StatelessWidget {
   final String? initalValue;
-  const BPartnersList({super.key, this.initalValue});
+  final Function(IdName bp, bool isSelected) onSelected;
+  const BPartnersList({super.key, this.initalValue, required this.onSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -90,6 +91,7 @@ class BPartnersList extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context)
                                 .pop(bp); // Close the bottom sheet
+                            onSelected(bp, true);
                           },
                         ),
                       );

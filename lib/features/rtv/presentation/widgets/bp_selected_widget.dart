@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
 import 'package:minerva/features/rtv/presentation/widgets/bpartners_list.dart';
-import 'package:minerva/loading_indicator.dart';
-import 'package:widgets/widgets.dart';
 
 class BpSelectionWidget extends StatefulWidget {
   const BpSelectionWidget({Key? key, required this.onSelected})
@@ -46,7 +44,8 @@ class _BpSelectionWidgetState extends State<BpSelectionWidget> {
           child: ElevatedButton(
             onPressed: () {
               _showSelectableBottomSheet(
-                  context); // Call the function to show the bottom sheet
+                context,
+              ); // Call the function to show the bottom sheet
             },
             style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
@@ -77,7 +76,11 @@ class _BpSelectionWidgetState extends State<BpSelectionWidget> {
               maxHeight: MediaQuery.of(context).size.height *
                   0.5, // Set the height to half of the screen height
             ),
-            child: BPartnersList(initalValue: selectedValue),
+            child: BPartnersList(
+              initalValue: selectedValue,
+              onSelected: (IdName bp, bool isSelected) =>
+                  widget.onSelected(bp, isSelected),
+            ),
           ),
         );
       },

@@ -191,15 +191,16 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
     }
   }
 
+//https://minerva.easycloud.co.in/openbravo1/?tabId=167&recordId=2030AD7DD4284E2B936E261662EF735A
   Future<Shipment?> _createShipment(ShipmentForm form) async {
     const defErrMsg = 'Could not create shipment';
     final url = "${Constants.jsonWs}/${Entities.goodsReceipt}";
-    print(url);
+    print('url $url');
     final user = sl.get<LoggedInUser>();
     final requestBody = jsonEncode({
       'data': {
         '_entityName': Entities.goodsReceipt,
-        'documentType': '22030AD7DD4284E2B936E261662EF735A',
+        'documentType': '2030AD7DD4284E2B936E261662EF735A',
         'warehouse': user.defaultWarehouse,
         'businessPartner': form.businessPartnerId,
         'partnerAddress': await _fetchBpLocationId(form.businessPartnerId),
@@ -207,7 +208,8 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
         'accountingDate': DateFormat("yyyy-MM-dd").format(DateTime.now()),
       }
     });
-
+    // print("");
+    print("form.businessPartnerId ${form.businessPartnerId}");
     final data = await safeApiCall(
       () => client.post(Uri.parse(url),
           body: requestBody, headers: _authHeader()),

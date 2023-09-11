@@ -19,7 +19,7 @@ class ShipmentListScreen extends StatelessWidget {
         centerTitle: true,
         leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
         title: Text(
-          'GRN Shipments',
+          'GRN\'s',
           style: GoogleFonts.istokWeb(
               textStyle: Theme.of(context)
                   .textTheme
@@ -131,7 +131,7 @@ class ShipmentListScreen extends StatelessWidget {
           });
         },
         icon: const Icon(Icons.add),
-        label: const Text('Create Shipment'),
+        label: const Text(' Create GRN '),
       ),
     );
   }
