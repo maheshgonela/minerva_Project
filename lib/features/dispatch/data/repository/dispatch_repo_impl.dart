@@ -48,13 +48,15 @@ class DispatchRepoImpl
     try {
       final list = await fetchQueryResponse(Constants.prefDispatchShopsQuery,
           placeholders: {'org_id': user.defaultOrganization});
-
+      print("hhh");
       final allRequestDetails = list.map((element) {
         return ShopDto.fromJson(element as Map<String, dynamic>).toDomain();
       }).toList();
       return right(allRequestDetails);
     } catch (e, st) {
       logError(e, st, defErrMsg);
+      print("fff");
+      //https://minerva.easycloud.co.in/openbravo1/ws/in.easycloud.commons.QueryService
       return left(Failure(error: e.toString()));
     }
   }
@@ -685,6 +687,4 @@ class DispatchRepoImpl
       return left(const Failure(error: defErrMsg));
     }
   }
-
-  
 }

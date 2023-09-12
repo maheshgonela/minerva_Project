@@ -165,8 +165,9 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
       final user = sl.get<LoggedInUser>();
       print('$user');
       // final minoutId = '8EA4C542ACF540F3A6A9EFCE4EB41DB2';
+      //https://minerva.easycloud.co.in/openbravo1/org.openbravo.service.json.jsonrest/MaterialMgmtShipmentInOut?_sortBy=creationDate%20desc
       final url =
-          "${Constants.jsonWs}/${Entities.goodsReceipt}?_startRow=$start&_endRow=$end&_sortBy=creationDate";
+          "${Constants.jsonWs}/${Entities.goodsReceipt}?_startRow=$start&_endRow=$end&_sortBy=creationDate desc";
       // final url =
       //     "${Constants.jsonWs}/${Entities.goodsReceipt}?_where=id='$minoutId'";
       print('Calling : $url');
