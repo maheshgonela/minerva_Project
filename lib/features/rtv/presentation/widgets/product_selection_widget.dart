@@ -246,7 +246,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (BuildContext context) => QuantityDialog(
+      builder: (context) => QuantityDialog(
         product: product,
         context: context,
         onCancel: (onCancel) {},
@@ -269,51 +269,16 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
   }
 
   Future<void> scanBarcode() async {
-    try {
-      final barCode = await FlutterBarcodeScanner.scanBarcode(
-          '#ff6666', 'Cancel', true, ScanMode.BARCODE);
-
-      if (!mounted) return;
-      bool ismione = true;
-      if (barCode == "-1") {
-        ismione = false;
-      } else {
-        ismione = true;
-      }
-      String finalbarCode = ismione ? barCode : '';
-
+    final barCode = await FlutterBarcodeScanner.scanBarcode(
+      '#ff6666',
+      'Cancel',
+      true,
+      ScanMode.BARCODE,
+    );
+    if (!mounted) return;
+    if (barCode != "-1") {
       BlocProvider.of<FetchProductBloc>(context)
-          .add(FetchProductEvent.fetchInitialProduct(barCode: finalbarCode));
-      print("BarCode_Result:-- $barCode");
-
-      print("FinalBarCode_Result:-- $finalbarCode");
-      //popofBarcodeproduct(finalbarCode);
-    } on PlatformException {
-      print('Failed to scan QR Code.');
+          .add(FetchProductEvent.fetchInitialProduct(barCode: barCode));
     }
   }
-
-  // void popofBarcodeproduct(String finalbarCode) {
-  //   final curState = BlocProvider.of<FetchProductBloc>(context).state;
-  //   final List<Product> products = curState.maybeWhen(
-  //     orElse: () => <Product>[],
-  //     success: (products, hasReachedMax, categories, query, barCode) =>
-  //         products,
-  //   );
-
-  //   List<Product> matchingProducts =
-  //       products.where((product) => product.uPCEAN == finalbarCode).toList();
-  //   Product product = matchingProducts.first;
-  //   _askForQuantity(context, product);
-  // }
 }
-
-
-// const Product(
-//           id: "",
-//           name: "",
-//           uomId: "",
-//           uomName: "",
-//           productCategoryId: "",
-//           productCategoryName: "",
-//           uPCEAN: ""),

@@ -36,26 +36,27 @@ class _BpSelectionWidgetState extends State<BpSelectionWidget> {
                 ?.copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        SizedBox(
-          width: MediaQuery.of(context)
-              .size
-              .width, // Set the width to full screen width
-          height: 50.0, // Set the height to your desired value
-          child: ElevatedButton(
-            onPressed: () {
-              _showSelectableBottomSheet(
-                context,
-              ); // Call the function to show the bottom sheet
-            },
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.circular(8.0), // Set the border radius here
+        Card(elevation: 3,
+          child: SizedBox(
+            width: double.maxFinite,
+            height: 50.0,
+            child: ElevatedButton(
+              onPressed: () {
+                _showSelectableBottomSheet(
+                  context,
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(width: 1),
+                  borderRadius:
+                      BorderRadius.circular(8.0),
+                ),
               ),
-            ),
-            child: Text(
-              selectedValue ?? 'Select Business Partner',
-              style: const TextStyle(fontSize: 20.0),
+              child: Text(
+                selectedValue ?? 'Select Business Partner',
+                style: const TextStyle(fontSize: 20.0),
+              ),
             ),
           ),
         ),
@@ -66,7 +67,7 @@ class _BpSelectionWidgetState extends State<BpSelectionWidget> {
   void _showSelectableBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      isScrollControlled: true, // Set this to true to make it full screen
+      isScrollControlled: true, 
       builder: (ctxt) {
         return BlocProvider.value(
           value: BlocProvider.of<FetchBusinessPartnerBloc>(context),
@@ -74,7 +75,7 @@ class _BpSelectionWidgetState extends State<BpSelectionWidget> {
             padding: const EdgeInsets.all(8),
             constraints: BoxConstraints(
               maxHeight: MediaQuery.of(context).size.height *
-                  0.5, // Set the height to half of the screen height
+                  0.5, 
             ),
             child: BPartnersList(
               initalValue: selectedValue,

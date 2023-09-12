@@ -9,9 +9,31 @@ import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
-class ShipmentListScreen extends StatelessWidget {
+class ShipmentListScreen extends StatefulWidget {
   const ShipmentListScreen({Key? key}) : super(key: key);
 
+  @override
+  State<ShipmentListScreen> createState() => _ShipmentListScreenState();
+}
+
+class _ShipmentListScreenState extends State<ShipmentListScreen> {
+    ScrollController? _scrollController;
+      @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    _scrollController?.addListener(_onScroll);
+  }
+
+
+    void _onScroll() {
+    if (_scrollController!.offset >=
+            _scrollController!.position.maxScrollExtent &&
+        !_scrollController!.position.outOfRange) {
+      BlocProvider.of<FetchShipmentBloc>(context)
+          .add(const FetchShipmentEvent.fetchMoreShipment());
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +57,7 @@ class ShipmentListScreen extends StatelessWidget {
           return state.when(
             initial: () => const LoadingIndicator(),
             loading: () => const LoadingIndicator(),
-            success: (l, _, __) {
+            success: (l,hasReachedMax, __) {
               if (l.isEmpty) {
                 return EmptyListWidget(
                   title: 'No shipments found today',
@@ -51,8 +73,15 @@ class ShipmentListScreen extends StatelessWidget {
                   return Future.delayed(const Duration(seconds: 1));
                 },
                 child: ListView.builder(
-                  itemCount: l.length,
+                  controller: _scrollController,
+                  itemCount:  hasReachedMax ? l.length : l.length + 1,
                   itemBuilder: (ctx, idx) {
+                         if (idx >= l.length) {
+                    return const Center(
+                        child: FittedBox(
+                            child:
+                                CircularProgressIndicator(strokeWidth: 2.0)));
+                  }
                     return Card(
                       elevation: 8.0,
                       margin: const EdgeInsets.symmetric(

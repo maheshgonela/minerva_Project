@@ -46,16 +46,22 @@ class DispatchRepoImpl
     const defErrMsg = 'could not fetch shops';
 
     try {
-      final list = await fetchQueryResponse(Constants.prefDispatchShopsQuery,
-          placeholders: {'org_id': user.defaultOrganization});
-      print("hhh");
-      final allRequestDetails = list.map((element) {
-        return ShopDto.fromJson(element as Map<String, dynamic>).toDomain();
-      }).toList();
-      return right(allRequestDetails);
+      const url = "${Constants.jsonWs}/${Entities.organization}?_sortBy=name";
+print(" $url");
+      final authHeader = _authHeader();
+
+      final data = await safeApiCall(
+          () => client.get(Uri.parse(url), headers: authHeader), defErrMsg);
+      return data.fold(
+        (l) => left(l),
+        (r) {
+          final resultList = r as List<dynamic>;
+          return right(
+              resultList.map((e) => ShopDto.fromJson(e).toDomain()).toList());
+        },
+      );
     } catch (e, st) {
       logError(e, st, defErrMsg);
-      print("fff");
       //https://minerva.easycloud.co.in/openbravo1/ws/in.easycloud.commons.QueryService
       return left(Failure(error: e.toString()));
     }
@@ -386,7 +392,7 @@ class DispatchRepoImpl
           "documentStatus='CO' and businessPartner='$businessPartnerId' and salesTransaction=true and date(orderDate)>=date('$yesterdayDate') and organization='${user.defaultOrganization}'";
       final url =
           "${Constants.jsonWs}/$entityName?_where=$filters&_startRow=$start&_endRow=$end&_sortBy=creationDate desc";
-
+print("/ ? $url");
       final authHeader = _authHeader();
 
       final recivedData = await safeApiCall(() {

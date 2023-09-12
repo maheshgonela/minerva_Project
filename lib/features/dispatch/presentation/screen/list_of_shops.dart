@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:base_auth/entity/logged_in_user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,19 +17,16 @@ class ListOfShops extends StatefulWidget {
   final String section;
 
   @override
-  _ListOfShopsState createState() => _ListOfShopsState();
+  State<ListOfShops> createState() => _ListOfShopsState();
 }
 
 class _ListOfShopsState extends State<ListOfShops> {
-  LoggedInUser? user;
   ScrollController? _scrollController;
   String? _query;
 
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<FetchShopBloc>(context)
-        .add(FetchShopEvent.fetchInitialShop());
     _scrollController = ScrollController();
     _scrollController?.addListener(_onScroll);
   }
@@ -63,68 +59,71 @@ class _ListOfShopsState extends State<ListOfShops> {
     );
   }
 
-  RefreshIndicator _buildList(BuildContext context) {
+  Widget _buildList(BuildContext context) {
     return RefreshIndicator(
       strokeWidth: 1.0,
       onRefresh: () {
         _refresh(context);
         return Future.value();
       },
-      child:
-          BlocBuilder<FetchShopBloc, FetchShopState>(builder: (context, state) {
-        return state.when(initial: () {
-          return Center(
+      child: BlocBuilder<FetchShopBloc, FetchShopState>(
+        builder: (context, state) {
+          return state.when(initial: () {
+            return Center(
               child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              'Search by shop name',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline6,
-            ),
-          ));
-        }, loading: () {
-          return const Center(child: CircularProgressIndicator());
-        }, success: (records, hasReachedMax, query) {
-          if (records.isEmpty) {
-            return Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: EmptyListWidget(
-                title: 'No shop found with default organization',
-                onRefresh: () {
-                  _refresh(context);
-                },
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  'Search by shop name',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline6,
+                ),
               ),
             );
-          } else {
-            return ListView.builder(
-              shrinkWrap: true,
-              controller: _scrollController,
-              padding: const EdgeInsets.all(16.0),
-              physics: const AlwaysScrollableScrollPhysics(),
-              itemBuilder: (ctx, idx) {
-                if (idx >= records.length) {
-                  return const Center(
+          }, loading: () {
+            return const Center(child: CircularProgressIndicator());
+          }, success: (records, hasReachedMax, query) {
+            if (records.isEmpty) {
+              return Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: EmptyListWidget(
+                  title: 'No shop found with default organization',
+                  onRefresh: () {
+                    _refresh(context);
+                  },
+                ),
+              );
+            } else {
+              return ListView.builder(
+                shrinkWrap: true,
+                controller: _scrollController,
+                padding: const EdgeInsets.all(16.0),
+                physics: const AlwaysScrollableScrollPhysics(),
+                itemBuilder: (ctx, idx) {
+                  if (idx >= records.length) {
+                    return const Center(
                       child: FittedBox(
-                          child: CircularProgressIndicator(strokeWidth: 2.0)));
-                }
+                        child: CircularProgressIndicator(strokeWidth: 2.0),
+                      ),
+                    );
+                  }
 
-                return _buildCard(records, idx);
-              },
-              itemCount: hasReachedMax ? records.length : records.length + 1,
+                  return _buildCard(records[idx]);
+                },
+                itemCount: hasReachedMax ? records.length : records.length + 1,
+              );
+            }
+          }, failure: (e) {
+            return AppErrorWidget(
+              onRefresh: () => _refresh(context),
+              error: e.error,
             );
-          }
-        }, failure: (e) {
-          return AppErrorWidget(
-            onRefresh: () => _refresh(context),
-            error: e.error,
-          );
-        });
-      }),
+          });
+        },
+      ),
     );
   }
 
-  Widget _buildCard(List<Shop> records, int idx) {
-    final record = records[idx];
+  Widget _buildCard(Shop record) {
     return Card(
       elevation: 2.0,
       shape: const RoundedRectangleBorder(
@@ -143,8 +142,8 @@ class _ListOfShopsState extends State<ListOfShops> {
                 ),
               ],
               child: SalesOrderList(
-                businessPartnerId: records[idx].id,
-                shop: records[idx],
+                businessPartnerId: record.id,
+                shop: record,
                 section: widget.section,
               ),
             ),

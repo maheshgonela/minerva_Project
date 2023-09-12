@@ -42,4 +42,5 @@ abstract class Entities {
   static const preference = "ADPreference";
   static const product = 'Product';
   static const productCategory = 'ProductCategory';
+  static const organization = 'Organization';
 }

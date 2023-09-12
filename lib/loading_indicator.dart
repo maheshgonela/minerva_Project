@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class LoadingIndicator extends StatelessWidget {
   final Color? backgroundColor;
 
-  const LoadingIndicator({
+  const LoadingIndicator({super.key, 
     this.backgroundColor,
   });
 
@@ -11,7 +11,7 @@ class LoadingIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     //final _bgColor = backgroundColor ?? Colors.blue;
 
-    return Center(
+    return const Center(
       child: SizedBox(
         height: 24,
         width: 24,
