@@ -17,16 +17,16 @@ class ShipmentListScreen extends StatefulWidget {
 }
 
 class _ShipmentListScreenState extends State<ShipmentListScreen> {
-    ScrollController? _scrollController;
-      @override
+  ScrollController? _scrollController;
+  @override
   void initState() {
     super.initState();
+
     _scrollController = ScrollController();
     _scrollController?.addListener(_onScroll);
   }
 
-
-    void _onScroll() {
+  void _onScroll() {
     if (_scrollController!.offset >=
             _scrollController!.position.maxScrollExtent &&
         !_scrollController!.position.outOfRange) {
@@ -34,6 +34,7 @@ class _ShipmentListScreenState extends State<ShipmentListScreen> {
           .add(const FetchShipmentEvent.fetchMoreShipment());
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +58,7 @@ class _ShipmentListScreenState extends State<ShipmentListScreen> {
           return state.when(
             initial: () => const LoadingIndicator(),
             loading: () => const LoadingIndicator(),
-            success: (l,hasReachedMax, __) {
+            success: (l, hasReachedMax, __) {
               if (l.isEmpty) {
                 return EmptyListWidget(
                   title: 'No shipments found today',
@@ -74,20 +75,22 @@ class _ShipmentListScreenState extends State<ShipmentListScreen> {
                 },
                 child: ListView.builder(
                   controller: _scrollController,
-                  itemCount:  hasReachedMax ? l.length : l.length + 1,
+                  itemCount: hasReachedMax ? l.length : l.length + 1,
                   itemBuilder: (ctx, idx) {
-                         if (idx >= l.length) {
-                    return const Center(
-                        child: FittedBox(
-                            child:
-                                CircularProgressIndicator(strokeWidth: 2.0)));
-                  }
+                    if (idx >= l.length) {
+                      return const Center(
+                          child: FittedBox(
+                              child:
+                                  CircularProgressIndicator(strokeWidth: 2.0)));
+                    }
                     return Card(
                       elevation: 8.0,
                       margin: const EdgeInsets.symmetric(
                           horizontal: 20.0, vertical: 6.0),
                       child: Container(
                         decoration: BoxDecoration(
+                          border:
+                              l[idx] == l.first ? Border.all(width: 2) : null,
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                         child: ListTile(

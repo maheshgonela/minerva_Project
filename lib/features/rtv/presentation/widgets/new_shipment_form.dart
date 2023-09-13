@@ -54,7 +54,7 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
               state.maybeWhen(
                 failure: (f) =>
                     toastMessage(errorMessage: f.error, context: context),
-                success: () =>  _showSuccessDialog(),
+                success: () => _showSuccessDialog(),
                 orElse: () {},
               );
             },
@@ -63,9 +63,13 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
                 initial: () => _buildCreateButton(context),
                 loading: () => const Row(
                   children: [
-                      SizedBox(width: 20,),
-                     LoadingIndicator(),
-                    SizedBox(width: 40,)
+                    SizedBox(
+                      width: 20,
+                    ),
+                    LoadingIndicator(),
+                    SizedBox(
+                      width: 40,
+                    )
                   ],
                 ),
                 success: () => const SizedBox(height: 0, width: 0),
@@ -257,15 +261,13 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
       barrierDismissible: false,
       builder: (ctx) {
         return const ShowSuccessDialog(
-                 buttonText: "Okey",
-                 description:'GRN created successfully !',title: "Success",
-                );
+          buttonText: "Okey",
+          description: 'GRN created successfully !',
+          title: "Success",
+        );
       },
     ).then((value) {
-      Navigator.of(context).pop(value);
+      Navigator.of(context).pop(true);
     });
-   
   }
-    
 }
-
