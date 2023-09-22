@@ -17,7 +17,7 @@ class AppErrorWidget extends StatelessWidget {
         children: <Widget>[
           Text(
             error,
-            style: TextStyle(color: Colors.red, fontSize: 20),
+            style: TextStyle(color: Colors.red, fontSize: 22),
             textAlign: TextAlign.center,
           ),
           SizedBox(

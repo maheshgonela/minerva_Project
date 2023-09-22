@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:base_auth/entity/id_name.dart';
 import 'package:core/core.dart';
 import 'package:dartz/dartz.dart';
 import 'package:minerva/features/dispatch/domain/entities/dispatch_info_wrapper.dart';
@@ -11,6 +12,8 @@ import 'package:minerva/features/dispatch/domain/entities/shop_dispatch_products
 
 abstract class DispatchRepository {
   Future<Either<Failure, List<Shop>>> fetchShops(
+      int start, int end, String? query);
+  Future<Either<Failure, List<IdName>>> fetchOrganization(
       int start, int end, String? query);
 
   Future<Either<Failure, List<SalesOrder>>> fetchSalesOrder(
@@ -46,13 +49,19 @@ abstract class DispatchRepository {
   Future<Either<Failure, List<DispatchOrderedProduct>>>
       fetchDispatchSweetsProducts(String orderId);
 
-
   Future<Either<Failure, ShopDispatchProducts>> fetchShopShipments(
-      String orderId, String section, {bool fromDispatchSection = true});
+      String orderId, String section,
+      {bool fromDispatchSection = true});
 
-  Future<Either<Failure, bool>> saveProductDispatchQty(String productId, double dispatchQty);
+  Future<Either<Failure, bool>> saveProductDispatchQty(
+      String productId, double dispatchQty);
 
   Future<Either<Failure, Uint8List>> downloadInvoice(String orderId);
 
-  Future<Either<Failure, bool>> saveScannedProductDispatchQty(String productCode, String uniqueCode, String weight, String organization, String businessPartner);
+  Future<Either<Failure, bool>> saveScannedProductDispatchQty(
+      String productCode,
+      String uniqueCode,
+      String weight,
+      String organization,
+      String businessPartner);
 }

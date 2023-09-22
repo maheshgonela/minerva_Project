@@ -1,26 +1,27 @@
 import 'dart:ui';
 
+import 'package:base_auth/entity/id_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:minerva/features/dispatch/domain/entities/shop.dart';
-import 'package:minerva/features/dispatch/presentation/bloc/create_dispatch/create_dispatch_cubit.dart';
-import 'package:minerva/features/dispatch/presentation/bloc/fetch_sales_order/fetch_sales_order_bloc.dart';
+import 'package:minerva/features/dispatch/presentation/bloc/fetch_organizations/fetch_organization_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
-import 'package:minerva/features/dispatch/presentation/screen/sales_order_list.dart';
+import 'package:minerva/features/dispatch/presentation/screen/list_of_shops.dart';
 import 'package:minerva/get_it/injection.dart';
+
 import 'package:widgets/widgets.dart';
 
-class ListOfShops extends StatefulWidget {
-  const ListOfShops({Key? key, required this.section}) : super(key: key);
+class ListOfOrganizations extends StatefulWidget {
+  const ListOfOrganizations({Key? key, required this.section})
+      : super(key: key);
 
   final String section;
 
   @override
-  State<ListOfShops> createState() => _ListOfShopsState();
+  State<ListOfOrganizations> createState() => _ListOfOrganizationsState();
 }
 
-class _ListOfShopsState extends State<ListOfShops> {
+class _ListOfOrganizationsState extends State<ListOfOrganizations> {
   ScrollController? _scrollController;
   String? _query;
 
@@ -35,8 +36,8 @@ class _ListOfShopsState extends State<ListOfShops> {
     if (_scrollController!.offset >=
             _scrollController!.position.maxScrollExtent &&
         !_scrollController!.position.outOfRange) {
-      BlocProvider.of<FetchShopBloc>(context)
-          .add(FetchShopEvent.fetchMoreShop(query: _query));
+      BlocProvider.of<FetchOrganizationBloc>(context)
+          .add(FetchOrganizationEvent.fetchMoreOrganization(query: _query));
     }
   }
 
@@ -45,12 +46,7 @@ class _ListOfShopsState extends State<ListOfShops> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        leading: IconButton(
-          onPressed: () => Navigator.of(context).pop(),
-          icon: const Icon(
-            Icons.arrow_back_ios,
-          ),
-        ),
+        leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
         title: Text(
           'Dispatch ${widget.section}',
           style: GoogleFonts.istokWeb(
@@ -71,7 +67,7 @@ class _ListOfShopsState extends State<ListOfShops> {
         _refresh(context);
         return Future.value();
       },
-      child: BlocBuilder<FetchShopBloc, FetchShopState>(
+      child: BlocBuilder<FetchOrganizationBloc, FetchOrganizationState>(
         builder: (context, state) {
           return state.when(initial: () {
             return Center(
@@ -128,7 +124,7 @@ class _ListOfShopsState extends State<ListOfShops> {
     );
   }
 
-  Widget _buildCard(Shop record) {
+  Widget _buildCard(IdName record) {
     return Card(
       elevation: 2.0,
       shape: const RoundedRectangleBorder(
@@ -136,22 +132,36 @@ class _ListOfShopsState extends State<ListOfShops> {
         side: BorderSide(width: 1.5),
       ),
       child: ListTile(
+        // onTap: () {
+        //   Navigator.of(context).push(MaterialPageRoute(
+        //     builder: (ctx) => MultiBlocProvider(
+        //       providers: [
+        //         BlocProvider(
+        //           create: (ctx) => sl.get<FetchSalesOrderBloc>(),
+        //         ),
+        //         BlocProvider.value(
+        //           value: BlocProvider.of<CreateDispatchCubit>(context),
+        //         ),
+        //       ],
+        //       child: SalesOrderList(
+        //         businessPartnerId: record.id,
+        //         shop: record,
+        //         section: widget.section,
+        //       ),
+        //     ),
+        //   ));
+        // },
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
             builder: (ctx) => MultiBlocProvider(
               providers: [
                 BlocProvider(
-                  create: (ctx) => sl.get<FetchSalesOrderBloc>(),
-                ),
-                BlocProvider.value(
-                  value: BlocProvider.of<CreateDispatchCubit>(context),
-                ),
+                    create: (ctx) => sl.get<FetchShopBloc>()
+                      ..add(FetchShopEvent.fetchInitialShop(query: record.id))),
+                // we have to know about this , below this
+                // BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
               ],
-              child: SalesOrderList(
-                businessPartnerId: record.id,
-                shop: record,
-                section: widget.section,
-              ),
+              child: ListOfShops(section: record.name),
             ),
           ));
         },

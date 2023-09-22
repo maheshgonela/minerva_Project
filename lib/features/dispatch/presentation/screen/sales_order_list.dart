@@ -83,13 +83,13 @@ class _SalesOrderListState extends State<SalesOrderList> {
           }, success: (records, hasReachedMax, query) {
             if (records.isEmpty) {
               return Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: EmptyListWidget(
-                  title:
-                      'No booked sales orders found for ${widget.shop.name} since yesterday',
-                  onRefresh: () {
-                    _refresh(context);
-                  },
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: AppErrorWidget(
+                    error:
+                        'No booked sales orders found for ${widget.shop.name} since yesterday',
+                    onRefresh: () => _refresh(context),
+                  ),
                 ),
               );
             } else {
@@ -137,7 +137,8 @@ class _SalesOrderListState extends State<SalesOrderList> {
                 BlocProvider(
                   create: (ctx) => sl.get<FetchDispatchOrderedproductBloc>(),
                 ),
-                BlocProvider.value(value: BlocProvider.of<CreateDispatchCubit>(context))
+                BlocProvider.value(
+                    value: BlocProvider.of<CreateDispatchCubit>(context))
               ],
               child: CreateDispatchScreen(
                 shop: widget.shop,

@@ -15,18 +15,24 @@ class EmptyListWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text(title, style: GoogleFonts.istokWeb(
-                  textStyle: Theme.of(context).textTheme.titleLarge!.copyWith(
-                      color: Colors.black, fontWeight: FontWeight.bold)),),
+          Text(
+            title,
+            style: GoogleFonts.istokWeb(
+                textStyle: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(fontWeight: FontWeight.bold)),
+          ),
           const SizedBox(
             height: 12,
           ),
           // MinervaButton(onButtonPressed: onRefresh,
           // label: 'REFRESH',)
-          ElevatedButton(onPressed: (){
-            LoadingIndicator();
-           
-          }, child: Text('REFRESH')),
+          ElevatedButton(
+              onPressed: () {
+                LoadingIndicator();
+              },
+              child: Text('REFRESH')),
         ],
       ),
     );

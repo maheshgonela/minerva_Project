@@ -44,10 +44,18 @@ class DispatchRepoImpl
       int start, int end, String? query) async {
     final user = sl.get<LoggedInUser>();
     const defErrMsg = 'could not fetch shops';
+    String SelectedBusinessPartners = "";
 
     try {
-      const url = "${Constants.jsonWs}/${Entities.organization}?_sortBy=name";
-print(" $url");
+      if (query != null && query.trim().isNotEmpty) {
+        SelectedBusinessPartners = "organization IN ('$query')";
+        print("? / $query");
+      }
+      final String url = SelectedBusinessPartners.isEmpty
+          ? "NO SelectedBusinessPartners"
+          : "${Constants.jsonWs}/${Entities.businessPartner}?_where=$SelectedBusinessPartners&_sortBy=name";
+      print(" $url");
+      print("$SelectedBusinessPartners");
       final authHeader = _authHeader();
 
       final data = await safeApiCall(
@@ -213,6 +221,37 @@ print(" $url");
         .where((element) => element.product == productId)
         .toList();
     return double.parse(list[0].orderedQuantity);
+  }
+
+  @override
+  Future<Either<Failure, List<IdName>>> fetchOrganization(
+      int start, int end, String? query) async {
+    final user = sl.get<LoggedInUser>();
+    const defErrMsg = 'could not fetch shops';
+
+    try {
+      const url =
+          "${Constants.jsonWs}/${Entities.organization}?_selectedProperties=id,name&_sortBy=name";
+      print(" $url");
+      final authHeader = _authHeader();
+
+      final data = await safeApiCall(
+          () => client.get(Uri.parse(url), headers: authHeader), defErrMsg);
+      return data.fold(
+        (l) => left(l),
+        (r) {
+          final resultList = (r as List<dynamic>)
+              .map((e) => IdName.fromJson(e as Map<String, dynamic>))
+              .toList();
+          print('List SIze : ${resultList.length}');
+          return right(resultList);
+        },
+      );
+    } catch (e, st) {
+      logError(e, st, defErrMsg);
+      //https://minerva.easycloud.co.in/openbravo1/ws/in.easycloud.commons.QueryService
+      return left(Failure(error: e.toString()));
+    }
   }
 
   @override
@@ -392,7 +431,7 @@ print(" $url");
           "documentStatus='CO' and businessPartner='$businessPartnerId' and salesTransaction=true and date(orderDate)>=date('$yesterdayDate') and organization='${user.defaultOrganization}'";
       final url =
           "${Constants.jsonWs}/$entityName?_where=$filters&_startRow=$start&_endRow=$end&_sortBy=creationDate desc";
-print("/ ? $url");
+      print("/ ? $url");
       final authHeader = _authHeader();
 
       final recivedData = await safeApiCall(() {
