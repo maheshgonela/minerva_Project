@@ -9,12 +9,15 @@ import 'package:minerva/features/dispatch/presentation/bloc/fetch_sales_order/fe
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/screen/sales_order_list.dart';
 import 'package:minerva/get_it/injection.dart';
+import 'package:minerva/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class ListOfShops extends StatefulWidget {
-  const ListOfShops({Key? key, required this.section}) : super(key: key);
+  const ListOfShops({Key? key, required this.section, required this.OrgId})
+      : super(key: key);
 
   final String section;
+  final String OrgId;
 
   @override
   State<ListOfShops> createState() => _ListOfShopsState();
@@ -65,40 +68,39 @@ class _ListOfShopsState extends State<ListOfShops> {
   }
 
   Widget _buildList(BuildContext context) {
-    return RefreshIndicator(
-      strokeWidth: 1.0,
-      onRefresh: () {
-        _refresh(context);
-        return Future.value();
-      },
-      child: BlocBuilder<FetchShopBloc, FetchShopState>(
-        builder: (context, state) {
-          return state.when(initial: () {
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  'Search by shop name',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.labelSmall,
+    return BlocBuilder<FetchShopBloc, FetchShopState>(
+      builder: (ctx, state) {
+        return state.when(initial: () {
+          return Center(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'Search by shop name',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.labelSmall,
+              ),
+            ),
+          );
+        }, loading: () {
+          return const Center(child: LoadingIndicator());
+        }, success: (records, hasReachedMax, query) {
+          if (records.isEmpty) {
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: AppErrorWidget(
+                  error: 'No shop found with default organization',
+                  onRefresh: () => _refresh(context),
                 ),
               ),
             );
-          }, loading: () {
-            return const Center(child: CircularProgressIndicator());
-          }, success: (records, hasReachedMax, query) {
-            if (records.isEmpty) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                  child: AppErrorWidget(
-                    error: 'No shop found with default organization',
-                    onRefresh: () => _refresh(context),
-                  ),
-                ),
-              );
-            } else {
-              return ListView.builder(
+          } else {
+            return RefreshIndicator(
+              onRefresh: () {
+                _refresh(context);
+                return Future.delayed(const Duration(seconds: 1));
+              },
+              child: ListView.builder(
                 shrinkWrap: true,
                 controller: _scrollController,
                 padding: const EdgeInsets.all(16.0),
@@ -107,7 +109,7 @@ class _ListOfShopsState extends State<ListOfShops> {
                   if (idx >= records.length) {
                     return const Center(
                       child: FittedBox(
-                        child: CircularProgressIndicator(strokeWidth: 2.0),
+                        child: LoadingIndicator(),
                       ),
                     );
                   }
@@ -115,16 +117,16 @@ class _ListOfShopsState extends State<ListOfShops> {
                   return _buildCard(records[idx]);
                 },
                 itemCount: hasReachedMax ? records.length : records.length + 1,
-              );
-            }
-          }, failure: (e) {
-            return AppErrorWidget(
-              onRefresh: () => _refresh(context),
-              error: e.error,
+              ),
             );
-          });
-        },
-      ),
+          }
+        }, failure: (e) {
+          return AppErrorWidget(
+            onRefresh: () => _refresh(context),
+            error: e.error,
+          );
+        });
+      },
     );
   }
 
@@ -143,9 +145,10 @@ class _ListOfShopsState extends State<ListOfShops> {
                 BlocProvider(
                   create: (ctx) => sl.get<FetchSalesOrderBloc>(),
                 ),
-                BlocProvider.value(
-                  value: BlocProvider.of<CreateDispatchCubit>(context),
-                ),
+                // BlocProvider.value(
+                //   value: BlocProvider.of<CreateDispatchCubit>(context),
+                // ),
+                BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
               ],
               child: SalesOrderList(
                 businessPartnerId: record.id,
@@ -179,6 +182,6 @@ class _ListOfShopsState extends State<ListOfShops> {
 
   void _refresh(BuildContext context) {
     BlocProvider.of<FetchShopBloc>(context)
-        .add(FetchShopEvent.fetchInitialShop(query: _query));
+        .add(FetchShopEvent.fetchInitialShop(query: widget.OrgId));
   }
 }

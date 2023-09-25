@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                     ..add(const FetchOrganizationEvent
                         .fetchInitialOrganization())),
               // we have to know about this , below this
-              BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
+              //BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
             ],
             child: ListOfOrganizations(section: section),
           ),

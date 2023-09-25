@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:base_auth/entity/id_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +7,7 @@ import 'package:minerva/features/dispatch/presentation/bloc/fetch_organizations/
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/screen/list_of_shops.dart';
 import 'package:minerva/get_it/injection.dart';
-
+import 'package:minerva/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class ListOfOrganizations extends StatefulWidget {
@@ -56,69 +55,67 @@ class _ListOfOrganizationsState extends State<ListOfOrganizations> {
                   .copyWith(fontWeight: FontWeight.bold)),
         ),
       ),
-      body: _buildList(context),
-    );
-  }
-
-  Widget _buildList(BuildContext context) {
-    return RefreshIndicator(
-      strokeWidth: 1.0,
-      onRefresh: () {
-        _refresh(context);
-        return Future.value();
-      },
-      child: BlocBuilder<FetchOrganizationBloc, FetchOrganizationState>(
-        builder: (context, state) {
-          return state.when(initial: () {
-            return Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  'Search by shop name',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.labelSmall,
-                ),
-              ),
-            );
-          }, loading: () {
-            return const Center(child: CircularProgressIndicator());
-          }, success: (records, hasReachedMax, query) {
-            if (records.isEmpty) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                  child: AppErrorWidget(
-                    error: 'No shop found with default organization',
-                    onRefresh: () => _refresh(context),
+      body: BlocBuilder<FetchOrganizationBloc, FetchOrganizationState>(
+        builder: (ctx, state) {
+          return state.when(
+              initial: () {
+                return Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      'Search by shop name',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.labelSmall,
+                    ),
                   ),
-                ),
-              );
-            } else {
-              return ListView.builder(
-                shrinkWrap: true,
-                controller: _scrollController,
-                padding: const EdgeInsets.all(16.0),
-                physics: const AlwaysScrollableScrollPhysics(),
-                itemBuilder: (ctx, idx) {
-                  if (idx >= records.length) {
-                    return const Center(
-                      child: FittedBox(
-                        child: CircularProgressIndicator(strokeWidth: 2.0),
+                );
+              },
+              loading: () => const Center(child: LoadingIndicator()),
+              success: (records, hasReachedMax, query) {
+                if (records.isEmpty) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(
+                      child: AppErrorWidget(
+                        error: 'No shop found with default organization',
+                        onRefresh: () => _refresh(context),
                       ),
-                    );
-                  }
+                    ),
+                  );
+                } else {
+                  return RefreshIndicator(
+                    onRefresh: () {
+                      _refresh(context);
+                      return Future.delayed(const Duration(seconds: 1));
+                    },
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      controller: _scrollController,
+                      itemCount:
+                          hasReachedMax ? records.length : records.length + 1,
+                      padding: const EdgeInsets.all(16.0),
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      itemBuilder: (ctx, idx) {
+                        if (idx >= records.length) {
+                          return const Center(
+                            child: FittedBox(
+                              child: LoadingIndicator(),
+                            ),
+                          );
+                        }
 
-                  return _buildCard(records[idx]);
-                },
-                itemCount: hasReachedMax ? records.length : records.length + 1,
-              );
-            }
-          }, failure: (e) {
-            return AppErrorWidget(
-              onRefresh: () => _refresh(context),
-              error: e.error,
-            );
-          });
+                        return _buildCard(records[idx]);
+                      },
+                    ),
+                  );
+                }
+              },
+              failure: (e) {
+                return AppErrorWidget(
+                  onRefresh: () => _refresh(context),
+                  error: e.error,
+                );
+              });
         },
       ),
     );
@@ -161,7 +158,10 @@ class _ListOfOrganizationsState extends State<ListOfOrganizations> {
                 // we have to know about this , below this
                 // BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
               ],
-              child: ListOfShops(section: record.name),
+              child: ListOfShops(
+                section: record.name,
+                OrgId: record.id,
+              ),
             ),
           ));
         },
@@ -188,7 +188,7 @@ class _ListOfOrganizationsState extends State<ListOfOrganizations> {
   }
 
   void _refresh(BuildContext context) {
-    BlocProvider.of<FetchShopBloc>(context)
-        .add(FetchShopEvent.fetchInitialShop(query: _query));
+    BlocProvider.of<FetchOrganizationBloc>(context)
+        .add(const FetchOrganizationEvent.fetchInitialOrganization());
   }
 }
