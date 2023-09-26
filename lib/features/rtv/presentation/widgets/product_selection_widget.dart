@@ -30,7 +30,7 @@ class ProductSelectionWidget extends StatefulWidget {
 }
 
 class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
-  String? _query;
+  // String? _query;
   Timer? _debounce;
 
   final QueryController = TextEditingController();

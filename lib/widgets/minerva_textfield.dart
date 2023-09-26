@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:minerva/design/colors.dart';
-import 'package:minerva/design/styles.dart';
 
+// ignore: must_be_immutable
 class MinervaTextField extends StatefulWidget {
   final String? autocorrect;
   final String? labelText;

@@ -1,4 +1,4 @@
-
+import 'dart:ui';
 
 import 'package:base_auth/entity/logged_in_user.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +32,7 @@ class SalesOrderList extends StatefulWidget {
 class _SalesOrderListState extends State<SalesOrderList> {
   LoggedInUser? user;
   ScrollController? _scrollController;
-  String? _query;
+  //String? _query;
 
   @override
   void initState() {

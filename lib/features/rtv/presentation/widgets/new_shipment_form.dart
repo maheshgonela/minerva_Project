@@ -13,7 +13,6 @@ import 'package:minerva/features/rtv/presentation/widgets/success_dialog.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/loading_indicator.dart';
 import 'package:minerva/toast_message.dart';
-import 'package:widgets/dialog_utils.dart';
 import 'package:widgets/widgets.dart';
 
 class NewShipmentForm extends StatefulWidget {

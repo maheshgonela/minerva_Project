@@ -1,9 +1,7 @@
 import 'package:base_auth/entity/id_name.dart';
-import 'package:core/failures/failure.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:minerva/features/rtv/presentation/bloc/fetch_product/fetch_product_bloc.dart';
 import 'package:minerva/features/rtv/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
 import 'package:minerva/loading_indicator.dart';
 import 'package:widgets/widgets.dart';

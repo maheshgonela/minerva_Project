@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:minerva/features/rtv/domain/entity/shipment_form.dart';
 import 'package:minerva/features/rtv/domain/entity/shipment_form_line.dart';
 
 class EditeQuantityDialog extends StatefulWidget {

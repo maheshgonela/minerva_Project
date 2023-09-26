@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:minerva/design/colors.dart';
 
 class MinervaButton extends StatefulWidget {
   final String? label;

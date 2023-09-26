@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:base_auth/entity/id_name.dart';
 import 'package:base_auth/entity/logged_in_user.dart';
@@ -196,7 +195,7 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
   Future<Shipment?> _createShipment(ShipmentForm form) async {
     const defErrMsg = 'Could not create shipment';
     final url = "${Constants.jsonWs}/${Entities.goodsReceipt}";
-    print('url $url');
+    print('createShipmenturl $url');
     final user = sl.get<LoggedInUser>();
     final requestBody = jsonEncode({
       'data': {
