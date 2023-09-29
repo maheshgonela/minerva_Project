@@ -16,10 +16,10 @@ class FetchPurchaseOrderBloc extends Bloc<FetchPurchaseOrderEvent, FetchPurchase
 
   FetchPurchaseOrderBloc(
     this.repo,
-  ) : super(FetchPurchaseOrderState.initial()) {
+  ) : super(const FetchPurchaseOrderState.initial()) {
     on<FetchPurchaseOrderEvent>((event, emit) async {
       await event.map(fetchInitialPurchaseOrder: (e) async {
-        emit(FetchPurchaseOrderState.loading());
+        emit(const FetchPurchaseOrderState.loading());
 
         var result = await repo.fetchPurchaseOrder(0, pageLength, e.query);
         emit(result.fold(

@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/rtv/domain/entity/entities.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
-import 'package:minerva/features/rtv/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
 import 'package:minerva/features/rtv/presentation/widgets/bp_selected_widget.dart';
 import 'package:minerva/features/rtv/presentation/widgets/edite_quantity_dialog.dart';
 import 'package:minerva/features/rtv/presentation/widgets/product_selection_widget.dart';

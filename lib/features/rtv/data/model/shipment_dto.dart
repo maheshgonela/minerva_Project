@@ -36,14 +36,14 @@ abstract class ShipmentDto implements _$ShipmentDto {
 
   Shipment toDomain() {
     return Shipment(
-      id: this.id,
-      organization: this.organization,
-      documentNo: this.documentNo,
-      bpId: this.bpId,
-      bpName: this.bpName,
-      partnerAddress: this.partnerAddress,
-      movementDate: this.movementDate,
-      description: this.description,
+      id: id,
+      organization: organization,
+      documentNo: documentNo,
+      bpId: bpId,
+      bpName: bpName,
+      partnerAddress: partnerAddress,
+      movementDate: movementDate,
+      description: description,
     );
   }
 

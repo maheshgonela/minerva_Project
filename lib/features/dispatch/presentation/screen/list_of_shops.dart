@@ -167,7 +167,7 @@ class _ListOfShopsState extends State<ListOfShops> {
         ),
         title: Text(
           record.name,
-          style: Theme.of(context).textTheme.headline6?.copyWith(
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
             fontWeight: FontWeight.bold,
             fontSize: 18,
             fontFeatures: [

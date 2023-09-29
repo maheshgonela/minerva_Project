@@ -50,7 +50,7 @@ class _QuantityDialogState extends State<QuantityDialog> {
                   errorText: _errorMessage,
                   hintText: widget.product.uomName,
                   errorMaxLines: 2,
-                  labelStyle: Theme.of(context).textTheme.bodyText1,
+                  labelStyle: Theme.of(context).textTheme.bodyLarge,
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
                       borderSide: const BorderSide(

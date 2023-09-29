@@ -17,10 +17,10 @@ class FetchProductCategoryBloc
 
   FetchProductCategoryBloc(
     this.repo,
-  ) : super(FetchProductCategoryState.initial()) {
+  ) : super(const FetchProductCategoryState.initial()) {
     on<FetchProductCategoryEvent>((event, emit) async {
       await event.map(fetchInitialProductCategory: (e) async {
-        emit(FetchProductCategoryState.loading());
+        emit(const FetchProductCategoryState.loading());
 
         var result = await repo.fetchProductCategory();
         emit(result.fold(

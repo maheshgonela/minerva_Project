@@ -15,7 +15,7 @@ class AppVersionUseCase with AuthHelper {
   Future<bool> isUpdateAvailable(String username, String password) async {
     const String defErrMsg = 'Could not check for update';
     try {
-      final String url = "${Constants.jsonWs}/${Entities.preference}?"
+      const String url = "${Constants.jsonWs}/${Entities.preference}?"
           "_where=attribute='${Constants.prefAppVersion}'&_selectedProperties=searchKey";
 
       final result = await safeApiCall(

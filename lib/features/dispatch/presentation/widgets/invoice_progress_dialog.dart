@@ -20,8 +20,8 @@ class InvoiceProgressDialog extends StatelessWidget {
       listener: (ctx, state) {
         state.maybeWhen(
           success: (d) async {
-            final _file = await _createFileFromString(d, shipmentId);
-            final open = await OpenFile.open(_file);
+            final file = await _createFileFromString(d, shipmentId);
+            final open = await OpenFile.open(file);
             switch (open.type) {
               case ResultType.fileNotFound:
                 toastMessage(errorMessage: 'File not found', context: context);
@@ -95,7 +95,7 @@ class InvoiceProgressDialog extends StatelessWidget {
         contentTile,
         textAlign: TextAlign.center,
         maxLines: 3,
-        style: Theme.of(context).textTheme.headline6,
+        style: Theme.of(context).textTheme.titleLarge,
       ),
       actions: [
         ElevatedButton(

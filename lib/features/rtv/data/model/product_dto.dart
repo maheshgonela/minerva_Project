@@ -33,13 +33,13 @@ abstract class ProductDto implements _$ProductDto {
 
   Product toDomain() {
     return Product(
-        id: this.id,
-        name: this.name,
-        uomId: this.uomId,
-        uomName: this.uomName,
-        productCategoryId: this.productCategoryId,
-        productCategoryName: this.productCategoryName,
-        uPCEAN: this.uPCEAN);
+        id: id,
+        name: name,
+        uomId: uomId,
+        uomName: uomName,
+        productCategoryId: productCategoryId,
+        productCategoryName: productCategoryName,
+        uPCEAN: uPCEAN);
   }
 
   factory ProductDto.fromJson(Map<String, dynamic> json) =>

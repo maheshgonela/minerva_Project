@@ -16,10 +16,10 @@ class FetchShopBloc extends Bloc<FetchShopEvent, FetchShopState> {
 
   FetchShopBloc(
     this.repo,
-  ) : super(FetchShopState.initial()) {
+  ) : super(const FetchShopState.initial()) {
     on<FetchShopEvent>((event, emit) async {
       await event.map(fetchInitialShop: (e) async {
-        emit(FetchShopState.loading());
+        emit(const FetchShopState.loading());
 
         var result = await repo.fetchShops(0, pageLength, e.query);
         emit(result.fold(

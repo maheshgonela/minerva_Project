@@ -10,18 +10,20 @@ part 'fetch_sales_order_event.dart';
 part 'fetch_sales_order_state.dart';
 
 @injectable
-class FetchSalesOrderBloc extends Bloc<FetchSalesOrderEvent, FetchSalesOrderState> {
+class FetchSalesOrderBloc
+    extends Bloc<FetchSalesOrderEvent, FetchSalesOrderState> {
   final DispatchRepository repo;
   final int pageLength = 20;
 
   FetchSalesOrderBloc(
     this.repo,
-  ) : super(FetchSalesOrderState.initial()) {
+  ) : super(const FetchSalesOrderState.initial()) {
     on<FetchSalesOrderEvent>((event, emit) async {
       await event.map(fetchInitialSalesOrder: (e) async {
-        emit(FetchSalesOrderState.loading());
+        emit(const FetchSalesOrderState.loading());
 
-        var result = await repo.fetchSalesOrder(0, pageLength, e.businessPartnerId);
+        var result =
+            await repo.fetchSalesOrder(0, pageLength, e.businessPartnerId);
         emit(result.fold(
           (l) => FetchSalesOrderState.failure(l),
           (r) => FetchSalesOrderState.success(

@@ -14,6 +14,8 @@ import 'package:minerva/get_it/injection.dart';
 import 'package:widgets/widgets.dart';
 
 class GRNScreen extends StatefulWidget {
+  const GRNScreen({super.key});
+
   @override
   _GRNScreenState createState() => _GRNScreenState();
 }
@@ -64,7 +66,7 @@ class _GRNScreenState extends State<GRNScreen> {
                     child: Text(
                       'Search by document number to see orders',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ));
                 },
@@ -141,7 +143,7 @@ class _GRNScreenState extends State<GRNScreen> {
         },
         title: Text(
           record.documentNo,
-          style: Theme.of(context).textTheme.headline6?.copyWith(
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
             fontWeight: FontWeight.bold,
             fontFamily: 'sans-serif',
             fontSize: 24,

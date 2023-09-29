@@ -47,7 +47,7 @@ abstract class QueryHelper {
       {Map<String, String>? placeholders}) async {
     final user = sl.get<LoggedInUser>();
     final query = await getQuery(key);
-    final url = "${Constants.customWs}/in.easycloud.commons.QueryService";
+    const url = "${Constants.customWs}/in.easycloud.commons.QueryService";
     print(url);
     final response = await safeApiCall(() {
       final requestBody =

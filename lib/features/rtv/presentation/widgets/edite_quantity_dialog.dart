@@ -5,7 +5,7 @@ class EditeQuantityDialog extends StatefulWidget {
   final ShipmentFormLine record;
   final Function(double) onQuantityUpdated; // Callback function
 
-  EditeQuantityDialog(
+  const EditeQuantityDialog(
       {Key? key, required this.record, required this.onQuantityUpdated})
       : super(key: key);
   @override
@@ -14,7 +14,7 @@ class EditeQuantityDialog extends StatefulWidget {
 
 class _EditeQuantityDialogState extends State<EditeQuantityDialog> {
   String _errorMessage = '';
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   @override
   void initState() {
@@ -30,7 +30,7 @@ class _EditeQuantityDialogState extends State<EditeQuantityDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Edit Quantity'),
+      title: const Text('Edit Quantity'),
       content: TextFormField(
         controller: _controller,
         keyboardType: TextInputType.number,

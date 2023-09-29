@@ -127,7 +127,7 @@ class SignInRepoImpl with AuthHelper implements AuthRepository {
   Future<List<String>> getPersistedUserAccessibleFeatures() async {
     final pref = await SharedPreferences.getInstance();
 
-    final featuresList = await pref.getStringList('mobileAccess');
+    final featuresList = pref.getStringList('mobileAccess');
 
     if (featuresList == null || featuresList.isEmpty) {
       return [];

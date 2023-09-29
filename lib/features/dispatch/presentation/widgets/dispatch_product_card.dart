@@ -105,11 +105,11 @@ class _DispatchProductCardState extends State<DispatchProductCard>
                         : Icons.pending_actions),
               ),
               title: Text(widget.product.productName,
-                  style: Theme.of(context).textTheme.headline6),
+                  style: Theme.of(context).textTheme.titleLarge),
               subtitle: Text(widget.product.productCategory),
               trailing: Text(
                 widget.product.pendingQty.toString(),
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
             if (_dispatchItemUiModel.dispatchedQty != 0 &&
@@ -117,12 +117,12 @@ class _DispatchProductCardState extends State<DispatchProductCard>
               ListTile(
                 tileColor: _cardBackgroundColor.withAlpha(85),
                 title: Text('Dispatched',
-                    style: Theme.of(context).textTheme.headline5),
+                    style: Theme.of(context).textTheme.headlineSmall),
                 trailing: Text(
                     _dispatchItemUiModel.dispatchedQty.toString().endsWith(".0")
                         ? '${_dispatchItemUiModel.dispatchedQty.toInt()}'
                         : _dispatchItemUiModel.dispatchedQty.toStringAsFixed(3),
-                    style: Theme.of(context).textTheme.headline5),
+                    style: Theme.of(context).textTheme.headlineSmall),
               ),
           ],
         ),

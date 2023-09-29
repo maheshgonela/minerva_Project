@@ -33,7 +33,7 @@ String getErrorMsgFromResponse(Map<String, dynamic> obResponse, String defMsg) {
                 : obResponse['error'] != null
                     ? obResponse['error']
                     : defMsg;
-  } catch (error, st) {
+  } catch (error) {
     return defMsg;
   }
 }
@@ -89,9 +89,9 @@ Future<Either<Failure, dynamic>> safeApiCall(
     } else {
       return _getResponseByStatusCode(statusCode, obResponse, defErrMsg);
     }
-  } on SocketException catch (e, st) {
+  } on SocketException {
     return left(Failure(error: defErrMsg));
-  } catch (ex, st) {
+  } catch (ex) {
     return left(Failure(error: defErrMsg));
   }
 }
@@ -153,7 +153,7 @@ Future<Either<Failure, dynamic>> signInSafeApiCall(
               Failure(error: getErrorMsgFromResponse(obResponse, defErrMsg)));
         }
       }
-    } on FormatException catch (e, st) {
+    } on FormatException {
       if (statusCode == 401) {
         return left(Failure(error: "Invalid username/password"));
       } else if (statusCode >= 500 && statusCode <= 599) {
@@ -164,11 +164,11 @@ Future<Either<Failure, dynamic>> signInSafeApiCall(
     } catch (e) {
       rethrow;
     }
-  } on SocketException catch (e, st) {
+  } on SocketException {
     return left(Failure(
       error: defErrMsg,
     ));
-  } catch (ex, st) {
+  } catch (ex) {
     return left(Failure(error: defErrMsg));
   }
 }

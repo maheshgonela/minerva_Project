@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:base_auth/entity/logged_in_user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -64,7 +62,7 @@ class _SalesOrderListState extends State<SalesOrderList> {
         strokeWidth: 1.0,
         onRefresh: () {
           _refresh(context);
-          return Future.value(Duration(microseconds: 300));
+          return Future.value(const Duration(microseconds: 300));
         },
         child: BlocBuilder<FetchSalesOrderBloc, FetchSalesOrderState>(
             builder: (context, state) {
@@ -75,7 +73,7 @@ class _SalesOrderListState extends State<SalesOrderList> {
               child: Text(
                 'Search by document number to see orders',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ));
           }, loading: () {
@@ -132,7 +130,7 @@ class _SalesOrderListState extends State<SalesOrderList> {
       child: ListTile(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (ctx2) => MultiBlocProvider(
+            builder: (ctx) => MultiBlocProvider(
               providers: [
                 BlocProvider(
                   create: (ctx) => sl.get<FetchDispatchOrderedproductBloc>(),
@@ -150,7 +148,7 @@ class _SalesOrderListState extends State<SalesOrderList> {
         },
         title: Text(
           record.documentNo,
-          style: Theme.of(context).textTheme.headline6?.copyWith(
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
               ),
@@ -160,7 +158,7 @@ class _SalesOrderListState extends State<SalesOrderList> {
           children: [
             Text(
               records[idx].scheduledDeliveryDate,
-              style: Theme.of(context).textTheme.caption?.copyWith(),
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(),
             ),
           ],
         ),

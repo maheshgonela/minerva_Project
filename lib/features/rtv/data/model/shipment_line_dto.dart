@@ -32,12 +32,12 @@ abstract class ShipmentLineDto implements _$ShipmentLineDto {
 
   ShipmentLine toDomain() {
     return ShipmentLine(
-      id: this.id,
-      productId: this.productId,
-      productName: this.productName,
-      uomName: this.uomName,
-      storageBinName: this.storageBinName,
-      movementQty: this.movementQty,
+      id: id,
+      productId: productId,
+      productName: productName,
+      uomName: uomName,
+      storageBinName: storageBinName,
+      movementQty: movementQty,
     );
   }
 

@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:core/core.dart';
-import 'package:core/failures/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:minerva/log/app_logger.dart';
 import 'package:http/http.dart' as http;

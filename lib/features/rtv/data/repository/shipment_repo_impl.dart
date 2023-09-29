@@ -3,15 +3,12 @@ import 'dart:convert';
 import 'package:base_auth/entity/id_name.dart';
 import 'package:base_auth/entity/logged_in_user.dart';
 import 'package:core/core.dart';
-import 'package:core/failures/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:minerva/auth_helper.dart';
 import 'package:minerva/constants.dart';
 import 'package:minerva/core/query_helper.dart';
 import 'package:minerva/features/rtv/data/model/models.dart';
 import 'package:minerva/features/rtv/domain/entity/entities.dart';
-import 'package:minerva/features/rtv/domain/entity/shipment.dart';
-import 'package:minerva/features/rtv/domain/entity/shipment_form.dart';
 import 'package:minerva/features/rtv/domain/repository/shipment_repo.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/log/app_logger.dart';
@@ -194,7 +191,7 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
 //https://minerva.easycloud.co.in/openbravo1/?tabId=167&recordId=2030AD7DD4284E2B936E261662EF735A
   Future<Shipment?> _createShipment(ShipmentForm form) async {
     const defErrMsg = 'Could not create shipment';
-    final url = "${Constants.jsonWs}/${Entities.goodsReceipt}";
+    const url = "${Constants.jsonWs}/${Entities.goodsReceipt}";
     print('createShipmenturl $url');
     final user = sl.get<LoggedInUser>();
     final requestBody = jsonEncode({

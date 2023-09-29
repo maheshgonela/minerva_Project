@@ -82,7 +82,7 @@ class _TabletShopOrdersState extends State<TabletShopOrders> {
                 return Center(
                   child: Text(
                     'No orders found for the selected store',
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                 );
               }
@@ -130,7 +130,7 @@ class _TabletShopOrdersState extends State<TabletShopOrders> {
                   child: Row(
                     children: [
                       Text(value.documentNo,
-                          style: Theme.of(context).textTheme.headline5),
+                          style: Theme.of(context).textTheme.headlineSmall),
                       const SizedBox(width: 12),
                       Text(value.scheduledDeliveryDate),
                     ],
@@ -190,7 +190,7 @@ class _TabletShopOrdersState extends State<TabletShopOrders> {
     return RefreshIndicator(
       onRefresh: () {
         _refresh(context);
-        return Future.value(Duration(seconds: 2));
+        return Future.value(const Duration(seconds: 2));
       },
       child: BlocConsumer<FetchDispatchOrderedproductBloc,
           FetchDispatchOrderedproductState>(

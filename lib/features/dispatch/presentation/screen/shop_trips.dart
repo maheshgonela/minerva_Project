@@ -74,7 +74,7 @@ class _ShopTripsState extends State<ShopTrips> {
                       elevation: 2.0,
                       child: TabBar(
                         labelColor: Colors.black,
-                        labelStyle: Theme.of(context).textTheme.headline6,
+                        labelStyle: Theme.of(context).textTheme.titleLarge,
                         indicatorWeight: 4.0,
                         tabs: [
                           ...[
@@ -122,24 +122,24 @@ class _ShopTripsState extends State<ShopTrips> {
             contentPadding:
                 const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             title: Text('Driver: ${e.driver}',
-                style: Theme.of(context).textTheme.headline5),
+                style: Theme.of(context).textTheme.headlineSmall),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Sender: ${e.sender}',
-                    style: Theme.of(context).textTheme.headline6),
+                    style: Theme.of(context).textTheme.titleLarge),
                 Text('Vehicle Number: ${e.vehicleNumber}',
-                    style: Theme.of(context).textTheme.headline6),
+                    style: Theme.of(context).textTheme.titleLarge),
                 Text(e.creationDate,
-                    style: Theme.of(context).textTheme.headline6)
+                    style: Theme.of(context).textTheme.titleLarge)
               ],
             ),
             trailing: BlocConsumer<DownloadInvoiceBloc, DownloadInvoiceState>(
               listener: (ctx, state) {
                 state.maybeWhen(
                   success: (d) async {
-                    final _file = await _createFileFromString(d, e.shipmentId);
-                    final open = await OpenFile.open(_file);
+                    final file = await _createFileFromString(d, e.shipmentId);
+                    final open = await OpenFile.open(file);
                     switch (open.type) {
                       case ResultType.fileNotFound:
                         toastMessage(
@@ -198,13 +198,13 @@ class _ShopTripsState extends State<ShopTrips> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.0)),
                   title: Text(e.products[idx].productName,
-                      style: Theme.of(context).textTheme.headline5),
+                      style: Theme.of(context).textTheme.headlineSmall),
                   subtitle: Row(
                     children: [
                       Chip(
                         label: Text(
                           'Ordered: ${e.products[idx].orderedQty.toStringAsFixed(3)}',
-                          style: Theme.of(context).textTheme.headline6,
+                          style: Theme.of(context).textTheme.titleLarge,
                         ),
                         backgroundColor: Colors.green,
                       ),
@@ -213,7 +213,7 @@ class _ShopTripsState extends State<ShopTrips> {
                         child: Chip(
                           label: Text(
                             'Dispatched: ${e.products[idx].dispatchedQty.toStringAsFixed(3)}',
-                            style: Theme.of(context).textTheme.headline6,
+                            style: Theme.of(context).textTheme.titleLarge,
                           ),
                           backgroundColor: Colors.orange,
                         ),

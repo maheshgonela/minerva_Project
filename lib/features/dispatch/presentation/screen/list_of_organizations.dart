@@ -174,7 +174,7 @@ class _ListOfOrganizationsState extends State<ListOfOrganizations> {
         ),
         title: Text(
           record.name,
-          style: Theme.of(context).textTheme.headline6?.copyWith(
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
             fontWeight: FontWeight.bold,
             fontSize: 18,
             fontFeatures: [

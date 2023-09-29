@@ -17,10 +17,10 @@ class FetchOrganizationBloc
 
   FetchOrganizationBloc(
     this.repo,
-  ) : super(FetchOrganizationState.initial()) {
+  ) : super(const FetchOrganizationState.initial()) {
     on<FetchOrganizationEvent>((event, emit) async {
       await event.map(fetchInitialOrganization: (e) async {
-        emit(FetchOrganizationState.loading());
+        emit(const FetchOrganizationState.loading());
 
         var result = await repo.fetchOrganization(0, pageLength, e.query);
         emit(result.fold(

@@ -5,6 +5,8 @@ import 'package:minerva/design/colors.dart';
 import 'package:widgets/widgets.dart';
 
 class AddInventoryScreen extends StatefulWidget {
+  const AddInventoryScreen({super.key});
+
   @override
   _AddInventoryScreenState createState() => _AddInventoryScreenState();
 }
@@ -34,7 +36,7 @@ class _AddInventoryScreenState extends State<AddInventoryScreen> {
         ),
         title: Text(
           'Add Inventory',
-          style: Theme.of(context).textTheme.headline6?.copyWith(
+          style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 color: AppColors.secondaryColor,
               ),
         ),
@@ -53,7 +55,7 @@ class _AddInventoryScreenState extends State<AddInventoryScreen> {
           Padding(
             padding: const EdgeInsets.only(top: 16.0, right: 8, left: 8),
             child: Text('Scan Product',
-                style: Theme.of(context).textTheme.headline6),
+                style: Theme.of(context).textTheme.titleLarge),
           ),
           const SizedBox(height: 8),
           _buildBarCodeTextField(context),
@@ -75,7 +77,7 @@ class _AddInventoryScreenState extends State<AddInventoryScreen> {
                       children: [
                         Text(
                           'Products',
-                          style: Theme.of(context).textTheme.headline5,
+                          style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         Card(
                           shape: RoundedRectangleBorder(
@@ -86,17 +88,17 @@ class _AddInventoryScreenState extends State<AddInventoryScreen> {
                               children: [
                                 Text(
                                   'Rasmalai',
-                                  style: Theme.of(context).textTheme.headline6,
+                                  style: Theme.of(context).textTheme.titleLarge,
                                 ),
                                 const Spacer(),
                                 Text(
                                   'KG',
-                                  style: Theme.of(context).textTheme.headline6,
+                                  style: Theme.of(context).textTheme.titleLarge,
                                 ),
                                 const SizedBox(width: 24),
                                 Text(
                                   '65',
-                                  style: Theme.of(context).textTheme.headline6,
+                                  style: Theme.of(context).textTheme.titleLarge,
                                 ),
                               ],
                             ),
@@ -110,7 +112,7 @@ class _AddInventoryScreenState extends State<AddInventoryScreen> {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.amber,
+                          backgroundColor: Colors.amber,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(24)),
                         ),
@@ -118,7 +120,7 @@ class _AddInventoryScreenState extends State<AddInventoryScreen> {
                           'Done',
                           style: Theme.of(context)
                               .textTheme
-                              .headline6
+                              .titleLarge
                               ?.copyWith(fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -137,7 +139,7 @@ class _AddInventoryScreenState extends State<AddInventoryScreen> {
     return Padding(
       padding: const EdgeInsets.only(top: 16.0, right: 8, left: 8),
       child: Theme(
-          data: new ThemeData(
+          data: ThemeData(
             primaryColor: AppColors.secondaryColor,
           ),
           child: TextField(

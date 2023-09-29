@@ -16,10 +16,10 @@ class FetchShipmentBloc extends Bloc<FetchShipmentEvent, FetchShipmentState> {
 
   FetchShipmentBloc(
     this.repo,
-  ) : super(FetchShipmentState.initial()) {
+  ) : super(const FetchShipmentState.initial()) {
     on<FetchShipmentEvent>((event, emit) async {
       await event.map(fetchInitialShipment: (e) async {
-        emit(FetchShipmentState.loading());
+        emit(const FetchShipmentState.loading());
 
         var result = await repo.fetchShipments(DateTime.now(), 0, pageLength);
         emit(result.fold(

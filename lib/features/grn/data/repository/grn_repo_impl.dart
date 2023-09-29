@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:base_auth/auth_helper.dart';
 import 'package:base_auth/base_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:core/core.dart';
@@ -12,7 +11,6 @@ import 'package:minerva/features/grn/domain/entities/grn_item_ui_model.dart';
 import 'package:minerva/features/grn/domain/entities/ordered_product.dart';
 import 'package:minerva/features/grn/domain/entities/purchase_order.dart';
 import 'package:dartz/dartz.dart';
-import 'package:core/failures/failure.dart';
 import 'package:minerva/features/grn/domain/repository/grn_repository.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/log/app_logger.dart';
@@ -100,7 +98,7 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
       await _addGoodsReceiptLines(receiptId, order.warehouse, products);
       await _completeGoodsReceipt(receiptId);
 
-      final String url = "${Constants.jsonWs}/${Entities.orderedProducts}";
+      const String url = "${Constants.jsonWs}/${Entities.orderedProducts}";
       final String reqBody = jsonEncode({
         'data': [
           ...products.map((e) => {
@@ -247,7 +245,7 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
   Future<Either<Failure, bool>> saveProductDispatchQty(String productId, double dispatchQty) async {
     const String defErrMsg = 'Could not update product dispatch qty';
     try {
-      final String url = "${Constants.jsonWs}/${Entities.orderedProducts}";
+      const String url = "${Constants.jsonWs}/${Entities.orderedProducts}";
       final String reqBody = jsonEncode({
         'data': {
           '_entityName': Entities.orderedProducts,

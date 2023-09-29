@@ -24,7 +24,6 @@ import 'package:minerva/features/dispatch/domain/entities/shop.dart';
 import 'package:minerva/features/dispatch/domain/entities/shop_dispatch_products.dart';
 import 'package:minerva/features/dispatch/domain/repository/dispatch_repo.dart';
 import 'package:dartz/dartz.dart';
-import 'package:core/failures/failure.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/log/app_logger.dart';
 import 'package:injectable/injectable.dart';
@@ -55,7 +54,7 @@ class DispatchRepoImpl
           ? "NO SelectedBusinessPartners"
           : "${Constants.jsonWs}/${Entities.businessPartner}?_where=$SelectedBusinessPartners&_sortBy=name";
       print(" $url");
-      print("$SelectedBusinessPartners");
+      print(SelectedBusinessPartners);
       final authHeader = _authHeader();
 
       final data = await safeApiCall(
@@ -278,7 +277,7 @@ class DispatchRepoImpl
           receiptId, orderInfo[0].order.warehouse, lines);
       await _completeGoodsReceipt(receiptId);
 
-      final String url = "${Constants.jsonWs}/${Entities.orderedProducts}";
+      const String url = "${Constants.jsonWs}/${Entities.orderedProducts}";
       final String reqBody = jsonEncode({
         'data': [
           ...lines.map((e) => {
@@ -329,7 +328,7 @@ class DispatchRepoImpl
     final user = sl.get<LoggedInUser>();
     final url = Uri.parse("${Constants.jsonWs}/${Entities.goodsReceipt}");
     final today = DateFormat("yyyy-MM-dd").format(DateTime.now());
-    final String docTypeUrl = "${Constants.jsonWs}/${Entities.preference}?"
+    const String docTypeUrl = "${Constants.jsonWs}/${Entities.preference}?"
         "_where=attribute='${Constants.prefGoodsShipmentDocType}'&_selectedProperties=searchKey";
 
     final docTypeResult = await safeApiCall(
@@ -431,7 +430,7 @@ class DispatchRepoImpl
           "documentStatus='CO' and businessPartner='$businessPartnerId' and salesTransaction=true and date(orderDate)>=date('$yesterdayDate') and organization='${user.defaultOrganization}'";
       final url =
           "${Constants.jsonWs}/$entityName?_where=$filters&_startRow=$start&_endRow=$end&_sortBy=creationDate desc";
-      print("/ ? $url");
+      print("/ ????? $url");
       final authHeader = _authHeader();
 
       final recivedData = await safeApiCall(() {
@@ -506,13 +505,15 @@ class DispatchRepoImpl
       fetchDispatchBakeryProducts(String orderId) async {
     const String defErrMsg = 'Could not fetch order products';
     try {
-      final section = Constants.bakerySection;
+      const section = Constants.bakerySection;
       final list = await _fetchOrderPendingProducts(orderId, defErrMsg);
+      print("defErrMsg gfd // ??");
       final filtered =
           list.where((element) => element.productCategory == section).toList();
 
       if (filtered.isEmpty) {
-        return left(Failure(error: 'No products found for $section category'));
+        return left(
+            const Failure(error: 'No products found for $section category'));
       }
 
       filtered.sortBy((element) => element.productName);
@@ -520,6 +521,7 @@ class DispatchRepoImpl
       return right(filtered);
     } catch (e, st) {
       logError(e, st, defErrMsg);
+      print("defErrMsg gfd");
       return left(const Failure(error: defErrMsg));
     }
   }
@@ -529,14 +531,15 @@ class DispatchRepoImpl
       fetchDispatchSweetsProducts(String orderId) async {
     const String defErrMsg = 'Could not fetch order products';
     try {
-      final section = Constants.sweetsSection;
+      const section = Constants.sweetsSection;
       final list = await _fetchOrderPendingProducts(orderId, defErrMsg);
 
       final filtered =
           list.where((element) => element.productCategory == section).toList();
 
       if (filtered.isEmpty) {
-        return left(Failure(error: 'No products found for $section category'));
+        return left(
+            const Failure(error: 'No products found for $section category'));
       }
 
       filtered.sortBy((element) => element.productName);
@@ -553,7 +556,7 @@ class DispatchRepoImpl
       List<DispatchItemUiModel> products) async {
     const String defErrMsg = 'Could not save dispatch quantities';
     try {
-      final String url = "${Constants.jsonWs}/${Entities.orderedProducts}";
+      const String url = "${Constants.jsonWs}/${Entities.orderedProducts}";
       final String reqBody = jsonEncode({
         'data': [
           ...products.map((e) => {
@@ -592,7 +595,7 @@ class DispatchRepoImpl
       String productId, double dispatchQty) async {
     const String defErrMsg = 'Could not update product dispatch qty';
     try {
-      final String url = "${Constants.jsonWs}/${Entities.orderedProducts}";
+      const String url = "${Constants.jsonWs}/${Entities.orderedProducts}";
       final String reqBody = jsonEncode({
         'data': {
           '_entityName': Entities.orderedProducts,
@@ -637,7 +640,7 @@ class DispatchRepoImpl
   Future<bool> _generateDispatchInvoice(String shipmentId) async {
     const String defErrMsg = 'Could not generate invoice';
     try {
-      final url =
+      const url =
           "${Constants.customWs}/${CustomWebservices.generateDispatchInvoice}";
       final reqBody = jsonEncode({
         'data': {'mInoutId': shipmentId}

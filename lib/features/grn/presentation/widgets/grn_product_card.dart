@@ -86,7 +86,7 @@ class _GrnProductCardState extends State<GrnProductCard>
               subtitle: Text(widget.product.subCategory),
               trailing: Text(
                 widget.product.pendingQty.toString(),
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
             if (_grnItemUiModel.receivedQty != 0 &&
@@ -95,7 +95,7 @@ class _GrnProductCardState extends State<GrnProductCard>
                 tileColor: Colors.orangeAccent.shade100,
                 title: const Text('Received'),
                 trailing: Text(_grnItemUiModel.receivedQty.toStringAsFixed(3),
-                    style: Theme.of(context).textTheme.headline6),
+                    style: Theme.of(context).textTheme.titleLarge),
               ),
           ],
         ),

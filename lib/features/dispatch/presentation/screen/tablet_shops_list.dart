@@ -26,7 +26,7 @@ class _TabletShopsListState extends State<TabletShopsList> {
   void initState() {
     super.initState();
     BlocProvider.of<FetchShopBloc>(context)
-        .add(FetchShopEvent.fetchInitialShop());
+        .add(const FetchShopEvent.fetchInitialShop());
     _scrollController = ScrollController();
     _scrollController?.addListener(_onScroll);
   }
@@ -70,7 +70,7 @@ class _TabletShopsListState extends State<TabletShopsList> {
                 child: Text(
                   'Loading...',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
               ));
             },
@@ -145,7 +145,7 @@ class _TabletShopsListState extends State<TabletShopsList> {
           record.name,
           style: Theme.of(context)
               .textTheme
-              .headline6
+              .titleLarge
               ?.copyWith(fontWeight: FontWeight.bold, letterSpacing: 1.2),
         ),
         trailing: record.id == state.shop?.id

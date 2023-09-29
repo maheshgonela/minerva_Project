@@ -7,7 +7,7 @@ class AppSearchBar extends StatefulWidget implements PreferredSizeWidget {
   final Function(String) onSearch;
   final Function onCancel;
 
-  AppSearchBar({
+  const AppSearchBar({super.key, 
     required this.height,
     required this.hintText,
     required this.onSearch,

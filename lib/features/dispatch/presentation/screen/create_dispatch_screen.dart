@@ -72,7 +72,9 @@ class _CreateDispatchScreenState extends State<CreateDispatchScreen> {
         listener: (ctx, state) {
           state.maybeWhen(
             success: (records, _, __) {
-              context.read<CreateDispatchCubit>().setOrderProductList(widget.shop, widget.order, records);
+              context
+                  .read<CreateDispatchCubit>()
+                  .setOrderProductList(widget.shop, widget.order, records);
             },
             orElse: () {},
           );

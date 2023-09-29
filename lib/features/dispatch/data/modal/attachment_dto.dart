@@ -28,10 +28,10 @@ abstract class AttachmentDto implements _$AttachmentDto {
 
   Attachment toDomain() {
     return Attachment(
-      id: this.id,
-      name: this.name,
-      description: this.description,
-      fileData: this.fileData,
+      id: id,
+      name: name,
+      description: description,
+      fileData: fileData,
     );
   }
 

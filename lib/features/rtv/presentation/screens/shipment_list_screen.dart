@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
-import 'package:minerva/features/rtv/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
 import 'package:minerva/features/rtv/presentation/widgets/new_shipment_form.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/loading_indicator.dart';

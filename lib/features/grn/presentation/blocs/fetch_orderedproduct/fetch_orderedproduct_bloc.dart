@@ -16,10 +16,10 @@ class FetchOrderedproductBloc extends Bloc<FetchOrderedproductEvent, FetchOrdere
 
   FetchOrderedproductBloc(
     this.repo,
-  ) : super(FetchOrderedproductState.initial()) {
+  ) : super(const FetchOrderedproductState.initial()) {
     on<FetchOrderedproductEvent>((event, emit) async {
       await event.map(fetchInitialOrderedproduct: (e) async {
-        emit(FetchOrderedproductState.loading());
+        emit(const FetchOrderedproductState.loading());
 
         var result = await repo.fetchOrderedProducts(0, pageLength, e.purchaseOrderId);
         emit(result.fold(

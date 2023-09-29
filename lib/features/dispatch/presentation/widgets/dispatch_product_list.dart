@@ -109,7 +109,7 @@ class _DispatchProductListState extends State<DispatchProductList> {
                     padding: const EdgeInsets.all(8.0),
                     margin: const EdgeInsets.symmetric(horizontal: 4.0),
                     child: Text(groupByValue,
-                        style: Theme.of(context).textTheme.headline6?.copyWith(
+                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
                             fontWeight: FontWeight.bold, letterSpacing: 1.5)),
                   ),
                   indexedItemBuilder: (context, element, index) {

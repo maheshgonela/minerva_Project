@@ -37,14 +37,14 @@ abstract class PurchaseOrderDto implements _$PurchaseOrderDto {
 
   PurchaseOrder toDomain() {
     return PurchaseOrder(
-      id: this.id,
-      organization: this.organization,
-      documentNo: this.documentNo,
-      deliveryLocation: this.deliveryLocation,
-      scheduledDeliveryDate: this.scheduledDeliveryDate,
-      businessPartner: this.businessPartner,
-      businessPartnerLocation: this.businessPartnerLocation,
-      warehouse: this.warehouse,
+      id: id,
+      organization: organization,
+      documentNo: documentNo,
+      deliveryLocation: deliveryLocation,
+      scheduledDeliveryDate: scheduledDeliveryDate,
+      businessPartner: businessPartner,
+      businessPartnerLocation: businessPartnerLocation,
+      warehouse: warehouse,
     );
   }
 

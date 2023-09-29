@@ -36,7 +36,7 @@ class _PartialQuantityDialogState extends State<PartialQuantityDialog> {
           contentPadding: const EdgeInsets.all(0),
           title: Text(widget.product.productName),
           subtitle: Text(widget.product.subCategory.toString()),
-          trailing: Text(widget.product.pendingQty.toString(), style: Theme.of(context).textTheme.headline6),
+          trailing: Text(widget.product.pendingQty.toString(), style: Theme.of(context).textTheme.titleLarge),
         ),
         insetPadding: const EdgeInsets.all(16.0),
         content: Column(
@@ -50,7 +50,7 @@ class _PartialQuantityDialogState extends State<PartialQuantityDialog> {
                   labelText: 'RECEIVED QUANTITY',
                   errorText: _errorMessage,
                   errorMaxLines: 2,
-                  labelStyle: Theme.of(context).textTheme.bodyText1,
+                  labelStyle: Theme.of(context).textTheme.bodyLarge,
                   suffixText: 'out of ${widget.product.pendingQty}'),
               style: const TextStyle(fontSize: 24.0),
               onChanged: (value) {

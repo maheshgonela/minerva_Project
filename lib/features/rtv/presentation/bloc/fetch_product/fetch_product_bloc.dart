@@ -16,10 +16,10 @@ class FetchProductBloc extends Bloc<FetchProductEvent, FetchProductState> {
 
   FetchProductBloc(
     this.repo,
-  ) : super(FetchProductState.initial()) {
+  ) : super(const FetchProductState.initial()) {
     on<FetchProductEvent>((event, emit) async {
       await event.map(fetchInitialProduct: (e) async {
-        emit(FetchProductState.loading());
+        emit(const FetchProductState.loading());
 
         final result = await repo.fetchProducts(
             start: 0,

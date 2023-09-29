@@ -17,10 +17,10 @@ class FetchBusinessPartnerBloc
 
   FetchBusinessPartnerBloc(
     this.repo,
-  ) : super(FetchBusinessPartnerState.initial()) {
+  ) : super(const FetchBusinessPartnerState.initial()) {
     on<FetchBusinessPartnerEvent>((event, emit) async {
       await event.map(fetchInitialBusinessPartner: (e) async {
-        emit(FetchBusinessPartnerState.loading());
+        emit(const FetchBusinessPartnerState.loading());
 
         var result = await repo.fetchBusinessPartners();
         emit(result.fold(

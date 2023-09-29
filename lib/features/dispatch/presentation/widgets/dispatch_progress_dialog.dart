@@ -34,7 +34,7 @@ class DispatchProgressDialog extends StatelessWidget {
               _getMessage(state),
               textAlign: TextAlign.center,
               maxLines: 3,
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
             actions: [
               if (state.isLoading == false)

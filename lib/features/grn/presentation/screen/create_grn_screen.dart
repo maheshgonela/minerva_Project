@@ -68,11 +68,11 @@ class _CreateGRNScreenState extends State<CreateGRNScreen> {
                 ),
                 title: Text(
                   'GRN',
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 subtitle: Text(
                   widget.order.documentNo,
-                  style: Theme.of(context).textTheme.caption?.copyWith(
+                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     fontFeatures: [
                       const FontFeature.oldstyleFigures(),
                       const FontFeature.slashedZero(),
