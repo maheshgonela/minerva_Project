@@ -39,8 +39,8 @@ abstract class Entities {
   static const String goodsReceipt = 'MaterialMgmtShipmentInOut';
   static const String goodsReceiptLines = 'MaterialMgmtShipmentInOutLine';
   static const String storageBin = 'Locator';
-  static const preference = "ADPreference";
-  static const product = 'Product';
-  static const productCategory = 'ProductCategory';
-  static const organization = 'Organization';
+  static const String preference = "ADPreference";
+  static const String product = 'Product';
+  static const String productCategory = 'ProductCategory';
+  static const String organization = 'Organization';
 }

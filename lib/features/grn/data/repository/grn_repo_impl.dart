@@ -25,19 +25,23 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
   GRNRepoImpl(this.client);
 
   @override
-  Future<Either<Failure, List<PurchaseOrder>>> fetchPurchaseOrder(int start, int end, String? query) async {
+  Future<Either<Failure, List<PurchaseOrder>>> fetchPurchaseOrder(
+      int start, int end, String? query) async {
     const defErrMsg = 'could not fetch orders';
     try {
       final user = sl.get<LoggedInUser>();
       const entityName = Entities.purchaseOrder;
-      final DateTime yesterday = DateTime.now().subtract(const Duration(days: 10));
-      final DateFormat formatter = DateFormat('yyyy-MM-dd');
-      final String yesterdayDate = formatter.format(yesterday);
+      //final DateTime yesterday =
+      //  DateTime.now().subtract(const Duration(days: 10));
+      // final DateFormat formatter = DateFormat('yyyy-MM-dd');
+      // final String yesterdayDate = formatter.format(yesterday);
+      // final filters =
+      //     "documentStatus='CO' and salesTransaction=false and date(orderDate)>=date('$yesterdayDate') and organization='${user.defaultOrganization}'";
       final filters =
-          "documentStatus='CO' and salesTransaction=false and date(orderDate)>=date('$yesterdayDate') and organization='${user.defaultOrganization}'";
+          "documentStatus='CO' and salesTransaction=false and organization='${user.defaultOrganization}'";
       final url =
           "${Constants.jsonWs}/$entityName?_where=$filters&_startRow=$start&_endRow=$end&_sortBy=creationDate desc";
-
+      print("purchaseOrder $url");
       final authHeader = _authHeader();
 
       final recivedData = await safeApiCall(() {
@@ -48,7 +52,8 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
       }, (r) {
         final resultList = r as List<dynamic>;
         final allRequestDetails = resultList.map((element) {
-          return PurchaseOrderDto.fromJson(element as Map<String, dynamic>).toDomain();
+          return PurchaseOrderDto.fromJson(element as Map<String, dynamic>)
+              .toDomain();
         }).toList();
         return right(allRequestDetails);
       });
@@ -66,7 +71,8 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
   }
 
   @override
-  Future<Either<Failure, List<OrderedProduct>>> fetchOrderedProducts(int start, int end, String purchaseOrderId) async {
+  Future<Either<Failure, List<OrderedProduct>>> fetchOrderedProducts(
+      int start, int end, String purchaseOrderId) async {
     const defErrMsg = 'could not fetch products';
     try {
       final list = await _fetchOrderPendingProducts(purchaseOrderId, defErrMsg);
@@ -75,19 +81,27 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
 
       return right(list);
     } catch (e, st) {
+      print("purchaseOrderId $purchaseOrderId");
       logError(e, st, defErrMsg);
       return left(const Failure(error: defErrMsg));
     }
   }
 
-  Future<List<OrderedProduct>> _fetchOrderPendingProducts(String orderId, String defErrMsg) async {
-    final products = await fetchQueryResponse(Constants.prefDispatchProductsQuery, placeholders: {'order_id': orderId});
+  Future<List<OrderedProduct>> _fetchOrderPendingProducts(
+      String orderId, String defErrMsg) async {
+    final products = await fetchQueryResponse(
+        Constants.prefDispatchProductsQuery,
+        placeholders: {'order_id': orderId});
 
-    return products.map((e) => OrderedProductDto.fromJson(e as Map<String, dynamic>).toDomain()).toList();
+    return products
+        .map((e) =>
+            OrderedProductDto.fromJson(e as Map<String, dynamic>).toDomain())
+        .toList();
   }
 
   @override
-  Future<Either<Failure, bool>> createGrn(PurchaseOrder order, List<GrnItemUiModel> products) async {
+  Future<Either<Failure, bool>> createGrn(
+      PurchaseOrder order, List<GrnItemUiModel> products) async {
     const String defErrMsg = 'Could not create grn';
     String? goodsReceiptId;
     try {
@@ -110,7 +124,8 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
       });
 
       final data = await safeApiCall(
-        () => client.post(Uri.parse(url), body: reqBody, headers: _authHeader()),
+        () =>
+            client.post(Uri.parse(url), body: reqBody, headers: _authHeader()),
         defErrMsg,
       );
 
@@ -128,9 +143,11 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
     }
   }
 
-  Future<void> _deleteGoodsReceipt(String goodsReceiptId, String defErrMsg) async {
+  Future<void> _deleteGoodsReceipt(
+      String goodsReceiptId, String defErrMsg) async {
     try {
-      final url = Uri.parse('${Constants.jsonWs}/${Entities.goodsReceipt}/$goodsReceiptId');
+      final url = Uri.parse(
+          '${Constants.jsonWs}/${Entities.goodsReceipt}/$goodsReceiptId');
       await safeApiCall(() => client.delete(url), defErrMsg);
     } catch (e1, st2) {
       logError(e1, st2, 'Could not delete goods receipt record');
@@ -165,7 +182,8 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
     );
   }
 
-  Future<void> _addGoodsReceiptLines(String receiptId, String warehouse, List<GrnItemUiModel> products) async {
+  Future<void> _addGoodsReceiptLines(
+      String receiptId, String warehouse, List<GrnItemUiModel> products) async {
     final url = Uri.parse("${Constants.jsonWs}/${Entities.goodsReceiptLines}");
 
     final storageBinId = await _fetchStorageBinId(warehouse);
@@ -210,23 +228,27 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
   }
 
   Future<String> _fetchStorageBinId(String warehouseId) async {
-    final url = Uri.parse("${Constants.jsonWs}/${Entities.storageBin}?_where=warehouse='$warehouseId'");
+    final url = Uri.parse(
+        "${Constants.jsonWs}/${Entities.storageBin}?_where=warehouse='$warehouseId'");
     final result = await safeApiCall(
       () => client.get(url, headers: _authHeader()),
       'Could not fetch storage bin id',
     );
-    
+
     return result.fold(
       (l) => '',
       (r) {
         final list = r as List<dynamic>;
-        return list.isEmpty ? '' : (list[0] as Map<String, dynamic>)['id'].toString();
+        return list.isEmpty
+            ? ''
+            : (list[0] as Map<String, dynamic>)['id'].toString();
       },
     );
   }
 
   Future<void> _completeGoodsReceipt(String receiptId) async {
-    final url = Uri.parse("${Constants.customWs}/${CustomWebservices.processGRNOrOrder}");
+    final url = Uri.parse(
+        "${Constants.customWs}/${CustomWebservices.processGRNOrOrder}");
     final reqBody = json.encode({
       'data': {"OrderID": "", "MinoutID": receiptId}
     });
@@ -242,7 +264,8 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
   }
 
   @override
-  Future<Either<Failure, bool>> saveProductDispatchQty(String productId, double dispatchQty) async {
+  Future<Either<Failure, bool>> saveProductDispatchQty(
+      String productId, double dispatchQty) async {
     const String defErrMsg = 'Could not update product dispatch qty';
     try {
       const String url = "${Constants.jsonWs}/${Entities.orderedProducts}";
@@ -255,7 +278,8 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
       });
 
       final data = await safeApiCall(
-        () => client.post(Uri.parse(url), body: reqBody, headers: _authHeader()),
+        () =>
+            client.post(Uri.parse(url), body: reqBody, headers: _authHeader()),
         defErrMsg,
       );
 
@@ -270,7 +294,8 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
   }
 
   @override
-  Future<Either<Failure, bool>> checkProductValidity(String uniqueCode, String productCode) async {
+  Future<Either<Failure, bool>> checkProductValidity(
+      String uniqueCode, String productCode) async {
     const String defErrMsg = 'Could not save record';
     try {
       final env = sl.get<Environment>();
@@ -293,7 +318,8 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
       final docs = querySnapshot.docs;
 
       if (docs.isEmpty) {
-        return left(const Failure(error: 'Product not found in dispatched list'));
+        return left(
+            const Failure(error: 'Product not found in dispatched list'));
       }
 
       return right(true);

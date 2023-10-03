@@ -4,6 +4,8 @@ import 'package:minerva/app_drawer.dart';
 import 'package:minerva/constants.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_organizations/fetch_organization_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/screen/list_of_organizations.dart';
+import 'package:minerva/features/grn/presentation/blocs/fetch_purchase_order/fetch_purchase_order_bloc.dart';
+import 'package:minerva/features/grn/presentation/screen/grn_screen.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
 import 'package:minerva/features/rtv/presentation/screens/shipment_list_screen.dart';
 import 'package:minerva/get_it/injection.dart';
@@ -88,6 +90,10 @@ class _HomePageState extends State<HomePage> {
           height: 16,
         ),
         _createIndent(context, Constants.sweetsSection),
+        const SizedBox(
+          height: 16,
+        ),
+        test_createGRN(context),
       ],
     );
   }
@@ -130,6 +136,27 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
             child: const ShipmentListScreen(),
+          ),
+        ));
+      },
+      label: 'Create GRN',
+    );
+  }
+
+  Widget test_createGRN(BuildContext context) {
+    return MinervaButton(
+      suffixIcon: Icons.arrow_forward_ios_rounded,
+      onButtonPressed: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (ctx) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (ctx) => sl.get<FetchPurchaseOrderBloc>()
+                  ..add(const FetchPurchaseOrderEvent
+                      .fetchInitialPurchaseOrder()),
+              ),
+            ],
+            child: const GRNScreen(),
           ),
         ));
       },

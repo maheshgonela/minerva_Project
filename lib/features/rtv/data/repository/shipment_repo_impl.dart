@@ -227,7 +227,7 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
   Future<void> _addShipmentLines(String receiptId, String warehouse,
       List<ShipmentFormLine> products) async {
     final url = Uri.parse("${Constants.jsonWs}/${Entities.goodsReceiptLines}");
-
+    print("url goodsReceiptLines : $url");
     final storageBinId = await _fetchStorageBinId(warehouse);
     if (storageBinId.isEmpty) {
       throw Exception('Could not fetch storage bin details');
@@ -264,6 +264,7 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
   Future<String> _fetchStorageBinId(String warehouseId) async {
     final url = Uri.parse(
         "${Constants.jsonWs}/${Entities.storageBin}?_where=warehouse='$warehouseId'");
+    print("url storageBin : $url");
     final result = await safeApiCall(
       () => client.get(url, headers: _authHeader()),
       'Could not fetch storage bin id',
@@ -282,6 +283,7 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
   Future<String> _fetchBpLocationId(String bpId) async {
     final url = Uri.parse(
         "${Constants.jsonWs}/${Entities.businessPartnerLocation}?_where=businessPartner='$bpId'");
+    print("url businessPartnerLocation : $url");
     final result = await safeApiCall(
       () => client.get(url, headers: _authHeader()),
       'Could not fetch bp location id',
@@ -300,6 +302,7 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
   Future<void> _completeShipment(String receiptId) async {
     final url = Uri.parse(
         "${Constants.customWs}/${CustomWebservices.processGRNOrOrder}");
+    print("url processGRNOrOrder : $url");
     final reqBody = json.encode({
       'data': {"OrderID": "", "MinoutID": receiptId}
     });
