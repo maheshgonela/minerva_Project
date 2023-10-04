@@ -88,9 +88,13 @@ class _CreateDispatchScreenState extends State<CreateDispatchScreen> {
               return const Center(child: CircularProgressIndicator());
             },
             success: (records, hasReachedMax, query) {
+              print("records at success $records");
               return DispatchProductList(records: records, order: widget.order);
             },
             failure: (e) {
+              print("widget.order at failure ${widget.order}");
+              print("widget.section at failure ${widget.section}");
+              print("widget.shop at failure ${widget.shop}");
               return AppErrorWidget(
                 onRefresh: () => _refresh(context),
                 error: e.error,

@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ));
       },
-      label: 'Create Indent',
+      label: 'Dispatch Sweets',
     );
   }
 
@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ));
       },
-      label: 'Create GRN',
+      label: 'RTV Shipment',
     );
   }
 

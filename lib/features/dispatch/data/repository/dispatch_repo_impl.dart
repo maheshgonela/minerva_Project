@@ -489,6 +489,7 @@ class DispatchRepoImpl
 
   Future<List<DispatchOrderedProduct>> _fetchOrderPendingProducts(
       String orderId, String defErrMsg) async {
+    print("_fetchOrderPendingProducts orderId $orderId");
     final products = await fetchQueryResponse(
         Constants.prefDispatchProductsQuery,
         placeholders: {'order_id': orderId});
@@ -531,6 +532,7 @@ class DispatchRepoImpl
       fetchDispatchSweetsProducts(String orderId) async {
     const String defErrMsg = 'Could not fetch order products';
     try {
+      print("try orderId $orderId");
       const section = Constants.sweetsSection;
       final list = await _fetchOrderPendingProducts(orderId, defErrMsg);
 
@@ -543,9 +545,10 @@ class DispatchRepoImpl
       }
 
       filtered.sortBy((element) => element.productName);
-
+      print("try orderId $orderId last");
       return right(filtered);
     } catch (e, st) {
+      print("catch orderId $orderId");
       logError(e, st, defErrMsg);
       return left(const Failure(error: defErrMsg));
     }

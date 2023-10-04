@@ -159,7 +159,7 @@ class _ListOfOrganizationsState extends State<ListOfOrganizations> {
                 // BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
               ],
               child: ListOfShops(
-                section: record.name,
+                section: widget.section,
                 OrgId: record.id,
               ),
             ),

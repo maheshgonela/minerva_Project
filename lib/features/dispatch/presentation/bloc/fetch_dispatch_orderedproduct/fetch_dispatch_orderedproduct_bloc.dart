@@ -10,7 +10,8 @@ part 'fetch_dispatch_orderedproduct_event.dart';
 part 'fetch_dispatch_orderedproduct_state.dart';
 
 @injectable
-class FetchDispatchOrderedproductBloc extends Bloc<FetchDispatchOrderedproductEvent, FetchDispatchOrderedproductState> {
+class FetchDispatchOrderedproductBloc extends Bloc<
+    FetchDispatchOrderedproductEvent, FetchDispatchOrderedproductState> {
   final DispatchRepository repo;
 
   FetchDispatchOrderedproductBloc(
@@ -21,7 +22,8 @@ class FetchDispatchOrderedproductBloc extends Bloc<FetchDispatchOrderedproductEv
         fetchBakeryProducts: (e) async {
           emit(const FetchDispatchOrderedproductState.loading());
 
-          final result = await repo.fetchDispatchBakeryProducts(e.purchaseOrderId);
+          final result =
+              await repo.fetchDispatchBakeryProducts(e.purchaseOrderId);
           emit(result.fold(
             (l) => FetchDispatchOrderedproductState.failure(l),
             (r) => FetchDispatchOrderedproductState.success(
@@ -34,7 +36,8 @@ class FetchDispatchOrderedproductBloc extends Bloc<FetchDispatchOrderedproductEv
         fetchSweetsProducts: (e) async {
           emit(const FetchDispatchOrderedproductState.loading());
 
-          final result = await repo.fetchDispatchSweetsProducts(e.purchaseOrderId);
+          final result =
+              await repo.fetchDispatchSweetsProducts(e.purchaseOrderId);
           emit(result.fold(
             (l) => FetchDispatchOrderedproductState.failure(l),
             (r) => FetchDispatchOrderedproductState.success(
