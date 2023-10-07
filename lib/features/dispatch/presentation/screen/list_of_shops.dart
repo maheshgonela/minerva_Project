@@ -2,14 +2,13 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/dispatch/domain/entities/shop.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/create_dispatch/create_dispatch_cubit.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_sales_order/fetch_sales_order_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/screen/sales_order_list.dart';
 import 'package:minerva/get_it/injection.dart';
-import 'package:minerva/loading_indicator.dart';
+import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class ListOfShops extends StatefulWidget {
@@ -46,23 +45,8 @@ class _ListOfShopsState extends State<ListOfShops> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () => Navigator.of(context).pop(),
-          icon: const Icon(
-            Icons.arrow_back_ios,
-          ),
-        ),
-        title: Text(
-          'Dispatch ${widget.section}',
-          style: GoogleFonts.istokWeb(
-              textStyle: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(fontWeight: FontWeight.bold)),
-        ),
-      ),
+      appBar: SimpleAppBar(
+          height: 60, title: "Dispatch ${widget.section}", centerTitle: true),
       body: _buildList(context),
     );
   }
@@ -82,7 +66,7 @@ class _ListOfShopsState extends State<ListOfShops> {
             ),
           );
         }, loading: () {
-          return const Center(child: LoadingIndicator());
+          return Center(child: LoadingIndicator());
         }, success: (records, hasReachedMax, query) {
           if (records.isEmpty) {
             return Padding(
@@ -107,7 +91,7 @@ class _ListOfShopsState extends State<ListOfShops> {
                 physics: const AlwaysScrollableScrollPhysics(),
                 itemBuilder: (ctx, idx) {
                   if (idx >= records.length) {
-                    return const Center(
+                    return Center(
                       child: FittedBox(
                         child: LoadingIndicator(),
                       ),

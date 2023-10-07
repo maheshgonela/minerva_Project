@@ -15,7 +15,7 @@ class TabletShopsList extends StatefulWidget {
   final String section;
 
   @override
-  _TabletShopsListState createState() => _TabletShopsListState();
+  State<TabletShopsList> createState() => _TabletShopsListState();
 }
 
 class _TabletShopsListState extends State<TabletShopsList> {

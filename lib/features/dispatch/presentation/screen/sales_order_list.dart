@@ -10,6 +10,7 @@ import 'package:minerva/features/dispatch/presentation/bloc/shop_trips/shop_trip
 import 'package:minerva/features/dispatch/presentation/screen/create_dispatch_screen.dart';
 import 'package:minerva/features/dispatch/presentation/screen/shop_trips.dart';
 import 'package:minerva/get_it/injection.dart';
+import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class SalesOrderList extends StatefulWidget {
@@ -24,7 +25,7 @@ class SalesOrderList extends StatefulWidget {
   final String section;
 
   @override
-  _SalesOrderListState createState() => _SalesOrderListState();
+  State<SalesOrderList> createState() => _SalesOrderListState();
 }
 
 class _SalesOrderListState extends State<SalesOrderList> {
@@ -53,15 +54,18 @@ class _SalesOrderListState extends State<SalesOrderList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: SimpleAppBar(
+        height: 60,
+        title: widget.shop.name,
         centerTitle: true,
-        leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
-        title: Text(widget.shop.name),
+        // bottom: const PreferredSize(
+        //     preferredSize: Size.fromHeight(10), child: Text("Seles orders")),
       ),
       body: RefreshIndicator(
-        strokeWidth: 1.0,
+        //strokeWidth: 1.0,
         onRefresh: () {
           _refresh(context);
+
           return Future.value(const Duration(microseconds: 300));
         },
         child: BlocBuilder<FetchSalesOrderBloc, FetchSalesOrderState>(
@@ -77,7 +81,7 @@ class _SalesOrderListState extends State<SalesOrderList> {
               ),
             ));
           }, loading: () {
-            return const Center(child: CircularProgressIndicator());
+            return Center(child: LoadingIndicator());
           }, success: (records, hasReachedMax, query) {
             if (records.isEmpty) {
               return Padding(

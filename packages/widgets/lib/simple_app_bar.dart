@@ -6,29 +6,43 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool centerTitle;
   final PreferredSizeWidget bottom;
 
+  final List<Widget> actions;
+
   SimpleAppBar({
     required this.height,
     required this.title,
-    this.centerTitle = true,
-    required this.bottom,
+    required this.centerTitle,
+    this.bottom = forbottom,
+    this.actions = foractions,
   });
 
   @override
   Size get preferredSize => Size.fromHeight(height);
 
+  static const PreferredSizeWidget forbottom = PreferredSize(
+    preferredSize: Size.fromHeight(0),
+    child: SizedBox(),
+  );
+  static const List<Widget> foractions = <Widget>[];
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      elevation: 1.0,
       centerTitle: centerTitle,
-      leading: IconButton(
-        onPressed: () => Navigator.of(context).pop(),
-        icon: Icon(
-          Icons.keyboard_backspace,
-        ),
+      leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios_new_rounded)),
+      title: Text(
+        title,
+        style: GoogleFonts.istokWeb(
+            textStyle: Theme.of(context)
+                .textTheme
+                .titleLarge!
+                .copyWith(fontWeight: FontWeight.bold)),
       ),
-      title: Text(title),
+      iconTheme: const IconThemeData(
+        size: 30,
+      ),
       bottom: bottom,
+      actions: actions,
     );
   }
 }

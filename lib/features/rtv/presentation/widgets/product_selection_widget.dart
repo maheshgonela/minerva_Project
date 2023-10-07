@@ -3,13 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/rtv/domain/entity/entities.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
 import 'package:minerva/features/rtv/presentation/widgets/quantity_dialog.dart';
 import 'package:minerva/features/rtv/presentation/widgets/category_selecter_alertdialog.dart';
 import 'package:minerva/get_it/injection.dart';
-import 'package:minerva/loading_indicator.dart';
+import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class ProductSelectionWidget extends StatefulWidget {
@@ -79,21 +78,8 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
-        title: Text(
-          'Select Product',
-          style: GoogleFonts.istokWeb(
-              textStyle: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(fontWeight: FontWeight.bold)),
-        ),
-        iconTheme: const IconThemeData(
-          size: 30,
-        ),
-      ),
+      appBar:
+          SimpleAppBar(height: 60, title: "Select Products", centerTitle: true),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -188,8 +174,8 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
                 },
                 builder: (ctx, state) {
                   return state.when(
-                    initial: () => const LoadingIndicator(),
-                    loading: () => const LoadingIndicator(),
+                    initial: () => LoadingIndicator(),
+                    loading: () => LoadingIndicator(),
                     success: (products, hasReachedMax, ___, __, _) =>
                         products.isEmpty
                             ? Center(
@@ -224,7 +210,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
       controller: _scrollController,
       itemCount: hasReachedMax ? products.length : products.length + 1,
       itemBuilder: (ctx, idx) {
-        if (idx >= products.length) return const LoadingIndicator();
+        if (idx >= products.length) return LoadingIndicator();
         final product = products[idx];
         return Card(
           child: ListTile(

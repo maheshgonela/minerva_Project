@@ -48,7 +48,7 @@ abstract class QueryHelper {
     final user = sl.get<LoggedInUser>();
     final query = await getQuery(key);
     const url = "${Constants.customWs}/in.easycloud.commons.QueryService";
-    print(url);
+    print("fetchQueryResponse $url");
     final response = await safeApiCall(() {
       final requestBody =
           jsonEncode(_constructRequestBody(query, placeholders: placeholders));

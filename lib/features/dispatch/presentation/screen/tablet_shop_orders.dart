@@ -14,8 +14,8 @@ import 'package:minerva/features/dispatch/presentation/widgets/dispatch_product_
 import 'package:minerva/features/dispatch/presentation/widgets/dispatch_progress_dialog.dart';
 import 'package:minerva/features/dispatch/presentation/widgets/invoice_progress_dialog.dart';
 import 'package:minerva/get_it/injection.dart';
+import 'package:widgets/loading_indicator.dart';
 
-import 'package:minerva/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class TabletShopOrders extends StatefulWidget {
@@ -24,7 +24,7 @@ class TabletShopOrders extends StatefulWidget {
   const TabletShopOrders({Key? key, required this.section}) : super(key: key);
 
   @override
-  _TabletShopOrdersState createState() => _TabletShopOrdersState();
+  State<TabletShopOrders> createState() => _TabletShopOrdersState();
 }
 
 class _TabletShopOrdersState extends State<TabletShopOrders> {
@@ -76,7 +76,7 @@ class _TabletShopOrdersState extends State<TabletShopOrders> {
         builder: (ctx, state) {
           return state.when(
             initial: () => _buildShopNotSelected(),
-            loading: () => const LoadingIndicator(),
+            loading: () => LoadingIndicator(),
             success: (orders, _, __) {
               if (orders.isEmpty) {
                 return Center(
@@ -198,7 +198,9 @@ class _TabletShopOrdersState extends State<TabletShopOrders> {
           state.maybeWhen(
             success: (records, _, __) {
               if (_salesOrder != null) {
-                context.read<CreateDispatchCubit>().setOrderProductList(shop, _salesOrder!, records);
+                context
+                    .read<CreateDispatchCubit>()
+                    .setOrderProductList(shop, _salesOrder!, records);
               }
             },
             orElse: () {},
@@ -301,7 +303,8 @@ class _TabletShopOrdersState extends State<TabletShopOrders> {
     showDialog(
       context: context,
       builder: (ctx) => BlocProvider<DownloadInvoiceBloc>(
-        create: (ctx) => sl.get<DownloadInvoiceBloc>()..add(DownloadInvoiceEvent.downloadInvoice(shipmentId)),
+        create: (ctx) => sl.get<DownloadInvoiceBloc>()
+          ..add(DownloadInvoiceEvent.downloadInvoice(shipmentId)),
         child: InvoiceProgressDialog(shipmentId: shipmentId),
       ),
     );

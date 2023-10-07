@@ -2,7 +2,7 @@ import 'package:base_auth/base_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
-import 'package:minerva/loading_indicator.dart';
+import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class BPartnersList extends StatelessWidget {
@@ -15,8 +15,8 @@ class BPartnersList extends StatelessWidget {
     return BlocBuilder<FetchBusinessPartnerBloc, FetchBusinessPartnerState>(
       builder: (context, state) {
         return state.when(
-          initial: () => const LoadingIndicator(),
-          loading: () => const LoadingIndicator(),
+          initial: () => LoadingIndicator(),
+          loading: () => LoadingIndicator(),
           failure: (f) => AppErrorWidget(
             error: f.error,
             onRefresh: () {

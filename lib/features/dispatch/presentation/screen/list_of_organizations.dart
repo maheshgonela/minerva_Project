@@ -7,7 +7,7 @@ import 'package:minerva/features/dispatch/presentation/bloc/fetch_organizations/
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/screen/list_of_shops.dart';
 import 'package:minerva/get_it/injection.dart';
-import 'package:minerva/loading_indicator.dart';
+import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class ListOfOrganizations extends StatefulWidget {
@@ -43,18 +43,8 @@ class _ListOfOrganizationsState extends State<ListOfOrganizations> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
-        title: Text(
-          'Dispatch ${widget.section}',
-          style: GoogleFonts.istokWeb(
-              textStyle: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(fontWeight: FontWeight.bold)),
-        ),
-      ),
+      appBar: SimpleAppBar(
+          height: 60, title: "Dispatch ${widget.section}", centerTitle: true),
       body: BlocBuilder<FetchOrganizationBloc, FetchOrganizationState>(
         builder: (ctx, state) {
           return state.when(
@@ -70,7 +60,7 @@ class _ListOfOrganizationsState extends State<ListOfOrganizations> {
                   ),
                 );
               },
-              loading: () => const Center(child: LoadingIndicator()),
+              loading: () => Center(child: LoadingIndicator()),
               success: (records, hasReachedMax, query) {
                 if (records.isEmpty) {
                   return Padding(
@@ -97,7 +87,7 @@ class _ListOfOrganizationsState extends State<ListOfOrganizations> {
                       physics: const AlwaysScrollableScrollPhysics(),
                       itemBuilder: (ctx, idx) {
                         if (idx >= records.length) {
-                          return const Center(
+                          return Center(
                             child: FittedBox(
                               child: LoadingIndicator(),
                             ),

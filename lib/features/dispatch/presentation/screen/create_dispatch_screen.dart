@@ -10,6 +10,7 @@ import 'package:minerva/features/dispatch/presentation/widgets/dispatch_product_
 import 'package:minerva/features/dispatch/presentation/widgets/dispatch_progress_dialog.dart';
 import 'package:minerva/features/dispatch/presentation/widgets/invoice_progress_dialog.dart';
 import 'package:minerva/get_it/injection.dart';
+import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class CreateDispatchScreen extends StatefulWidget {
@@ -25,7 +26,7 @@ class CreateDispatchScreen extends StatefulWidget {
   final Shop shop;
 
   @override
-  _CreateDispatchScreenState createState() => _CreateDispatchScreenState();
+  State<CreateDispatchScreen> createState() => _CreateDispatchScreenState();
 }
 
 class _CreateDispatchScreenState extends State<CreateDispatchScreen> {
@@ -41,14 +42,13 @@ class _CreateDispatchScreenState extends State<CreateDispatchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.shop.name),
-        toolbarHeight: 80,
-        titleSpacing: 0,
-        actions: [
-          _buildCreateButton(context),
-        ],
-      ),
+      appBar: SimpleAppBar(
+          height: 60,
+          title: widget.shop.name,
+          centerTitle: false,
+          actions: [
+            _buildCreateButton(context),
+          ]),
       body: SafeArea(
         child: WillPopScope(
           onWillPop: () async {
@@ -82,19 +82,19 @@ class _CreateDispatchScreenState extends State<CreateDispatchScreen> {
         builder: (context, state) {
           return state.when(
             initial: () {
-              return const Center(child: CircularProgressIndicator());
+              return Center(child: LoadingIndicator());
             },
             loading: () {
-              return const Center(child: CircularProgressIndicator());
+              return Center(child: LoadingIndicator());
             },
             success: (records, hasReachedMax, query) {
-              print("records at success $records");
+              //  print("records at success $records");
               return DispatchProductList(records: records, order: widget.order);
             },
             failure: (e) {
-              print("widget.order at failure ${widget.order}");
-              print("widget.section at failure ${widget.section}");
-              print("widget.shop at failure ${widget.shop}");
+              // print("widget.order at failure ${widget.order}");
+              // print("widget.section at failure ${widget.section}");
+              // print("widget.shop at failure ${widget.shop}");
               return AppErrorWidget(
                 onRefresh: () => _refresh(context),
                 error: e.error,

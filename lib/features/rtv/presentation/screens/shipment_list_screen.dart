@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
 import 'package:minerva/features/rtv/presentation/widgets/new_shipment_form.dart';
 import 'package:minerva/get_it/injection.dart';
-import 'package:minerva/loading_indicator.dart';
+import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class ShipmentListScreen extends StatefulWidget {
@@ -36,26 +35,16 @@ class _ShipmentListScreenState extends State<ShipmentListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: SimpleAppBar(
         centerTitle: true,
-        leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
-        title: Text(
-          'GRN\'s',
-          style: GoogleFonts.istokWeb(
-              textStyle: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(fontWeight: FontWeight.bold)),
-        ),
-        iconTheme: const IconThemeData(
-          size: 30,
-        ),
+        height: 60,
+        title: "RTV Shipment's",
       ),
       body: BlocBuilder<FetchShipmentBloc, FetchShipmentState>(
         builder: (ctx, state) {
           return state.when(
-            initial: () => const LoadingIndicator(),
-            loading: () => const LoadingIndicator(),
+            initial: () => LoadingIndicator(),
+            loading: () => LoadingIndicator(),
             success: (l, hasReachedMax, __) {
               if (l.isEmpty) {
                 return EmptyListWidget(
@@ -171,6 +160,7 @@ class _ShipmentListScreenState extends State<ShipmentListScreen> {
         .add(const FetchShipmentEvent.fetchInitialShipment());
   }
 }
+
 
 
 

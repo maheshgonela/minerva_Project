@@ -9,7 +9,7 @@ class LoadingIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _bgColor = backgroundColor ?? Colors.blue;
+    // var _bgColor = backgroundColor ?? Colors.blue;
 
     return Center(
       child: SizedBox(
@@ -17,8 +17,8 @@ class LoadingIndicator extends StatelessWidget {
         width: 24,
         child: FittedBox(
           child: CircularProgressIndicator(
-            backgroundColor: _bgColor,
-            strokeWidth: 2.0,
+            // backgroundColor: _bgColor,
+            strokeWidth: 4.0,
           ),
         ),
       ),

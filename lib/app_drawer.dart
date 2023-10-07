@@ -5,10 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/sign_in/presentation/bloc/auth/auth_bloc.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/launch_utils.dart';
-import 'package:minerva/loading_indicator.dart';
 import 'package:package_info/package_info.dart';
 // ignore: depend_on_referenced_packages
 import 'package:url_launcher/url_launcher.dart';
+import 'package:widgets/loading_indicator.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -26,7 +26,7 @@ class AppDrawer extends StatelessWidget {
                   BlocBuilder<AuthBloc, AuthState>(
                     builder: (ctx, state) {
                       return state.map(
-                          loading: (_) => const LoadingIndicator(),
+                          loading: (_) => LoadingIndicator(),
                           authStateAuthenticated: (_) =>
                               _buildUserAccountsDrawerHeader(
                                   sl.get<LoggedInUser>(), context),

@@ -1,7 +1,6 @@
 import 'package:base_auth/entity/id_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/rtv/domain/entity/entities.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
 import 'package:minerva/features/rtv/presentation/widgets/bp_selected_widget.dart';
@@ -10,8 +9,8 @@ import 'package:minerva/features/rtv/presentation/widgets/product_selection_widg
 import 'package:minerva/features/rtv/presentation/widgets/success_dialog.dart';
 
 import 'package:minerva/get_it/injection.dart';
-import 'package:minerva/loading_indicator.dart';
 import 'package:minerva/toast_message.dart';
+import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class NewShipmentForm extends StatefulWidget {
@@ -36,16 +35,10 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios)),
-        title: Text(
-          'New GRN ',
-          style: GoogleFonts.istokWeb(
-              textStyle: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(fontWeight: FontWeight.bold)),
-        ),
+      appBar: SimpleAppBar(
+        height: 60,
+        title: "NEW Shipment",
+        centerTitle: false,
         actions: [
           BlocConsumer<NewShipmentBloc, NewShipmentState>(
             listener: (ctx, state) {
@@ -59,7 +52,7 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
             builder: (ctx, state) {
               return state.when(
                 initial: () => _buildCreateButton(context),
-                loading: () => const Row(
+                loading: () => Row(
                   children: [
                     SizedBox(
                       width: 20,

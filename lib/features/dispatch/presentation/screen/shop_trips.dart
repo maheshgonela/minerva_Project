@@ -8,10 +8,10 @@ import 'package:minerva/features/dispatch/domain/entities/shipment_ui_model.dart
 import 'package:minerva/features/dispatch/presentation/bloc/download_invoice/download_invoice_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/shop_trips/shop_trips_bloc.dart';
 import 'package:minerva/get_it/injection.dart';
-import 'package:minerva/loading_indicator.dart';
 import 'package:minerva/toast_message.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class ShopTrips extends StatefulWidget {
@@ -29,7 +29,7 @@ class ShopTrips extends StatefulWidget {
   final bool fromDispatchSection;
 
   @override
-  _ShopTripsState createState() => _ShopTripsState();
+  State<ShopTrips> createState() => _ShopTripsState();
 }
 
 class _ShopTripsState extends State<ShopTrips> {
@@ -170,7 +170,7 @@ class _ShopTripsState extends State<ShopTrips> {
               },
               builder: (ctx, state) {
                 return state.maybeWhen(
-                  loading: () => const SizedBox(
+                  loading: () => SizedBox(
                     width: 24,
                     height: 24,
                     child: LoadingIndicator(),

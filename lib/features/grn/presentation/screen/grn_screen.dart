@@ -45,10 +45,8 @@ class _GRNScreenState extends State<GRNScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Purchase Orders'),
-        elevation: 0.0,
-      ),
+      appBar:
+          SimpleAppBar(height: 60, title: "Purchase Orders", centerTitle: true),
       body: SafeArea(
         child: RefreshIndicator(
           strokeWidth: 1.0,
@@ -158,7 +156,8 @@ class _GRNScreenState extends State<GRNScreen> {
           onSelected: (value) {
             if (value == '1') {
               final loggedInUser = sl.get<LoggedInUser>();
-              _openTrips(loggedInUser.organizationName, record.id, loggedInUser.organizationName);
+              _openTrips(loggedInUser.organizationName, record.id,
+                  loggedInUser.organizationName);
             }
           },
           itemBuilder: (ctx) {
