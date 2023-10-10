@@ -95,12 +95,16 @@ class _CreateGRNScreenState extends State<CreateGRNScreen> {
         onPressed: () async {
           final result = await BarcodeScanner.scan();
           final rawContent = result.rawContent;
+          print("rawContent :: $rawContent");
           // final rawContent = "00001103321145";
           if (rawContent.trim().isNotEmpty) {
+            print("rawContent isNotEmpty :: $rawContent");
             final unqCode = rawContent.substring(0, 5);
             final productCode = rawContent.substring(5, 10);
             final weight = rawContent.substring(10);
-
+            print("unqCode $unqCode");
+            print("productCode $productCode");
+            print("weight $weight");
             context
                 .read<CreateGrnCubit>()
                 .saveScannedDispatchQty(unqCode, productCode, weight);

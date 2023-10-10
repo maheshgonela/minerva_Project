@@ -6,7 +6,7 @@ import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
 import 'package:minerva/features/rtv/presentation/widgets/bp_selected_widget.dart';
 import 'package:minerva/features/rtv/presentation/widgets/edite_quantity_dialog.dart';
 import 'package:minerva/features/rtv/presentation/widgets/product_selection_widget.dart';
-import 'package:minerva/features/rtv/presentation/widgets/success_dialog.dart';
+import 'package:widgets/success_dialog.dart';
 
 import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/toast_message.dart';
@@ -253,7 +253,7 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
       builder: (ctx) {
         return const ShowSuccessDialog(
           buttonText: "Okey",
-          description: 'GRN created successfully !',
+          description: 'RTV Shipment created successfully !',
           title: "Success",
         );
       },

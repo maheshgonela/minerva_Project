@@ -426,8 +426,10 @@ class DispatchRepoImpl
           DateTime.now().subtract(const Duration(days: 1));
       final DateFormat formatter = DateFormat('yyyy-MM-dd');
       final String yesterdayDate = formatter.format(yesterday);
+      // final filters =
+      //     "documentStatus='CO' and businessPartner='$businessPartnerId' and salesTransaction=true and date(orderDate)>=date('$yesterdayDate') and organization='${user.defaultOrganization}'";
       final filters =
-          "documentStatus='CO' and businessPartner='$businessPartnerId' and salesTransaction=true and date(orderDate)>=date('$yesterdayDate') and organization='${user.defaultOrganization}'";
+          "documentStatus='CO' and businessPartner='$businessPartnerId' and salesTransaction=true and organization='${user.defaultOrganization}'";
       final url =
           "${Constants.jsonWs}/$entityName?_where=$filters&_startRow=$start&_endRow=$end&_sortBy=creationDate desc";
       print("/ ????? $url");
@@ -508,11 +510,12 @@ class DispatchRepoImpl
     try {
       const section = Constants.bakerySection;
       final list = await _fetchOrderPendingProducts(orderId, defErrMsg);
-      print("defErrMsg gfd // ??");
+
       final filtered =
           list.where((element) => element.productCategory == section).toList();
 
       if (filtered.isEmpty) {
+        print("defErrMsg gfd // ??");
         return left(
             const Failure(error: 'No products found for $section category'));
       }
@@ -522,7 +525,7 @@ class DispatchRepoImpl
       return right(filtered);
     } catch (e, st) {
       logError(e, st, defErrMsg);
-      print("defErrMsg gfd");
+
       return left(const Failure(error: defErrMsg));
     }
   }
@@ -536,16 +539,17 @@ class DispatchRepoImpl
       const section = Constants.sweetsSection;
       final list = await _fetchOrderPendingProducts(orderId, defErrMsg);
 
-      final filtered =
-          list.where((element) => element.productCategory == section).toList();
+      // final filtered =
+      //     list.where((element) => element.productCategory == section).toList();
+      final filtered = list.toList();
 
       if (filtered.isEmpty) {
         return left(
-            const Failure(error: 'No products found for $section category'));
+            const Failure(error: 'No products found for $section category '));
       }
 
       filtered.sortBy((element) => element.productName);
-      print("try orderId $orderId last");
+
       return right(filtered);
     } catch (e, st) {
       print("catch orderId $orderId");
