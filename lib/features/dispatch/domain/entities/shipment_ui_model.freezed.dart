@@ -94,11 +94,11 @@ class _$ShipmentUiModelCopyWithImpl<$Res, $Val extends ShipmentUiModel>
 }
 
 /// @nodoc
-abstract class _$$_ShipmentUiModelCopyWith<$Res>
+abstract class _$$ShipmentUiModelImplCopyWith<$Res>
     implements $ShipmentUiModelCopyWith<$Res> {
-  factory _$$_ShipmentUiModelCopyWith(
-          _$_ShipmentUiModel value, $Res Function(_$_ShipmentUiModel) then) =
-      __$$_ShipmentUiModelCopyWithImpl<$Res>;
+  factory _$$ShipmentUiModelImplCopyWith(_$ShipmentUiModelImpl value,
+          $Res Function(_$ShipmentUiModelImpl) then) =
+      __$$ShipmentUiModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -111,11 +111,11 @@ abstract class _$$_ShipmentUiModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ShipmentUiModelCopyWithImpl<$Res>
-    extends _$ShipmentUiModelCopyWithImpl<$Res, _$_ShipmentUiModel>
-    implements _$$_ShipmentUiModelCopyWith<$Res> {
-  __$$_ShipmentUiModelCopyWithImpl(
-      _$_ShipmentUiModel _value, $Res Function(_$_ShipmentUiModel) _then)
+class __$$ShipmentUiModelImplCopyWithImpl<$Res>
+    extends _$ShipmentUiModelCopyWithImpl<$Res, _$ShipmentUiModelImpl>
+    implements _$$ShipmentUiModelImplCopyWith<$Res> {
+  __$$ShipmentUiModelImplCopyWithImpl(
+      _$ShipmentUiModelImpl _value, $Res Function(_$ShipmentUiModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -128,7 +128,7 @@ class __$$_ShipmentUiModelCopyWithImpl<$Res>
     Object? vehicleNumber = null,
     Object? creationDate = null,
   }) {
-    return _then(_$_ShipmentUiModel(
+    return _then(_$ShipmentUiModelImpl(
       products: null == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
@@ -159,8 +159,8 @@ class __$$_ShipmentUiModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ShipmentUiModel implements _ShipmentUiModel {
-  const _$_ShipmentUiModel(
+class _$ShipmentUiModelImpl implements _ShipmentUiModel {
+  const _$ShipmentUiModelImpl(
       {required final List<DispatchedProductUiModel> products,
       required this.shipmentId,
       required this.sender,
@@ -197,7 +197,7 @@ class _$_ShipmentUiModel implements _ShipmentUiModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ShipmentUiModel &&
+            other is _$ShipmentUiModelImpl &&
             const DeepCollectionEquality().equals(other._products, _products) &&
             (identical(other.shipmentId, shipmentId) ||
                 other.shipmentId == shipmentId) &&
@@ -222,8 +222,9 @@ class _$_ShipmentUiModel implements _ShipmentUiModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShipmentUiModelCopyWith<_$_ShipmentUiModel> get copyWith =>
-      __$$_ShipmentUiModelCopyWithImpl<_$_ShipmentUiModel>(this, _$identity);
+  _$$ShipmentUiModelImplCopyWith<_$ShipmentUiModelImpl> get copyWith =>
+      __$$ShipmentUiModelImplCopyWithImpl<_$ShipmentUiModelImpl>(
+          this, _$identity);
 }
 
 abstract class _ShipmentUiModel implements ShipmentUiModel {
@@ -233,7 +234,7 @@ abstract class _ShipmentUiModel implements ShipmentUiModel {
       required final String sender,
       required final String driver,
       required final String vehicleNumber,
-      required final String creationDate}) = _$_ShipmentUiModel;
+      required final String creationDate}) = _$ShipmentUiModelImpl;
 
   @override
   List<DispatchedProductUiModel> get products;
@@ -249,6 +250,6 @@ abstract class _ShipmentUiModel implements ShipmentUiModel {
   String get creationDate;
   @override
   @JsonKey(ignore: true)
-  _$$_ShipmentUiModelCopyWith<_$_ShipmentUiModel> get copyWith =>
+  _$$ShipmentUiModelImplCopyWith<_$ShipmentUiModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

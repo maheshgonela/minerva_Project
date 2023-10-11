@@ -6,8 +6,8 @@ part of 'shipment_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ShipmentDto _$$_ShipmentDtoFromJson(Map<String, dynamic> json) =>
-    _$_ShipmentDto(
+_$ShipmentDtoImpl _$$ShipmentDtoImplFromJson(Map<String, dynamic> json) =>
+    _$ShipmentDtoImpl(
       id: json['id'] as String,
       organization: json['organization'] as String,
       documentNo: json['documentNo'] as String,
@@ -18,7 +18,7 @@ _$_ShipmentDto _$$_ShipmentDtoFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
     );
 
-Map<String, dynamic> _$$_ShipmentDtoToJson(_$_ShipmentDto instance) =>
+Map<String, dynamic> _$$ShipmentDtoImplToJson(_$ShipmentDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'organization': instance.organization,

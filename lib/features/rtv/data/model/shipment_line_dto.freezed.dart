@@ -103,11 +103,11 @@ class _$ShipmentLineDtoCopyWithImpl<$Res, $Val extends ShipmentLineDto>
 }
 
 /// @nodoc
-abstract class _$$_ShipmentLineDtoCopyWith<$Res>
+abstract class _$$ShipmentLineDtoImplCopyWith<$Res>
     implements $ShipmentLineDtoCopyWith<$Res> {
-  factory _$$_ShipmentLineDtoCopyWith(
-          _$_ShipmentLineDto value, $Res Function(_$_ShipmentLineDto) then) =
-      __$$_ShipmentLineDtoCopyWithImpl<$Res>;
+  factory _$$ShipmentLineDtoImplCopyWith(_$ShipmentLineDtoImpl value,
+          $Res Function(_$ShipmentLineDtoImpl) then) =
+      __$$ShipmentLineDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -120,11 +120,11 @@ abstract class _$$_ShipmentLineDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ShipmentLineDtoCopyWithImpl<$Res>
-    extends _$ShipmentLineDtoCopyWithImpl<$Res, _$_ShipmentLineDto>
-    implements _$$_ShipmentLineDtoCopyWith<$Res> {
-  __$$_ShipmentLineDtoCopyWithImpl(
-      _$_ShipmentLineDto _value, $Res Function(_$_ShipmentLineDto) _then)
+class __$$ShipmentLineDtoImplCopyWithImpl<$Res>
+    extends _$ShipmentLineDtoCopyWithImpl<$Res, _$ShipmentLineDtoImpl>
+    implements _$$ShipmentLineDtoImplCopyWith<$Res> {
+  __$$ShipmentLineDtoImplCopyWithImpl(
+      _$ShipmentLineDtoImpl _value, $Res Function(_$ShipmentLineDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -137,7 +137,7 @@ class __$$_ShipmentLineDtoCopyWithImpl<$Res>
     Object? storageBinName = null,
     Object? movementQty = null,
   }) {
-    return _then(_$_ShipmentLineDto(
+    return _then(_$ShipmentLineDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -169,8 +169,8 @@ class __$$_ShipmentLineDtoCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$_ShipmentLineDto extends _ShipmentLineDto {
-  const _$_ShipmentLineDto(
+class _$ShipmentLineDtoImpl extends _ShipmentLineDto {
+  const _$ShipmentLineDtoImpl(
       {required this.id,
       @JsonKey(name: 'product') required this.productId,
       @JsonKey(name: 'product\$_identifier') required this.productName,
@@ -179,8 +179,8 @@ class _$_ShipmentLineDto extends _ShipmentLineDto {
       @JsonKey(name: 'movementQuantity') required this.movementQty})
       : super._();
 
-  factory _$_ShipmentLineDto.fromJson(Map<String, dynamic> json) =>
-      _$$_ShipmentLineDtoFromJson(json);
+  factory _$ShipmentLineDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ShipmentLineDtoImplFromJson(json);
 
   @override
   final String id;
@@ -209,7 +209,7 @@ class _$_ShipmentLineDto extends _ShipmentLineDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ShipmentLineDto &&
+            other is _$ShipmentLineDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
@@ -230,12 +230,13 @@ class _$_ShipmentLineDto extends _ShipmentLineDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShipmentLineDtoCopyWith<_$_ShipmentLineDto> get copyWith =>
-      __$$_ShipmentLineDtoCopyWithImpl<_$_ShipmentLineDto>(this, _$identity);
+  _$$ShipmentLineDtoImplCopyWith<_$ShipmentLineDtoImpl> get copyWith =>
+      __$$ShipmentLineDtoImplCopyWithImpl<_$ShipmentLineDtoImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ShipmentLineDtoToJson(
+    return _$$ShipmentLineDtoImplToJson(
       this,
     );
   }
@@ -244,20 +245,16 @@ class _$_ShipmentLineDto extends _ShipmentLineDto {
 abstract class _ShipmentLineDto extends ShipmentLineDto {
   const factory _ShipmentLineDto(
       {required final String id,
-      @JsonKey(name: 'product')
-          required final String productId,
-      @JsonKey(name: 'product\$_identifier')
-          required final String productName,
-      @JsonKey(name: 'uOM')
-          required final String uomName,
-      @JsonKey(name: 'uOM\$_identifier')
-          required final String storageBinName,
+      @JsonKey(name: 'product') required final String productId,
+      @JsonKey(name: 'product\$_identifier') required final String productName,
+      @JsonKey(name: 'uOM') required final String uomName,
+      @JsonKey(name: 'uOM\$_identifier') required final String storageBinName,
       @JsonKey(name: 'movementQuantity')
-          required final double movementQty}) = _$_ShipmentLineDto;
+      required final double movementQty}) = _$ShipmentLineDtoImpl;
   const _ShipmentLineDto._() : super._();
 
   factory _ShipmentLineDto.fromJson(Map<String, dynamic> json) =
-      _$_ShipmentLineDto.fromJson;
+      _$ShipmentLineDtoImpl.fromJson;
 
   @override
   String get id;
@@ -278,6 +275,6 @@ abstract class _ShipmentLineDto extends ShipmentLineDto {
   double get movementQty;
   @override
   @JsonKey(ignore: true)
-  _$$_ShipmentLineDtoCopyWith<_$_ShipmentLineDto> get copyWith =>
+  _$$ShipmentLineDtoImplCopyWith<_$ShipmentLineDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

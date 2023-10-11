@@ -89,11 +89,11 @@ class _$GrnItemUiModelCopyWithImpl<$Res, $Val extends GrnItemUiModel>
 }
 
 /// @nodoc
-abstract class _$$_GrnItemUiModelCopyWith<$Res>
+abstract class _$$GrnItemUiModelImplCopyWith<$Res>
     implements $GrnItemUiModelCopyWith<$Res> {
-  factory _$$_GrnItemUiModelCopyWith(
-          _$_GrnItemUiModel value, $Res Function(_$_GrnItemUiModel) then) =
-      __$$_GrnItemUiModelCopyWithImpl<$Res>;
+  factory _$$GrnItemUiModelImplCopyWith(_$GrnItemUiModelImpl value,
+          $Res Function(_$GrnItemUiModelImpl) then) =
+      __$$GrnItemUiModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -107,11 +107,11 @@ abstract class _$$_GrnItemUiModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_GrnItemUiModelCopyWithImpl<$Res>
-    extends _$GrnItemUiModelCopyWithImpl<$Res, _$_GrnItemUiModel>
-    implements _$$_GrnItemUiModelCopyWith<$Res> {
-  __$$_GrnItemUiModelCopyWithImpl(
-      _$_GrnItemUiModel _value, $Res Function(_$_GrnItemUiModel) _then)
+class __$$GrnItemUiModelImplCopyWithImpl<$Res>
+    extends _$GrnItemUiModelCopyWithImpl<$Res, _$GrnItemUiModelImpl>
+    implements _$$GrnItemUiModelImplCopyWith<$Res> {
+  __$$GrnItemUiModelImplCopyWithImpl(
+      _$GrnItemUiModelImpl _value, $Res Function(_$GrnItemUiModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -122,7 +122,7 @@ class __$$_GrnItemUiModelCopyWithImpl<$Res>
     Object? isReceivedPartial = null,
     Object? receivedQty = null,
   }) {
-    return _then(_$_GrnItemUiModel(
+    return _then(_$GrnItemUiModelImpl(
       product: null == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
@@ -145,8 +145,8 @@ class __$$_GrnItemUiModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_GrnItemUiModel implements _GrnItemUiModel {
-  const _$_GrnItemUiModel(
+class _$GrnItemUiModelImpl implements _GrnItemUiModel {
+  const _$GrnItemUiModelImpl(
       {required this.product,
       required this.isReceivedFull,
       required this.isReceivedPartial,
@@ -170,7 +170,7 @@ class _$_GrnItemUiModel implements _GrnItemUiModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GrnItemUiModel &&
+            other is _$GrnItemUiModelImpl &&
             (identical(other.product, product) || other.product == product) &&
             (identical(other.isReceivedFull, isReceivedFull) ||
                 other.isReceivedFull == isReceivedFull) &&
@@ -187,8 +187,9 @@ class _$_GrnItemUiModel implements _GrnItemUiModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GrnItemUiModelCopyWith<_$_GrnItemUiModel> get copyWith =>
-      __$$_GrnItemUiModelCopyWithImpl<_$_GrnItemUiModel>(this, _$identity);
+  _$$GrnItemUiModelImplCopyWith<_$GrnItemUiModelImpl> get copyWith =>
+      __$$GrnItemUiModelImplCopyWithImpl<_$GrnItemUiModelImpl>(
+          this, _$identity);
 }
 
 abstract class _GrnItemUiModel implements GrnItemUiModel {
@@ -196,7 +197,7 @@ abstract class _GrnItemUiModel implements GrnItemUiModel {
       {required final OrderedProduct product,
       required final bool isReceivedFull,
       required final bool isReceivedPartial,
-      required final double receivedQty}) = _$_GrnItemUiModel;
+      required final double receivedQty}) = _$GrnItemUiModelImpl;
 
   @override
   OrderedProduct get product;
@@ -208,6 +209,6 @@ abstract class _GrnItemUiModel implements GrnItemUiModel {
   double get receivedQty;
   @override
   @JsonKey(ignore: true)
-  _$$_GrnItemUiModelCopyWith<_$_GrnItemUiModel> get copyWith =>
+  _$$GrnItemUiModelImplCopyWith<_$GrnItemUiModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

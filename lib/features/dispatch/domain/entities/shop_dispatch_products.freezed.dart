@@ -66,11 +66,11 @@ class _$ShopDispatchProductsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ShopDispatchProductsCopyWith<$Res>
+abstract class _$$ShopDispatchProductsImplCopyWith<$Res>
     implements $ShopDispatchProductsCopyWith<$Res> {
-  factory _$$_ShopDispatchProductsCopyWith(_$_ShopDispatchProducts value,
-          $Res Function(_$_ShopDispatchProducts) then) =
-      __$$_ShopDispatchProductsCopyWithImpl<$Res>;
+  factory _$$ShopDispatchProductsImplCopyWith(_$ShopDispatchProductsImpl value,
+          $Res Function(_$ShopDispatchProductsImpl) then) =
+      __$$ShopDispatchProductsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -78,11 +78,11 @@ abstract class _$$_ShopDispatchProductsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ShopDispatchProductsCopyWithImpl<$Res>
-    extends _$ShopDispatchProductsCopyWithImpl<$Res, _$_ShopDispatchProducts>
-    implements _$$_ShopDispatchProductsCopyWith<$Res> {
-  __$$_ShopDispatchProductsCopyWithImpl(_$_ShopDispatchProducts _value,
-      $Res Function(_$_ShopDispatchProducts) _then)
+class __$$ShopDispatchProductsImplCopyWithImpl<$Res>
+    extends _$ShopDispatchProductsCopyWithImpl<$Res, _$ShopDispatchProductsImpl>
+    implements _$$ShopDispatchProductsImplCopyWith<$Res> {
+  __$$ShopDispatchProductsImplCopyWithImpl(_$ShopDispatchProductsImpl _value,
+      $Res Function(_$ShopDispatchProductsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -91,7 +91,7 @@ class __$$_ShopDispatchProductsCopyWithImpl<$Res>
     Object? pending = null,
     Object? shipped = null,
   }) {
-    return _then(_$_ShopDispatchProducts(
+    return _then(_$ShopDispatchProductsImpl(
       pending: null == pending
           ? _value._pending
           : pending // ignore: cast_nullable_to_non_nullable
@@ -106,8 +106,8 @@ class __$$_ShopDispatchProductsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ShopDispatchProducts implements _ShopDispatchProducts {
-  const _$_ShopDispatchProducts(
+class _$ShopDispatchProductsImpl implements _ShopDispatchProducts {
+  const _$ShopDispatchProductsImpl(
       {required final List<DispatchOrderedProduct> pending,
       required final List<ShipmentUiModel> shipped})
       : _pending = pending,
@@ -138,7 +138,7 @@ class _$_ShopDispatchProducts implements _ShopDispatchProducts {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ShopDispatchProducts &&
+            other is _$ShopDispatchProductsImpl &&
             const DeepCollectionEquality().equals(other._pending, _pending) &&
             const DeepCollectionEquality().equals(other._shipped, _shipped));
   }
@@ -152,15 +152,17 @@ class _$_ShopDispatchProducts implements _ShopDispatchProducts {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShopDispatchProductsCopyWith<_$_ShopDispatchProducts> get copyWith =>
-      __$$_ShopDispatchProductsCopyWithImpl<_$_ShopDispatchProducts>(
-          this, _$identity);
+  _$$ShopDispatchProductsImplCopyWith<_$ShopDispatchProductsImpl>
+      get copyWith =>
+          __$$ShopDispatchProductsImplCopyWithImpl<_$ShopDispatchProductsImpl>(
+              this, _$identity);
 }
 
 abstract class _ShopDispatchProducts implements ShopDispatchProducts {
   const factory _ShopDispatchProducts(
-      {required final List<DispatchOrderedProduct> pending,
-      required final List<ShipmentUiModel> shipped}) = _$_ShopDispatchProducts;
+          {required final List<DispatchOrderedProduct> pending,
+          required final List<ShipmentUiModel> shipped}) =
+      _$ShopDispatchProductsImpl;
 
   @override
   List<DispatchOrderedProduct> get pending;
@@ -168,6 +170,6 @@ abstract class _ShopDispatchProducts implements ShopDispatchProducts {
   List<ShipmentUiModel> get shipped;
   @override
   @JsonKey(ignore: true)
-  _$$_ShopDispatchProductsCopyWith<_$_ShopDispatchProducts> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ShopDispatchProductsImplCopyWith<_$ShopDispatchProductsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

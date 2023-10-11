@@ -143,7 +143,7 @@ class _CreateGRNScreenState extends State<CreateGRNScreen> {
       strokeWidth: 1.0,
       onRefresh: () {
         _refresh(context);
-        return Future.value(const Duration(microseconds: 300));
+        return Future.value(const Duration(microseconds: 400));
       },
       child: BlocConsumer<FetchOrderedproductBloc, FetchOrderedproductState>(
         listener: (ctx, state) {

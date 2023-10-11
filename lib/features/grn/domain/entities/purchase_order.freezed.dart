@@ -107,11 +107,11 @@ class _$PurchaseOrderCopyWithImpl<$Res, $Val extends PurchaseOrder>
 }
 
 /// @nodoc
-abstract class _$$_PurchaseOrderCopyWith<$Res>
+abstract class _$$PurchaseOrderImplCopyWith<$Res>
     implements $PurchaseOrderCopyWith<$Res> {
-  factory _$$_PurchaseOrderCopyWith(
-          _$_PurchaseOrder value, $Res Function(_$_PurchaseOrder) then) =
-      __$$_PurchaseOrderCopyWithImpl<$Res>;
+  factory _$$PurchaseOrderImplCopyWith(
+          _$PurchaseOrderImpl value, $Res Function(_$PurchaseOrderImpl) then) =
+      __$$PurchaseOrderImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -126,11 +126,11 @@ abstract class _$$_PurchaseOrderCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PurchaseOrderCopyWithImpl<$Res>
-    extends _$PurchaseOrderCopyWithImpl<$Res, _$_PurchaseOrder>
-    implements _$$_PurchaseOrderCopyWith<$Res> {
-  __$$_PurchaseOrderCopyWithImpl(
-      _$_PurchaseOrder _value, $Res Function(_$_PurchaseOrder) _then)
+class __$$PurchaseOrderImplCopyWithImpl<$Res>
+    extends _$PurchaseOrderCopyWithImpl<$Res, _$PurchaseOrderImpl>
+    implements _$$PurchaseOrderImplCopyWith<$Res> {
+  __$$PurchaseOrderImplCopyWithImpl(
+      _$PurchaseOrderImpl _value, $Res Function(_$PurchaseOrderImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -145,7 +145,7 @@ class __$$_PurchaseOrderCopyWithImpl<$Res>
     Object? scheduledDeliveryDate = null,
     Object? deliveryLocation = freezed,
   }) {
-    return _then(_$_PurchaseOrder(
+    return _then(_$PurchaseOrderImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -184,8 +184,8 @@ class __$$_PurchaseOrderCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PurchaseOrder implements _PurchaseOrder {
-  const _$_PurchaseOrder(
+class _$PurchaseOrderImpl implements _PurchaseOrder {
+  const _$PurchaseOrderImpl(
       {required this.id,
       required this.organization,
       required this.documentNo,
@@ -221,7 +221,7 @@ class _$_PurchaseOrder implements _PurchaseOrder {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PurchaseOrder &&
+            other is _$PurchaseOrderImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.organization, organization) ||
                 other.organization == organization) &&
@@ -255,8 +255,8 @@ class _$_PurchaseOrder implements _PurchaseOrder {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PurchaseOrderCopyWith<_$_PurchaseOrder> get copyWith =>
-      __$$_PurchaseOrderCopyWithImpl<_$_PurchaseOrder>(this, _$identity);
+  _$$PurchaseOrderImplCopyWith<_$PurchaseOrderImpl> get copyWith =>
+      __$$PurchaseOrderImplCopyWithImpl<_$PurchaseOrderImpl>(this, _$identity);
 }
 
 abstract class _PurchaseOrder implements PurchaseOrder {
@@ -268,7 +268,7 @@ abstract class _PurchaseOrder implements PurchaseOrder {
       required final String businessPartnerLocation,
       required final String warehouse,
       required final String scheduledDeliveryDate,
-      final String? deliveryLocation}) = _$_PurchaseOrder;
+      final String? deliveryLocation}) = _$PurchaseOrderImpl;
 
   @override
   String get id;
@@ -288,6 +288,6 @@ abstract class _PurchaseOrder implements PurchaseOrder {
   String? get deliveryLocation;
   @override
   @JsonKey(ignore: true)
-  _$$_PurchaseOrderCopyWith<_$_PurchaseOrder> get copyWith =>
+  _$$PurchaseOrderImplCopyWith<_$PurchaseOrderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

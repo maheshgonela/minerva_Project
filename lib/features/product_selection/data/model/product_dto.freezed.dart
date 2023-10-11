@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'product.dart';
+part of 'product_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,39 +14,53 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+ProductDto _$ProductDtoFromJson(Map<String, dynamic> json) {
+  return _ProductDto.fromJson(json);
+}
+
 /// @nodoc
-mixin _$Product {
+mixin _$ProductDto {
+  @JsonKey(name: 'id')
   String get id => throw _privateConstructorUsedError;
+  @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'uOM')
   String get uomId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'uOM\$_identifier')
   String get uomName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'productCategory')
   String get productCategoryId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'productCategory\$_identifier')
   String get productCategoryName => throw _privateConstructorUsedError;
+  @JsonKey(name: 'uPCEAN')
   String get uPCEAN => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProductCopyWith<Product> get copyWith => throw _privateConstructorUsedError;
+  $ProductDtoCopyWith<ProductDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProductCopyWith<$Res> {
-  factory $ProductCopyWith(Product value, $Res Function(Product) then) =
-      _$ProductCopyWithImpl<$Res, Product>;
+abstract class $ProductDtoCopyWith<$Res> {
+  factory $ProductDtoCopyWith(
+          ProductDto value, $Res Function(ProductDto) then) =
+      _$ProductDtoCopyWithImpl<$Res, ProductDto>;
   @useResult
   $Res call(
-      {String id,
-      String name,
-      String uomId,
-      String uomName,
-      String productCategoryId,
-      String productCategoryName,
-      String uPCEAN});
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'uOM') String uomId,
+      @JsonKey(name: 'uOM\$_identifier') String uomName,
+      @JsonKey(name: 'productCategory') String productCategoryId,
+      @JsonKey(name: 'productCategory\$_identifier') String productCategoryName,
+      @JsonKey(name: 'uPCEAN') String uPCEAN});
 }
 
 /// @nodoc
-class _$ProductCopyWithImpl<$Res, $Val extends Product>
-    implements $ProductCopyWith<$Res> {
-  _$ProductCopyWithImpl(this._value, this._then);
+class _$ProductDtoCopyWithImpl<$Res, $Val extends ProductDto>
+    implements $ProductDtoCopyWith<$Res> {
+  _$ProductDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -98,27 +112,29 @@ class _$ProductCopyWithImpl<$Res, $Val extends Product>
 }
 
 /// @nodoc
-abstract class _$$_ProductCopyWith<$Res> implements $ProductCopyWith<$Res> {
-  factory _$$_ProductCopyWith(
-          _$_Product value, $Res Function(_$_Product) then) =
-      __$$_ProductCopyWithImpl<$Res>;
+abstract class _$$ProductDtoImplCopyWith<$Res>
+    implements $ProductDtoCopyWith<$Res> {
+  factory _$$ProductDtoImplCopyWith(
+          _$ProductDtoImpl value, $Res Function(_$ProductDtoImpl) then) =
+      __$$ProductDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String id,
-      String name,
-      String uomId,
-      String uomName,
-      String productCategoryId,
-      String productCategoryName,
-      String uPCEAN});
+      {@JsonKey(name: 'id') String id,
+      @JsonKey(name: 'name') String name,
+      @JsonKey(name: 'uOM') String uomId,
+      @JsonKey(name: 'uOM\$_identifier') String uomName,
+      @JsonKey(name: 'productCategory') String productCategoryId,
+      @JsonKey(name: 'productCategory\$_identifier') String productCategoryName,
+      @JsonKey(name: 'uPCEAN') String uPCEAN});
 }
 
 /// @nodoc
-class __$$_ProductCopyWithImpl<$Res>
-    extends _$ProductCopyWithImpl<$Res, _$_Product>
-    implements _$$_ProductCopyWith<$Res> {
-  __$$_ProductCopyWithImpl(_$_Product _value, $Res Function(_$_Product) _then)
+class __$$ProductDtoImplCopyWithImpl<$Res>
+    extends _$ProductDtoCopyWithImpl<$Res, _$ProductDtoImpl>
+    implements _$$ProductDtoImplCopyWith<$Res> {
+  __$$ProductDtoImplCopyWithImpl(
+      _$ProductDtoImpl _value, $Res Function(_$ProductDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -132,7 +148,7 @@ class __$$_ProductCopyWithImpl<$Res>
     Object? productCategoryName = null,
     Object? uPCEAN = null,
   }) {
-    return _then(_$_Product(
+    return _then(_$ProductDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -167,41 +183,54 @@ class __$$_ProductCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Product implements _Product {
-  const _$_Product(
-      {required this.id,
-      required this.name,
-      required this.uomId,
-      required this.uomName,
-      required this.productCategoryId,
+@JsonSerializable(explicitToJson: true)
+class _$ProductDtoImpl extends _ProductDto {
+  const _$ProductDtoImpl(
+      {@JsonKey(name: 'id') required this.id,
+      @JsonKey(name: 'name') required this.name,
+      @JsonKey(name: 'uOM') required this.uomId,
+      @JsonKey(name: 'uOM\$_identifier') required this.uomName,
+      @JsonKey(name: 'productCategory') required this.productCategoryId,
+      @JsonKey(name: 'productCategory\$_identifier')
       required this.productCategoryName,
-      required this.uPCEAN});
+      @JsonKey(name: 'uPCEAN') required this.uPCEAN})
+      : super._();
+
+  factory _$ProductDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProductDtoImplFromJson(json);
 
   @override
+  @JsonKey(name: 'id')
   final String id;
   @override
+  @JsonKey(name: 'name')
   final String name;
   @override
+  @JsonKey(name: 'uOM')
   final String uomId;
   @override
+  @JsonKey(name: 'uOM\$_identifier')
   final String uomName;
   @override
+  @JsonKey(name: 'productCategory')
   final String productCategoryId;
   @override
+  @JsonKey(name: 'productCategory\$_identifier')
   final String productCategoryName;
   @override
+  @JsonKey(name: 'uPCEAN')
   final String uPCEAN;
 
   @override
   String toString() {
-    return 'Product(id: $id, name: $name, uomId: $uomId, uomName: $uomName, productCategoryId: $productCategoryId, productCategoryName: $productCategoryName, uPCEAN: $uPCEAN)';
+    return 'ProductDto(id: $id, name: $name, uomId: $uomId, uomName: $uomName, productCategoryId: $productCategoryId, productCategoryName: $productCategoryName, uPCEAN: $uPCEAN)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Product &&
+            other is _$ProductDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.uomId, uomId) || other.uomId == uomId) &&
@@ -213,6 +242,7 @@ class _$_Product implements _Product {
             (identical(other.uPCEAN, uPCEAN) || other.uPCEAN == uPCEAN));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, uomId, uomName,
       productCategoryId, productCategoryName, uPCEAN);
@@ -220,36 +250,56 @@ class _$_Product implements _Product {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
-      __$$_ProductCopyWithImpl<_$_Product>(this, _$identity);
+  _$$ProductDtoImplCopyWith<_$ProductDtoImpl> get copyWith =>
+      __$$ProductDtoImplCopyWithImpl<_$ProductDtoImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ProductDtoImplToJson(
+      this,
+    );
+  }
 }
 
-abstract class _Product implements Product {
-  const factory _Product(
-      {required final String id,
-      required final String name,
-      required final String uomId,
-      required final String uomName,
-      required final String productCategoryId,
+abstract class _ProductDto extends ProductDto {
+  const factory _ProductDto(
+      {@JsonKey(name: 'id') required final String id,
+      @JsonKey(name: 'name') required final String name,
+      @JsonKey(name: 'uOM') required final String uomId,
+      @JsonKey(name: 'uOM\$_identifier') required final String uomName,
+      @JsonKey(name: 'productCategory') required final String productCategoryId,
+      @JsonKey(name: 'productCategory\$_identifier')
       required final String productCategoryName,
-      required final String uPCEAN}) = _$_Product;
+      @JsonKey(name: 'uPCEAN')
+      required final String uPCEAN}) = _$ProductDtoImpl;
+  const _ProductDto._() : super._();
+
+  factory _ProductDto.fromJson(Map<String, dynamic> json) =
+      _$ProductDtoImpl.fromJson;
 
   @override
+  @JsonKey(name: 'id')
   String get id;
   @override
+  @JsonKey(name: 'name')
   String get name;
   @override
+  @JsonKey(name: 'uOM')
   String get uomId;
   @override
+  @JsonKey(name: 'uOM\$_identifier')
   String get uomName;
   @override
+  @JsonKey(name: 'productCategory')
   String get productCategoryId;
   @override
+  @JsonKey(name: 'productCategory\$_identifier')
   String get productCategoryName;
   @override
+  @JsonKey(name: 'uPCEAN')
   String get uPCEAN;
   @override
   @JsonKey(ignore: true)
-  _$$_ProductCopyWith<_$_Product> get copyWith =>
+  _$$ProductDtoImplCopyWith<_$ProductDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

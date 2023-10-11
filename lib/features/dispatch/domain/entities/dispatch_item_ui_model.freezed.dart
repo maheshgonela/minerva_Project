@@ -89,11 +89,11 @@ class _$DispatchItemUiModelCopyWithImpl<$Res, $Val extends DispatchItemUiModel>
 }
 
 /// @nodoc
-abstract class _$$_DispatchItemUiModelCopyWith<$Res>
+abstract class _$$DispatchItemUiModelImplCopyWith<$Res>
     implements $DispatchItemUiModelCopyWith<$Res> {
-  factory _$$_DispatchItemUiModelCopyWith(_$_DispatchItemUiModel value,
-          $Res Function(_$_DispatchItemUiModel) then) =
-      __$$_DispatchItemUiModelCopyWithImpl<$Res>;
+  factory _$$DispatchItemUiModelImplCopyWith(_$DispatchItemUiModelImpl value,
+          $Res Function(_$DispatchItemUiModelImpl) then) =
+      __$$DispatchItemUiModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -107,11 +107,11 @@ abstract class _$$_DispatchItemUiModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DispatchItemUiModelCopyWithImpl<$Res>
-    extends _$DispatchItemUiModelCopyWithImpl<$Res, _$_DispatchItemUiModel>
-    implements _$$_DispatchItemUiModelCopyWith<$Res> {
-  __$$_DispatchItemUiModelCopyWithImpl(_$_DispatchItemUiModel _value,
-      $Res Function(_$_DispatchItemUiModel) _then)
+class __$$DispatchItemUiModelImplCopyWithImpl<$Res>
+    extends _$DispatchItemUiModelCopyWithImpl<$Res, _$DispatchItemUiModelImpl>
+    implements _$$DispatchItemUiModelImplCopyWith<$Res> {
+  __$$DispatchItemUiModelImplCopyWithImpl(_$DispatchItemUiModelImpl _value,
+      $Res Function(_$DispatchItemUiModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -122,7 +122,7 @@ class __$$_DispatchItemUiModelCopyWithImpl<$Res>
     Object? isReceivedPartial = null,
     Object? dispatchedQty = null,
   }) {
-    return _then(_$_DispatchItemUiModel(
+    return _then(_$DispatchItemUiModelImpl(
       product: null == product
           ? _value.product
           : product // ignore: cast_nullable_to_non_nullable
@@ -145,8 +145,8 @@ class __$$_DispatchItemUiModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DispatchItemUiModel implements _DispatchItemUiModel {
-  const _$_DispatchItemUiModel(
+class _$DispatchItemUiModelImpl implements _DispatchItemUiModel {
+  const _$DispatchItemUiModelImpl(
       {required this.product,
       required this.isReceivedFull,
       required this.isReceivedPartial,
@@ -170,7 +170,7 @@ class _$_DispatchItemUiModel implements _DispatchItemUiModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DispatchItemUiModel &&
+            other is _$DispatchItemUiModelImpl &&
             (identical(other.product, product) || other.product == product) &&
             (identical(other.isReceivedFull, isReceivedFull) ||
                 other.isReceivedFull == isReceivedFull) &&
@@ -187,8 +187,8 @@ class _$_DispatchItemUiModel implements _DispatchItemUiModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DispatchItemUiModelCopyWith<_$_DispatchItemUiModel> get copyWith =>
-      __$$_DispatchItemUiModelCopyWithImpl<_$_DispatchItemUiModel>(
+  _$$DispatchItemUiModelImplCopyWith<_$DispatchItemUiModelImpl> get copyWith =>
+      __$$DispatchItemUiModelImplCopyWithImpl<_$DispatchItemUiModelImpl>(
           this, _$identity);
 }
 
@@ -197,7 +197,7 @@ abstract class _DispatchItemUiModel implements DispatchItemUiModel {
       {required final DispatchOrderedProduct product,
       required final bool isReceivedFull,
       required final bool isReceivedPartial,
-      required final double dispatchedQty}) = _$_DispatchItemUiModel;
+      required final double dispatchedQty}) = _$DispatchItemUiModelImpl;
 
   @override
   DispatchOrderedProduct get product;
@@ -209,6 +209,6 @@ abstract class _DispatchItemUiModel implements DispatchItemUiModel {
   double get dispatchedQty;
   @override
   @JsonKey(ignore: true)
-  _$$_DispatchItemUiModelCopyWith<_$_DispatchItemUiModel> get copyWith =>
+  _$$DispatchItemUiModelImplCopyWith<_$DispatchItemUiModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

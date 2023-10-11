@@ -85,11 +85,11 @@ class _$AttachmentDtoCopyWithImpl<$Res, $Val extends AttachmentDto>
 }
 
 /// @nodoc
-abstract class _$$_AttachmentDtoCopyWith<$Res>
+abstract class _$$AttachmentDtoImplCopyWith<$Res>
     implements $AttachmentDtoCopyWith<$Res> {
-  factory _$$_AttachmentDtoCopyWith(
-          _$_AttachmentDto value, $Res Function(_$_AttachmentDto) then) =
-      __$$_AttachmentDtoCopyWithImpl<$Res>;
+  factory _$$AttachmentDtoImplCopyWith(
+          _$AttachmentDtoImpl value, $Res Function(_$AttachmentDtoImpl) then) =
+      __$$AttachmentDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -100,11 +100,11 @@ abstract class _$$_AttachmentDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AttachmentDtoCopyWithImpl<$Res>
-    extends _$AttachmentDtoCopyWithImpl<$Res, _$_AttachmentDto>
-    implements _$$_AttachmentDtoCopyWith<$Res> {
-  __$$_AttachmentDtoCopyWithImpl(
-      _$_AttachmentDto _value, $Res Function(_$_AttachmentDto) _then)
+class __$$AttachmentDtoImplCopyWithImpl<$Res>
+    extends _$AttachmentDtoCopyWithImpl<$Res, _$AttachmentDtoImpl>
+    implements _$$AttachmentDtoImplCopyWith<$Res> {
+  __$$AttachmentDtoImplCopyWithImpl(
+      _$AttachmentDtoImpl _value, $Res Function(_$AttachmentDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +115,7 @@ class __$$_AttachmentDtoCopyWithImpl<$Res>
     Object? id = null,
     Object? fileData = null,
   }) {
-    return _then(_$_AttachmentDto(
+    return _then(_$AttachmentDtoImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -139,16 +139,16 @@ class __$$_AttachmentDtoCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$_AttachmentDto extends _AttachmentDto {
-  const _$_AttachmentDto(
+class _$AttachmentDtoImpl extends _AttachmentDto {
+  const _$AttachmentDtoImpl(
       {required this.name,
       required this.description,
       required this.id,
       @JsonKey(name: 'file_data') required this.fileData})
       : super._();
 
-  factory _$_AttachmentDto.fromJson(Map<String, dynamic> json) =>
-      _$$_AttachmentDtoFromJson(json);
+  factory _$AttachmentDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AttachmentDtoImplFromJson(json);
 
   @override
   final String name;
@@ -169,7 +169,7 @@ class _$_AttachmentDto extends _AttachmentDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AttachmentDto &&
+            other is _$AttachmentDtoImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -185,12 +185,12 @@ class _$_AttachmentDto extends _AttachmentDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AttachmentDtoCopyWith<_$_AttachmentDto> get copyWith =>
-      __$$_AttachmentDtoCopyWithImpl<_$_AttachmentDto>(this, _$identity);
+  _$$AttachmentDtoImplCopyWith<_$AttachmentDtoImpl> get copyWith =>
+      __$$AttachmentDtoImplCopyWithImpl<_$AttachmentDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AttachmentDtoToJson(
+    return _$$AttachmentDtoImplToJson(
       this,
     );
   }
@@ -202,11 +202,11 @@ abstract class _AttachmentDto extends AttachmentDto {
           required final String description,
           required final String id,
           @JsonKey(name: 'file_data') required final String fileData}) =
-      _$_AttachmentDto;
+      _$AttachmentDtoImpl;
   const _AttachmentDto._() : super._();
 
   factory _AttachmentDto.fromJson(Map<String, dynamic> json) =
-      _$_AttachmentDto.fromJson;
+      _$AttachmentDtoImpl.fromJson;
 
   @override
   String get name;
@@ -219,6 +219,6 @@ abstract class _AttachmentDto extends AttachmentDto {
   String get fileData;
   @override
   @JsonKey(ignore: true)
-  _$$_AttachmentDtoCopyWith<_$_AttachmentDto> get copyWith =>
+  _$$AttachmentDtoImplCopyWith<_$AttachmentDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

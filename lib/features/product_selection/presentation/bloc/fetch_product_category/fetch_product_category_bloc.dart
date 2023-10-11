@@ -2,8 +2,8 @@ import 'package:base_auth/entity/id_name.dart';
 import 'package:bloc/bloc.dart';
 import 'package:core/failures/failure.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:minerva/features/rtv/domain/repository/shipment_repo.dart';
 import 'package:injectable/injectable.dart';
+import 'package:minerva/features/product_selection/domain/repository/productSelection_repo.dart';
 
 part 'fetch_product_category_bloc.freezed.dart';
 part 'fetch_product_category_event.dart';
@@ -12,7 +12,7 @@ part 'fetch_product_category_state.dart';
 @injectable
 class FetchProductCategoryBloc
     extends Bloc<FetchProductCategoryEvent, FetchProductCategoryState> {
-  final ShipmentRepo repo;
+  final ProductSelectionRepo repo;
   final int pageLength = 20;
 
   FetchProductCategoryBloc(

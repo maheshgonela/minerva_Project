@@ -100,11 +100,11 @@ class _$CreateGrnStateCopyWithImpl<$Res, $Val extends CreateGrnState>
 }
 
 /// @nodoc
-abstract class _$$_CreateGrnStateCopyWith<$Res>
+abstract class _$$CreateGrnStateImplCopyWith<$Res>
     implements $CreateGrnStateCopyWith<$Res> {
-  factory _$$_CreateGrnStateCopyWith(
-          _$_CreateGrnState value, $Res Function(_$_CreateGrnState) then) =
-      __$$_CreateGrnStateCopyWithImpl<$Res>;
+  factory _$$CreateGrnStateImplCopyWith(_$CreateGrnStateImpl value,
+          $Res Function(_$CreateGrnStateImpl) then) =
+      __$$CreateGrnStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -119,11 +119,11 @@ abstract class _$$_CreateGrnStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CreateGrnStateCopyWithImpl<$Res>
-    extends _$CreateGrnStateCopyWithImpl<$Res, _$_CreateGrnState>
-    implements _$$_CreateGrnStateCopyWith<$Res> {
-  __$$_CreateGrnStateCopyWithImpl(
-      _$_CreateGrnState _value, $Res Function(_$_CreateGrnState) _then)
+class __$$CreateGrnStateImplCopyWithImpl<$Res>
+    extends _$CreateGrnStateCopyWithImpl<$Res, _$CreateGrnStateImpl>
+    implements _$$CreateGrnStateImplCopyWith<$Res> {
+  __$$CreateGrnStateImplCopyWithImpl(
+      _$CreateGrnStateImpl _value, $Res Function(_$CreateGrnStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -135,7 +135,7 @@ class __$$_CreateGrnStateCopyWithImpl<$Res>
     Object? isSuccess = null,
     Object? errorMessage = null,
   }) {
-    return _then(_$_CreateGrnState(
+    return _then(_$CreateGrnStateImpl(
       order: freezed == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
@@ -162,8 +162,8 @@ class __$$_CreateGrnStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CreateGrnState implements _CreateGrnState {
-  const _$_CreateGrnState(
+class _$CreateGrnStateImpl implements _CreateGrnState {
+  const _$CreateGrnStateImpl(
       {this.order,
       required final List<GrnItemUiModel> grnProducts,
       required this.isLoading,
@@ -197,7 +197,7 @@ class _$_CreateGrnState implements _CreateGrnState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreateGrnState &&
+            other is _$CreateGrnStateImpl &&
             (identical(other.order, order) || other.order == order) &&
             const DeepCollectionEquality()
                 .equals(other._grnProducts, _grnProducts) &&
@@ -221,8 +221,9 @@ class _$_CreateGrnState implements _CreateGrnState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CreateGrnStateCopyWith<_$_CreateGrnState> get copyWith =>
-      __$$_CreateGrnStateCopyWithImpl<_$_CreateGrnState>(this, _$identity);
+  _$$CreateGrnStateImplCopyWith<_$CreateGrnStateImpl> get copyWith =>
+      __$$CreateGrnStateImplCopyWithImpl<_$CreateGrnStateImpl>(
+          this, _$identity);
 }
 
 abstract class _CreateGrnState implements CreateGrnState {
@@ -231,7 +232,7 @@ abstract class _CreateGrnState implements CreateGrnState {
       required final List<GrnItemUiModel> grnProducts,
       required final bool isLoading,
       required final bool isSuccess,
-      required final String errorMessage}) = _$_CreateGrnState;
+      required final String errorMessage}) = _$CreateGrnStateImpl;
 
   @override
   PurchaseOrder? get order;
@@ -245,6 +246,6 @@ abstract class _CreateGrnState implements CreateGrnState {
   String get errorMessage;
   @override
   @JsonKey(ignore: true)
-  _$$_CreateGrnStateCopyWith<_$_CreateGrnState> get copyWith =>
+  _$$CreateGrnStateImplCopyWith<_$CreateGrnStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

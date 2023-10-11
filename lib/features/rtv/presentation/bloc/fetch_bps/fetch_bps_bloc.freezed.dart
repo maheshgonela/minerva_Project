@@ -101,25 +101,25 @@ class _$FetchBusinessPartnerEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_FetchInitialBusinessPartnerCopyWith<$Res>
+abstract class _$$FetchInitialBusinessPartnerImplCopyWith<$Res>
     implements $FetchBusinessPartnerEventCopyWith<$Res> {
-  factory _$$_FetchInitialBusinessPartnerCopyWith(
-          _$_FetchInitialBusinessPartner value,
-          $Res Function(_$_FetchInitialBusinessPartner) then) =
-      __$$_FetchInitialBusinessPartnerCopyWithImpl<$Res>;
+  factory _$$FetchInitialBusinessPartnerImplCopyWith(
+          _$FetchInitialBusinessPartnerImpl value,
+          $Res Function(_$FetchInitialBusinessPartnerImpl) then) =
+      __$$FetchInitialBusinessPartnerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class __$$_FetchInitialBusinessPartnerCopyWithImpl<$Res>
+class __$$FetchInitialBusinessPartnerImplCopyWithImpl<$Res>
     extends _$FetchBusinessPartnerEventCopyWithImpl<$Res,
-        _$_FetchInitialBusinessPartner>
-    implements _$$_FetchInitialBusinessPartnerCopyWith<$Res> {
-  __$$_FetchInitialBusinessPartnerCopyWithImpl(
-      _$_FetchInitialBusinessPartner _value,
-      $Res Function(_$_FetchInitialBusinessPartner) _then)
+        _$FetchInitialBusinessPartnerImpl>
+    implements _$$FetchInitialBusinessPartnerImplCopyWith<$Res> {
+  __$$FetchInitialBusinessPartnerImplCopyWithImpl(
+      _$FetchInitialBusinessPartnerImpl _value,
+      $Res Function(_$FetchInitialBusinessPartnerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -127,7 +127,7 @@ class __$$_FetchInitialBusinessPartnerCopyWithImpl<$Res>
   $Res call({
     Object? query = freezed,
   }) {
-    return _then(_$_FetchInitialBusinessPartner(
+    return _then(_$FetchInitialBusinessPartnerImpl(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -138,8 +138,9 @@ class __$$_FetchInitialBusinessPartnerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchInitialBusinessPartner implements _FetchInitialBusinessPartner {
-  const _$_FetchInitialBusinessPartner({this.query});
+class _$FetchInitialBusinessPartnerImpl
+    implements _FetchInitialBusinessPartner {
+  const _$FetchInitialBusinessPartnerImpl({this.query});
 
   @override
   final String? query;
@@ -153,7 +154,7 @@ class _$_FetchInitialBusinessPartner implements _FetchInitialBusinessPartner {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchInitialBusinessPartner &&
+            other is _$FetchInitialBusinessPartnerImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -163,9 +164,9 @@ class _$_FetchInitialBusinessPartner implements _FetchInitialBusinessPartner {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchInitialBusinessPartnerCopyWith<_$_FetchInitialBusinessPartner>
-      get copyWith => __$$_FetchInitialBusinessPartnerCopyWithImpl<
-          _$_FetchInitialBusinessPartner>(this, _$identity);
+  _$$FetchInitialBusinessPartnerImplCopyWith<_$FetchInitialBusinessPartnerImpl>
+      get copyWith => __$$FetchInitialBusinessPartnerImplCopyWithImpl<
+          _$FetchInitialBusinessPartnerImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -238,35 +239,36 @@ class _$_FetchInitialBusinessPartner implements _FetchInitialBusinessPartner {
 abstract class _FetchInitialBusinessPartner
     implements FetchBusinessPartnerEvent {
   const factory _FetchInitialBusinessPartner({final String? query}) =
-      _$_FetchInitialBusinessPartner;
+      _$FetchInitialBusinessPartnerImpl;
 
   @override
   String? get query;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchInitialBusinessPartnerCopyWith<_$_FetchInitialBusinessPartner>
+  _$$FetchInitialBusinessPartnerImplCopyWith<_$FetchInitialBusinessPartnerImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchMoreBusinessPartnerCopyWith<$Res>
+abstract class _$$FetchMoreBusinessPartnerImplCopyWith<$Res>
     implements $FetchBusinessPartnerEventCopyWith<$Res> {
-  factory _$$_FetchMoreBusinessPartnerCopyWith(
-          _$_FetchMoreBusinessPartner value,
-          $Res Function(_$_FetchMoreBusinessPartner) then) =
-      __$$_FetchMoreBusinessPartnerCopyWithImpl<$Res>;
+  factory _$$FetchMoreBusinessPartnerImplCopyWith(
+          _$FetchMoreBusinessPartnerImpl value,
+          $Res Function(_$FetchMoreBusinessPartnerImpl) then) =
+      __$$FetchMoreBusinessPartnerImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class __$$_FetchMoreBusinessPartnerCopyWithImpl<$Res>
+class __$$FetchMoreBusinessPartnerImplCopyWithImpl<$Res>
     extends _$FetchBusinessPartnerEventCopyWithImpl<$Res,
-        _$_FetchMoreBusinessPartner>
-    implements _$$_FetchMoreBusinessPartnerCopyWith<$Res> {
-  __$$_FetchMoreBusinessPartnerCopyWithImpl(_$_FetchMoreBusinessPartner _value,
-      $Res Function(_$_FetchMoreBusinessPartner) _then)
+        _$FetchMoreBusinessPartnerImpl>
+    implements _$$FetchMoreBusinessPartnerImplCopyWith<$Res> {
+  __$$FetchMoreBusinessPartnerImplCopyWithImpl(
+      _$FetchMoreBusinessPartnerImpl _value,
+      $Res Function(_$FetchMoreBusinessPartnerImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -274,7 +276,7 @@ class __$$_FetchMoreBusinessPartnerCopyWithImpl<$Res>
   $Res call({
     Object? query = freezed,
   }) {
-    return _then(_$_FetchMoreBusinessPartner(
+    return _then(_$FetchMoreBusinessPartnerImpl(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -285,8 +287,8 @@ class __$$_FetchMoreBusinessPartnerCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchMoreBusinessPartner implements _FetchMoreBusinessPartner {
-  const _$_FetchMoreBusinessPartner({this.query});
+class _$FetchMoreBusinessPartnerImpl implements _FetchMoreBusinessPartner {
+  const _$FetchMoreBusinessPartnerImpl({this.query});
 
   @override
   final String? query;
@@ -300,7 +302,7 @@ class _$_FetchMoreBusinessPartner implements _FetchMoreBusinessPartner {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchMoreBusinessPartner &&
+            other is _$FetchMoreBusinessPartnerImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -310,9 +312,9 @@ class _$_FetchMoreBusinessPartner implements _FetchMoreBusinessPartner {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchMoreBusinessPartnerCopyWith<_$_FetchMoreBusinessPartner>
-      get copyWith => __$$_FetchMoreBusinessPartnerCopyWithImpl<
-          _$_FetchMoreBusinessPartner>(this, _$identity);
+  _$$FetchMoreBusinessPartnerImplCopyWith<_$FetchMoreBusinessPartnerImpl>
+      get copyWith => __$$FetchMoreBusinessPartnerImplCopyWithImpl<
+          _$FetchMoreBusinessPartnerImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -384,13 +386,13 @@ class _$_FetchMoreBusinessPartner implements _FetchMoreBusinessPartner {
 
 abstract class _FetchMoreBusinessPartner implements FetchBusinessPartnerEvent {
   const factory _FetchMoreBusinessPartner({final String? query}) =
-      _$_FetchMoreBusinessPartner;
+      _$FetchMoreBusinessPartnerImpl;
 
   @override
   String? get query;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchMoreBusinessPartnerCopyWith<_$_FetchMoreBusinessPartner>
+  _$$FetchMoreBusinessPartnerImplCopyWith<_$FetchMoreBusinessPartnerImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -472,28 +474,29 @@ class _$FetchBusinessPartnerStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_FetchBusinessPartnerInitialCopyWith<$Res> {
-  factory _$$_FetchBusinessPartnerInitialCopyWith(
-          _$_FetchBusinessPartnerInitial value,
-          $Res Function(_$_FetchBusinessPartnerInitial) then) =
-      __$$_FetchBusinessPartnerInitialCopyWithImpl<$Res>;
+abstract class _$$FetchBusinessPartnerInitialImplCopyWith<$Res> {
+  factory _$$FetchBusinessPartnerInitialImplCopyWith(
+          _$FetchBusinessPartnerInitialImpl value,
+          $Res Function(_$FetchBusinessPartnerInitialImpl) then) =
+      __$$FetchBusinessPartnerInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchBusinessPartnerInitialCopyWithImpl<$Res>
+class __$$FetchBusinessPartnerInitialImplCopyWithImpl<$Res>
     extends _$FetchBusinessPartnerStateCopyWithImpl<$Res,
-        _$_FetchBusinessPartnerInitial>
-    implements _$$_FetchBusinessPartnerInitialCopyWith<$Res> {
-  __$$_FetchBusinessPartnerInitialCopyWithImpl(
-      _$_FetchBusinessPartnerInitial _value,
-      $Res Function(_$_FetchBusinessPartnerInitial) _then)
+        _$FetchBusinessPartnerInitialImpl>
+    implements _$$FetchBusinessPartnerInitialImplCopyWith<$Res> {
+  __$$FetchBusinessPartnerInitialImplCopyWithImpl(
+      _$FetchBusinessPartnerInitialImpl _value,
+      $Res Function(_$FetchBusinessPartnerInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchBusinessPartnerInitial implements _FetchBusinessPartnerInitial {
-  const _$_FetchBusinessPartnerInitial();
+class _$FetchBusinessPartnerInitialImpl
+    implements _FetchBusinessPartnerInitial {
+  const _$FetchBusinessPartnerInitialImpl();
 
   @override
   String toString() {
@@ -504,7 +507,7 @@ class _$_FetchBusinessPartnerInitial implements _FetchBusinessPartnerInitial {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchBusinessPartnerInitial);
+            other is _$FetchBusinessPartnerInitialImpl);
   }
 
   @override
@@ -591,32 +594,34 @@ class _$_FetchBusinessPartnerInitial implements _FetchBusinessPartnerInitial {
 
 abstract class _FetchBusinessPartnerInitial
     implements FetchBusinessPartnerState {
-  const factory _FetchBusinessPartnerInitial() = _$_FetchBusinessPartnerInitial;
+  const factory _FetchBusinessPartnerInitial() =
+      _$FetchBusinessPartnerInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_FetchBusinessPartnerLoadingCopyWith<$Res> {
-  factory _$$_FetchBusinessPartnerLoadingCopyWith(
-          _$_FetchBusinessPartnerLoading value,
-          $Res Function(_$_FetchBusinessPartnerLoading) then) =
-      __$$_FetchBusinessPartnerLoadingCopyWithImpl<$Res>;
+abstract class _$$FetchBusinessPartnerLoadingImplCopyWith<$Res> {
+  factory _$$FetchBusinessPartnerLoadingImplCopyWith(
+          _$FetchBusinessPartnerLoadingImpl value,
+          $Res Function(_$FetchBusinessPartnerLoadingImpl) then) =
+      __$$FetchBusinessPartnerLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchBusinessPartnerLoadingCopyWithImpl<$Res>
+class __$$FetchBusinessPartnerLoadingImplCopyWithImpl<$Res>
     extends _$FetchBusinessPartnerStateCopyWithImpl<$Res,
-        _$_FetchBusinessPartnerLoading>
-    implements _$$_FetchBusinessPartnerLoadingCopyWith<$Res> {
-  __$$_FetchBusinessPartnerLoadingCopyWithImpl(
-      _$_FetchBusinessPartnerLoading _value,
-      $Res Function(_$_FetchBusinessPartnerLoading) _then)
+        _$FetchBusinessPartnerLoadingImpl>
+    implements _$$FetchBusinessPartnerLoadingImplCopyWith<$Res> {
+  __$$FetchBusinessPartnerLoadingImplCopyWithImpl(
+      _$FetchBusinessPartnerLoadingImpl _value,
+      $Res Function(_$FetchBusinessPartnerLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchBusinessPartnerLoading implements _FetchBusinessPartnerLoading {
-  const _$_FetchBusinessPartnerLoading();
+class _$FetchBusinessPartnerLoadingImpl
+    implements _FetchBusinessPartnerLoading {
+  const _$FetchBusinessPartnerLoadingImpl();
 
   @override
   String toString() {
@@ -627,7 +632,7 @@ class _$_FetchBusinessPartnerLoading implements _FetchBusinessPartnerLoading {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchBusinessPartnerLoading);
+            other is _$FetchBusinessPartnerLoadingImpl);
   }
 
   @override
@@ -714,27 +719,28 @@ class _$_FetchBusinessPartnerLoading implements _FetchBusinessPartnerLoading {
 
 abstract class _FetchBusinessPartnerLoading
     implements FetchBusinessPartnerState {
-  const factory _FetchBusinessPartnerLoading() = _$_FetchBusinessPartnerLoading;
+  const factory _FetchBusinessPartnerLoading() =
+      _$FetchBusinessPartnerLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$_FetchBusinessPartnerSuccessCopyWith<$Res> {
-  factory _$$_FetchBusinessPartnerSuccessCopyWith(
-          _$_FetchBusinessPartnerSuccess value,
-          $Res Function(_$_FetchBusinessPartnerSuccess) then) =
-      __$$_FetchBusinessPartnerSuccessCopyWithImpl<$Res>;
+abstract class _$$FetchBusinessPartnerSuccessImplCopyWith<$Res> {
+  factory _$$FetchBusinessPartnerSuccessImplCopyWith(
+          _$FetchBusinessPartnerSuccessImpl value,
+          $Res Function(_$FetchBusinessPartnerSuccessImpl) then) =
+      __$$FetchBusinessPartnerSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<IdName> records, bool hasReachedMax, String? query});
 }
 
 /// @nodoc
-class __$$_FetchBusinessPartnerSuccessCopyWithImpl<$Res>
+class __$$FetchBusinessPartnerSuccessImplCopyWithImpl<$Res>
     extends _$FetchBusinessPartnerStateCopyWithImpl<$Res,
-        _$_FetchBusinessPartnerSuccess>
-    implements _$$_FetchBusinessPartnerSuccessCopyWith<$Res> {
-  __$$_FetchBusinessPartnerSuccessCopyWithImpl(
-      _$_FetchBusinessPartnerSuccess _value,
-      $Res Function(_$_FetchBusinessPartnerSuccess) _then)
+        _$FetchBusinessPartnerSuccessImpl>
+    implements _$$FetchBusinessPartnerSuccessImplCopyWith<$Res> {
+  __$$FetchBusinessPartnerSuccessImplCopyWithImpl(
+      _$FetchBusinessPartnerSuccessImpl _value,
+      $Res Function(_$FetchBusinessPartnerSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -744,7 +750,7 @@ class __$$_FetchBusinessPartnerSuccessCopyWithImpl<$Res>
     Object? hasReachedMax = null,
     Object? query = freezed,
   }) {
-    return _then(_$_FetchBusinessPartnerSuccess(
+    return _then(_$FetchBusinessPartnerSuccessImpl(
       records: null == records
           ? _value._records
           : records // ignore: cast_nullable_to_non_nullable
@@ -763,8 +769,9 @@ class __$$_FetchBusinessPartnerSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchBusinessPartnerSuccess implements _FetchBusinessPartnerSuccess {
-  const _$_FetchBusinessPartnerSuccess(
+class _$FetchBusinessPartnerSuccessImpl
+    implements _FetchBusinessPartnerSuccess {
+  const _$FetchBusinessPartnerSuccessImpl(
       {required final List<IdName> records,
       required this.hasReachedMax,
       this.query})
@@ -792,7 +799,7 @@ class _$_FetchBusinessPartnerSuccess implements _FetchBusinessPartnerSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchBusinessPartnerSuccess &&
+            other is _$FetchBusinessPartnerSuccessImpl &&
             const DeepCollectionEquality().equals(other._records, _records) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
@@ -806,9 +813,9 @@ class _$_FetchBusinessPartnerSuccess implements _FetchBusinessPartnerSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchBusinessPartnerSuccessCopyWith<_$_FetchBusinessPartnerSuccess>
-      get copyWith => __$$_FetchBusinessPartnerSuccessCopyWithImpl<
-          _$_FetchBusinessPartnerSuccess>(this, _$identity);
+  _$$FetchBusinessPartnerSuccessImplCopyWith<_$FetchBusinessPartnerSuccessImpl>
+      get copyWith => __$$FetchBusinessPartnerSuccessImplCopyWithImpl<
+          _$FetchBusinessPartnerSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -894,22 +901,22 @@ abstract class _FetchBusinessPartnerSuccess
   const factory _FetchBusinessPartnerSuccess(
       {required final List<IdName> records,
       required final bool hasReachedMax,
-      final String? query}) = _$_FetchBusinessPartnerSuccess;
+      final String? query}) = _$FetchBusinessPartnerSuccessImpl;
 
   List<IdName> get records;
   bool get hasReachedMax;
   String? get query;
   @JsonKey(ignore: true)
-  _$$_FetchBusinessPartnerSuccessCopyWith<_$_FetchBusinessPartnerSuccess>
+  _$$FetchBusinessPartnerSuccessImplCopyWith<_$FetchBusinessPartnerSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchBusinessPartnerFailureCopyWith<$Res> {
-  factory _$$_FetchBusinessPartnerFailureCopyWith(
-          _$_FetchBusinessPartnerFailure value,
-          $Res Function(_$_FetchBusinessPartnerFailure) then) =
-      __$$_FetchBusinessPartnerFailureCopyWithImpl<$Res>;
+abstract class _$$FetchBusinessPartnerFailureImplCopyWith<$Res> {
+  factory _$$FetchBusinessPartnerFailureImplCopyWith(
+          _$FetchBusinessPartnerFailureImpl value,
+          $Res Function(_$FetchBusinessPartnerFailureImpl) then) =
+      __$$FetchBusinessPartnerFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Failure failure});
 
@@ -917,13 +924,13 @@ abstract class _$$_FetchBusinessPartnerFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FetchBusinessPartnerFailureCopyWithImpl<$Res>
+class __$$FetchBusinessPartnerFailureImplCopyWithImpl<$Res>
     extends _$FetchBusinessPartnerStateCopyWithImpl<$Res,
-        _$_FetchBusinessPartnerFailure>
-    implements _$$_FetchBusinessPartnerFailureCopyWith<$Res> {
-  __$$_FetchBusinessPartnerFailureCopyWithImpl(
-      _$_FetchBusinessPartnerFailure _value,
-      $Res Function(_$_FetchBusinessPartnerFailure) _then)
+        _$FetchBusinessPartnerFailureImpl>
+    implements _$$FetchBusinessPartnerFailureImplCopyWith<$Res> {
+  __$$FetchBusinessPartnerFailureImplCopyWithImpl(
+      _$FetchBusinessPartnerFailureImpl _value,
+      $Res Function(_$FetchBusinessPartnerFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -931,7 +938,7 @@ class __$$_FetchBusinessPartnerFailureCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$_FetchBusinessPartnerFailure(
+    return _then(_$FetchBusinessPartnerFailureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -950,8 +957,9 @@ class __$$_FetchBusinessPartnerFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchBusinessPartnerFailure implements _FetchBusinessPartnerFailure {
-  const _$_FetchBusinessPartnerFailure(this.failure);
+class _$FetchBusinessPartnerFailureImpl
+    implements _FetchBusinessPartnerFailure {
+  const _$FetchBusinessPartnerFailureImpl(this.failure);
 
   @override
   final Failure failure;
@@ -965,7 +973,7 @@ class _$_FetchBusinessPartnerFailure implements _FetchBusinessPartnerFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchBusinessPartnerFailure &&
+            other is _$FetchBusinessPartnerFailureImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -975,9 +983,9 @@ class _$_FetchBusinessPartnerFailure implements _FetchBusinessPartnerFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchBusinessPartnerFailureCopyWith<_$_FetchBusinessPartnerFailure>
-      get copyWith => __$$_FetchBusinessPartnerFailureCopyWithImpl<
-          _$_FetchBusinessPartnerFailure>(this, _$identity);
+  _$$FetchBusinessPartnerFailureImplCopyWith<_$FetchBusinessPartnerFailureImpl>
+      get copyWith => __$$FetchBusinessPartnerFailureImplCopyWithImpl<
+          _$FetchBusinessPartnerFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1061,10 +1069,10 @@ class _$_FetchBusinessPartnerFailure implements _FetchBusinessPartnerFailure {
 abstract class _FetchBusinessPartnerFailure
     implements FetchBusinessPartnerState {
   const factory _FetchBusinessPartnerFailure(final Failure failure) =
-      _$_FetchBusinessPartnerFailure;
+      _$FetchBusinessPartnerFailureImpl;
 
   Failure get failure;
   @JsonKey(ignore: true)
-  _$$_FetchBusinessPartnerFailureCopyWith<_$_FetchBusinessPartnerFailure>
+  _$$FetchBusinessPartnerFailureImplCopyWith<_$FetchBusinessPartnerFailureImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

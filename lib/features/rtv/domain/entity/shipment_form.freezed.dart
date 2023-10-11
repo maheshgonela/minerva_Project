@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ShipmentForm {
   String get businessPartnerId => throw _privateConstructorUsedError;
-  List<ShipmentFormLine> get products => throw _privateConstructorUsedError;
+  List<FormLine> get products => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ShipmentFormCopyWith<ShipmentForm> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $ShipmentFormCopyWith<$Res> {
           ShipmentForm value, $Res Function(ShipmentForm) then) =
       _$ShipmentFormCopyWithImpl<$Res, ShipmentForm>;
   @useResult
-  $Res call({String businessPartnerId, List<ShipmentFormLine> products});
+  $Res call({String businessPartnerId, List<FormLine> products});
 }
 
 /// @nodoc
@@ -57,28 +57,28 @@ class _$ShipmentFormCopyWithImpl<$Res, $Val extends ShipmentForm>
       products: null == products
           ? _value.products
           : products // ignore: cast_nullable_to_non_nullable
-              as List<ShipmentFormLine>,
+              as List<FormLine>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_ShipmentFormCopyWith<$Res>
+abstract class _$$ShipmentFormImplCopyWith<$Res>
     implements $ShipmentFormCopyWith<$Res> {
-  factory _$$_ShipmentFormCopyWith(
-          _$_ShipmentForm value, $Res Function(_$_ShipmentForm) then) =
-      __$$_ShipmentFormCopyWithImpl<$Res>;
+  factory _$$ShipmentFormImplCopyWith(
+          _$ShipmentFormImpl value, $Res Function(_$ShipmentFormImpl) then) =
+      __$$ShipmentFormImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String businessPartnerId, List<ShipmentFormLine> products});
+  $Res call({String businessPartnerId, List<FormLine> products});
 }
 
 /// @nodoc
-class __$$_ShipmentFormCopyWithImpl<$Res>
-    extends _$ShipmentFormCopyWithImpl<$Res, _$_ShipmentForm>
-    implements _$$_ShipmentFormCopyWith<$Res> {
-  __$$_ShipmentFormCopyWithImpl(
-      _$_ShipmentForm _value, $Res Function(_$_ShipmentForm) _then)
+class __$$ShipmentFormImplCopyWithImpl<$Res>
+    extends _$ShipmentFormCopyWithImpl<$Res, _$ShipmentFormImpl>
+    implements _$$ShipmentFormImplCopyWith<$Res> {
+  __$$ShipmentFormImplCopyWithImpl(
+      _$ShipmentFormImpl _value, $Res Function(_$ShipmentFormImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_ShipmentFormCopyWithImpl<$Res>
     Object? businessPartnerId = null,
     Object? products = null,
   }) {
-    return _then(_$_ShipmentForm(
+    return _then(_$ShipmentFormImpl(
       businessPartnerId: null == businessPartnerId
           ? _value.businessPartnerId
           : businessPartnerId // ignore: cast_nullable_to_non_nullable
@@ -95,24 +95,23 @@ class __$$_ShipmentFormCopyWithImpl<$Res>
       products: null == products
           ? _value._products
           : products // ignore: cast_nullable_to_non_nullable
-              as List<ShipmentFormLine>,
+              as List<FormLine>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_ShipmentForm implements _ShipmentForm {
-  const _$_ShipmentForm(
-      {required this.businessPartnerId,
-      required final List<ShipmentFormLine> products})
+class _$ShipmentFormImpl implements _ShipmentForm {
+  const _$ShipmentFormImpl(
+      {required this.businessPartnerId, required final List<FormLine> products})
       : _products = products;
 
   @override
   final String businessPartnerId;
-  final List<ShipmentFormLine> _products;
+  final List<FormLine> _products;
   @override
-  List<ShipmentFormLine> get products {
+  List<FormLine> get products {
     if (_products is EqualUnmodifiableListView) return _products;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_products);
@@ -127,7 +126,7 @@ class _$_ShipmentForm implements _ShipmentForm {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ShipmentForm &&
+            other is _$ShipmentFormImpl &&
             (identical(other.businessPartnerId, businessPartnerId) ||
                 other.businessPartnerId == businessPartnerId) &&
             const DeepCollectionEquality().equals(other._products, _products));
@@ -140,21 +139,21 @@ class _$_ShipmentForm implements _ShipmentForm {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShipmentFormCopyWith<_$_ShipmentForm> get copyWith =>
-      __$$_ShipmentFormCopyWithImpl<_$_ShipmentForm>(this, _$identity);
+  _$$ShipmentFormImplCopyWith<_$ShipmentFormImpl> get copyWith =>
+      __$$ShipmentFormImplCopyWithImpl<_$ShipmentFormImpl>(this, _$identity);
 }
 
 abstract class _ShipmentForm implements ShipmentForm {
   const factory _ShipmentForm(
       {required final String businessPartnerId,
-      required final List<ShipmentFormLine> products}) = _$_ShipmentForm;
+      required final List<FormLine> products}) = _$ShipmentFormImpl;
 
   @override
   String get businessPartnerId;
   @override
-  List<ShipmentFormLine> get products;
+  List<FormLine> get products;
   @override
   @JsonKey(ignore: true)
-  _$$_ShipmentFormCopyWith<_$_ShipmentForm> get copyWith =>
+  _$$ShipmentFormImplCopyWith<_$ShipmentFormImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

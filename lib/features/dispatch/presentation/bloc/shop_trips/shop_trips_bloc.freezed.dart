@@ -113,25 +113,25 @@ class _$ShopTripsEventCopyWithImpl<$Res, $Val extends ShopTripsEvent>
 }
 
 /// @nodoc
-abstract class _$$_fetchInitialDispatchOrderedproductCopyWith<$Res>
+abstract class _$$fetchInitialDispatchOrderedproductImplCopyWith<$Res>
     implements $ShopTripsEventCopyWith<$Res> {
-  factory _$$_fetchInitialDispatchOrderedproductCopyWith(
-          _$_fetchInitialDispatchOrderedproduct value,
-          $Res Function(_$_fetchInitialDispatchOrderedproduct) then) =
-      __$$_fetchInitialDispatchOrderedproductCopyWithImpl<$Res>;
+  factory _$$fetchInitialDispatchOrderedproductImplCopyWith(
+          _$fetchInitialDispatchOrderedproductImpl value,
+          $Res Function(_$fetchInitialDispatchOrderedproductImpl) then) =
+      __$$fetchInitialDispatchOrderedproductImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String purchaseOrderId, bool fromDispatchSection});
 }
 
 /// @nodoc
-class __$$_fetchInitialDispatchOrderedproductCopyWithImpl<$Res>
+class __$$fetchInitialDispatchOrderedproductImplCopyWithImpl<$Res>
     extends _$ShopTripsEventCopyWithImpl<$Res,
-        _$_fetchInitialDispatchOrderedproduct>
-    implements _$$_fetchInitialDispatchOrderedproductCopyWith<$Res> {
-  __$$_fetchInitialDispatchOrderedproductCopyWithImpl(
-      _$_fetchInitialDispatchOrderedproduct _value,
-      $Res Function(_$_fetchInitialDispatchOrderedproduct) _then)
+        _$fetchInitialDispatchOrderedproductImpl>
+    implements _$$fetchInitialDispatchOrderedproductImplCopyWith<$Res> {
+  __$$fetchInitialDispatchOrderedproductImplCopyWithImpl(
+      _$fetchInitialDispatchOrderedproductImpl _value,
+      $Res Function(_$fetchInitialDispatchOrderedproductImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -140,7 +140,7 @@ class __$$_fetchInitialDispatchOrderedproductCopyWithImpl<$Res>
     Object? purchaseOrderId = null,
     Object? fromDispatchSection = null,
   }) {
-    return _then(_$_fetchInitialDispatchOrderedproduct(
+    return _then(_$fetchInitialDispatchOrderedproductImpl(
       null == purchaseOrderId
           ? _value.purchaseOrderId
           : purchaseOrderId // ignore: cast_nullable_to_non_nullable
@@ -155,9 +155,9 @@ class __$$_fetchInitialDispatchOrderedproductCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_fetchInitialDispatchOrderedproduct
+class _$fetchInitialDispatchOrderedproductImpl
     implements _fetchInitialDispatchOrderedproduct {
-  const _$_fetchInitialDispatchOrderedproduct(this.purchaseOrderId,
+  const _$fetchInitialDispatchOrderedproductImpl(this.purchaseOrderId,
       {required this.fromDispatchSection});
 
   @override
@@ -174,7 +174,7 @@ class _$_fetchInitialDispatchOrderedproduct
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_fetchInitialDispatchOrderedproduct &&
+            other is _$fetchInitialDispatchOrderedproductImpl &&
             (identical(other.purchaseOrderId, purchaseOrderId) ||
                 other.purchaseOrderId == purchaseOrderId) &&
             (identical(other.fromDispatchSection, fromDispatchSection) ||
@@ -188,10 +188,10 @@ class _$_fetchInitialDispatchOrderedproduct
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_fetchInitialDispatchOrderedproductCopyWith<
-          _$_fetchInitialDispatchOrderedproduct>
-      get copyWith => __$$_fetchInitialDispatchOrderedproductCopyWithImpl<
-          _$_fetchInitialDispatchOrderedproduct>(this, _$identity);
+  _$$fetchInitialDispatchOrderedproductImplCopyWith<
+          _$fetchInitialDispatchOrderedproductImpl>
+      get copyWith => __$$fetchInitialDispatchOrderedproductImplCopyWithImpl<
+          _$fetchInitialDispatchOrderedproductImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -272,7 +272,7 @@ abstract class _fetchInitialDispatchOrderedproduct implements ShopTripsEvent {
   const factory _fetchInitialDispatchOrderedproduct(
           final String purchaseOrderId,
           {required final bool fromDispatchSection}) =
-      _$_fetchInitialDispatchOrderedproduct;
+      _$fetchInitialDispatchOrderedproductImpl;
 
   @override
   String get purchaseOrderId;
@@ -280,31 +280,31 @@ abstract class _fetchInitialDispatchOrderedproduct implements ShopTripsEvent {
   bool get fromDispatchSection;
   @override
   @JsonKey(ignore: true)
-  _$$_fetchInitialDispatchOrderedproductCopyWith<
-          _$_fetchInitialDispatchOrderedproduct>
+  _$$fetchInitialDispatchOrderedproductImplCopyWith<
+          _$fetchInitialDispatchOrderedproductImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_fetchMoreDispatchOrderedproductCopyWith<$Res>
+abstract class _$$fetchMoreDispatchOrderedproductImplCopyWith<$Res>
     implements $ShopTripsEventCopyWith<$Res> {
-  factory _$$_fetchMoreDispatchOrderedproductCopyWith(
-          _$_fetchMoreDispatchOrderedproduct value,
-          $Res Function(_$_fetchMoreDispatchOrderedproduct) then) =
-      __$$_fetchMoreDispatchOrderedproductCopyWithImpl<$Res>;
+  factory _$$fetchMoreDispatchOrderedproductImplCopyWith(
+          _$fetchMoreDispatchOrderedproductImpl value,
+          $Res Function(_$fetchMoreDispatchOrderedproductImpl) then) =
+      __$$fetchMoreDispatchOrderedproductImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String purchaseOrderId, bool fromDispatchSection});
 }
 
 /// @nodoc
-class __$$_fetchMoreDispatchOrderedproductCopyWithImpl<$Res>
+class __$$fetchMoreDispatchOrderedproductImplCopyWithImpl<$Res>
     extends _$ShopTripsEventCopyWithImpl<$Res,
-        _$_fetchMoreDispatchOrderedproduct>
-    implements _$$_fetchMoreDispatchOrderedproductCopyWith<$Res> {
-  __$$_fetchMoreDispatchOrderedproductCopyWithImpl(
-      _$_fetchMoreDispatchOrderedproduct _value,
-      $Res Function(_$_fetchMoreDispatchOrderedproduct) _then)
+        _$fetchMoreDispatchOrderedproductImpl>
+    implements _$$fetchMoreDispatchOrderedproductImplCopyWith<$Res> {
+  __$$fetchMoreDispatchOrderedproductImplCopyWithImpl(
+      _$fetchMoreDispatchOrderedproductImpl _value,
+      $Res Function(_$fetchMoreDispatchOrderedproductImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -313,7 +313,7 @@ class __$$_fetchMoreDispatchOrderedproductCopyWithImpl<$Res>
     Object? purchaseOrderId = null,
     Object? fromDispatchSection = null,
   }) {
-    return _then(_$_fetchMoreDispatchOrderedproduct(
+    return _then(_$fetchMoreDispatchOrderedproductImpl(
       null == purchaseOrderId
           ? _value.purchaseOrderId
           : purchaseOrderId // ignore: cast_nullable_to_non_nullable
@@ -328,9 +328,9 @@ class __$$_fetchMoreDispatchOrderedproductCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_fetchMoreDispatchOrderedproduct
+class _$fetchMoreDispatchOrderedproductImpl
     implements _fetchMoreDispatchOrderedproduct {
-  const _$_fetchMoreDispatchOrderedproduct(this.purchaseOrderId,
+  const _$fetchMoreDispatchOrderedproductImpl(this.purchaseOrderId,
       {required this.fromDispatchSection});
 
   @override
@@ -347,7 +347,7 @@ class _$_fetchMoreDispatchOrderedproduct
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_fetchMoreDispatchOrderedproduct &&
+            other is _$fetchMoreDispatchOrderedproductImpl &&
             (identical(other.purchaseOrderId, purchaseOrderId) ||
                 other.purchaseOrderId == purchaseOrderId) &&
             (identical(other.fromDispatchSection, fromDispatchSection) ||
@@ -361,10 +361,10 @@ class _$_fetchMoreDispatchOrderedproduct
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_fetchMoreDispatchOrderedproductCopyWith<
-          _$_fetchMoreDispatchOrderedproduct>
-      get copyWith => __$$_fetchMoreDispatchOrderedproductCopyWithImpl<
-          _$_fetchMoreDispatchOrderedproduct>(this, _$identity);
+  _$$fetchMoreDispatchOrderedproductImplCopyWith<
+          _$fetchMoreDispatchOrderedproductImpl>
+      get copyWith => __$$fetchMoreDispatchOrderedproductImplCopyWithImpl<
+          _$fetchMoreDispatchOrderedproductImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -444,7 +444,7 @@ class _$_fetchMoreDispatchOrderedproduct
 abstract class _fetchMoreDispatchOrderedproduct implements ShopTripsEvent {
   const factory _fetchMoreDispatchOrderedproduct(final String purchaseOrderId,
           {required final bool fromDispatchSection}) =
-      _$_fetchMoreDispatchOrderedproduct;
+      _$fetchMoreDispatchOrderedproductImpl;
 
   @override
   String get purchaseOrderId;
@@ -452,8 +452,8 @@ abstract class _fetchMoreDispatchOrderedproduct implements ShopTripsEvent {
   bool get fromDispatchSection;
   @override
   @JsonKey(ignore: true)
-  _$$_fetchMoreDispatchOrderedproductCopyWith<
-          _$_fetchMoreDispatchOrderedproduct>
+  _$$fetchMoreDispatchOrderedproductImplCopyWith<
+          _$fetchMoreDispatchOrderedproductImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -536,25 +536,25 @@ class _$ShopTripsStateCopyWithImpl<$Res, $Val extends ShopTripsState>
 }
 
 /// @nodoc
-abstract class _$$_ShopTripsInitialCopyWith<$Res> {
-  factory _$$_ShopTripsInitialCopyWith(
-          _$_ShopTripsInitial value, $Res Function(_$_ShopTripsInitial) then) =
-      __$$_ShopTripsInitialCopyWithImpl<$Res>;
+abstract class _$$ShopTripsInitialImplCopyWith<$Res> {
+  factory _$$ShopTripsInitialImplCopyWith(_$ShopTripsInitialImpl value,
+          $Res Function(_$ShopTripsInitialImpl) then) =
+      __$$ShopTripsInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ShopTripsInitialCopyWithImpl<$Res>
-    extends _$ShopTripsStateCopyWithImpl<$Res, _$_ShopTripsInitial>
-    implements _$$_ShopTripsInitialCopyWith<$Res> {
-  __$$_ShopTripsInitialCopyWithImpl(
-      _$_ShopTripsInitial _value, $Res Function(_$_ShopTripsInitial) _then)
+class __$$ShopTripsInitialImplCopyWithImpl<$Res>
+    extends _$ShopTripsStateCopyWithImpl<$Res, _$ShopTripsInitialImpl>
+    implements _$$ShopTripsInitialImplCopyWith<$Res> {
+  __$$ShopTripsInitialImplCopyWithImpl(_$ShopTripsInitialImpl _value,
+      $Res Function(_$ShopTripsInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ShopTripsInitial implements _ShopTripsInitial {
-  const _$_ShopTripsInitial();
+class _$ShopTripsInitialImpl implements _ShopTripsInitial {
+  const _$ShopTripsInitialImpl();
 
   @override
   String toString() {
@@ -564,7 +564,7 @@ class _$_ShopTripsInitial implements _ShopTripsInitial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ShopTripsInitial);
+        (other.runtimeType == runtimeType && other is _$ShopTripsInitialImpl);
   }
 
   @override
@@ -652,29 +652,29 @@ class _$_ShopTripsInitial implements _ShopTripsInitial {
 }
 
 abstract class _ShopTripsInitial implements ShopTripsState {
-  const factory _ShopTripsInitial() = _$_ShopTripsInitial;
+  const factory _ShopTripsInitial() = _$ShopTripsInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_ShopTripsLoadingCopyWith<$Res> {
-  factory _$$_ShopTripsLoadingCopyWith(
-          _$_ShopTripsLoading value, $Res Function(_$_ShopTripsLoading) then) =
-      __$$_ShopTripsLoadingCopyWithImpl<$Res>;
+abstract class _$$ShopTripsLoadingImplCopyWith<$Res> {
+  factory _$$ShopTripsLoadingImplCopyWith(_$ShopTripsLoadingImpl value,
+          $Res Function(_$ShopTripsLoadingImpl) then) =
+      __$$ShopTripsLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ShopTripsLoadingCopyWithImpl<$Res>
-    extends _$ShopTripsStateCopyWithImpl<$Res, _$_ShopTripsLoading>
-    implements _$$_ShopTripsLoadingCopyWith<$Res> {
-  __$$_ShopTripsLoadingCopyWithImpl(
-      _$_ShopTripsLoading _value, $Res Function(_$_ShopTripsLoading) _then)
+class __$$ShopTripsLoadingImplCopyWithImpl<$Res>
+    extends _$ShopTripsStateCopyWithImpl<$Res, _$ShopTripsLoadingImpl>
+    implements _$$ShopTripsLoadingImplCopyWith<$Res> {
+  __$$ShopTripsLoadingImplCopyWithImpl(_$ShopTripsLoadingImpl _value,
+      $Res Function(_$ShopTripsLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ShopTripsLoading implements _ShopTripsLoading {
-  const _$_ShopTripsLoading();
+class _$ShopTripsLoadingImpl implements _ShopTripsLoading {
+  const _$ShopTripsLoadingImpl();
 
   @override
   String toString() {
@@ -684,7 +684,7 @@ class _$_ShopTripsLoading implements _ShopTripsLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ShopTripsLoading);
+        (other.runtimeType == runtimeType && other is _$ShopTripsLoadingImpl);
   }
 
   @override
@@ -772,14 +772,14 @@ class _$_ShopTripsLoading implements _ShopTripsLoading {
 }
 
 abstract class _ShopTripsLoading implements ShopTripsState {
-  const factory _ShopTripsLoading() = _$_ShopTripsLoading;
+  const factory _ShopTripsLoading() = _$ShopTripsLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$_ShopTripsSuccessCopyWith<$Res> {
-  factory _$$_ShopTripsSuccessCopyWith(
-          _$_ShopTripsSuccess value, $Res Function(_$_ShopTripsSuccess) then) =
-      __$$_ShopTripsSuccessCopyWithImpl<$Res>;
+abstract class _$$ShopTripsSuccessImplCopyWith<$Res> {
+  factory _$$ShopTripsSuccessImplCopyWith(_$ShopTripsSuccessImpl value,
+          $Res Function(_$ShopTripsSuccessImpl) then) =
+      __$$ShopTripsSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ShopDispatchProducts records, bool hasReachedMax, String? query});
 
@@ -787,11 +787,11 @@ abstract class _$$_ShopTripsSuccessCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ShopTripsSuccessCopyWithImpl<$Res>
-    extends _$ShopTripsStateCopyWithImpl<$Res, _$_ShopTripsSuccess>
-    implements _$$_ShopTripsSuccessCopyWith<$Res> {
-  __$$_ShopTripsSuccessCopyWithImpl(
-      _$_ShopTripsSuccess _value, $Res Function(_$_ShopTripsSuccess) _then)
+class __$$ShopTripsSuccessImplCopyWithImpl<$Res>
+    extends _$ShopTripsStateCopyWithImpl<$Res, _$ShopTripsSuccessImpl>
+    implements _$$ShopTripsSuccessImplCopyWith<$Res> {
+  __$$ShopTripsSuccessImplCopyWithImpl(_$ShopTripsSuccessImpl _value,
+      $Res Function(_$ShopTripsSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -801,7 +801,7 @@ class __$$_ShopTripsSuccessCopyWithImpl<$Res>
     Object? hasReachedMax = null,
     Object? query = freezed,
   }) {
-    return _then(_$_ShopTripsSuccess(
+    return _then(_$ShopTripsSuccessImpl(
       records: null == records
           ? _value.records
           : records // ignore: cast_nullable_to_non_nullable
@@ -828,8 +828,8 @@ class __$$_ShopTripsSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ShopTripsSuccess implements _ShopTripsSuccess {
-  const _$_ShopTripsSuccess(
+class _$ShopTripsSuccessImpl implements _ShopTripsSuccess {
+  const _$ShopTripsSuccessImpl(
       {required this.records, required this.hasReachedMax, this.query});
 
   @override
@@ -848,7 +848,7 @@ class _$_ShopTripsSuccess implements _ShopTripsSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ShopTripsSuccess &&
+            other is _$ShopTripsSuccessImpl &&
             (identical(other.records, records) || other.records == records) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
@@ -861,8 +861,9 @@ class _$_ShopTripsSuccess implements _ShopTripsSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShopTripsSuccessCopyWith<_$_ShopTripsSuccess> get copyWith =>
-      __$$_ShopTripsSuccessCopyWithImpl<_$_ShopTripsSuccess>(this, _$identity);
+  _$$ShopTripsSuccessImplCopyWith<_$ShopTripsSuccessImpl> get copyWith =>
+      __$$ShopTripsSuccessImplCopyWithImpl<_$ShopTripsSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -949,21 +950,21 @@ abstract class _ShopTripsSuccess implements ShopTripsState {
   const factory _ShopTripsSuccess(
       {required final ShopDispatchProducts records,
       required final bool hasReachedMax,
-      final String? query}) = _$_ShopTripsSuccess;
+      final String? query}) = _$ShopTripsSuccessImpl;
 
   ShopDispatchProducts get records;
   bool get hasReachedMax;
   String? get query;
   @JsonKey(ignore: true)
-  _$$_ShopTripsSuccessCopyWith<_$_ShopTripsSuccess> get copyWith =>
+  _$$ShopTripsSuccessImplCopyWith<_$ShopTripsSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ShopTripsFailureCopyWith<$Res> {
-  factory _$$_ShopTripsFailureCopyWith(
-          _$_ShopTripsFailure value, $Res Function(_$_ShopTripsFailure) then) =
-      __$$_ShopTripsFailureCopyWithImpl<$Res>;
+abstract class _$$ShopTripsFailureImplCopyWith<$Res> {
+  factory _$$ShopTripsFailureImplCopyWith(_$ShopTripsFailureImpl value,
+          $Res Function(_$ShopTripsFailureImpl) then) =
+      __$$ShopTripsFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Failure failure});
 
@@ -971,11 +972,11 @@ abstract class _$$_ShopTripsFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ShopTripsFailureCopyWithImpl<$Res>
-    extends _$ShopTripsStateCopyWithImpl<$Res, _$_ShopTripsFailure>
-    implements _$$_ShopTripsFailureCopyWith<$Res> {
-  __$$_ShopTripsFailureCopyWithImpl(
-      _$_ShopTripsFailure _value, $Res Function(_$_ShopTripsFailure) _then)
+class __$$ShopTripsFailureImplCopyWithImpl<$Res>
+    extends _$ShopTripsStateCopyWithImpl<$Res, _$ShopTripsFailureImpl>
+    implements _$$ShopTripsFailureImplCopyWith<$Res> {
+  __$$ShopTripsFailureImplCopyWithImpl(_$ShopTripsFailureImpl _value,
+      $Res Function(_$ShopTripsFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -983,7 +984,7 @@ class __$$_ShopTripsFailureCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$_ShopTripsFailure(
+    return _then(_$ShopTripsFailureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -1002,8 +1003,8 @@ class __$$_ShopTripsFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ShopTripsFailure implements _ShopTripsFailure {
-  const _$_ShopTripsFailure(this.failure);
+class _$ShopTripsFailureImpl implements _ShopTripsFailure {
+  const _$ShopTripsFailureImpl(this.failure);
 
   @override
   final Failure failure;
@@ -1017,7 +1018,7 @@ class _$_ShopTripsFailure implements _ShopTripsFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ShopTripsFailure &&
+            other is _$ShopTripsFailureImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -1027,8 +1028,9 @@ class _$_ShopTripsFailure implements _ShopTripsFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShopTripsFailureCopyWith<_$_ShopTripsFailure> get copyWith =>
-      __$$_ShopTripsFailureCopyWithImpl<_$_ShopTripsFailure>(this, _$identity);
+  _$$ShopTripsFailureImplCopyWith<_$ShopTripsFailureImpl> get copyWith =>
+      __$$ShopTripsFailureImplCopyWithImpl<_$ShopTripsFailureImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1112,10 +1114,11 @@ class _$_ShopTripsFailure implements _ShopTripsFailure {
 }
 
 abstract class _ShopTripsFailure implements ShopTripsState {
-  const factory _ShopTripsFailure(final Failure failure) = _$_ShopTripsFailure;
+  const factory _ShopTripsFailure(final Failure failure) =
+      _$ShopTripsFailureImpl;
 
   Failure get failure;
   @JsonKey(ignore: true)
-  _$$_ShopTripsFailureCopyWith<_$_ShopTripsFailure> get copyWith =>
+  _$$ShopTripsFailureImplCopyWith<_$ShopTripsFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -96,22 +96,22 @@ class _$SignInEventCopyWithImpl<$Res, $Val extends SignInEvent>
 }
 
 /// @nodoc
-abstract class _$$_SignInButtonPressedCopyWith<$Res>
+abstract class _$$SignInButtonPressedImplCopyWith<$Res>
     implements $SignInEventCopyWith<$Res> {
-  factory _$$_SignInButtonPressedCopyWith(_$_SignInButtonPressed value,
-          $Res Function(_$_SignInButtonPressed) then) =
-      __$$_SignInButtonPressedCopyWithImpl<$Res>;
+  factory _$$SignInButtonPressedImplCopyWith(_$SignInButtonPressedImpl value,
+          $Res Function(_$SignInButtonPressedImpl) then) =
+      __$$SignInButtonPressedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String username, String password});
 }
 
 /// @nodoc
-class __$$_SignInButtonPressedCopyWithImpl<$Res>
-    extends _$SignInEventCopyWithImpl<$Res, _$_SignInButtonPressed>
-    implements _$$_SignInButtonPressedCopyWith<$Res> {
-  __$$_SignInButtonPressedCopyWithImpl(_$_SignInButtonPressed _value,
-      $Res Function(_$_SignInButtonPressed) _then)
+class __$$SignInButtonPressedImplCopyWithImpl<$Res>
+    extends _$SignInEventCopyWithImpl<$Res, _$SignInButtonPressedImpl>
+    implements _$$SignInButtonPressedImplCopyWith<$Res> {
+  __$$SignInButtonPressedImplCopyWithImpl(_$SignInButtonPressedImpl _value,
+      $Res Function(_$SignInButtonPressedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +120,7 @@ class __$$_SignInButtonPressedCopyWithImpl<$Res>
     Object? username = null,
     Object? password = null,
   }) {
-    return _then(_$_SignInButtonPressed(
+    return _then(_$SignInButtonPressedImpl(
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -135,8 +135,8 @@ class __$$_SignInButtonPressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SignInButtonPressed implements _SignInButtonPressed {
-  const _$_SignInButtonPressed(
+class _$SignInButtonPressedImpl implements _SignInButtonPressed {
+  const _$SignInButtonPressedImpl(
       {required this.username, required this.password});
 
   @override
@@ -153,7 +153,7 @@ class _$_SignInButtonPressed implements _SignInButtonPressed {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SignInButtonPressed &&
+            other is _$SignInButtonPressedImpl &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.password, password) ||
@@ -166,8 +166,8 @@ class _$_SignInButtonPressed implements _SignInButtonPressed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SignInButtonPressedCopyWith<_$_SignInButtonPressed> get copyWith =>
-      __$$_SignInButtonPressedCopyWithImpl<_$_SignInButtonPressed>(
+  _$$SignInButtonPressedImplCopyWith<_$SignInButtonPressedImpl> get copyWith =>
+      __$$SignInButtonPressedImplCopyWithImpl<_$SignInButtonPressedImpl>(
           this, _$identity);
 
   @override
@@ -231,7 +231,7 @@ class _$_SignInButtonPressed implements _SignInButtonPressed {
 abstract class _SignInButtonPressed implements SignInEvent {
   const factory _SignInButtonPressed(
       {required final String username,
-      required final String password}) = _$_SignInButtonPressed;
+      required final String password}) = _$SignInButtonPressedImpl;
 
   @override
   String get username;
@@ -239,7 +239,7 @@ abstract class _SignInButtonPressed implements SignInEvent {
   String get password;
   @override
   @JsonKey(ignore: true)
-  _$$_SignInButtonPressedCopyWith<_$_SignInButtonPressed> get copyWith =>
+  _$$SignInButtonPressedImplCopyWith<_$SignInButtonPressedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -316,24 +316,25 @@ class _$SignInStateCopyWithImpl<$Res, $Val extends SignInState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$SignInStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$SignInStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -343,7 +344,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -425,28 +426,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements SignInState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$SignInStateCopyWithImpl<$Res, _$_Loading>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$SignInStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading();
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl();
 
   @override
   String toString() {
@@ -456,7 +458,7 @@ class _$_Loading implements _Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loading);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -538,28 +540,29 @@ class _$_Loading implements _Loading {
 }
 
 abstract class _Loading implements SignInState {
-  const factory _Loading() = _$_Loading;
+  const factory _Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$_SuccessCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
-    extends _$SignInStateCopyWithImpl<$Res, _$_Success>
-    implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$SignInStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success();
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl();
 
   @override
   String toString() {
@@ -569,7 +572,7 @@ class _$_Success implements _Success {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Success);
+        (other.runtimeType == runtimeType && other is _$SuccessImpl);
   }
 
   @override
@@ -651,14 +654,14 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements SignInState {
-  const factory _Success() = _$_Success;
+  const factory _Success() = _$SuccessImpl;
 }
 
 /// @nodoc
-abstract class _$$_FailureCopyWith<$Res> {
-  factory _$$_FailureCopyWith(
-          _$_Failure value, $Res Function(_$_Failure) then) =
-      __$$_FailureCopyWithImpl<$Res>;
+abstract class _$$FailureImplCopyWith<$Res> {
+  factory _$$FailureImplCopyWith(
+          _$FailureImpl value, $Res Function(_$FailureImpl) then) =
+      __$$FailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Failure failure});
 
@@ -666,10 +669,11 @@ abstract class _$$_FailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FailureCopyWithImpl<$Res>
-    extends _$SignInStateCopyWithImpl<$Res, _$_Failure>
-    implements _$$_FailureCopyWith<$Res> {
-  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
+class __$$FailureImplCopyWithImpl<$Res>
+    extends _$SignInStateCopyWithImpl<$Res, _$FailureImpl>
+    implements _$$FailureImplCopyWith<$Res> {
+  __$$FailureImplCopyWithImpl(
+      _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -677,7 +681,7 @@ class __$$_FailureCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$_Failure(
+    return _then(_$FailureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -696,8 +700,8 @@ class __$$_FailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Failure implements _Failure {
-  const _$_Failure(this.failure);
+class _$FailureImpl implements _Failure {
+  const _$FailureImpl(this.failure);
 
   @override
   final Failure failure;
@@ -711,7 +715,7 @@ class _$_Failure implements _Failure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Failure &&
+            other is _$FailureImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -721,8 +725,8 @@ class _$_Failure implements _Failure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FailureCopyWith<_$_Failure> get copyWith =>
-      __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
+  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
+      __$$FailureImplCopyWithImpl<_$FailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -800,10 +804,10 @@ class _$_Failure implements _Failure {
 }
 
 abstract class _Failure implements SignInState {
-  const factory _Failure(final Failure failure) = _$_Failure;
+  const factory _Failure(final Failure failure) = _$FailureImpl;
 
   Failure get failure;
   @JsonKey(ignore: true)
-  _$$_FailureCopyWith<_$_Failure> get copyWith =>
+  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,8 +6,8 @@ part of 'sales_order_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SalesOrderDto _$$_SalesOrderDtoFromJson(Map<String, dynamic> json) =>
-    _$_SalesOrderDto(
+_$SalesOrderDtoImpl _$$SalesOrderDtoImplFromJson(Map<String, dynamic> json) =>
+    _$SalesOrderDtoImpl(
       id: json['id'] as String,
       organization: json['organization'] as String,
       documentNo: json['documentNo'] as String,
@@ -18,7 +18,7 @@ _$_SalesOrderDto _$$_SalesOrderDtoFromJson(Map<String, dynamic> json) =>
       deliveryLocation: json['deliveryLocation'] as String?,
     );
 
-Map<String, dynamic> _$$_SalesOrderDtoToJson(_$_SalesOrderDto instance) =>
+Map<String, dynamic> _$$SalesOrderDtoImplToJson(_$SalesOrderDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'organization': instance.organization,

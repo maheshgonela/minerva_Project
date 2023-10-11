@@ -6,8 +6,9 @@ part of 'shipment_line_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ShipmentLineDto _$$_ShipmentLineDtoFromJson(Map<String, dynamic> json) =>
-    _$_ShipmentLineDto(
+_$ShipmentLineDtoImpl _$$ShipmentLineDtoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ShipmentLineDtoImpl(
       id: json['id'] as String,
       productId: json['product'] as String,
       productName: json[r'product$_identifier'] as String,
@@ -16,7 +17,8 @@ _$_ShipmentLineDto _$$_ShipmentLineDtoFromJson(Map<String, dynamic> json) =>
       movementQty: (json['movementQuantity'] as num).toDouble(),
     );
 
-Map<String, dynamic> _$$_ShipmentLineDtoToJson(_$_ShipmentLineDto instance) =>
+Map<String, dynamic> _$$ShipmentLineDtoImplToJson(
+        _$ShipmentLineDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'product': instance.productId,

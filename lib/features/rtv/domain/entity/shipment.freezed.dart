@@ -106,10 +106,11 @@ class _$ShipmentCopyWithImpl<$Res, $Val extends Shipment>
 }
 
 /// @nodoc
-abstract class _$$_ShipmentCopyWith<$Res> implements $ShipmentCopyWith<$Res> {
-  factory _$$_ShipmentCopyWith(
-          _$_Shipment value, $Res Function(_$_Shipment) then) =
-      __$$_ShipmentCopyWithImpl<$Res>;
+abstract class _$$ShipmentImplCopyWith<$Res>
+    implements $ShipmentCopyWith<$Res> {
+  factory _$$ShipmentImplCopyWith(
+          _$ShipmentImpl value, $Res Function(_$ShipmentImpl) then) =
+      __$$ShipmentImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -124,11 +125,11 @@ abstract class _$$_ShipmentCopyWith<$Res> implements $ShipmentCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ShipmentCopyWithImpl<$Res>
-    extends _$ShipmentCopyWithImpl<$Res, _$_Shipment>
-    implements _$$_ShipmentCopyWith<$Res> {
-  __$$_ShipmentCopyWithImpl(
-      _$_Shipment _value, $Res Function(_$_Shipment) _then)
+class __$$ShipmentImplCopyWithImpl<$Res>
+    extends _$ShipmentCopyWithImpl<$Res, _$ShipmentImpl>
+    implements _$$ShipmentImplCopyWith<$Res> {
+  __$$ShipmentImplCopyWithImpl(
+      _$ShipmentImpl _value, $Res Function(_$ShipmentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -143,7 +144,7 @@ class __$$_ShipmentCopyWithImpl<$Res>
     Object? movementDate = null,
     Object? description = freezed,
   }) {
-    return _then(_$_Shipment(
+    return _then(_$ShipmentImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -182,8 +183,8 @@ class __$$_ShipmentCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Shipment implements _Shipment {
-  const _$_Shipment(
+class _$ShipmentImpl implements _Shipment {
+  const _$ShipmentImpl(
       {required this.id,
       required this.organization,
       required this.documentNo,
@@ -219,7 +220,7 @@ class _$_Shipment implements _Shipment {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Shipment &&
+            other is _$ShipmentImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.organization, organization) ||
                 other.organization == organization) &&
@@ -242,8 +243,8 @@ class _$_Shipment implements _Shipment {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShipmentCopyWith<_$_Shipment> get copyWith =>
-      __$$_ShipmentCopyWithImpl<_$_Shipment>(this, _$identity);
+  _$$ShipmentImplCopyWith<_$ShipmentImpl> get copyWith =>
+      __$$ShipmentImplCopyWithImpl<_$ShipmentImpl>(this, _$identity);
 }
 
 abstract class _Shipment implements Shipment {
@@ -255,7 +256,7 @@ abstract class _Shipment implements Shipment {
       required final String bpName,
       required final String partnerAddress,
       required final String movementDate,
-      final String? description}) = _$_Shipment;
+      final String? description}) = _$ShipmentImpl;
 
   @override
   String get id;
@@ -275,6 +276,6 @@ abstract class _Shipment implements Shipment {
   String? get description;
   @override
   @JsonKey(ignore: true)
-  _$$_ShipmentCopyWith<_$_Shipment> get copyWith =>
+  _$$ShipmentImplCopyWith<_$ShipmentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

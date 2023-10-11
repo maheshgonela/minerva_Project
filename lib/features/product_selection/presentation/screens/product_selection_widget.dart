@@ -3,10 +3,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:minerva/features/product_selection/domain/entity/form_line.dart';
+import 'package:minerva/features/product_selection/domain/entity/product.dart';
+import 'package:minerva/features/product_selection/presentation/bloc/fetch_product/fetch_product_bloc.dart';
+import 'package:minerva/features/product_selection/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
+import 'package:minerva/features/product_selection/presentation/widgets/category_selecter_alertdialog.dart';
+import 'package:minerva/features/product_selection/presentation/widgets/quantity_dialog.dart';
 import 'package:minerva/features/rtv/domain/entity/entities.dart';
-import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
-import 'package:minerva/features/rtv/presentation/widgets/quantity_dialog.dart';
-import 'package:minerva/features/rtv/presentation/widgets/category_selecter_alertdialog.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
@@ -19,7 +22,7 @@ class ProductSelectionWidget extends StatefulWidget {
   }) : super(key: key);
 
   final String bpId;
-  final Function(ShipmentFormLine product) onProductSelected;
+  final Function(FormLine product) onProductSelected;
 
   @override
   // ignore: library_private_types_in_public_api, no_logic_in_create_state
@@ -237,7 +240,7 @@ class _ProductSelectionWidgetState extends State<ProductSelectionWidget> {
         enteredQunatity: (String entered) {
           setState(() {
             final double enteredQty = double.parse(entered);
-            widget.onProductSelected(ShipmentFormLine(
+            widget.onProductSelected(FormLine(
               productId: product.id,
               productName: product.name,
               uomId: product.uomId,

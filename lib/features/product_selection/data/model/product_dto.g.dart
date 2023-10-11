@@ -6,8 +6,8 @@ part of 'product_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ProductDto _$$_ProductDtoFromJson(Map<String, dynamic> json) =>
-    _$_ProductDto(
+_$ProductDtoImpl _$$ProductDtoImplFromJson(Map<String, dynamic> json) =>
+    _$ProductDtoImpl(
       id: json['id'] as String,
       name: json['name'] as String,
       uomId: json['uOM'] as String,
@@ -17,7 +17,7 @@ _$_ProductDto _$$_ProductDtoFromJson(Map<String, dynamic> json) =>
       uPCEAN: json['uPCEAN'] as String,
     );
 
-Map<String, dynamic> _$$_ProductDtoToJson(_$_ProductDto instance) =>
+Map<String, dynamic> _$$ProductDtoImplToJson(_$ProductDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

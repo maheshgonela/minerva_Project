@@ -61,18 +61,20 @@ class _$ShopCopyWithImpl<$Res, $Val extends Shop>
 }
 
 /// @nodoc
-abstract class _$$_ShopCopyWith<$Res> implements $ShopCopyWith<$Res> {
-  factory _$$_ShopCopyWith(_$_Shop value, $Res Function(_$_Shop) then) =
-      __$$_ShopCopyWithImpl<$Res>;
+abstract class _$$ShopImplCopyWith<$Res> implements $ShopCopyWith<$Res> {
+  factory _$$ShopImplCopyWith(
+          _$ShopImpl value, $Res Function(_$ShopImpl) then) =
+      __$$ShopImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String name});
 }
 
 /// @nodoc
-class __$$_ShopCopyWithImpl<$Res> extends _$ShopCopyWithImpl<$Res, _$_Shop>
-    implements _$$_ShopCopyWith<$Res> {
-  __$$_ShopCopyWithImpl(_$_Shop _value, $Res Function(_$_Shop) _then)
+class __$$ShopImplCopyWithImpl<$Res>
+    extends _$ShopCopyWithImpl<$Res, _$ShopImpl>
+    implements _$$ShopImplCopyWith<$Res> {
+  __$$ShopImplCopyWithImpl(_$ShopImpl _value, $Res Function(_$ShopImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -81,7 +83,7 @@ class __$$_ShopCopyWithImpl<$Res> extends _$ShopCopyWithImpl<$Res, _$_Shop>
     Object? id = null,
     Object? name = null,
   }) {
-    return _then(_$_Shop(
+    return _then(_$ShopImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -96,8 +98,8 @@ class __$$_ShopCopyWithImpl<$Res> extends _$ShopCopyWithImpl<$Res, _$_Shop>
 
 /// @nodoc
 
-class _$_Shop implements _Shop {
-  const _$_Shop({required this.id, required this.name});
+class _$ShopImpl implements _Shop {
+  const _$ShopImpl({required this.id, required this.name});
 
   @override
   final String id;
@@ -113,7 +115,7 @@ class _$_Shop implements _Shop {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Shop &&
+            other is _$ShopImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name));
   }
@@ -124,13 +126,13 @@ class _$_Shop implements _Shop {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShopCopyWith<_$_Shop> get copyWith =>
-      __$$_ShopCopyWithImpl<_$_Shop>(this, _$identity);
+  _$$ShopImplCopyWith<_$ShopImpl> get copyWith =>
+      __$$ShopImplCopyWithImpl<_$ShopImpl>(this, _$identity);
 }
 
 abstract class _Shop implements Shop {
   const factory _Shop({required final String id, required final String name}) =
-      _$_Shop;
+      _$ShopImpl;
 
   @override
   String get id;
@@ -138,5 +140,6 @@ abstract class _Shop implements Shop {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$_ShopCopyWith<_$_Shop> get copyWith => throw _privateConstructorUsedError;
+  _$$ShopImplCopyWith<_$ShopImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

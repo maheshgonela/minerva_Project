@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:minerva/features/rtv/domain/entity/entities.dart';
+import 'package:minerva/features/product_selection/domain/entity/product.dart';
 
 class QuantityDialog extends StatefulWidget {
   const QuantityDialog({

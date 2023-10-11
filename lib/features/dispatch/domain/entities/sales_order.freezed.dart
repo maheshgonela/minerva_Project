@@ -107,11 +107,11 @@ class _$SalesOrderCopyWithImpl<$Res, $Val extends SalesOrder>
 }
 
 /// @nodoc
-abstract class _$$_SalesOrderCopyWith<$Res>
+abstract class _$$SalesOrderImplCopyWith<$Res>
     implements $SalesOrderCopyWith<$Res> {
-  factory _$$_SalesOrderCopyWith(
-          _$_SalesOrder value, $Res Function(_$_SalesOrder) then) =
-      __$$_SalesOrderCopyWithImpl<$Res>;
+  factory _$$SalesOrderImplCopyWith(
+          _$SalesOrderImpl value, $Res Function(_$SalesOrderImpl) then) =
+      __$$SalesOrderImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -126,11 +126,11 @@ abstract class _$$_SalesOrderCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SalesOrderCopyWithImpl<$Res>
-    extends _$SalesOrderCopyWithImpl<$Res, _$_SalesOrder>
-    implements _$$_SalesOrderCopyWith<$Res> {
-  __$$_SalesOrderCopyWithImpl(
-      _$_SalesOrder _value, $Res Function(_$_SalesOrder) _then)
+class __$$SalesOrderImplCopyWithImpl<$Res>
+    extends _$SalesOrderCopyWithImpl<$Res, _$SalesOrderImpl>
+    implements _$$SalesOrderImplCopyWith<$Res> {
+  __$$SalesOrderImplCopyWithImpl(
+      _$SalesOrderImpl _value, $Res Function(_$SalesOrderImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -145,7 +145,7 @@ class __$$_SalesOrderCopyWithImpl<$Res>
     Object? scheduledDeliveryDate = null,
     Object? deliveryLocation = freezed,
   }) {
-    return _then(_$_SalesOrder(
+    return _then(_$SalesOrderImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -184,8 +184,8 @@ class __$$_SalesOrderCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SalesOrder implements _SalesOrder {
-  const _$_SalesOrder(
+class _$SalesOrderImpl implements _SalesOrder {
+  const _$SalesOrderImpl(
       {required this.id,
       required this.organization,
       required this.documentNo,
@@ -221,7 +221,7 @@ class _$_SalesOrder implements _SalesOrder {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SalesOrder &&
+            other is _$SalesOrderImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.organization, organization) ||
                 other.organization == organization) &&
@@ -255,8 +255,8 @@ class _$_SalesOrder implements _SalesOrder {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SalesOrderCopyWith<_$_SalesOrder> get copyWith =>
-      __$$_SalesOrderCopyWithImpl<_$_SalesOrder>(this, _$identity);
+  _$$SalesOrderImplCopyWith<_$SalesOrderImpl> get copyWith =>
+      __$$SalesOrderImplCopyWithImpl<_$SalesOrderImpl>(this, _$identity);
 }
 
 abstract class _SalesOrder implements SalesOrder {
@@ -268,7 +268,7 @@ abstract class _SalesOrder implements SalesOrder {
       required final String businessPartnerLocation,
       required final String warehouse,
       required final String scheduledDeliveryDate,
-      final String? deliveryLocation}) = _$_SalesOrder;
+      final String? deliveryLocation}) = _$SalesOrderImpl;
 
   @override
   String get id;
@@ -288,6 +288,6 @@ abstract class _SalesOrder implements SalesOrder {
   String? get deliveryLocation;
   @override
   @JsonKey(ignore: true)
-  _$$_SalesOrderCopyWith<_$_SalesOrder> get copyWith =>
+  _$$SalesOrderImplCopyWith<_$SalesOrderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

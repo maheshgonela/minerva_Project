@@ -32,9 +32,9 @@ dependencies:
   grouped_list: ^5.1.2
   open_file: ^3.3.2
   cloud_firestore: ^4.8.4
-  build_runner: ^2.4.6
   barcode_scan2: ^4.2.4
   flutter_barcode_scanner: ^2.0.0
+  build_runner: ^2.4.6
   
 
 dev_dependencies:

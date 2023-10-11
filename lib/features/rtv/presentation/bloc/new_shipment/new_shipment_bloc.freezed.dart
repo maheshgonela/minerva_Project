@@ -99,11 +99,11 @@ class _$NewShipmentEventCopyWithImpl<$Res, $Val extends NewShipmentEvent>
 }
 
 /// @nodoc
-abstract class _$$_CreateShipmentCopyWith<$Res>
+abstract class _$$CreateShipmentImplCopyWith<$Res>
     implements $NewShipmentEventCopyWith<$Res> {
-  factory _$$_CreateShipmentCopyWith(
-          _$_CreateShipment value, $Res Function(_$_CreateShipment) then) =
-      __$$_CreateShipmentCopyWithImpl<$Res>;
+  factory _$$CreateShipmentImplCopyWith(_$CreateShipmentImpl value,
+          $Res Function(_$CreateShipmentImpl) then) =
+      __$$CreateShipmentImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ShipmentForm form});
@@ -113,11 +113,11 @@ abstract class _$$_CreateShipmentCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CreateShipmentCopyWithImpl<$Res>
-    extends _$NewShipmentEventCopyWithImpl<$Res, _$_CreateShipment>
-    implements _$$_CreateShipmentCopyWith<$Res> {
-  __$$_CreateShipmentCopyWithImpl(
-      _$_CreateShipment _value, $Res Function(_$_CreateShipment) _then)
+class __$$CreateShipmentImplCopyWithImpl<$Res>
+    extends _$NewShipmentEventCopyWithImpl<$Res, _$CreateShipmentImpl>
+    implements _$$CreateShipmentImplCopyWith<$Res> {
+  __$$CreateShipmentImplCopyWithImpl(
+      _$CreateShipmentImpl _value, $Res Function(_$CreateShipmentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +125,7 @@ class __$$_CreateShipmentCopyWithImpl<$Res>
   $Res call({
     Object? form = null,
   }) {
-    return _then(_$_CreateShipment(
+    return _then(_$CreateShipmentImpl(
       null == form
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
@@ -136,8 +136,8 @@ class __$$_CreateShipmentCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CreateShipment implements _CreateShipment {
-  const _$_CreateShipment(this.form);
+class _$CreateShipmentImpl implements _CreateShipment {
+  const _$CreateShipmentImpl(this.form);
 
   @override
   final ShipmentForm form;
@@ -151,7 +151,7 @@ class _$_CreateShipment implements _CreateShipment {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreateShipment &&
+            other is _$CreateShipmentImpl &&
             (identical(other.form, form) || other.form == form));
   }
 
@@ -161,8 +161,9 @@ class _$_CreateShipment implements _CreateShipment {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CreateShipmentCopyWith<_$_CreateShipment> get copyWith =>
-      __$$_CreateShipmentCopyWithImpl<_$_CreateShipment>(this, _$identity);
+  _$$CreateShipmentImplCopyWith<_$CreateShipmentImpl> get copyWith =>
+      __$$CreateShipmentImplCopyWithImpl<_$CreateShipmentImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -222,13 +223,13 @@ class _$_CreateShipment implements _CreateShipment {
 }
 
 abstract class _CreateShipment implements NewShipmentEvent {
-  const factory _CreateShipment(final ShipmentForm form) = _$_CreateShipment;
+  const factory _CreateShipment(final ShipmentForm form) = _$CreateShipmentImpl;
 
   @override
   ShipmentForm get form;
   @override
   @JsonKey(ignore: true)
-  _$$_CreateShipmentCopyWith<_$_CreateShipment> get copyWith =>
+  _$$CreateShipmentImplCopyWith<_$CreateShipmentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -305,24 +306,25 @@ class _$NewShipmentStateCopyWithImpl<$Res, $Val extends NewShipmentState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$NewShipmentStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$NewShipmentStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -332,7 +334,7 @@ class _$_Initial implements _Initial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -414,28 +416,29 @@ class _$_Initial implements _Initial {
 }
 
 abstract class _Initial implements NewShipmentState {
-  const factory _Initial() = _$_Initial;
+  const factory _Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$NewShipmentStateCopyWithImpl<$Res, _$_Loading>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$NewShipmentStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Loading implements _Loading {
-  const _$_Loading();
+class _$LoadingImpl implements _Loading {
+  const _$LoadingImpl();
 
   @override
   String toString() {
@@ -445,7 +448,7 @@ class _$_Loading implements _Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loading);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -527,28 +530,29 @@ class _$_Loading implements _Loading {
 }
 
 abstract class _Loading implements NewShipmentState {
-  const factory _Loading() = _$_Loading;
+  const factory _Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$_SuccessCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
-    extends _$NewShipmentStateCopyWithImpl<$Res, _$_Success>
-    implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$NewShipmentStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success();
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl();
 
   @override
   String toString() {
@@ -558,7 +562,7 @@ class _$_Success implements _Success {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Success);
+        (other.runtimeType == runtimeType && other is _$SuccessImpl);
   }
 
   @override
@@ -640,14 +644,14 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements NewShipmentState {
-  const factory _Success() = _$_Success;
+  const factory _Success() = _$SuccessImpl;
 }
 
 /// @nodoc
-abstract class _$$_FailureCopyWith<$Res> {
-  factory _$$_FailureCopyWith(
-          _$_Failure value, $Res Function(_$_Failure) then) =
-      __$$_FailureCopyWithImpl<$Res>;
+abstract class _$$FailureImplCopyWith<$Res> {
+  factory _$$FailureImplCopyWith(
+          _$FailureImpl value, $Res Function(_$FailureImpl) then) =
+      __$$FailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Failure failure});
 
@@ -655,10 +659,11 @@ abstract class _$$_FailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FailureCopyWithImpl<$Res>
-    extends _$NewShipmentStateCopyWithImpl<$Res, _$_Failure>
-    implements _$$_FailureCopyWith<$Res> {
-  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
+class __$$FailureImplCopyWithImpl<$Res>
+    extends _$NewShipmentStateCopyWithImpl<$Res, _$FailureImpl>
+    implements _$$FailureImplCopyWith<$Res> {
+  __$$FailureImplCopyWithImpl(
+      _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -666,7 +671,7 @@ class __$$_FailureCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$_Failure(
+    return _then(_$FailureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -685,8 +690,8 @@ class __$$_FailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Failure implements _Failure {
-  const _$_Failure(this.failure);
+class _$FailureImpl implements _Failure {
+  const _$FailureImpl(this.failure);
 
   @override
   final Failure failure;
@@ -700,7 +705,7 @@ class _$_Failure implements _Failure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Failure &&
+            other is _$FailureImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -710,8 +715,8 @@ class _$_Failure implements _Failure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FailureCopyWith<_$_Failure> get copyWith =>
-      __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
+  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
+      __$$FailureImplCopyWithImpl<_$FailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -789,10 +794,10 @@ class _$_Failure implements _Failure {
 }
 
 abstract class _Failure implements NewShipmentState {
-  const factory _Failure(final Failure failure) = _$_Failure;
+  const factory _Failure(final Failure failure) = _$FailureImpl;
 
   Failure get failure;
   @JsonKey(ignore: true)
-  _$$_FailureCopyWith<_$_Failure> get copyWith =>
+  _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -70,24 +70,25 @@ class _$DispatchedProductUiModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DispatchedProductUiModelCopyWith<$Res>
+abstract class _$$DispatchedProductUiModelImplCopyWith<$Res>
     implements $DispatchedProductUiModelCopyWith<$Res> {
-  factory _$$_DispatchedProductUiModelCopyWith(
-          _$_DispatchedProductUiModel value,
-          $Res Function(_$_DispatchedProductUiModel) then) =
-      __$$_DispatchedProductUiModelCopyWithImpl<$Res>;
+  factory _$$DispatchedProductUiModelImplCopyWith(
+          _$DispatchedProductUiModelImpl value,
+          $Res Function(_$DispatchedProductUiModelImpl) then) =
+      __$$DispatchedProductUiModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String productName, double orderedQty, double dispatchedQty});
 }
 
 /// @nodoc
-class __$$_DispatchedProductUiModelCopyWithImpl<$Res>
+class __$$DispatchedProductUiModelImplCopyWithImpl<$Res>
     extends _$DispatchedProductUiModelCopyWithImpl<$Res,
-        _$_DispatchedProductUiModel>
-    implements _$$_DispatchedProductUiModelCopyWith<$Res> {
-  __$$_DispatchedProductUiModelCopyWithImpl(_$_DispatchedProductUiModel _value,
-      $Res Function(_$_DispatchedProductUiModel) _then)
+        _$DispatchedProductUiModelImpl>
+    implements _$$DispatchedProductUiModelImplCopyWith<$Res> {
+  __$$DispatchedProductUiModelImplCopyWithImpl(
+      _$DispatchedProductUiModelImpl _value,
+      $Res Function(_$DispatchedProductUiModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +98,7 @@ class __$$_DispatchedProductUiModelCopyWithImpl<$Res>
     Object? orderedQty = null,
     Object? dispatchedQty = null,
   }) {
-    return _then(_$_DispatchedProductUiModel(
+    return _then(_$DispatchedProductUiModelImpl(
       productName: null == productName
           ? _value.productName
           : productName // ignore: cast_nullable_to_non_nullable
@@ -116,8 +117,8 @@ class __$$_DispatchedProductUiModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DispatchedProductUiModel implements _DispatchedProductUiModel {
-  const _$_DispatchedProductUiModel(
+class _$DispatchedProductUiModelImpl implements _DispatchedProductUiModel {
+  const _$DispatchedProductUiModelImpl(
       {required this.productName,
       required this.orderedQty,
       required this.dispatchedQty});
@@ -138,7 +139,7 @@ class _$_DispatchedProductUiModel implements _DispatchedProductUiModel {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DispatchedProductUiModel &&
+            other is _$DispatchedProductUiModelImpl &&
             (identical(other.productName, productName) ||
                 other.productName == productName) &&
             (identical(other.orderedQty, orderedQty) ||
@@ -154,16 +155,16 @@ class _$_DispatchedProductUiModel implements _DispatchedProductUiModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DispatchedProductUiModelCopyWith<_$_DispatchedProductUiModel>
-      get copyWith => __$$_DispatchedProductUiModelCopyWithImpl<
-          _$_DispatchedProductUiModel>(this, _$identity);
+  _$$DispatchedProductUiModelImplCopyWith<_$DispatchedProductUiModelImpl>
+      get copyWith => __$$DispatchedProductUiModelImplCopyWithImpl<
+          _$DispatchedProductUiModelImpl>(this, _$identity);
 }
 
 abstract class _DispatchedProductUiModel implements DispatchedProductUiModel {
   const factory _DispatchedProductUiModel(
       {required final String productName,
       required final double orderedQty,
-      required final double dispatchedQty}) = _$_DispatchedProductUiModel;
+      required final double dispatchedQty}) = _$DispatchedProductUiModelImpl;
 
   @override
   String get productName;
@@ -173,6 +174,6 @@ abstract class _DispatchedProductUiModel implements DispatchedProductUiModel {
   double get dispatchedQty;
   @override
   @JsonKey(ignore: true)
-  _$$_DispatchedProductUiModelCopyWith<_$_DispatchedProductUiModel>
+  _$$DispatchedProductUiModelImplCopyWith<_$DispatchedProductUiModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

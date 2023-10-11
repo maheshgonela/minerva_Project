@@ -66,20 +66,21 @@ class _$ShopDtoCopyWithImpl<$Res, $Val extends ShopDto>
 }
 
 /// @nodoc
-abstract class _$$_ShopDtoCopyWith<$Res> implements $ShopDtoCopyWith<$Res> {
-  factory _$$_ShopDtoCopyWith(
-          _$_ShopDto value, $Res Function(_$_ShopDto) then) =
-      __$$_ShopDtoCopyWithImpl<$Res>;
+abstract class _$$ShopDtoImplCopyWith<$Res> implements $ShopDtoCopyWith<$Res> {
+  factory _$$ShopDtoImplCopyWith(
+          _$ShopDtoImpl value, $Res Function(_$ShopDtoImpl) then) =
+      __$$ShopDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String name});
 }
 
 /// @nodoc
-class __$$_ShopDtoCopyWithImpl<$Res>
-    extends _$ShopDtoCopyWithImpl<$Res, _$_ShopDto>
-    implements _$$_ShopDtoCopyWith<$Res> {
-  __$$_ShopDtoCopyWithImpl(_$_ShopDto _value, $Res Function(_$_ShopDto) _then)
+class __$$ShopDtoImplCopyWithImpl<$Res>
+    extends _$ShopDtoCopyWithImpl<$Res, _$ShopDtoImpl>
+    implements _$$ShopDtoImplCopyWith<$Res> {
+  __$$ShopDtoImplCopyWithImpl(
+      _$ShopDtoImpl _value, $Res Function(_$ShopDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -88,7 +89,7 @@ class __$$_ShopDtoCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
   }) {
-    return _then(_$_ShopDto(
+    return _then(_$ShopDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -104,11 +105,11 @@ class __$$_ShopDtoCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$_ShopDto extends _ShopDto {
-  const _$_ShopDto({required this.id, required this.name}) : super._();
+class _$ShopDtoImpl extends _ShopDto {
+  const _$ShopDtoImpl({required this.id, required this.name}) : super._();
 
-  factory _$_ShopDto.fromJson(Map<String, dynamic> json) =>
-      _$$_ShopDtoFromJson(json);
+  factory _$ShopDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ShopDtoImplFromJson(json);
 
   @override
   final String id;
@@ -124,7 +125,7 @@ class _$_ShopDto extends _ShopDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ShopDto &&
+            other is _$ShopDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name));
   }
@@ -136,12 +137,12 @@ class _$_ShopDto extends _ShopDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShopDtoCopyWith<_$_ShopDto> get copyWith =>
-      __$$_ShopDtoCopyWithImpl<_$_ShopDto>(this, _$identity);
+  _$$ShopDtoImplCopyWith<_$ShopDtoImpl> get copyWith =>
+      __$$ShopDtoImplCopyWithImpl<_$ShopDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ShopDtoToJson(
+    return _$$ShopDtoImplToJson(
       this,
     );
   }
@@ -149,10 +150,10 @@ class _$_ShopDto extends _ShopDto {
 
 abstract class _ShopDto extends ShopDto {
   const factory _ShopDto(
-      {required final String id, required final String name}) = _$_ShopDto;
+      {required final String id, required final String name}) = _$ShopDtoImpl;
   const _ShopDto._() : super._();
 
-  factory _ShopDto.fromJson(Map<String, dynamic> json) = _$_ShopDto.fromJson;
+  factory _ShopDto.fromJson(Map<String, dynamic> json) = _$ShopDtoImpl.fromJson;
 
   @override
   String get id;
@@ -160,6 +161,6 @@ abstract class _ShopDto extends ShopDto {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$_ShopDtoCopyWith<_$_ShopDto> get copyWith =>
+  _$$ShopDtoImplCopyWith<_$ShopDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

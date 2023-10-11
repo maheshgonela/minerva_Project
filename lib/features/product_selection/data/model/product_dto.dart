@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:minerva/features/rtv/domain/entity/entities.dart';
+import 'package:minerva/features/product_selection/domain/entity/product.dart';
 
 part 'product_dto.freezed.dart';
 

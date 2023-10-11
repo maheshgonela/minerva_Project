@@ -95,22 +95,22 @@ class _$FetchShopEventCopyWithImpl<$Res, $Val extends FetchShopEvent>
 }
 
 /// @nodoc
-abstract class _$$_FetchInitialShopCopyWith<$Res>
+abstract class _$$FetchInitialShopImplCopyWith<$Res>
     implements $FetchShopEventCopyWith<$Res> {
-  factory _$$_FetchInitialShopCopyWith(
-          _$_FetchInitialShop value, $Res Function(_$_FetchInitialShop) then) =
-      __$$_FetchInitialShopCopyWithImpl<$Res>;
+  factory _$$FetchInitialShopImplCopyWith(_$FetchInitialShopImpl value,
+          $Res Function(_$FetchInitialShopImpl) then) =
+      __$$FetchInitialShopImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class __$$_FetchInitialShopCopyWithImpl<$Res>
-    extends _$FetchShopEventCopyWithImpl<$Res, _$_FetchInitialShop>
-    implements _$$_FetchInitialShopCopyWith<$Res> {
-  __$$_FetchInitialShopCopyWithImpl(
-      _$_FetchInitialShop _value, $Res Function(_$_FetchInitialShop) _then)
+class __$$FetchInitialShopImplCopyWithImpl<$Res>
+    extends _$FetchShopEventCopyWithImpl<$Res, _$FetchInitialShopImpl>
+    implements _$$FetchInitialShopImplCopyWith<$Res> {
+  __$$FetchInitialShopImplCopyWithImpl(_$FetchInitialShopImpl _value,
+      $Res Function(_$FetchInitialShopImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$_FetchInitialShopCopyWithImpl<$Res>
   $Res call({
     Object? query = freezed,
   }) {
-    return _then(_$_FetchInitialShop(
+    return _then(_$FetchInitialShopImpl(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -129,8 +129,8 @@ class __$$_FetchInitialShopCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchInitialShop implements _FetchInitialShop {
-  const _$_FetchInitialShop({this.query});
+class _$FetchInitialShopImpl implements _FetchInitialShop {
+  const _$FetchInitialShopImpl({this.query});
 
   @override
   final String? query;
@@ -144,7 +144,7 @@ class _$_FetchInitialShop implements _FetchInitialShop {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchInitialShop &&
+            other is _$FetchInitialShopImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -154,8 +154,9 @@ class _$_FetchInitialShop implements _FetchInitialShop {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchInitialShopCopyWith<_$_FetchInitialShop> get copyWith =>
-      __$$_FetchInitialShopCopyWithImpl<_$_FetchInitialShop>(this, _$identity);
+  _$$FetchInitialShopImplCopyWith<_$FetchInitialShopImpl> get copyWith =>
+      __$$FetchInitialShopImplCopyWithImpl<_$FetchInitialShopImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -221,33 +222,34 @@ class _$_FetchInitialShop implements _FetchInitialShop {
 }
 
 abstract class _FetchInitialShop implements FetchShopEvent {
-  const factory _FetchInitialShop({final String? query}) = _$_FetchInitialShop;
+  const factory _FetchInitialShop({final String? query}) =
+      _$FetchInitialShopImpl;
 
   @override
   String? get query;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchInitialShopCopyWith<_$_FetchInitialShop> get copyWith =>
+  _$$FetchInitialShopImplCopyWith<_$FetchInitialShopImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchMoreShopCopyWith<$Res>
+abstract class _$$FetchMoreShopImplCopyWith<$Res>
     implements $FetchShopEventCopyWith<$Res> {
-  factory _$$_FetchMoreShopCopyWith(
-          _$_FetchMoreShop value, $Res Function(_$_FetchMoreShop) then) =
-      __$$_FetchMoreShopCopyWithImpl<$Res>;
+  factory _$$FetchMoreShopImplCopyWith(
+          _$FetchMoreShopImpl value, $Res Function(_$FetchMoreShopImpl) then) =
+      __$$FetchMoreShopImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class __$$_FetchMoreShopCopyWithImpl<$Res>
-    extends _$FetchShopEventCopyWithImpl<$Res, _$_FetchMoreShop>
-    implements _$$_FetchMoreShopCopyWith<$Res> {
-  __$$_FetchMoreShopCopyWithImpl(
-      _$_FetchMoreShop _value, $Res Function(_$_FetchMoreShop) _then)
+class __$$FetchMoreShopImplCopyWithImpl<$Res>
+    extends _$FetchShopEventCopyWithImpl<$Res, _$FetchMoreShopImpl>
+    implements _$$FetchMoreShopImplCopyWith<$Res> {
+  __$$FetchMoreShopImplCopyWithImpl(
+      _$FetchMoreShopImpl _value, $Res Function(_$FetchMoreShopImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -255,7 +257,7 @@ class __$$_FetchMoreShopCopyWithImpl<$Res>
   $Res call({
     Object? query = freezed,
   }) {
-    return _then(_$_FetchMoreShop(
+    return _then(_$FetchMoreShopImpl(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -266,8 +268,8 @@ class __$$_FetchMoreShopCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchMoreShop implements _FetchMoreShop {
-  const _$_FetchMoreShop({this.query});
+class _$FetchMoreShopImpl implements _FetchMoreShop {
+  const _$FetchMoreShopImpl({this.query});
 
   @override
   final String? query;
@@ -281,7 +283,7 @@ class _$_FetchMoreShop implements _FetchMoreShop {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchMoreShop &&
+            other is _$FetchMoreShopImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -291,8 +293,8 @@ class _$_FetchMoreShop implements _FetchMoreShop {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchMoreShopCopyWith<_$_FetchMoreShop> get copyWith =>
-      __$$_FetchMoreShopCopyWithImpl<_$_FetchMoreShop>(this, _$identity);
+  _$$FetchMoreShopImplCopyWith<_$FetchMoreShopImpl> get copyWith =>
+      __$$FetchMoreShopImplCopyWithImpl<_$FetchMoreShopImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -358,13 +360,13 @@ class _$_FetchMoreShop implements _FetchMoreShop {
 }
 
 abstract class _FetchMoreShop implements FetchShopEvent {
-  const factory _FetchMoreShop({final String? query}) = _$_FetchMoreShop;
+  const factory _FetchMoreShop({final String? query}) = _$FetchMoreShopImpl;
 
   @override
   String? get query;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchMoreShopCopyWith<_$_FetchMoreShop> get copyWith =>
+  _$$FetchMoreShopImplCopyWith<_$FetchMoreShopImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -445,25 +447,25 @@ class _$FetchShopStateCopyWithImpl<$Res, $Val extends FetchShopState>
 }
 
 /// @nodoc
-abstract class _$$_FetchShopInitialCopyWith<$Res> {
-  factory _$$_FetchShopInitialCopyWith(
-          _$_FetchShopInitial value, $Res Function(_$_FetchShopInitial) then) =
-      __$$_FetchShopInitialCopyWithImpl<$Res>;
+abstract class _$$FetchShopInitialImplCopyWith<$Res> {
+  factory _$$FetchShopInitialImplCopyWith(_$FetchShopInitialImpl value,
+          $Res Function(_$FetchShopInitialImpl) then) =
+      __$$FetchShopInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchShopInitialCopyWithImpl<$Res>
-    extends _$FetchShopStateCopyWithImpl<$Res, _$_FetchShopInitial>
-    implements _$$_FetchShopInitialCopyWith<$Res> {
-  __$$_FetchShopInitialCopyWithImpl(
-      _$_FetchShopInitial _value, $Res Function(_$_FetchShopInitial) _then)
+class __$$FetchShopInitialImplCopyWithImpl<$Res>
+    extends _$FetchShopStateCopyWithImpl<$Res, _$FetchShopInitialImpl>
+    implements _$$FetchShopInitialImplCopyWith<$Res> {
+  __$$FetchShopInitialImplCopyWithImpl(_$FetchShopInitialImpl _value,
+      $Res Function(_$FetchShopInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchShopInitial implements _FetchShopInitial {
-  const _$_FetchShopInitial();
+class _$FetchShopInitialImpl implements _FetchShopInitial {
+  const _$FetchShopInitialImpl();
 
   @override
   String toString() {
@@ -473,7 +475,7 @@ class _$_FetchShopInitial implements _FetchShopInitial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FetchShopInitial);
+        (other.runtimeType == runtimeType && other is _$FetchShopInitialImpl);
   }
 
   @override
@@ -559,29 +561,29 @@ class _$_FetchShopInitial implements _FetchShopInitial {
 }
 
 abstract class _FetchShopInitial implements FetchShopState {
-  const factory _FetchShopInitial() = _$_FetchShopInitial;
+  const factory _FetchShopInitial() = _$FetchShopInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_FetchShopLoadingCopyWith<$Res> {
-  factory _$$_FetchShopLoadingCopyWith(
-          _$_FetchShopLoading value, $Res Function(_$_FetchShopLoading) then) =
-      __$$_FetchShopLoadingCopyWithImpl<$Res>;
+abstract class _$$FetchShopLoadingImplCopyWith<$Res> {
+  factory _$$FetchShopLoadingImplCopyWith(_$FetchShopLoadingImpl value,
+          $Res Function(_$FetchShopLoadingImpl) then) =
+      __$$FetchShopLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchShopLoadingCopyWithImpl<$Res>
-    extends _$FetchShopStateCopyWithImpl<$Res, _$_FetchShopLoading>
-    implements _$$_FetchShopLoadingCopyWith<$Res> {
-  __$$_FetchShopLoadingCopyWithImpl(
-      _$_FetchShopLoading _value, $Res Function(_$_FetchShopLoading) _then)
+class __$$FetchShopLoadingImplCopyWithImpl<$Res>
+    extends _$FetchShopStateCopyWithImpl<$Res, _$FetchShopLoadingImpl>
+    implements _$$FetchShopLoadingImplCopyWith<$Res> {
+  __$$FetchShopLoadingImplCopyWithImpl(_$FetchShopLoadingImpl _value,
+      $Res Function(_$FetchShopLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchShopLoading implements _FetchShopLoading {
-  const _$_FetchShopLoading();
+class _$FetchShopLoadingImpl implements _FetchShopLoading {
+  const _$FetchShopLoadingImpl();
 
   @override
   String toString() {
@@ -591,7 +593,7 @@ class _$_FetchShopLoading implements _FetchShopLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FetchShopLoading);
+        (other.runtimeType == runtimeType && other is _$FetchShopLoadingImpl);
   }
 
   @override
@@ -677,24 +679,24 @@ class _$_FetchShopLoading implements _FetchShopLoading {
 }
 
 abstract class _FetchShopLoading implements FetchShopState {
-  const factory _FetchShopLoading() = _$_FetchShopLoading;
+  const factory _FetchShopLoading() = _$FetchShopLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$_FetchShopSuccessCopyWith<$Res> {
-  factory _$$_FetchShopSuccessCopyWith(
-          _$_FetchShopSuccess value, $Res Function(_$_FetchShopSuccess) then) =
-      __$$_FetchShopSuccessCopyWithImpl<$Res>;
+abstract class _$$FetchShopSuccessImplCopyWith<$Res> {
+  factory _$$FetchShopSuccessImplCopyWith(_$FetchShopSuccessImpl value,
+          $Res Function(_$FetchShopSuccessImpl) then) =
+      __$$FetchShopSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Shop> records, bool hasReachedMax, String? query});
 }
 
 /// @nodoc
-class __$$_FetchShopSuccessCopyWithImpl<$Res>
-    extends _$FetchShopStateCopyWithImpl<$Res, _$_FetchShopSuccess>
-    implements _$$_FetchShopSuccessCopyWith<$Res> {
-  __$$_FetchShopSuccessCopyWithImpl(
-      _$_FetchShopSuccess _value, $Res Function(_$_FetchShopSuccess) _then)
+class __$$FetchShopSuccessImplCopyWithImpl<$Res>
+    extends _$FetchShopStateCopyWithImpl<$Res, _$FetchShopSuccessImpl>
+    implements _$$FetchShopSuccessImplCopyWith<$Res> {
+  __$$FetchShopSuccessImplCopyWithImpl(_$FetchShopSuccessImpl _value,
+      $Res Function(_$FetchShopSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -704,7 +706,7 @@ class __$$_FetchShopSuccessCopyWithImpl<$Res>
     Object? hasReachedMax = null,
     Object? query = freezed,
   }) {
-    return _then(_$_FetchShopSuccess(
+    return _then(_$FetchShopSuccessImpl(
       records: null == records
           ? _value._records
           : records // ignore: cast_nullable_to_non_nullable
@@ -723,8 +725,8 @@ class __$$_FetchShopSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchShopSuccess implements _FetchShopSuccess {
-  const _$_FetchShopSuccess(
+class _$FetchShopSuccessImpl implements _FetchShopSuccess {
+  const _$FetchShopSuccessImpl(
       {required final List<Shop> records,
       required this.hasReachedMax,
       this.query})
@@ -752,7 +754,7 @@ class _$_FetchShopSuccess implements _FetchShopSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchShopSuccess &&
+            other is _$FetchShopSuccessImpl &&
             const DeepCollectionEquality().equals(other._records, _records) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
@@ -766,8 +768,9 @@ class _$_FetchShopSuccess implements _FetchShopSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchShopSuccessCopyWith<_$_FetchShopSuccess> get copyWith =>
-      __$$_FetchShopSuccessCopyWithImpl<_$_FetchShopSuccess>(this, _$identity);
+  _$$FetchShopSuccessImplCopyWith<_$FetchShopSuccessImpl> get copyWith =>
+      __$$FetchShopSuccessImplCopyWithImpl<_$FetchShopSuccessImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -852,21 +855,21 @@ abstract class _FetchShopSuccess implements FetchShopState {
   const factory _FetchShopSuccess(
       {required final List<Shop> records,
       required final bool hasReachedMax,
-      final String? query}) = _$_FetchShopSuccess;
+      final String? query}) = _$FetchShopSuccessImpl;
 
   List<Shop> get records;
   bool get hasReachedMax;
   String? get query;
   @JsonKey(ignore: true)
-  _$$_FetchShopSuccessCopyWith<_$_FetchShopSuccess> get copyWith =>
+  _$$FetchShopSuccessImplCopyWith<_$FetchShopSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchShopFailureCopyWith<$Res> {
-  factory _$$_FetchShopFailureCopyWith(
-          _$_FetchShopFailure value, $Res Function(_$_FetchShopFailure) then) =
-      __$$_FetchShopFailureCopyWithImpl<$Res>;
+abstract class _$$FetchShopFailureImplCopyWith<$Res> {
+  factory _$$FetchShopFailureImplCopyWith(_$FetchShopFailureImpl value,
+          $Res Function(_$FetchShopFailureImpl) then) =
+      __$$FetchShopFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Failure failure});
 
@@ -874,11 +877,11 @@ abstract class _$$_FetchShopFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FetchShopFailureCopyWithImpl<$Res>
-    extends _$FetchShopStateCopyWithImpl<$Res, _$_FetchShopFailure>
-    implements _$$_FetchShopFailureCopyWith<$Res> {
-  __$$_FetchShopFailureCopyWithImpl(
-      _$_FetchShopFailure _value, $Res Function(_$_FetchShopFailure) _then)
+class __$$FetchShopFailureImplCopyWithImpl<$Res>
+    extends _$FetchShopStateCopyWithImpl<$Res, _$FetchShopFailureImpl>
+    implements _$$FetchShopFailureImplCopyWith<$Res> {
+  __$$FetchShopFailureImplCopyWithImpl(_$FetchShopFailureImpl _value,
+      $Res Function(_$FetchShopFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -886,7 +889,7 @@ class __$$_FetchShopFailureCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$_FetchShopFailure(
+    return _then(_$FetchShopFailureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -905,8 +908,8 @@ class __$$_FetchShopFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchShopFailure implements _FetchShopFailure {
-  const _$_FetchShopFailure(this.failure);
+class _$FetchShopFailureImpl implements _FetchShopFailure {
+  const _$FetchShopFailureImpl(this.failure);
 
   @override
   final Failure failure;
@@ -920,7 +923,7 @@ class _$_FetchShopFailure implements _FetchShopFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchShopFailure &&
+            other is _$FetchShopFailureImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -930,8 +933,9 @@ class _$_FetchShopFailure implements _FetchShopFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchShopFailureCopyWith<_$_FetchShopFailure> get copyWith =>
-      __$$_FetchShopFailureCopyWithImpl<_$_FetchShopFailure>(this, _$identity);
+  _$$FetchShopFailureImplCopyWith<_$FetchShopFailureImpl> get copyWith =>
+      __$$FetchShopFailureImplCopyWithImpl<_$FetchShopFailureImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1013,10 +1017,11 @@ class _$_FetchShopFailure implements _FetchShopFailure {
 }
 
 abstract class _FetchShopFailure implements FetchShopState {
-  const factory _FetchShopFailure(final Failure failure) = _$_FetchShopFailure;
+  const factory _FetchShopFailure(final Failure failure) =
+      _$FetchShopFailureImpl;
 
   Failure get failure;
   @JsonKey(ignore: true)
-  _$$_FetchShopFailureCopyWith<_$_FetchShopFailure> get copyWith =>
+  _$$FetchShopFailureImplCopyWith<_$FetchShopFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

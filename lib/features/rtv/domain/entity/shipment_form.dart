@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:minerva/features/rtv/domain/entity/shipment_form_line.dart';
+import 'package:minerva/features/product_selection/domain/entity/form_line.dart';
 
 part 'shipment_form.freezed.dart';
 
@@ -7,7 +7,7 @@ part 'shipment_form.freezed.dart';
 abstract class ShipmentForm with _$ShipmentForm {
   const factory ShipmentForm({
     required String businessPartnerId,
-    required List<ShipmentFormLine> products,
+    required List<FormLine> products,
   }) = _ShipmentForm;
 
   static ShipmentForm initial() {

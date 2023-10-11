@@ -135,11 +135,11 @@ class _$OrderedProductCopyWithImpl<$Res, $Val extends OrderedProduct>
 }
 
 /// @nodoc
-abstract class _$$_OrderedProductCopyWith<$Res>
+abstract class _$$OrderedProductImplCopyWith<$Res>
     implements $OrderedProductCopyWith<$Res> {
-  factory _$$_OrderedProductCopyWith(
-          _$_OrderedProduct value, $Res Function(_$_OrderedProduct) then) =
-      __$$_OrderedProductCopyWithImpl<$Res>;
+  factory _$$OrderedProductImplCopyWith(_$OrderedProductImpl value,
+          $Res Function(_$OrderedProductImpl) then) =
+      __$$OrderedProductImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -158,11 +158,11 @@ abstract class _$$_OrderedProductCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_OrderedProductCopyWithImpl<$Res>
-    extends _$OrderedProductCopyWithImpl<$Res, _$_OrderedProduct>
-    implements _$$_OrderedProductCopyWith<$Res> {
-  __$$_OrderedProductCopyWithImpl(
-      _$_OrderedProduct _value, $Res Function(_$_OrderedProduct) _then)
+class __$$OrderedProductImplCopyWithImpl<$Res>
+    extends _$OrderedProductCopyWithImpl<$Res, _$OrderedProductImpl>
+    implements _$$OrderedProductImplCopyWith<$Res> {
+  __$$OrderedProductImplCopyWithImpl(
+      _$OrderedProductImpl _value, $Res Function(_$OrderedProductImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -181,7 +181,7 @@ class __$$_OrderedProductCopyWithImpl<$Res>
     Object? pendingQty = null,
     Object? selectedReceivedQty = null,
   }) {
-    return _then(_$_OrderedProduct(
+    return _then(_$OrderedProductImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -236,8 +236,8 @@ class __$$_OrderedProductCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_OrderedProduct implements _OrderedProduct {
-  const _$_OrderedProduct(
+class _$OrderedProductImpl implements _OrderedProduct {
+  const _$OrderedProductImpl(
       {required this.id,
       required this.organization,
       required this.product,
@@ -285,7 +285,7 @@ class _$_OrderedProduct implements _OrderedProduct {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OrderedProduct &&
+            other is _$OrderedProductImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.organization, organization) ||
                 other.organization == organization) &&
@@ -327,8 +327,9 @@ class _$_OrderedProduct implements _OrderedProduct {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OrderedProductCopyWith<_$_OrderedProduct> get copyWith =>
-      __$$_OrderedProductCopyWithImpl<_$_OrderedProduct>(this, _$identity);
+  _$$OrderedProductImplCopyWith<_$OrderedProductImpl> get copyWith =>
+      __$$OrderedProductImplCopyWithImpl<_$OrderedProductImpl>(
+          this, _$identity);
 }
 
 abstract class _OrderedProduct implements OrderedProduct {
@@ -344,7 +345,7 @@ abstract class _OrderedProduct implements OrderedProduct {
       required final String uOMName,
       required final String orderedQuantity,
       required final String pendingQty,
-      required final String selectedReceivedQty}) = _$_OrderedProduct;
+      required final String selectedReceivedQty}) = _$OrderedProductImpl;
 
   @override
   String get id;
@@ -372,6 +373,6 @@ abstract class _OrderedProduct implements OrderedProduct {
   String get selectedReceivedQty;
   @override
   @JsonKey(ignore: true)
-  _$$_OrderedProductCopyWith<_$_OrderedProduct> get copyWith =>
+  _$$OrderedProductImplCopyWith<_$OrderedProductImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

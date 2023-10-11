@@ -10,6 +10,11 @@ import 'package:minerva/features/grn/presentation/blocs/create_grn/create_grn_cu
 import 'package:minerva/features/grn/presentation/blocs/fetch_orderedproduct/fetch_orderedproduct_bloc.dart';
 import 'package:minerva/features/grn/presentation/blocs/fetch_purchase_order/fetch_purchase_order_bloc.dart';
 import 'package:minerva/features/grn/presentation/screen/create_grn_screen.dart';
+import 'package:minerva/features/grn/presentation/widgets/new_purchase_order_form.dart';
+import 'package:minerva/features/product_selection/presentation/bloc/fetch_product/fetch_product_bloc.dart';
+import 'package:minerva/features/product_selection/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
+import 'package:minerva/features/rtv/presentation/bloc/fetch_bps/fetch_bps_bloc.dart';
+import 'package:minerva/features/rtv/presentation/bloc/new_shipment/new_shipment_bloc.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:widgets/widgets.dart';
 
@@ -116,7 +121,33 @@ class _GRNScreenState extends State<GRNScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (ctx) => sl.get<FetchBusinessPartnerBloc>()
+                    ..add(const FetchBusinessPartnerEvent
+                        .fetchInitialBusinessPartner()),
+                ),
+                BlocProvider(
+                  create: (ctx) => sl.get<FetchProductBloc>(),
+                ),
+                BlocProvider(
+                  create: (ctx) => sl.get<FetchProductCategoryBloc>()
+                    ..add(const FetchProductCategoryEvent
+                        .fetchInitialProductCategory()),
+                ),
+                BlocProvider(create: (ctx) => sl.get<NewShipmentBloc>()),
+              ],
+              child: const NewPurchaseOrderForm(),
+            );
+          })).then((value) {
+            if (value == true) {
+              _refresh(context);
+            }
+          });
+        },
         child: const Icon(Icons.add),
       ),
     );
@@ -127,6 +158,7 @@ class _GRNScreenState extends State<GRNScreen> {
     return Card(
       elevation: 2.0,
       shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
         side: BorderSide(width: 1.5),
       ),
       child: ListTile(

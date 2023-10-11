@@ -6,9 +6,9 @@ part of 'dispatch_ordered_product_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DispatchOrderedProductDto _$$_DispatchOrderedProductDtoFromJson(
+_$DispatchOrderedProductDtoImpl _$$DispatchOrderedProductDtoImplFromJson(
         Map<String, dynamic> json) =>
-    _$_DispatchOrderedProductDto(
+    _$DispatchOrderedProductDtoImpl(
       id: json['id'] as String,
       organization: json['organization'] as String,
       product: json['product'] as String,
@@ -23,8 +23,8 @@ _$_DispatchOrderedProductDto _$$_DispatchOrderedProductDtoFromJson(
       dispatchQty: json['dispatch_qty'] as String,
     );
 
-Map<String, dynamic> _$$_DispatchOrderedProductDtoToJson(
-        _$_DispatchOrderedProductDto instance) =>
+Map<String, dynamic> _$$DispatchOrderedProductDtoImplToJson(
+        _$DispatchOrderedProductDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'organization': instance.organization,

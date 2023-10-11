@@ -74,27 +74,27 @@ class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
 }
 
 /// @nodoc
-abstract class _$$_AuthCheckRequestedCopyWith<$Res> {
-  factory _$$_AuthCheckRequestedCopyWith(_$_AuthCheckRequested value,
-          $Res Function(_$_AuthCheckRequested) then) =
-      __$$_AuthCheckRequestedCopyWithImpl<$Res>;
+abstract class _$$AuthCheckRequestedImplCopyWith<$Res> {
+  factory _$$AuthCheckRequestedImplCopyWith(_$AuthCheckRequestedImpl value,
+          $Res Function(_$AuthCheckRequestedImpl) then) =
+      __$$AuthCheckRequestedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_AuthCheckRequestedCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$_AuthCheckRequested>
-    implements _$$_AuthCheckRequestedCopyWith<$Res> {
-  __$$_AuthCheckRequestedCopyWithImpl(
-      _$_AuthCheckRequested _value, $Res Function(_$_AuthCheckRequested) _then)
+class __$$AuthCheckRequestedImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$AuthCheckRequestedImpl>
+    implements _$$AuthCheckRequestedImplCopyWith<$Res> {
+  __$$AuthCheckRequestedImplCopyWithImpl(_$AuthCheckRequestedImpl _value,
+      $Res Function(_$AuthCheckRequestedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_AuthCheckRequested
+class _$AuthCheckRequestedImpl
     with DiagnosticableTreeMixin
     implements _AuthCheckRequested {
-  const _$_AuthCheckRequested();
+  const _$AuthCheckRequestedImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -110,7 +110,7 @@ class _$_AuthCheckRequested
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AuthCheckRequested);
+        (other.runtimeType == runtimeType && other is _$AuthCheckRequestedImpl);
   }
 
   @override
@@ -180,29 +180,29 @@ class _$_AuthCheckRequested
 }
 
 abstract class _AuthCheckRequested implements AuthEvent {
-  const factory _AuthCheckRequested() = _$_AuthCheckRequested;
+  const factory _AuthCheckRequested() = _$AuthCheckRequestedImpl;
 }
 
 /// @nodoc
-abstract class _$$_SignedOutCopyWith<$Res> {
-  factory _$$_SignedOutCopyWith(
-          _$_SignedOut value, $Res Function(_$_SignedOut) then) =
-      __$$_SignedOutCopyWithImpl<$Res>;
+abstract class _$$SignedOutImplCopyWith<$Res> {
+  factory _$$SignedOutImplCopyWith(
+          _$SignedOutImpl value, $Res Function(_$SignedOutImpl) then) =
+      __$$SignedOutImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SignedOutCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$_SignedOut>
-    implements _$$_SignedOutCopyWith<$Res> {
-  __$$_SignedOutCopyWithImpl(
-      _$_SignedOut _value, $Res Function(_$_SignedOut) _then)
+class __$$SignedOutImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$SignedOutImpl>
+    implements _$$SignedOutImplCopyWith<$Res> {
+  __$$SignedOutImplCopyWithImpl(
+      _$SignedOutImpl _value, $Res Function(_$SignedOutImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_SignedOut with DiagnosticableTreeMixin implements _SignedOut {
-  const _$_SignedOut();
+class _$SignedOutImpl with DiagnosticableTreeMixin implements _SignedOut {
+  const _$SignedOutImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -218,7 +218,7 @@ class _$_SignedOut with DiagnosticableTreeMixin implements _SignedOut {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_SignedOut);
+        (other.runtimeType == runtimeType && other is _$SignedOutImpl);
   }
 
   @override
@@ -288,7 +288,7 @@ class _$_SignedOut with DiagnosticableTreeMixin implements _SignedOut {
 }
 
 abstract class _SignedOut implements AuthEvent {
-  const factory _SignedOut() = _$_SignedOut;
+  const factory _SignedOut() = _$SignedOutImpl;
 }
 
 /// @nodoc
@@ -366,24 +366,25 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_Loading>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Loading with DiagnosticableTreeMixin implements _Loading {
-  const _$_Loading();
+class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
+  const _$LoadingImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -399,7 +400,7 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loading);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -484,31 +485,33 @@ class _$_Loading with DiagnosticableTreeMixin implements _Loading {
 }
 
 abstract class _Loading implements AuthState {
-  const factory _Loading() = _$_Loading;
+  const factory _Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$_AuthStateAuthenticatedCopyWith<$Res> {
-  factory _$$_AuthStateAuthenticatedCopyWith(_$_AuthStateAuthenticated value,
-          $Res Function(_$_AuthStateAuthenticated) then) =
-      __$$_AuthStateAuthenticatedCopyWithImpl<$Res>;
+abstract class _$$AuthStateAuthenticatedImplCopyWith<$Res> {
+  factory _$$AuthStateAuthenticatedImplCopyWith(
+          _$AuthStateAuthenticatedImpl value,
+          $Res Function(_$AuthStateAuthenticatedImpl) then) =
+      __$$AuthStateAuthenticatedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_AuthStateAuthenticatedCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_AuthStateAuthenticated>
-    implements _$$_AuthStateAuthenticatedCopyWith<$Res> {
-  __$$_AuthStateAuthenticatedCopyWithImpl(_$_AuthStateAuthenticated _value,
-      $Res Function(_$_AuthStateAuthenticated) _then)
+class __$$AuthStateAuthenticatedImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateAuthenticatedImpl>
+    implements _$$AuthStateAuthenticatedImplCopyWith<$Res> {
+  __$$AuthStateAuthenticatedImplCopyWithImpl(
+      _$AuthStateAuthenticatedImpl _value,
+      $Res Function(_$AuthStateAuthenticatedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_AuthStateAuthenticated
+class _$AuthStateAuthenticatedImpl
     with DiagnosticableTreeMixin
     implements _AuthStateAuthenticated {
-  const _$_AuthStateAuthenticated();
+  const _$AuthStateAuthenticatedImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -526,7 +529,7 @@ class _$_AuthStateAuthenticated
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AuthStateAuthenticated);
+            other is _$AuthStateAuthenticatedImpl);
   }
 
   @override
@@ -611,29 +614,31 @@ class _$_AuthStateAuthenticated
 }
 
 abstract class _AuthStateAuthenticated implements AuthState {
-  const factory _AuthStateAuthenticated() = _$_AuthStateAuthenticated;
+  const factory _AuthStateAuthenticated() = _$AuthStateAuthenticatedImpl;
 }
 
 /// @nodoc
-abstract class _$$_NeedAppUpdateCopyWith<$Res> {
-  factory _$$_NeedAppUpdateCopyWith(
-          _$_NeedAppUpdate value, $Res Function(_$_NeedAppUpdate) then) =
-      __$$_NeedAppUpdateCopyWithImpl<$Res>;
+abstract class _$$NeedAppUpdateImplCopyWith<$Res> {
+  factory _$$NeedAppUpdateImplCopyWith(
+          _$NeedAppUpdateImpl value, $Res Function(_$NeedAppUpdateImpl) then) =
+      __$$NeedAppUpdateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_NeedAppUpdateCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_NeedAppUpdate>
-    implements _$$_NeedAppUpdateCopyWith<$Res> {
-  __$$_NeedAppUpdateCopyWithImpl(
-      _$_NeedAppUpdate _value, $Res Function(_$_NeedAppUpdate) _then)
+class __$$NeedAppUpdateImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$NeedAppUpdateImpl>
+    implements _$$NeedAppUpdateImplCopyWith<$Res> {
+  __$$NeedAppUpdateImplCopyWithImpl(
+      _$NeedAppUpdateImpl _value, $Res Function(_$NeedAppUpdateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_NeedAppUpdate with DiagnosticableTreeMixin implements _NeedAppUpdate {
-  const _$_NeedAppUpdate();
+class _$NeedAppUpdateImpl
+    with DiagnosticableTreeMixin
+    implements _NeedAppUpdate {
+  const _$NeedAppUpdateImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -649,7 +654,7 @@ class _$_NeedAppUpdate with DiagnosticableTreeMixin implements _NeedAppUpdate {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_NeedAppUpdate);
+        (other.runtimeType == runtimeType && other is _$NeedAppUpdateImpl);
   }
 
   @override
@@ -734,32 +739,33 @@ class _$_NeedAppUpdate with DiagnosticableTreeMixin implements _NeedAppUpdate {
 }
 
 abstract class _NeedAppUpdate implements AuthState {
-  const factory _NeedAppUpdate() = _$_NeedAppUpdate;
+  const factory _NeedAppUpdate() = _$NeedAppUpdateImpl;
 }
 
 /// @nodoc
-abstract class _$$_AuthStateUnAuthenticatedCopyWith<$Res> {
-  factory _$$_AuthStateUnAuthenticatedCopyWith(
-          _$_AuthStateUnAuthenticated value,
-          $Res Function(_$_AuthStateUnAuthenticated) then) =
-      __$$_AuthStateUnAuthenticatedCopyWithImpl<$Res>;
+abstract class _$$AuthStateUnAuthenticatedImplCopyWith<$Res> {
+  factory _$$AuthStateUnAuthenticatedImplCopyWith(
+          _$AuthStateUnAuthenticatedImpl value,
+          $Res Function(_$AuthStateUnAuthenticatedImpl) then) =
+      __$$AuthStateUnAuthenticatedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_AuthStateUnAuthenticatedCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$_AuthStateUnAuthenticated>
-    implements _$$_AuthStateUnAuthenticatedCopyWith<$Res> {
-  __$$_AuthStateUnAuthenticatedCopyWithImpl(_$_AuthStateUnAuthenticated _value,
-      $Res Function(_$_AuthStateUnAuthenticated) _then)
+class __$$AuthStateUnAuthenticatedImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateUnAuthenticatedImpl>
+    implements _$$AuthStateUnAuthenticatedImplCopyWith<$Res> {
+  __$$AuthStateUnAuthenticatedImplCopyWithImpl(
+      _$AuthStateUnAuthenticatedImpl _value,
+      $Res Function(_$AuthStateUnAuthenticatedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_AuthStateUnAuthenticated
+class _$AuthStateUnAuthenticatedImpl
     with DiagnosticableTreeMixin
     implements _AuthStateUnAuthenticated {
-  const _$_AuthStateUnAuthenticated();
+  const _$AuthStateUnAuthenticatedImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -777,7 +783,7 @@ class _$_AuthStateUnAuthenticated
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AuthStateUnAuthenticated);
+            other is _$AuthStateUnAuthenticatedImpl);
   }
 
   @override
@@ -862,5 +868,5 @@ class _$_AuthStateUnAuthenticated
 }
 
 abstract class _AuthStateUnAuthenticated implements AuthState {
-  const factory _AuthStateUnAuthenticated() = _$_AuthStateUnAuthenticated;
+  const factory _AuthStateUnAuthenticated() = _$AuthStateUnAuthenticatedImpl;
 }

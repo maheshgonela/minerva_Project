@@ -27,7 +27,7 @@ class _GrnProductCardState extends State<GrnProductCard>
     super.build(context);
 
     final selectedReceivedQty =
-    double.parse(widget.product.selectedReceivedQty);
+        double.parse(widget.product.selectedReceivedQty);
     final orderedQty = double.parse(widget.product.pendingQty);
     final isReceivedFull2 = selectedReceivedQty == orderedQty;
     final isReceivedPartial =
@@ -65,9 +65,9 @@ class _GrnProductCardState extends State<GrnProductCard>
       },
       child: Card(
         elevation: _elevation,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(0.0),
-          side: const BorderSide(width: 1.5),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          side: BorderSide(width: 1.5),
         ),
         color: _cardBackgroundColor,
         child: Column(
@@ -162,9 +162,9 @@ class _GrnProductCardState extends State<GrnProductCard>
     context.read<CreateGrnCubit>().onProductStateChanged(_grnItemUiModel);
 
     context.read<CreateGrnCubit>().saveDispatchQty(
-      widget.product.id,
-      _grnItemUiModel.receivedQty,
-    );
+          widget.product.id,
+          _grnItemUiModel.receivedQty,
+        );
   }
 
   @override

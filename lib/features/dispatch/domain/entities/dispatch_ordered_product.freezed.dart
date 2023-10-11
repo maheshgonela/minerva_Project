@@ -136,11 +136,12 @@ class _$DispatchOrderedProductCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DispatchOrderedProductCopyWith<$Res>
+abstract class _$$DispatchOrderedProductImplCopyWith<$Res>
     implements $DispatchOrderedProductCopyWith<$Res> {
-  factory _$$_DispatchOrderedProductCopyWith(_$_DispatchOrderedProduct value,
-          $Res Function(_$_DispatchOrderedProduct) then) =
-      __$$_DispatchOrderedProductCopyWithImpl<$Res>;
+  factory _$$DispatchOrderedProductImplCopyWith(
+          _$DispatchOrderedProductImpl value,
+          $Res Function(_$DispatchOrderedProductImpl) then) =
+      __$$DispatchOrderedProductImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -159,12 +160,13 @@ abstract class _$$_DispatchOrderedProductCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DispatchOrderedProductCopyWithImpl<$Res>
+class __$$DispatchOrderedProductImplCopyWithImpl<$Res>
     extends _$DispatchOrderedProductCopyWithImpl<$Res,
-        _$_DispatchOrderedProduct>
-    implements _$$_DispatchOrderedProductCopyWith<$Res> {
-  __$$_DispatchOrderedProductCopyWithImpl(_$_DispatchOrderedProduct _value,
-      $Res Function(_$_DispatchOrderedProduct) _then)
+        _$DispatchOrderedProductImpl>
+    implements _$$DispatchOrderedProductImplCopyWith<$Res> {
+  __$$DispatchOrderedProductImplCopyWithImpl(
+      _$DispatchOrderedProductImpl _value,
+      $Res Function(_$DispatchOrderedProductImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -183,7 +185,7 @@ class __$$_DispatchOrderedProductCopyWithImpl<$Res>
     Object? pendingQty = null,
     Object? dispatchQty = null,
   }) {
-    return _then(_$_DispatchOrderedProduct(
+    return _then(_$DispatchOrderedProductImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -238,8 +240,8 @@ class __$$_DispatchOrderedProductCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DispatchOrderedProduct implements _DispatchOrderedProduct {
-  const _$_DispatchOrderedProduct(
+class _$DispatchOrderedProductImpl implements _DispatchOrderedProduct {
+  const _$DispatchOrderedProductImpl(
       {required this.id,
       required this.organization,
       required this.product,
@@ -287,7 +289,7 @@ class _$_DispatchOrderedProduct implements _DispatchOrderedProduct {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DispatchOrderedProduct &&
+            other is _$DispatchOrderedProductImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.organization, organization) ||
                 other.organization == organization) &&
@@ -329,9 +331,9 @@ class _$_DispatchOrderedProduct implements _DispatchOrderedProduct {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DispatchOrderedProductCopyWith<_$_DispatchOrderedProduct> get copyWith =>
-      __$$_DispatchOrderedProductCopyWithImpl<_$_DispatchOrderedProduct>(
-          this, _$identity);
+  _$$DispatchOrderedProductImplCopyWith<_$DispatchOrderedProductImpl>
+      get copyWith => __$$DispatchOrderedProductImplCopyWithImpl<
+          _$DispatchOrderedProductImpl>(this, _$identity);
 }
 
 abstract class _DispatchOrderedProduct implements DispatchOrderedProduct {
@@ -347,7 +349,7 @@ abstract class _DispatchOrderedProduct implements DispatchOrderedProduct {
       required final String uOMName,
       required final String orderedQuantity,
       required final String pendingQty,
-      required final String dispatchQty}) = _$_DispatchOrderedProduct;
+      required final String dispatchQty}) = _$DispatchOrderedProductImpl;
 
   @override
   String get id;
@@ -375,6 +377,6 @@ abstract class _DispatchOrderedProduct implements DispatchOrderedProduct {
   String get dispatchQty;
   @override
   @JsonKey(ignore: true)
-  _$$_DispatchOrderedProductCopyWith<_$_DispatchOrderedProduct> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$DispatchOrderedProductImplCopyWith<_$DispatchOrderedProductImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

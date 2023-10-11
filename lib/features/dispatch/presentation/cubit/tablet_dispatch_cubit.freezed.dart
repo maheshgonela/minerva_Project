@@ -71,11 +71,11 @@ class _$TabletDispatchStateCopyWithImpl<$Res, $Val extends TabletDispatchState>
 }
 
 /// @nodoc
-abstract class _$$_TabletDispatchStateCopyWith<$Res>
+abstract class _$$TabletDispatchStateImplCopyWith<$Res>
     implements $TabletDispatchStateCopyWith<$Res> {
-  factory _$$_TabletDispatchStateCopyWith(_$_TabletDispatchState value,
-          $Res Function(_$_TabletDispatchState) then) =
-      __$$_TabletDispatchStateCopyWithImpl<$Res>;
+  factory _$$TabletDispatchStateImplCopyWith(_$TabletDispatchStateImpl value,
+          $Res Function(_$TabletDispatchStateImpl) then) =
+      __$$TabletDispatchStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Shop? shop});
@@ -85,11 +85,11 @@ abstract class _$$_TabletDispatchStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TabletDispatchStateCopyWithImpl<$Res>
-    extends _$TabletDispatchStateCopyWithImpl<$Res, _$_TabletDispatchState>
-    implements _$$_TabletDispatchStateCopyWith<$Res> {
-  __$$_TabletDispatchStateCopyWithImpl(_$_TabletDispatchState _value,
-      $Res Function(_$_TabletDispatchState) _then)
+class __$$TabletDispatchStateImplCopyWithImpl<$Res>
+    extends _$TabletDispatchStateCopyWithImpl<$Res, _$TabletDispatchStateImpl>
+    implements _$$TabletDispatchStateImplCopyWith<$Res> {
+  __$$TabletDispatchStateImplCopyWithImpl(_$TabletDispatchStateImpl _value,
+      $Res Function(_$TabletDispatchStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +97,7 @@ class __$$_TabletDispatchStateCopyWithImpl<$Res>
   $Res call({
     Object? shop = freezed,
   }) {
-    return _then(_$_TabletDispatchState(
+    return _then(_$TabletDispatchStateImpl(
       shop: freezed == shop
           ? _value.shop
           : shop // ignore: cast_nullable_to_non_nullable
@@ -108,8 +108,8 @@ class __$$_TabletDispatchStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TabletDispatchState implements _TabletDispatchState {
-  const _$_TabletDispatchState({this.shop});
+class _$TabletDispatchStateImpl implements _TabletDispatchState {
+  const _$TabletDispatchStateImpl({this.shop});
 
   @override
   final Shop? shop;
@@ -123,7 +123,7 @@ class _$_TabletDispatchState implements _TabletDispatchState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TabletDispatchState &&
+            other is _$TabletDispatchStateImpl &&
             (identical(other.shop, shop) || other.shop == shop));
   }
 
@@ -133,19 +133,19 @@ class _$_TabletDispatchState implements _TabletDispatchState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TabletDispatchStateCopyWith<_$_TabletDispatchState> get copyWith =>
-      __$$_TabletDispatchStateCopyWithImpl<_$_TabletDispatchState>(
+  _$$TabletDispatchStateImplCopyWith<_$TabletDispatchStateImpl> get copyWith =>
+      __$$TabletDispatchStateImplCopyWithImpl<_$TabletDispatchStateImpl>(
           this, _$identity);
 }
 
 abstract class _TabletDispatchState implements TabletDispatchState {
   const factory _TabletDispatchState({final Shop? shop}) =
-      _$_TabletDispatchState;
+      _$TabletDispatchStateImpl;
 
   @override
   Shop? get shop;
   @override
   @JsonKey(ignore: true)
-  _$$_TabletDispatchStateCopyWith<_$_TabletDispatchState> get copyWith =>
+  _$$TabletDispatchStateImplCopyWith<_$TabletDispatchStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

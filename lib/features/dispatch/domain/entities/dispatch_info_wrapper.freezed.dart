@@ -107,11 +107,11 @@ class _$DispatchInfoWrapperCopyWithImpl<$Res, $Val extends DispatchInfoWrapper>
 }
 
 /// @nodoc
-abstract class _$$_DispatchInfoWrapperCopyWith<$Res>
+abstract class _$$DispatchInfoWrapperImplCopyWith<$Res>
     implements $DispatchInfoWrapperCopyWith<$Res> {
-  factory _$$_DispatchInfoWrapperCopyWith(_$_DispatchInfoWrapper value,
-          $Res Function(_$_DispatchInfoWrapper) then) =
-      __$$_DispatchInfoWrapperCopyWithImpl<$Res>;
+  factory _$$DispatchInfoWrapperImplCopyWith(_$DispatchInfoWrapperImpl value,
+          $Res Function(_$DispatchInfoWrapperImpl) then) =
+      __$$DispatchInfoWrapperImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -128,11 +128,11 @@ abstract class _$$_DispatchInfoWrapperCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DispatchInfoWrapperCopyWithImpl<$Res>
-    extends _$DispatchInfoWrapperCopyWithImpl<$Res, _$_DispatchInfoWrapper>
-    implements _$$_DispatchInfoWrapperCopyWith<$Res> {
-  __$$_DispatchInfoWrapperCopyWithImpl(_$_DispatchInfoWrapper _value,
-      $Res Function(_$_DispatchInfoWrapper) _then)
+class __$$DispatchInfoWrapperImplCopyWithImpl<$Res>
+    extends _$DispatchInfoWrapperCopyWithImpl<$Res, _$DispatchInfoWrapperImpl>
+    implements _$$DispatchInfoWrapperImplCopyWith<$Res> {
+  __$$DispatchInfoWrapperImplCopyWithImpl(_$DispatchInfoWrapperImpl _value,
+      $Res Function(_$DispatchInfoWrapperImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -144,7 +144,7 @@ class __$$_DispatchInfoWrapperCopyWithImpl<$Res>
     Object? allProducts = null,
     Object? totalQty = null,
   }) {
-    return _then(_$_DispatchInfoWrapper(
+    return _then(_$DispatchInfoWrapperImpl(
       order: null == order
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
@@ -171,8 +171,8 @@ class __$$_DispatchInfoWrapperCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DispatchInfoWrapper implements _DispatchInfoWrapper {
-  const _$_DispatchInfoWrapper(
+class _$DispatchInfoWrapperImpl implements _DispatchInfoWrapper {
+  const _$DispatchInfoWrapperImpl(
       {required this.order,
       required this.shop,
       required final List<DispatchItemUiModel> dispatchItems,
@@ -213,7 +213,7 @@ class _$_DispatchInfoWrapper implements _DispatchInfoWrapper {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DispatchInfoWrapper &&
+            other is _$DispatchInfoWrapperImpl &&
             (identical(other.order, order) || other.order == order) &&
             (identical(other.shop, shop) || other.shop == shop) &&
             const DeepCollectionEquality()
@@ -236,8 +236,8 @@ class _$_DispatchInfoWrapper implements _DispatchInfoWrapper {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DispatchInfoWrapperCopyWith<_$_DispatchInfoWrapper> get copyWith =>
-      __$$_DispatchInfoWrapperCopyWithImpl<_$_DispatchInfoWrapper>(
+  _$$DispatchInfoWrapperImplCopyWith<_$DispatchInfoWrapperImpl> get copyWith =>
+      __$$DispatchInfoWrapperImplCopyWithImpl<_$DispatchInfoWrapperImpl>(
           this, _$identity);
 }
 
@@ -247,7 +247,7 @@ abstract class _DispatchInfoWrapper implements DispatchInfoWrapper {
       required final Shop shop,
       required final List<DispatchItemUiModel> dispatchItems,
       required final List<DispatchOrderedProduct> allProducts,
-      required final double totalQty}) = _$_DispatchInfoWrapper;
+      required final double totalQty}) = _$DispatchInfoWrapperImpl;
 
   @override
   SalesOrder get order;
@@ -261,6 +261,6 @@ abstract class _DispatchInfoWrapper implements DispatchInfoWrapper {
   double get totalQty;
   @override
   @JsonKey(ignore: true)
-  _$$_DispatchInfoWrapperCopyWith<_$_DispatchInfoWrapper> get copyWith =>
+  _$$DispatchInfoWrapperImplCopyWith<_$DispatchInfoWrapperImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

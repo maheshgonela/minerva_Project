@@ -6,8 +6,9 @@ part of 'ordered_product_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_OrderedProductDto _$$_OrderedProductDtoFromJson(Map<String, dynamic> json) =>
-    _$_OrderedProductDto(
+_$OrderedProductDtoImpl _$$OrderedProductDtoImplFromJson(
+        Map<String, dynamic> json) =>
+    _$OrderedProductDtoImpl(
       id: json['id'] as String,
       organization: json['organization'] as String,
       product: json['product'] as String,
@@ -22,8 +23,8 @@ _$_OrderedProductDto _$$_OrderedProductDtoFromJson(Map<String, dynamic> json) =>
       selectedReceivedQty: json['dispatch_qty'] as String,
     );
 
-Map<String, dynamic> _$$_OrderedProductDtoToJson(
-        _$_OrderedProductDto instance) =>
+Map<String, dynamic> _$$OrderedProductDtoImplToJson(
+        _$OrderedProductDtoImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'organization': instance.organization,

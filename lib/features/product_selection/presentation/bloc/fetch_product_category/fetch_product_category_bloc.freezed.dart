@@ -101,25 +101,25 @@ class _$FetchProductCategoryEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_FetchInitialProductCategoryCopyWith<$Res>
+abstract class _$$FetchInitialProductCategoryImplCopyWith<$Res>
     implements $FetchProductCategoryEventCopyWith<$Res> {
-  factory _$$_FetchInitialProductCategoryCopyWith(
-          _$_FetchInitialProductCategory value,
-          $Res Function(_$_FetchInitialProductCategory) then) =
-      __$$_FetchInitialProductCategoryCopyWithImpl<$Res>;
+  factory _$$FetchInitialProductCategoryImplCopyWith(
+          _$FetchInitialProductCategoryImpl value,
+          $Res Function(_$FetchInitialProductCategoryImpl) then) =
+      __$$FetchInitialProductCategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class __$$_FetchInitialProductCategoryCopyWithImpl<$Res>
+class __$$FetchInitialProductCategoryImplCopyWithImpl<$Res>
     extends _$FetchProductCategoryEventCopyWithImpl<$Res,
-        _$_FetchInitialProductCategory>
-    implements _$$_FetchInitialProductCategoryCopyWith<$Res> {
-  __$$_FetchInitialProductCategoryCopyWithImpl(
-      _$_FetchInitialProductCategory _value,
-      $Res Function(_$_FetchInitialProductCategory) _then)
+        _$FetchInitialProductCategoryImpl>
+    implements _$$FetchInitialProductCategoryImplCopyWith<$Res> {
+  __$$FetchInitialProductCategoryImplCopyWithImpl(
+      _$FetchInitialProductCategoryImpl _value,
+      $Res Function(_$FetchInitialProductCategoryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -127,7 +127,7 @@ class __$$_FetchInitialProductCategoryCopyWithImpl<$Res>
   $Res call({
     Object? query = freezed,
   }) {
-    return _then(_$_FetchInitialProductCategory(
+    return _then(_$FetchInitialProductCategoryImpl(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -138,8 +138,9 @@ class __$$_FetchInitialProductCategoryCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchInitialProductCategory implements _FetchInitialProductCategory {
-  const _$_FetchInitialProductCategory({this.query});
+class _$FetchInitialProductCategoryImpl
+    implements _FetchInitialProductCategory {
+  const _$FetchInitialProductCategoryImpl({this.query});
 
   @override
   final String? query;
@@ -153,7 +154,7 @@ class _$_FetchInitialProductCategory implements _FetchInitialProductCategory {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchInitialProductCategory &&
+            other is _$FetchInitialProductCategoryImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -163,9 +164,9 @@ class _$_FetchInitialProductCategory implements _FetchInitialProductCategory {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchInitialProductCategoryCopyWith<_$_FetchInitialProductCategory>
-      get copyWith => __$$_FetchInitialProductCategoryCopyWithImpl<
-          _$_FetchInitialProductCategory>(this, _$identity);
+  _$$FetchInitialProductCategoryImplCopyWith<_$FetchInitialProductCategoryImpl>
+      get copyWith => __$$FetchInitialProductCategoryImplCopyWithImpl<
+          _$FetchInitialProductCategoryImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -238,35 +239,36 @@ class _$_FetchInitialProductCategory implements _FetchInitialProductCategory {
 abstract class _FetchInitialProductCategory
     implements FetchProductCategoryEvent {
   const factory _FetchInitialProductCategory({final String? query}) =
-      _$_FetchInitialProductCategory;
+      _$FetchInitialProductCategoryImpl;
 
   @override
   String? get query;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchInitialProductCategoryCopyWith<_$_FetchInitialProductCategory>
+  _$$FetchInitialProductCategoryImplCopyWith<_$FetchInitialProductCategoryImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchMoreProductCategoryCopyWith<$Res>
+abstract class _$$FetchMoreProductCategoryImplCopyWith<$Res>
     implements $FetchProductCategoryEventCopyWith<$Res> {
-  factory _$$_FetchMoreProductCategoryCopyWith(
-          _$_FetchMoreProductCategory value,
-          $Res Function(_$_FetchMoreProductCategory) then) =
-      __$$_FetchMoreProductCategoryCopyWithImpl<$Res>;
+  factory _$$FetchMoreProductCategoryImplCopyWith(
+          _$FetchMoreProductCategoryImpl value,
+          $Res Function(_$FetchMoreProductCategoryImpl) then) =
+      __$$FetchMoreProductCategoryImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class __$$_FetchMoreProductCategoryCopyWithImpl<$Res>
+class __$$FetchMoreProductCategoryImplCopyWithImpl<$Res>
     extends _$FetchProductCategoryEventCopyWithImpl<$Res,
-        _$_FetchMoreProductCategory>
-    implements _$$_FetchMoreProductCategoryCopyWith<$Res> {
-  __$$_FetchMoreProductCategoryCopyWithImpl(_$_FetchMoreProductCategory _value,
-      $Res Function(_$_FetchMoreProductCategory) _then)
+        _$FetchMoreProductCategoryImpl>
+    implements _$$FetchMoreProductCategoryImplCopyWith<$Res> {
+  __$$FetchMoreProductCategoryImplCopyWithImpl(
+      _$FetchMoreProductCategoryImpl _value,
+      $Res Function(_$FetchMoreProductCategoryImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -274,7 +276,7 @@ class __$$_FetchMoreProductCategoryCopyWithImpl<$Res>
   $Res call({
     Object? query = freezed,
   }) {
-    return _then(_$_FetchMoreProductCategory(
+    return _then(_$FetchMoreProductCategoryImpl(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -285,8 +287,8 @@ class __$$_FetchMoreProductCategoryCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchMoreProductCategory implements _FetchMoreProductCategory {
-  const _$_FetchMoreProductCategory({this.query});
+class _$FetchMoreProductCategoryImpl implements _FetchMoreProductCategory {
+  const _$FetchMoreProductCategoryImpl({this.query});
 
   @override
   final String? query;
@@ -300,7 +302,7 @@ class _$_FetchMoreProductCategory implements _FetchMoreProductCategory {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchMoreProductCategory &&
+            other is _$FetchMoreProductCategoryImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -310,9 +312,9 @@ class _$_FetchMoreProductCategory implements _FetchMoreProductCategory {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchMoreProductCategoryCopyWith<_$_FetchMoreProductCategory>
-      get copyWith => __$$_FetchMoreProductCategoryCopyWithImpl<
-          _$_FetchMoreProductCategory>(this, _$identity);
+  _$$FetchMoreProductCategoryImplCopyWith<_$FetchMoreProductCategoryImpl>
+      get copyWith => __$$FetchMoreProductCategoryImplCopyWithImpl<
+          _$FetchMoreProductCategoryImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -384,13 +386,13 @@ class _$_FetchMoreProductCategory implements _FetchMoreProductCategory {
 
 abstract class _FetchMoreProductCategory implements FetchProductCategoryEvent {
   const factory _FetchMoreProductCategory({final String? query}) =
-      _$_FetchMoreProductCategory;
+      _$FetchMoreProductCategoryImpl;
 
   @override
   String? get query;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchMoreProductCategoryCopyWith<_$_FetchMoreProductCategory>
+  _$$FetchMoreProductCategoryImplCopyWith<_$FetchMoreProductCategoryImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -472,28 +474,29 @@ class _$FetchProductCategoryStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_FetchProductCategoryInitialCopyWith<$Res> {
-  factory _$$_FetchProductCategoryInitialCopyWith(
-          _$_FetchProductCategoryInitial value,
-          $Res Function(_$_FetchProductCategoryInitial) then) =
-      __$$_FetchProductCategoryInitialCopyWithImpl<$Res>;
+abstract class _$$FetchProductCategoryInitialImplCopyWith<$Res> {
+  factory _$$FetchProductCategoryInitialImplCopyWith(
+          _$FetchProductCategoryInitialImpl value,
+          $Res Function(_$FetchProductCategoryInitialImpl) then) =
+      __$$FetchProductCategoryInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchProductCategoryInitialCopyWithImpl<$Res>
+class __$$FetchProductCategoryInitialImplCopyWithImpl<$Res>
     extends _$FetchProductCategoryStateCopyWithImpl<$Res,
-        _$_FetchProductCategoryInitial>
-    implements _$$_FetchProductCategoryInitialCopyWith<$Res> {
-  __$$_FetchProductCategoryInitialCopyWithImpl(
-      _$_FetchProductCategoryInitial _value,
-      $Res Function(_$_FetchProductCategoryInitial) _then)
+        _$FetchProductCategoryInitialImpl>
+    implements _$$FetchProductCategoryInitialImplCopyWith<$Res> {
+  __$$FetchProductCategoryInitialImplCopyWithImpl(
+      _$FetchProductCategoryInitialImpl _value,
+      $Res Function(_$FetchProductCategoryInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchProductCategoryInitial implements _FetchProductCategoryInitial {
-  const _$_FetchProductCategoryInitial();
+class _$FetchProductCategoryInitialImpl
+    implements _FetchProductCategoryInitial {
+  const _$FetchProductCategoryInitialImpl();
 
   @override
   String toString() {
@@ -504,7 +507,7 @@ class _$_FetchProductCategoryInitial implements _FetchProductCategoryInitial {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchProductCategoryInitial);
+            other is _$FetchProductCategoryInitialImpl);
   }
 
   @override
@@ -591,32 +594,34 @@ class _$_FetchProductCategoryInitial implements _FetchProductCategoryInitial {
 
 abstract class _FetchProductCategoryInitial
     implements FetchProductCategoryState {
-  const factory _FetchProductCategoryInitial() = _$_FetchProductCategoryInitial;
+  const factory _FetchProductCategoryInitial() =
+      _$FetchProductCategoryInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_FetchProductCategoryLoadingCopyWith<$Res> {
-  factory _$$_FetchProductCategoryLoadingCopyWith(
-          _$_FetchProductCategoryLoading value,
-          $Res Function(_$_FetchProductCategoryLoading) then) =
-      __$$_FetchProductCategoryLoadingCopyWithImpl<$Res>;
+abstract class _$$FetchProductCategoryLoadingImplCopyWith<$Res> {
+  factory _$$FetchProductCategoryLoadingImplCopyWith(
+          _$FetchProductCategoryLoadingImpl value,
+          $Res Function(_$FetchProductCategoryLoadingImpl) then) =
+      __$$FetchProductCategoryLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchProductCategoryLoadingCopyWithImpl<$Res>
+class __$$FetchProductCategoryLoadingImplCopyWithImpl<$Res>
     extends _$FetchProductCategoryStateCopyWithImpl<$Res,
-        _$_FetchProductCategoryLoading>
-    implements _$$_FetchProductCategoryLoadingCopyWith<$Res> {
-  __$$_FetchProductCategoryLoadingCopyWithImpl(
-      _$_FetchProductCategoryLoading _value,
-      $Res Function(_$_FetchProductCategoryLoading) _then)
+        _$FetchProductCategoryLoadingImpl>
+    implements _$$FetchProductCategoryLoadingImplCopyWith<$Res> {
+  __$$FetchProductCategoryLoadingImplCopyWithImpl(
+      _$FetchProductCategoryLoadingImpl _value,
+      $Res Function(_$FetchProductCategoryLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchProductCategoryLoading implements _FetchProductCategoryLoading {
-  const _$_FetchProductCategoryLoading();
+class _$FetchProductCategoryLoadingImpl
+    implements _FetchProductCategoryLoading {
+  const _$FetchProductCategoryLoadingImpl();
 
   @override
   String toString() {
@@ -627,7 +632,7 @@ class _$_FetchProductCategoryLoading implements _FetchProductCategoryLoading {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchProductCategoryLoading);
+            other is _$FetchProductCategoryLoadingImpl);
   }
 
   @override
@@ -714,27 +719,28 @@ class _$_FetchProductCategoryLoading implements _FetchProductCategoryLoading {
 
 abstract class _FetchProductCategoryLoading
     implements FetchProductCategoryState {
-  const factory _FetchProductCategoryLoading() = _$_FetchProductCategoryLoading;
+  const factory _FetchProductCategoryLoading() =
+      _$FetchProductCategoryLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$_FetchProductCategorySuccessCopyWith<$Res> {
-  factory _$$_FetchProductCategorySuccessCopyWith(
-          _$_FetchProductCategorySuccess value,
-          $Res Function(_$_FetchProductCategorySuccess) then) =
-      __$$_FetchProductCategorySuccessCopyWithImpl<$Res>;
+abstract class _$$FetchProductCategorySuccessImplCopyWith<$Res> {
+  factory _$$FetchProductCategorySuccessImplCopyWith(
+          _$FetchProductCategorySuccessImpl value,
+          $Res Function(_$FetchProductCategorySuccessImpl) then) =
+      __$$FetchProductCategorySuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<IdName> records, bool hasReachedMax, String? query});
 }
 
 /// @nodoc
-class __$$_FetchProductCategorySuccessCopyWithImpl<$Res>
+class __$$FetchProductCategorySuccessImplCopyWithImpl<$Res>
     extends _$FetchProductCategoryStateCopyWithImpl<$Res,
-        _$_FetchProductCategorySuccess>
-    implements _$$_FetchProductCategorySuccessCopyWith<$Res> {
-  __$$_FetchProductCategorySuccessCopyWithImpl(
-      _$_FetchProductCategorySuccess _value,
-      $Res Function(_$_FetchProductCategorySuccess) _then)
+        _$FetchProductCategorySuccessImpl>
+    implements _$$FetchProductCategorySuccessImplCopyWith<$Res> {
+  __$$FetchProductCategorySuccessImplCopyWithImpl(
+      _$FetchProductCategorySuccessImpl _value,
+      $Res Function(_$FetchProductCategorySuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -744,7 +750,7 @@ class __$$_FetchProductCategorySuccessCopyWithImpl<$Res>
     Object? hasReachedMax = null,
     Object? query = freezed,
   }) {
-    return _then(_$_FetchProductCategorySuccess(
+    return _then(_$FetchProductCategorySuccessImpl(
       records: null == records
           ? _value._records
           : records // ignore: cast_nullable_to_non_nullable
@@ -763,8 +769,9 @@ class __$$_FetchProductCategorySuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchProductCategorySuccess implements _FetchProductCategorySuccess {
-  const _$_FetchProductCategorySuccess(
+class _$FetchProductCategorySuccessImpl
+    implements _FetchProductCategorySuccess {
+  const _$FetchProductCategorySuccessImpl(
       {required final List<IdName> records,
       required this.hasReachedMax,
       this.query})
@@ -792,7 +799,7 @@ class _$_FetchProductCategorySuccess implements _FetchProductCategorySuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchProductCategorySuccess &&
+            other is _$FetchProductCategorySuccessImpl &&
             const DeepCollectionEquality().equals(other._records, _records) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
@@ -806,9 +813,9 @@ class _$_FetchProductCategorySuccess implements _FetchProductCategorySuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchProductCategorySuccessCopyWith<_$_FetchProductCategorySuccess>
-      get copyWith => __$$_FetchProductCategorySuccessCopyWithImpl<
-          _$_FetchProductCategorySuccess>(this, _$identity);
+  _$$FetchProductCategorySuccessImplCopyWith<_$FetchProductCategorySuccessImpl>
+      get copyWith => __$$FetchProductCategorySuccessImplCopyWithImpl<
+          _$FetchProductCategorySuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -894,22 +901,22 @@ abstract class _FetchProductCategorySuccess
   const factory _FetchProductCategorySuccess(
       {required final List<IdName> records,
       required final bool hasReachedMax,
-      final String? query}) = _$_FetchProductCategorySuccess;
+      final String? query}) = _$FetchProductCategorySuccessImpl;
 
   List<IdName> get records;
   bool get hasReachedMax;
   String? get query;
   @JsonKey(ignore: true)
-  _$$_FetchProductCategorySuccessCopyWith<_$_FetchProductCategorySuccess>
+  _$$FetchProductCategorySuccessImplCopyWith<_$FetchProductCategorySuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchProductCategoryFailureCopyWith<$Res> {
-  factory _$$_FetchProductCategoryFailureCopyWith(
-          _$_FetchProductCategoryFailure value,
-          $Res Function(_$_FetchProductCategoryFailure) then) =
-      __$$_FetchProductCategoryFailureCopyWithImpl<$Res>;
+abstract class _$$FetchProductCategoryFailureImplCopyWith<$Res> {
+  factory _$$FetchProductCategoryFailureImplCopyWith(
+          _$FetchProductCategoryFailureImpl value,
+          $Res Function(_$FetchProductCategoryFailureImpl) then) =
+      __$$FetchProductCategoryFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Failure failure});
 
@@ -917,13 +924,13 @@ abstract class _$$_FetchProductCategoryFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FetchProductCategoryFailureCopyWithImpl<$Res>
+class __$$FetchProductCategoryFailureImplCopyWithImpl<$Res>
     extends _$FetchProductCategoryStateCopyWithImpl<$Res,
-        _$_FetchProductCategoryFailure>
-    implements _$$_FetchProductCategoryFailureCopyWith<$Res> {
-  __$$_FetchProductCategoryFailureCopyWithImpl(
-      _$_FetchProductCategoryFailure _value,
-      $Res Function(_$_FetchProductCategoryFailure) _then)
+        _$FetchProductCategoryFailureImpl>
+    implements _$$FetchProductCategoryFailureImplCopyWith<$Res> {
+  __$$FetchProductCategoryFailureImplCopyWithImpl(
+      _$FetchProductCategoryFailureImpl _value,
+      $Res Function(_$FetchProductCategoryFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -931,7 +938,7 @@ class __$$_FetchProductCategoryFailureCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$_FetchProductCategoryFailure(
+    return _then(_$FetchProductCategoryFailureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -950,8 +957,9 @@ class __$$_FetchProductCategoryFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchProductCategoryFailure implements _FetchProductCategoryFailure {
-  const _$_FetchProductCategoryFailure(this.failure);
+class _$FetchProductCategoryFailureImpl
+    implements _FetchProductCategoryFailure {
+  const _$FetchProductCategoryFailureImpl(this.failure);
 
   @override
   final Failure failure;
@@ -965,7 +973,7 @@ class _$_FetchProductCategoryFailure implements _FetchProductCategoryFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchProductCategoryFailure &&
+            other is _$FetchProductCategoryFailureImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -975,9 +983,9 @@ class _$_FetchProductCategoryFailure implements _FetchProductCategoryFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchProductCategoryFailureCopyWith<_$_FetchProductCategoryFailure>
-      get copyWith => __$$_FetchProductCategoryFailureCopyWithImpl<
-          _$_FetchProductCategoryFailure>(this, _$identity);
+  _$$FetchProductCategoryFailureImplCopyWith<_$FetchProductCategoryFailureImpl>
+      get copyWith => __$$FetchProductCategoryFailureImplCopyWithImpl<
+          _$FetchProductCategoryFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1061,10 +1069,10 @@ class _$_FetchProductCategoryFailure implements _FetchProductCategoryFailure {
 abstract class _FetchProductCategoryFailure
     implements FetchProductCategoryState {
   const factory _FetchProductCategoryFailure(final Failure failure) =
-      _$_FetchProductCategoryFailure;
+      _$FetchProductCategoryFailureImpl;
 
   Failure get failure;
   @JsonKey(ignore: true)
-  _$$_FetchProductCategoryFailureCopyWith<_$_FetchProductCategoryFailure>
+  _$$FetchProductCategoryFailureImplCopyWith<_$FetchProductCategoryFailureImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

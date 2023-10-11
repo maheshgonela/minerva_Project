@@ -95,22 +95,22 @@ class _$FetchShipmentEventCopyWithImpl<$Res, $Val extends FetchShipmentEvent>
 }
 
 /// @nodoc
-abstract class _$$_FetchInitialShipmentCopyWith<$Res>
+abstract class _$$FetchInitialShipmentImplCopyWith<$Res>
     implements $FetchShipmentEventCopyWith<$Res> {
-  factory _$$_FetchInitialShipmentCopyWith(_$_FetchInitialShipment value,
-          $Res Function(_$_FetchInitialShipment) then) =
-      __$$_FetchInitialShipmentCopyWithImpl<$Res>;
+  factory _$$FetchInitialShipmentImplCopyWith(_$FetchInitialShipmentImpl value,
+          $Res Function(_$FetchInitialShipmentImpl) then) =
+      __$$FetchInitialShipmentImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class __$$_FetchInitialShipmentCopyWithImpl<$Res>
-    extends _$FetchShipmentEventCopyWithImpl<$Res, _$_FetchInitialShipment>
-    implements _$$_FetchInitialShipmentCopyWith<$Res> {
-  __$$_FetchInitialShipmentCopyWithImpl(_$_FetchInitialShipment _value,
-      $Res Function(_$_FetchInitialShipment) _then)
+class __$$FetchInitialShipmentImplCopyWithImpl<$Res>
+    extends _$FetchShipmentEventCopyWithImpl<$Res, _$FetchInitialShipmentImpl>
+    implements _$$FetchInitialShipmentImplCopyWith<$Res> {
+  __$$FetchInitialShipmentImplCopyWithImpl(_$FetchInitialShipmentImpl _value,
+      $Res Function(_$FetchInitialShipmentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$_FetchInitialShipmentCopyWithImpl<$Res>
   $Res call({
     Object? query = freezed,
   }) {
-    return _then(_$_FetchInitialShipment(
+    return _then(_$FetchInitialShipmentImpl(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -129,8 +129,8 @@ class __$$_FetchInitialShipmentCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchInitialShipment implements _FetchInitialShipment {
-  const _$_FetchInitialShipment({this.query});
+class _$FetchInitialShipmentImpl implements _FetchInitialShipment {
+  const _$FetchInitialShipmentImpl({this.query});
 
   @override
   final String? query;
@@ -144,7 +144,7 @@ class _$_FetchInitialShipment implements _FetchInitialShipment {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchInitialShipment &&
+            other is _$FetchInitialShipmentImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -154,9 +154,10 @@ class _$_FetchInitialShipment implements _FetchInitialShipment {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchInitialShipmentCopyWith<_$_FetchInitialShipment> get copyWith =>
-      __$$_FetchInitialShipmentCopyWithImpl<_$_FetchInitialShipment>(
-          this, _$identity);
+  _$$FetchInitialShipmentImplCopyWith<_$FetchInitialShipmentImpl>
+      get copyWith =>
+          __$$FetchInitialShipmentImplCopyWithImpl<_$FetchInitialShipmentImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -223,33 +224,33 @@ class _$_FetchInitialShipment implements _FetchInitialShipment {
 
 abstract class _FetchInitialShipment implements FetchShipmentEvent {
   const factory _FetchInitialShipment({final String? query}) =
-      _$_FetchInitialShipment;
+      _$FetchInitialShipmentImpl;
 
   @override
   String? get query;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchInitialShipmentCopyWith<_$_FetchInitialShipment> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchInitialShipmentImplCopyWith<_$FetchInitialShipmentImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchMoreShipmentCopyWith<$Res>
+abstract class _$$FetchMoreShipmentImplCopyWith<$Res>
     implements $FetchShipmentEventCopyWith<$Res> {
-  factory _$$_FetchMoreShipmentCopyWith(_$_FetchMoreShipment value,
-          $Res Function(_$_FetchMoreShipment) then) =
-      __$$_FetchMoreShipmentCopyWithImpl<$Res>;
+  factory _$$FetchMoreShipmentImplCopyWith(_$FetchMoreShipmentImpl value,
+          $Res Function(_$FetchMoreShipmentImpl) then) =
+      __$$FetchMoreShipmentImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class __$$_FetchMoreShipmentCopyWithImpl<$Res>
-    extends _$FetchShipmentEventCopyWithImpl<$Res, _$_FetchMoreShipment>
-    implements _$$_FetchMoreShipmentCopyWith<$Res> {
-  __$$_FetchMoreShipmentCopyWithImpl(
-      _$_FetchMoreShipment _value, $Res Function(_$_FetchMoreShipment) _then)
+class __$$FetchMoreShipmentImplCopyWithImpl<$Res>
+    extends _$FetchShipmentEventCopyWithImpl<$Res, _$FetchMoreShipmentImpl>
+    implements _$$FetchMoreShipmentImplCopyWith<$Res> {
+  __$$FetchMoreShipmentImplCopyWithImpl(_$FetchMoreShipmentImpl _value,
+      $Res Function(_$FetchMoreShipmentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -257,7 +258,7 @@ class __$$_FetchMoreShipmentCopyWithImpl<$Res>
   $Res call({
     Object? query = freezed,
   }) {
-    return _then(_$_FetchMoreShipment(
+    return _then(_$FetchMoreShipmentImpl(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -268,8 +269,8 @@ class __$$_FetchMoreShipmentCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchMoreShipment implements _FetchMoreShipment {
-  const _$_FetchMoreShipment({this.query});
+class _$FetchMoreShipmentImpl implements _FetchMoreShipment {
+  const _$FetchMoreShipmentImpl({this.query});
 
   @override
   final String? query;
@@ -283,7 +284,7 @@ class _$_FetchMoreShipment implements _FetchMoreShipment {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchMoreShipment &&
+            other is _$FetchMoreShipmentImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -293,8 +294,8 @@ class _$_FetchMoreShipment implements _FetchMoreShipment {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchMoreShipmentCopyWith<_$_FetchMoreShipment> get copyWith =>
-      __$$_FetchMoreShipmentCopyWithImpl<_$_FetchMoreShipment>(
+  _$$FetchMoreShipmentImplCopyWith<_$FetchMoreShipmentImpl> get copyWith =>
+      __$$FetchMoreShipmentImplCopyWithImpl<_$FetchMoreShipmentImpl>(
           this, _$identity);
 
   @override
@@ -362,13 +363,13 @@ class _$_FetchMoreShipment implements _FetchMoreShipment {
 
 abstract class _FetchMoreShipment implements FetchShipmentEvent {
   const factory _FetchMoreShipment({final String? query}) =
-      _$_FetchMoreShipment;
+      _$FetchMoreShipmentImpl;
 
   @override
   String? get query;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchMoreShipmentCopyWith<_$_FetchMoreShipment> get copyWith =>
+  _$$FetchMoreShipmentImplCopyWith<_$FetchMoreShipmentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -450,25 +451,25 @@ class _$FetchShipmentStateCopyWithImpl<$Res, $Val extends FetchShipmentState>
 }
 
 /// @nodoc
-abstract class _$$_FetchShipmentInitialCopyWith<$Res> {
-  factory _$$_FetchShipmentInitialCopyWith(_$_FetchShipmentInitial value,
-          $Res Function(_$_FetchShipmentInitial) then) =
-      __$$_FetchShipmentInitialCopyWithImpl<$Res>;
+abstract class _$$FetchShipmentInitialImplCopyWith<$Res> {
+  factory _$$FetchShipmentInitialImplCopyWith(_$FetchShipmentInitialImpl value,
+          $Res Function(_$FetchShipmentInitialImpl) then) =
+      __$$FetchShipmentInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchShipmentInitialCopyWithImpl<$Res>
-    extends _$FetchShipmentStateCopyWithImpl<$Res, _$_FetchShipmentInitial>
-    implements _$$_FetchShipmentInitialCopyWith<$Res> {
-  __$$_FetchShipmentInitialCopyWithImpl(_$_FetchShipmentInitial _value,
-      $Res Function(_$_FetchShipmentInitial) _then)
+class __$$FetchShipmentInitialImplCopyWithImpl<$Res>
+    extends _$FetchShipmentStateCopyWithImpl<$Res, _$FetchShipmentInitialImpl>
+    implements _$$FetchShipmentInitialImplCopyWith<$Res> {
+  __$$FetchShipmentInitialImplCopyWithImpl(_$FetchShipmentInitialImpl _value,
+      $Res Function(_$FetchShipmentInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchShipmentInitial implements _FetchShipmentInitial {
-  const _$_FetchShipmentInitial();
+class _$FetchShipmentInitialImpl implements _FetchShipmentInitial {
+  const _$FetchShipmentInitialImpl();
 
   @override
   String toString() {
@@ -478,7 +479,8 @@ class _$_FetchShipmentInitial implements _FetchShipmentInitial {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FetchShipmentInitial);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchShipmentInitialImpl);
   }
 
   @override
@@ -565,29 +567,29 @@ class _$_FetchShipmentInitial implements _FetchShipmentInitial {
 }
 
 abstract class _FetchShipmentInitial implements FetchShipmentState {
-  const factory _FetchShipmentInitial() = _$_FetchShipmentInitial;
+  const factory _FetchShipmentInitial() = _$FetchShipmentInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_FetchShipmentLoadingCopyWith<$Res> {
-  factory _$$_FetchShipmentLoadingCopyWith(_$_FetchShipmentLoading value,
-          $Res Function(_$_FetchShipmentLoading) then) =
-      __$$_FetchShipmentLoadingCopyWithImpl<$Res>;
+abstract class _$$FetchShipmentLoadingImplCopyWith<$Res> {
+  factory _$$FetchShipmentLoadingImplCopyWith(_$FetchShipmentLoadingImpl value,
+          $Res Function(_$FetchShipmentLoadingImpl) then) =
+      __$$FetchShipmentLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchShipmentLoadingCopyWithImpl<$Res>
-    extends _$FetchShipmentStateCopyWithImpl<$Res, _$_FetchShipmentLoading>
-    implements _$$_FetchShipmentLoadingCopyWith<$Res> {
-  __$$_FetchShipmentLoadingCopyWithImpl(_$_FetchShipmentLoading _value,
-      $Res Function(_$_FetchShipmentLoading) _then)
+class __$$FetchShipmentLoadingImplCopyWithImpl<$Res>
+    extends _$FetchShipmentStateCopyWithImpl<$Res, _$FetchShipmentLoadingImpl>
+    implements _$$FetchShipmentLoadingImplCopyWith<$Res> {
+  __$$FetchShipmentLoadingImplCopyWithImpl(_$FetchShipmentLoadingImpl _value,
+      $Res Function(_$FetchShipmentLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchShipmentLoading implements _FetchShipmentLoading {
-  const _$_FetchShipmentLoading();
+class _$FetchShipmentLoadingImpl implements _FetchShipmentLoading {
+  const _$FetchShipmentLoadingImpl();
 
   @override
   String toString() {
@@ -597,7 +599,8 @@ class _$_FetchShipmentLoading implements _FetchShipmentLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FetchShipmentLoading);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchShipmentLoadingImpl);
   }
 
   @override
@@ -684,24 +687,24 @@ class _$_FetchShipmentLoading implements _FetchShipmentLoading {
 }
 
 abstract class _FetchShipmentLoading implements FetchShipmentState {
-  const factory _FetchShipmentLoading() = _$_FetchShipmentLoading;
+  const factory _FetchShipmentLoading() = _$FetchShipmentLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$_FetchShipmentSuccessCopyWith<$Res> {
-  factory _$$_FetchShipmentSuccessCopyWith(_$_FetchShipmentSuccess value,
-          $Res Function(_$_FetchShipmentSuccess) then) =
-      __$$_FetchShipmentSuccessCopyWithImpl<$Res>;
+abstract class _$$FetchShipmentSuccessImplCopyWith<$Res> {
+  factory _$$FetchShipmentSuccessImplCopyWith(_$FetchShipmentSuccessImpl value,
+          $Res Function(_$FetchShipmentSuccessImpl) then) =
+      __$$FetchShipmentSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Shipment> records, bool hasReachedMax, String? query});
 }
 
 /// @nodoc
-class __$$_FetchShipmentSuccessCopyWithImpl<$Res>
-    extends _$FetchShipmentStateCopyWithImpl<$Res, _$_FetchShipmentSuccess>
-    implements _$$_FetchShipmentSuccessCopyWith<$Res> {
-  __$$_FetchShipmentSuccessCopyWithImpl(_$_FetchShipmentSuccess _value,
-      $Res Function(_$_FetchShipmentSuccess) _then)
+class __$$FetchShipmentSuccessImplCopyWithImpl<$Res>
+    extends _$FetchShipmentStateCopyWithImpl<$Res, _$FetchShipmentSuccessImpl>
+    implements _$$FetchShipmentSuccessImplCopyWith<$Res> {
+  __$$FetchShipmentSuccessImplCopyWithImpl(_$FetchShipmentSuccessImpl _value,
+      $Res Function(_$FetchShipmentSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -711,7 +714,7 @@ class __$$_FetchShipmentSuccessCopyWithImpl<$Res>
     Object? hasReachedMax = null,
     Object? query = freezed,
   }) {
-    return _then(_$_FetchShipmentSuccess(
+    return _then(_$FetchShipmentSuccessImpl(
       records: null == records
           ? _value._records
           : records // ignore: cast_nullable_to_non_nullable
@@ -730,8 +733,8 @@ class __$$_FetchShipmentSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchShipmentSuccess implements _FetchShipmentSuccess {
-  const _$_FetchShipmentSuccess(
+class _$FetchShipmentSuccessImpl implements _FetchShipmentSuccess {
+  const _$FetchShipmentSuccessImpl(
       {required final List<Shipment> records,
       required this.hasReachedMax,
       this.query})
@@ -759,7 +762,7 @@ class _$_FetchShipmentSuccess implements _FetchShipmentSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchShipmentSuccess &&
+            other is _$FetchShipmentSuccessImpl &&
             const DeepCollectionEquality().equals(other._records, _records) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
@@ -773,9 +776,10 @@ class _$_FetchShipmentSuccess implements _FetchShipmentSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchShipmentSuccessCopyWith<_$_FetchShipmentSuccess> get copyWith =>
-      __$$_FetchShipmentSuccessCopyWithImpl<_$_FetchShipmentSuccess>(
-          this, _$identity);
+  _$$FetchShipmentSuccessImplCopyWith<_$FetchShipmentSuccessImpl>
+      get copyWith =>
+          __$$FetchShipmentSuccessImplCopyWithImpl<_$FetchShipmentSuccessImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -861,21 +865,21 @@ abstract class _FetchShipmentSuccess implements FetchShipmentState {
   const factory _FetchShipmentSuccess(
       {required final List<Shipment> records,
       required final bool hasReachedMax,
-      final String? query}) = _$_FetchShipmentSuccess;
+      final String? query}) = _$FetchShipmentSuccessImpl;
 
   List<Shipment> get records;
   bool get hasReachedMax;
   String? get query;
   @JsonKey(ignore: true)
-  _$$_FetchShipmentSuccessCopyWith<_$_FetchShipmentSuccess> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchShipmentSuccessImplCopyWith<_$FetchShipmentSuccessImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchShipmentFailureCopyWith<$Res> {
-  factory _$$_FetchShipmentFailureCopyWith(_$_FetchShipmentFailure value,
-          $Res Function(_$_FetchShipmentFailure) then) =
-      __$$_FetchShipmentFailureCopyWithImpl<$Res>;
+abstract class _$$FetchShipmentFailureImplCopyWith<$Res> {
+  factory _$$FetchShipmentFailureImplCopyWith(_$FetchShipmentFailureImpl value,
+          $Res Function(_$FetchShipmentFailureImpl) then) =
+      __$$FetchShipmentFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Failure failure});
 
@@ -883,11 +887,11 @@ abstract class _$$_FetchShipmentFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FetchShipmentFailureCopyWithImpl<$Res>
-    extends _$FetchShipmentStateCopyWithImpl<$Res, _$_FetchShipmentFailure>
-    implements _$$_FetchShipmentFailureCopyWith<$Res> {
-  __$$_FetchShipmentFailureCopyWithImpl(_$_FetchShipmentFailure _value,
-      $Res Function(_$_FetchShipmentFailure) _then)
+class __$$FetchShipmentFailureImplCopyWithImpl<$Res>
+    extends _$FetchShipmentStateCopyWithImpl<$Res, _$FetchShipmentFailureImpl>
+    implements _$$FetchShipmentFailureImplCopyWith<$Res> {
+  __$$FetchShipmentFailureImplCopyWithImpl(_$FetchShipmentFailureImpl _value,
+      $Res Function(_$FetchShipmentFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -895,7 +899,7 @@ class __$$_FetchShipmentFailureCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$_FetchShipmentFailure(
+    return _then(_$FetchShipmentFailureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -914,8 +918,8 @@ class __$$_FetchShipmentFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchShipmentFailure implements _FetchShipmentFailure {
-  const _$_FetchShipmentFailure(this.failure);
+class _$FetchShipmentFailureImpl implements _FetchShipmentFailure {
+  const _$FetchShipmentFailureImpl(this.failure);
 
   @override
   final Failure failure;
@@ -929,7 +933,7 @@ class _$_FetchShipmentFailure implements _FetchShipmentFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchShipmentFailure &&
+            other is _$FetchShipmentFailureImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -939,9 +943,10 @@ class _$_FetchShipmentFailure implements _FetchShipmentFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchShipmentFailureCopyWith<_$_FetchShipmentFailure> get copyWith =>
-      __$$_FetchShipmentFailureCopyWithImpl<_$_FetchShipmentFailure>(
-          this, _$identity);
+  _$$FetchShipmentFailureImplCopyWith<_$FetchShipmentFailureImpl>
+      get copyWith =>
+          __$$FetchShipmentFailureImplCopyWithImpl<_$FetchShipmentFailureImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1025,10 +1030,10 @@ class _$_FetchShipmentFailure implements _FetchShipmentFailure {
 
 abstract class _FetchShipmentFailure implements FetchShipmentState {
   const factory _FetchShipmentFailure(final Failure failure) =
-      _$_FetchShipmentFailure;
+      _$FetchShipmentFailureImpl;
 
   Failure get failure;
   @JsonKey(ignore: true)
-  _$$_FetchShipmentFailureCopyWith<_$_FetchShipmentFailure> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchShipmentFailureImplCopyWith<_$FetchShipmentFailureImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

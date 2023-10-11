@@ -115,11 +115,11 @@ class _$CreateDispatchStateCopyWithImpl<$Res, $Val extends CreateDispatchState>
 }
 
 /// @nodoc
-abstract class _$$_CreateDispatchStateCopyWith<$Res>
+abstract class _$$CreateDispatchStateImplCopyWith<$Res>
     implements $CreateDispatchStateCopyWith<$Res> {
-  factory _$$_CreateDispatchStateCopyWith(_$_CreateDispatchState value,
-          $Res Function(_$_CreateDispatchState) then) =
-      __$$_CreateDispatchStateCopyWithImpl<$Res>;
+  factory _$$CreateDispatchStateImplCopyWith(_$CreateDispatchStateImpl value,
+          $Res Function(_$CreateDispatchStateImpl) then) =
+      __$$CreateDispatchStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -135,11 +135,11 @@ abstract class _$$_CreateDispatchStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CreateDispatchStateCopyWithImpl<$Res>
-    extends _$CreateDispatchStateCopyWithImpl<$Res, _$_CreateDispatchState>
-    implements _$$_CreateDispatchStateCopyWith<$Res> {
-  __$$_CreateDispatchStateCopyWithImpl(_$_CreateDispatchState _value,
-      $Res Function(_$_CreateDispatchState) _then)
+class __$$CreateDispatchStateImplCopyWithImpl<$Res>
+    extends _$CreateDispatchStateCopyWithImpl<$Res, _$CreateDispatchStateImpl>
+    implements _$$CreateDispatchStateImplCopyWith<$Res> {
+  __$$CreateDispatchStateImplCopyWithImpl(_$CreateDispatchStateImpl _value,
+      $Res Function(_$CreateDispatchStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -155,7 +155,7 @@ class __$$_CreateDispatchStateCopyWithImpl<$Res>
     Object? vehicleNumber = null,
     Object? shipmentId = null,
   }) {
-    return _then(_$_CreateDispatchState(
+    return _then(_$CreateDispatchStateImpl(
       dispatchOrders: null == dispatchOrders
           ? _value._dispatchOrders
           : dispatchOrders // ignore: cast_nullable_to_non_nullable
@@ -198,8 +198,8 @@ class __$$_CreateDispatchStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CreateDispatchState implements _CreateDispatchState {
-  const _$_CreateDispatchState(
+class _$CreateDispatchStateImpl implements _CreateDispatchState {
+  const _$CreateDispatchStateImpl(
       {required final List<DispatchInfoWrapper> dispatchOrders,
       required this.isLoading,
       required this.isSuccess,
@@ -245,7 +245,7 @@ class _$_CreateDispatchState implements _CreateDispatchState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreateDispatchState &&
+            other is _$CreateDispatchStateImpl &&
             const DeepCollectionEquality()
                 .equals(other._dispatchOrders, _dispatchOrders) &&
             (identical(other.isLoading, isLoading) ||
@@ -279,8 +279,8 @@ class _$_CreateDispatchState implements _CreateDispatchState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CreateDispatchStateCopyWith<_$_CreateDispatchState> get copyWith =>
-      __$$_CreateDispatchStateCopyWithImpl<_$_CreateDispatchState>(
+  _$$CreateDispatchStateImplCopyWith<_$CreateDispatchStateImpl> get copyWith =>
+      __$$CreateDispatchStateImplCopyWithImpl<_$CreateDispatchStateImpl>(
           this, _$identity);
 }
 
@@ -294,7 +294,7 @@ abstract class _CreateDispatchState implements CreateDispatchState {
       required final String driver,
       required final String sender,
       required final String vehicleNumber,
-      required final String shipmentId}) = _$_CreateDispatchState;
+      required final String shipmentId}) = _$CreateDispatchStateImpl;
 
   @override
   List<DispatchInfoWrapper> get dispatchOrders;
@@ -316,6 +316,6 @@ abstract class _CreateDispatchState implements CreateDispatchState {
   String get shipmentId;
   @override
   @JsonKey(ignore: true)
-  _$$_CreateDispatchStateCopyWith<_$_CreateDispatchState> get copyWith =>
+  _$$CreateDispatchStateImplCopyWith<_$CreateDispatchStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,11 +1,14 @@
 import 'package:base_auth/entity/id_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:minerva/features/product_selection/domain/entity/form_line.dart';
+import 'package:minerva/features/product_selection/presentation/bloc/fetch_product/fetch_product_bloc.dart';
+import 'package:minerva/features/product_selection/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
+import 'package:minerva/features/product_selection/presentation/screens/product_selection_widget.dart';
+import 'package:minerva/features/product_selection/presentation/widgets/edite_quantity_dialog.dart';
 import 'package:minerva/features/rtv/domain/entity/entities.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
 import 'package:minerva/features/rtv/presentation/widgets/bp_selected_widget.dart';
-import 'package:minerva/features/rtv/presentation/widgets/edite_quantity_dialog.dart';
-import 'package:minerva/features/rtv/presentation/widgets/product_selection_widget.dart';
 import 'package:widgets/success_dialog.dart';
 
 import 'package:minerva/get_it/injection.dart';
@@ -54,11 +57,11 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
                 initial: () => _buildCreateButton(context),
                 loading: () => Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     LoadingIndicator(),
-                    SizedBox(
+                    const SizedBox(
                       width: 40,
                     )
                   ],
@@ -215,7 +218,7 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
     }));
   }
 
-  void _quantityEditDialog(ShipmentFormLine record) {
+  void _quantityEditDialog(FormLine record) {
     showDialog(
       context: context,
       builder: (BuildContext context) => EditeQuantityDialog(
@@ -223,7 +226,7 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
         onQuantityUpdated: (newQty) {
           setState(() {
             // Create a copy of the old record with the updated quantity
-            ShipmentFormLine updatedRecord = ShipmentFormLine(
+            FormLine updatedRecord = FormLine(
               productId: record.productId,
               productName: record.productName,
               uomId: record.uomId,
@@ -232,7 +235,7 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
             );
 
             // Create a copy of the _form object with the updated record
-            List<ShipmentFormLine> updatedProducts = List.from(_form.products);
+            List<FormLine> updatedProducts = List.from(_form.products);
             int index = updatedProducts
                 .indexWhere((element) => element.productId == record.productId);
             if (index != -1) {

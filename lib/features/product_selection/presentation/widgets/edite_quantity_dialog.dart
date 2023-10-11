@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:minerva/features/rtv/domain/entity/shipment_form_line.dart';
+import 'package:minerva/features/product_selection/domain/entity/form_line.dart';
 
 class EditeQuantityDialog extends StatefulWidget {
-  final ShipmentFormLine record;
+  final FormLine record;
   final Function(double) onQuantityUpdated; // Callback function
 
   const EditeQuantityDialog(

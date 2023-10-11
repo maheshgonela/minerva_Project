@@ -113,11 +113,11 @@ class _$SalesOrderDtoCopyWithImpl<$Res, $Val extends SalesOrderDto>
 }
 
 /// @nodoc
-abstract class _$$_SalesOrderDtoCopyWith<$Res>
+abstract class _$$SalesOrderDtoImplCopyWith<$Res>
     implements $SalesOrderDtoCopyWith<$Res> {
-  factory _$$_SalesOrderDtoCopyWith(
-          _$_SalesOrderDto value, $Res Function(_$_SalesOrderDto) then) =
-      __$$_SalesOrderDtoCopyWithImpl<$Res>;
+  factory _$$SalesOrderDtoImplCopyWith(
+          _$SalesOrderDtoImpl value, $Res Function(_$SalesOrderDtoImpl) then) =
+      __$$SalesOrderDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -132,11 +132,11 @@ abstract class _$$_SalesOrderDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SalesOrderDtoCopyWithImpl<$Res>
-    extends _$SalesOrderDtoCopyWithImpl<$Res, _$_SalesOrderDto>
-    implements _$$_SalesOrderDtoCopyWith<$Res> {
-  __$$_SalesOrderDtoCopyWithImpl(
-      _$_SalesOrderDto _value, $Res Function(_$_SalesOrderDto) _then)
+class __$$SalesOrderDtoImplCopyWithImpl<$Res>
+    extends _$SalesOrderDtoCopyWithImpl<$Res, _$SalesOrderDtoImpl>
+    implements _$$SalesOrderDtoImplCopyWith<$Res> {
+  __$$SalesOrderDtoImplCopyWithImpl(
+      _$SalesOrderDtoImpl _value, $Res Function(_$SalesOrderDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -151,7 +151,7 @@ class __$$_SalesOrderDtoCopyWithImpl<$Res>
     Object? scheduledDeliveryDate = null,
     Object? deliveryLocation = freezed,
   }) {
-    return _then(_$_SalesOrderDto(
+    return _then(_$SalesOrderDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -191,8 +191,8 @@ class __$$_SalesOrderDtoCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$_SalesOrderDto extends _SalesOrderDto {
-  const _$_SalesOrderDto(
+class _$SalesOrderDtoImpl extends _SalesOrderDto {
+  const _$SalesOrderDtoImpl(
       {required this.id,
       required this.organization,
       required this.documentNo,
@@ -203,8 +203,8 @@ class _$_SalesOrderDto extends _SalesOrderDto {
       this.deliveryLocation})
       : super._();
 
-  factory _$_SalesOrderDto.fromJson(Map<String, dynamic> json) =>
-      _$$_SalesOrderDtoFromJson(json);
+  factory _$SalesOrderDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SalesOrderDtoImplFromJson(json);
 
   @override
   final String id;
@@ -233,7 +233,7 @@ class _$_SalesOrderDto extends _SalesOrderDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SalesOrderDto &&
+            other is _$SalesOrderDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.organization, organization) ||
                 other.organization == organization) &&
@@ -268,12 +268,12 @@ class _$_SalesOrderDto extends _SalesOrderDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SalesOrderDtoCopyWith<_$_SalesOrderDto> get copyWith =>
-      __$$_SalesOrderDtoCopyWithImpl<_$_SalesOrderDto>(this, _$identity);
+  _$$SalesOrderDtoImplCopyWith<_$SalesOrderDtoImpl> get copyWith =>
+      __$$SalesOrderDtoImplCopyWithImpl<_$SalesOrderDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SalesOrderDtoToJson(
+    return _$$SalesOrderDtoImplToJson(
       this,
     );
   }
@@ -286,14 +286,14 @@ abstract class _SalesOrderDto extends SalesOrderDto {
       required final String documentNo,
       required final String businessPartner,
       @JsonKey(name: 'partnerAddress')
-          required final String businessPartnerLocation,
+      required final String businessPartnerLocation,
       required final String warehouse,
       required final String scheduledDeliveryDate,
-      final String? deliveryLocation}) = _$_SalesOrderDto;
+      final String? deliveryLocation}) = _$SalesOrderDtoImpl;
   const _SalesOrderDto._() : super._();
 
   factory _SalesOrderDto.fromJson(Map<String, dynamic> json) =
-      _$_SalesOrderDto.fromJson;
+      _$SalesOrderDtoImpl.fromJson;
 
   @override
   String get id;
@@ -314,6 +314,6 @@ abstract class _SalesOrderDto extends SalesOrderDto {
   String? get deliveryLocation;
   @override
   @JsonKey(ignore: true)
-  _$$_SalesOrderDtoCopyWith<_$_SalesOrderDto> get copyWith =>
+  _$$SalesOrderDtoImplCopyWith<_$SalesOrderDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

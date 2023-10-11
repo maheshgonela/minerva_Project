@@ -75,22 +75,22 @@ class _$AttachmentCopyWithImpl<$Res, $Val extends Attachment>
 }
 
 /// @nodoc
-abstract class _$$_AttachmentCopyWith<$Res>
+abstract class _$$AttachmentImplCopyWith<$Res>
     implements $AttachmentCopyWith<$Res> {
-  factory _$$_AttachmentCopyWith(
-          _$_Attachment value, $Res Function(_$_Attachment) then) =
-      __$$_AttachmentCopyWithImpl<$Res>;
+  factory _$$AttachmentImplCopyWith(
+          _$AttachmentImpl value, $Res Function(_$AttachmentImpl) then) =
+      __$$AttachmentImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String name, String description, String fileData});
 }
 
 /// @nodoc
-class __$$_AttachmentCopyWithImpl<$Res>
-    extends _$AttachmentCopyWithImpl<$Res, _$_Attachment>
-    implements _$$_AttachmentCopyWith<$Res> {
-  __$$_AttachmentCopyWithImpl(
-      _$_Attachment _value, $Res Function(_$_Attachment) _then)
+class __$$AttachmentImplCopyWithImpl<$Res>
+    extends _$AttachmentCopyWithImpl<$Res, _$AttachmentImpl>
+    implements _$$AttachmentImplCopyWith<$Res> {
+  __$$AttachmentImplCopyWithImpl(
+      _$AttachmentImpl _value, $Res Function(_$AttachmentImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +101,7 @@ class __$$_AttachmentCopyWithImpl<$Res>
     Object? description = null,
     Object? fileData = null,
   }) {
-    return _then(_$_Attachment(
+    return _then(_$AttachmentImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -124,8 +124,8 @@ class __$$_AttachmentCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Attachment implements _Attachment {
-  const _$_Attachment(
+class _$AttachmentImpl implements _Attachment {
+  const _$AttachmentImpl(
       {required this.id,
       required this.name,
       required this.description,
@@ -149,7 +149,7 @@ class _$_Attachment implements _Attachment {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Attachment &&
+            other is _$AttachmentImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -164,8 +164,8 @@ class _$_Attachment implements _Attachment {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AttachmentCopyWith<_$_Attachment> get copyWith =>
-      __$$_AttachmentCopyWithImpl<_$_Attachment>(this, _$identity);
+  _$$AttachmentImplCopyWith<_$AttachmentImpl> get copyWith =>
+      __$$AttachmentImplCopyWithImpl<_$AttachmentImpl>(this, _$identity);
 }
 
 abstract class _Attachment implements Attachment {
@@ -173,7 +173,7 @@ abstract class _Attachment implements Attachment {
       {required final String id,
       required final String name,
       required final String description,
-      required final String fileData}) = _$_Attachment;
+      required final String fileData}) = _$AttachmentImpl;
 
   @override
   String get id;
@@ -185,6 +185,6 @@ abstract class _Attachment implements Attachment {
   String get fileData;
   @override
   @JsonKey(ignore: true)
-  _$$_AttachmentCopyWith<_$_Attachment> get copyWith =>
+  _$$AttachmentImplCopyWith<_$AttachmentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

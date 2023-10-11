@@ -7,6 +7,7 @@ import 'package:dartz/dartz.dart';
 import 'package:minerva/auth_helper.dart';
 import 'package:minerva/constants.dart';
 import 'package:minerva/core/query_helper.dart';
+import 'package:minerva/features/product_selection/domain/entity/form_line.dart';
 import 'package:minerva/features/rtv/data/model/models.dart';
 import 'package:minerva/features/rtv/domain/entity/entities.dart';
 import 'package:minerva/features/rtv/domain/repository/shipment_repo.dart';
@@ -45,93 +46,6 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
     try {
       const String url =
           "${Constants.jsonWs}/${Entities.businessPartner}?_selectedProperties=id,name&_sortBy=name";
-      print(url);
-      final data = await safeApiCall(
-        () => client.get(Uri.parse(url), headers: _authHeader()),
-        defErrMsg,
-      );
-      return data.fold(
-        (Failure l) => left(Failure(error: l.error)),
-        (r) {
-          final list = (r as List<dynamic>)
-              .map((e) => IdName.fromJson(e as Map<String, dynamic>))
-              .toList();
-          print('List SIze : ${list.length}');
-          return right(list);
-        },
-      );
-    } catch (e, st) {
-      logError(e, st, defErrMsg);
-      return left(const Failure(error: defErrMsg));
-    }
-  }
-
-  @override
-  Future<Either<Failure, List<Product>>> fetchProducts(
-      {String? searchText,
-      String? barCode,
-      List<String>? selectedCategorys,
-      int? start,
-      int? end,
-      String? query}) async {
-    const String defErrMsg = 'Could not fetch products';
-    String? finalSelectedCategorys = selectedCategorys?.join("','");
-    String searchCondition = "";
-    String barcodeCondition = "";
-    String categoryCondition = "";
-    try {
-      print('searchText : $query');
-      print('barCode : $barCode');
-      print('finalSelectedCategorys : $finalSelectedCategorys');
-      final filters = <String>[];
-      if (query != null && query.trim().isNotEmpty) {
-        searchCondition = "lower(name) like  lower('%25$query%25')";
-        filters.add(searchCondition);
-      }
-      if (finalSelectedCategorys != null &&
-          finalSelectedCategorys.trim().isNotEmpty) {
-        categoryCondition = "productCategory IN ('$finalSelectedCategorys')";
-        filters.add(categoryCondition);
-      }
-      if (barCode != null && barCode.trim().isNotEmpty) {
-        barcodeCondition = "lower(uPCEAN) like  lower('%25$barCode%25')";
-        filters.add(barcodeCondition);
-      }
-      print('filters : $filters');
-      // ignore: no_leading_underscores_for_local_identifiers
-      final _condition =
-          filters.isEmpty ? "" : "&_where=${filters.join(" and ")}";
-      print('_condition : $_condition');
-      final String url =
-          "${Constants.jsonWs}/${Entities.product}?_startRow=$start&_endRow=$end$_condition&_sortBy=name";
-      print(url);
-      final data = await safeApiCall(
-        () => client.get(Uri.parse(url), headers: _authHeader()),
-        defErrMsg,
-      );
-
-      return data.fold(
-        (Failure l) => left(Failure(error: l.error)),
-        (r) {
-          final list = (r as List<dynamic>)
-              .map((e) =>
-                  ProductDto.fromJson(e as Map<String, dynamic>).toDomain())
-              .toList();
-          return right(list);
-        },
-      );
-    } catch (e, st) {
-      logError(e, st, defErrMsg);
-      return left(const Failure(error: defErrMsg));
-    }
-  }
-
-  @override
-  Future<Either<Failure, List<IdName>>> fetchProductCategory() async {
-    const String defErrMsg = 'Could not fetch products';
-    try {
-      const String url =
-          "${Constants.jsonWs}/${Entities.productCategory}?_selectedProperties=id,name&_sortBy=name";
       print(url);
       final data = await safeApiCall(
         () => client.get(Uri.parse(url), headers: _authHeader()),
@@ -224,8 +138,8 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
     return getAuthHeader(user.userName, user.password);
   }
 
-  Future<void> _addShipmentLines(String receiptId, String warehouse,
-      List<ShipmentFormLine> products) async {
+  Future<void> _addShipmentLines(
+      String receiptId, String warehouse, List<FormLine> products) async {
     final url = Uri.parse("${Constants.jsonWs}/${Entities.goodsReceiptLines}");
     print("url goodsReceiptLines : $url");
     final storageBinId = await _fetchStorageBinId(warehouse);

@@ -100,25 +100,25 @@ class _$FetchPurchaseOrderEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_FetchInitialPurchaseOrderCopyWith<$Res>
+abstract class _$$FetchInitialPurchaseOrderImplCopyWith<$Res>
     implements $FetchPurchaseOrderEventCopyWith<$Res> {
-  factory _$$_FetchInitialPurchaseOrderCopyWith(
-          _$_FetchInitialPurchaseOrder value,
-          $Res Function(_$_FetchInitialPurchaseOrder) then) =
-      __$$_FetchInitialPurchaseOrderCopyWithImpl<$Res>;
+  factory _$$FetchInitialPurchaseOrderImplCopyWith(
+          _$FetchInitialPurchaseOrderImpl value,
+          $Res Function(_$FetchInitialPurchaseOrderImpl) then) =
+      __$$FetchInitialPurchaseOrderImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class __$$_FetchInitialPurchaseOrderCopyWithImpl<$Res>
+class __$$FetchInitialPurchaseOrderImplCopyWithImpl<$Res>
     extends _$FetchPurchaseOrderEventCopyWithImpl<$Res,
-        _$_FetchInitialPurchaseOrder>
-    implements _$$_FetchInitialPurchaseOrderCopyWith<$Res> {
-  __$$_FetchInitialPurchaseOrderCopyWithImpl(
-      _$_FetchInitialPurchaseOrder _value,
-      $Res Function(_$_FetchInitialPurchaseOrder) _then)
+        _$FetchInitialPurchaseOrderImpl>
+    implements _$$FetchInitialPurchaseOrderImplCopyWith<$Res> {
+  __$$FetchInitialPurchaseOrderImplCopyWithImpl(
+      _$FetchInitialPurchaseOrderImpl _value,
+      $Res Function(_$FetchInitialPurchaseOrderImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -126,7 +126,7 @@ class __$$_FetchInitialPurchaseOrderCopyWithImpl<$Res>
   $Res call({
     Object? query = freezed,
   }) {
-    return _then(_$_FetchInitialPurchaseOrder(
+    return _then(_$FetchInitialPurchaseOrderImpl(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -137,8 +137,8 @@ class __$$_FetchInitialPurchaseOrderCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchInitialPurchaseOrder implements _FetchInitialPurchaseOrder {
-  const _$_FetchInitialPurchaseOrder({this.query});
+class _$FetchInitialPurchaseOrderImpl implements _FetchInitialPurchaseOrder {
+  const _$FetchInitialPurchaseOrderImpl({this.query});
 
   @override
   final String? query;
@@ -152,7 +152,7 @@ class _$_FetchInitialPurchaseOrder implements _FetchInitialPurchaseOrder {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchInitialPurchaseOrder &&
+            other is _$FetchInitialPurchaseOrderImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -162,9 +162,9 @@ class _$_FetchInitialPurchaseOrder implements _FetchInitialPurchaseOrder {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchInitialPurchaseOrderCopyWith<_$_FetchInitialPurchaseOrder>
-      get copyWith => __$$_FetchInitialPurchaseOrderCopyWithImpl<
-          _$_FetchInitialPurchaseOrder>(this, _$identity);
+  _$$FetchInitialPurchaseOrderImplCopyWith<_$FetchInitialPurchaseOrderImpl>
+      get copyWith => __$$FetchInitialPurchaseOrderImplCopyWithImpl<
+          _$FetchInitialPurchaseOrderImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -235,34 +235,36 @@ class _$_FetchInitialPurchaseOrder implements _FetchInitialPurchaseOrder {
 
 abstract class _FetchInitialPurchaseOrder implements FetchPurchaseOrderEvent {
   const factory _FetchInitialPurchaseOrder({final String? query}) =
-      _$_FetchInitialPurchaseOrder;
+      _$FetchInitialPurchaseOrderImpl;
 
   @override
   String? get query;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchInitialPurchaseOrderCopyWith<_$_FetchInitialPurchaseOrder>
+  _$$FetchInitialPurchaseOrderImplCopyWith<_$FetchInitialPurchaseOrderImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchMorePurchaseOrderCopyWith<$Res>
+abstract class _$$FetchMorePurchaseOrderImplCopyWith<$Res>
     implements $FetchPurchaseOrderEventCopyWith<$Res> {
-  factory _$$_FetchMorePurchaseOrderCopyWith(_$_FetchMorePurchaseOrder value,
-          $Res Function(_$_FetchMorePurchaseOrder) then) =
-      __$$_FetchMorePurchaseOrderCopyWithImpl<$Res>;
+  factory _$$FetchMorePurchaseOrderImplCopyWith(
+          _$FetchMorePurchaseOrderImpl value,
+          $Res Function(_$FetchMorePurchaseOrderImpl) then) =
+      __$$FetchMorePurchaseOrderImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class __$$_FetchMorePurchaseOrderCopyWithImpl<$Res>
+class __$$FetchMorePurchaseOrderImplCopyWithImpl<$Res>
     extends _$FetchPurchaseOrderEventCopyWithImpl<$Res,
-        _$_FetchMorePurchaseOrder>
-    implements _$$_FetchMorePurchaseOrderCopyWith<$Res> {
-  __$$_FetchMorePurchaseOrderCopyWithImpl(_$_FetchMorePurchaseOrder _value,
-      $Res Function(_$_FetchMorePurchaseOrder) _then)
+        _$FetchMorePurchaseOrderImpl>
+    implements _$$FetchMorePurchaseOrderImplCopyWith<$Res> {
+  __$$FetchMorePurchaseOrderImplCopyWithImpl(
+      _$FetchMorePurchaseOrderImpl _value,
+      $Res Function(_$FetchMorePurchaseOrderImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -270,7 +272,7 @@ class __$$_FetchMorePurchaseOrderCopyWithImpl<$Res>
   $Res call({
     Object? query = freezed,
   }) {
-    return _then(_$_FetchMorePurchaseOrder(
+    return _then(_$FetchMorePurchaseOrderImpl(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -281,8 +283,8 @@ class __$$_FetchMorePurchaseOrderCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchMorePurchaseOrder implements _FetchMorePurchaseOrder {
-  const _$_FetchMorePurchaseOrder({this.query});
+class _$FetchMorePurchaseOrderImpl implements _FetchMorePurchaseOrder {
+  const _$FetchMorePurchaseOrderImpl({this.query});
 
   @override
   final String? query;
@@ -296,7 +298,7 @@ class _$_FetchMorePurchaseOrder implements _FetchMorePurchaseOrder {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchMorePurchaseOrder &&
+            other is _$FetchMorePurchaseOrderImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -306,9 +308,9 @@ class _$_FetchMorePurchaseOrder implements _FetchMorePurchaseOrder {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchMorePurchaseOrderCopyWith<_$_FetchMorePurchaseOrder> get copyWith =>
-      __$$_FetchMorePurchaseOrderCopyWithImpl<_$_FetchMorePurchaseOrder>(
-          this, _$identity);
+  _$$FetchMorePurchaseOrderImplCopyWith<_$FetchMorePurchaseOrderImpl>
+      get copyWith => __$$FetchMorePurchaseOrderImplCopyWithImpl<
+          _$FetchMorePurchaseOrderImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -379,14 +381,14 @@ class _$_FetchMorePurchaseOrder implements _FetchMorePurchaseOrder {
 
 abstract class _FetchMorePurchaseOrder implements FetchPurchaseOrderEvent {
   const factory _FetchMorePurchaseOrder({final String? query}) =
-      _$_FetchMorePurchaseOrder;
+      _$FetchMorePurchaseOrderImpl;
 
   @override
   String? get query;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchMorePurchaseOrderCopyWith<_$_FetchMorePurchaseOrder> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchMorePurchaseOrderImplCopyWith<_$FetchMorePurchaseOrderImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -469,28 +471,28 @@ class _$FetchPurchaseOrderStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_FetchPurchaseOrderInitialCopyWith<$Res> {
-  factory _$$_FetchPurchaseOrderInitialCopyWith(
-          _$_FetchPurchaseOrderInitial value,
-          $Res Function(_$_FetchPurchaseOrderInitial) then) =
-      __$$_FetchPurchaseOrderInitialCopyWithImpl<$Res>;
+abstract class _$$FetchPurchaseOrderInitialImplCopyWith<$Res> {
+  factory _$$FetchPurchaseOrderInitialImplCopyWith(
+          _$FetchPurchaseOrderInitialImpl value,
+          $Res Function(_$FetchPurchaseOrderInitialImpl) then) =
+      __$$FetchPurchaseOrderInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchPurchaseOrderInitialCopyWithImpl<$Res>
+class __$$FetchPurchaseOrderInitialImplCopyWithImpl<$Res>
     extends _$FetchPurchaseOrderStateCopyWithImpl<$Res,
-        _$_FetchPurchaseOrderInitial>
-    implements _$$_FetchPurchaseOrderInitialCopyWith<$Res> {
-  __$$_FetchPurchaseOrderInitialCopyWithImpl(
-      _$_FetchPurchaseOrderInitial _value,
-      $Res Function(_$_FetchPurchaseOrderInitial) _then)
+        _$FetchPurchaseOrderInitialImpl>
+    implements _$$FetchPurchaseOrderInitialImplCopyWith<$Res> {
+  __$$FetchPurchaseOrderInitialImplCopyWithImpl(
+      _$FetchPurchaseOrderInitialImpl _value,
+      $Res Function(_$FetchPurchaseOrderInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchPurchaseOrderInitial implements _FetchPurchaseOrderInitial {
-  const _$_FetchPurchaseOrderInitial();
+class _$FetchPurchaseOrderInitialImpl implements _FetchPurchaseOrderInitial {
+  const _$FetchPurchaseOrderInitialImpl();
 
   @override
   String toString() {
@@ -501,7 +503,7 @@ class _$_FetchPurchaseOrderInitial implements _FetchPurchaseOrderInitial {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchPurchaseOrderInitial);
+            other is _$FetchPurchaseOrderInitialImpl);
   }
 
   @override
@@ -589,32 +591,32 @@ class _$_FetchPurchaseOrderInitial implements _FetchPurchaseOrderInitial {
 }
 
 abstract class _FetchPurchaseOrderInitial implements FetchPurchaseOrderState {
-  const factory _FetchPurchaseOrderInitial() = _$_FetchPurchaseOrderInitial;
+  const factory _FetchPurchaseOrderInitial() = _$FetchPurchaseOrderInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_FetchPurchaseOrderLoadingCopyWith<$Res> {
-  factory _$$_FetchPurchaseOrderLoadingCopyWith(
-          _$_FetchPurchaseOrderLoading value,
-          $Res Function(_$_FetchPurchaseOrderLoading) then) =
-      __$$_FetchPurchaseOrderLoadingCopyWithImpl<$Res>;
+abstract class _$$FetchPurchaseOrderLoadingImplCopyWith<$Res> {
+  factory _$$FetchPurchaseOrderLoadingImplCopyWith(
+          _$FetchPurchaseOrderLoadingImpl value,
+          $Res Function(_$FetchPurchaseOrderLoadingImpl) then) =
+      __$$FetchPurchaseOrderLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchPurchaseOrderLoadingCopyWithImpl<$Res>
+class __$$FetchPurchaseOrderLoadingImplCopyWithImpl<$Res>
     extends _$FetchPurchaseOrderStateCopyWithImpl<$Res,
-        _$_FetchPurchaseOrderLoading>
-    implements _$$_FetchPurchaseOrderLoadingCopyWith<$Res> {
-  __$$_FetchPurchaseOrderLoadingCopyWithImpl(
-      _$_FetchPurchaseOrderLoading _value,
-      $Res Function(_$_FetchPurchaseOrderLoading) _then)
+        _$FetchPurchaseOrderLoadingImpl>
+    implements _$$FetchPurchaseOrderLoadingImplCopyWith<$Res> {
+  __$$FetchPurchaseOrderLoadingImplCopyWithImpl(
+      _$FetchPurchaseOrderLoadingImpl _value,
+      $Res Function(_$FetchPurchaseOrderLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchPurchaseOrderLoading implements _FetchPurchaseOrderLoading {
-  const _$_FetchPurchaseOrderLoading();
+class _$FetchPurchaseOrderLoadingImpl implements _FetchPurchaseOrderLoading {
+  const _$FetchPurchaseOrderLoadingImpl();
 
   @override
   String toString() {
@@ -625,7 +627,7 @@ class _$_FetchPurchaseOrderLoading implements _FetchPurchaseOrderLoading {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchPurchaseOrderLoading);
+            other is _$FetchPurchaseOrderLoadingImpl);
   }
 
   @override
@@ -713,27 +715,27 @@ class _$_FetchPurchaseOrderLoading implements _FetchPurchaseOrderLoading {
 }
 
 abstract class _FetchPurchaseOrderLoading implements FetchPurchaseOrderState {
-  const factory _FetchPurchaseOrderLoading() = _$_FetchPurchaseOrderLoading;
+  const factory _FetchPurchaseOrderLoading() = _$FetchPurchaseOrderLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$_FetchPurchaseOrderSuccessCopyWith<$Res> {
-  factory _$$_FetchPurchaseOrderSuccessCopyWith(
-          _$_FetchPurchaseOrderSuccess value,
-          $Res Function(_$_FetchPurchaseOrderSuccess) then) =
-      __$$_FetchPurchaseOrderSuccessCopyWithImpl<$Res>;
+abstract class _$$FetchPurchaseOrderSuccessImplCopyWith<$Res> {
+  factory _$$FetchPurchaseOrderSuccessImplCopyWith(
+          _$FetchPurchaseOrderSuccessImpl value,
+          $Res Function(_$FetchPurchaseOrderSuccessImpl) then) =
+      __$$FetchPurchaseOrderSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<PurchaseOrder> records, bool hasReachedMax, String? query});
 }
 
 /// @nodoc
-class __$$_FetchPurchaseOrderSuccessCopyWithImpl<$Res>
+class __$$FetchPurchaseOrderSuccessImplCopyWithImpl<$Res>
     extends _$FetchPurchaseOrderStateCopyWithImpl<$Res,
-        _$_FetchPurchaseOrderSuccess>
-    implements _$$_FetchPurchaseOrderSuccessCopyWith<$Res> {
-  __$$_FetchPurchaseOrderSuccessCopyWithImpl(
-      _$_FetchPurchaseOrderSuccess _value,
-      $Res Function(_$_FetchPurchaseOrderSuccess) _then)
+        _$FetchPurchaseOrderSuccessImpl>
+    implements _$$FetchPurchaseOrderSuccessImplCopyWith<$Res> {
+  __$$FetchPurchaseOrderSuccessImplCopyWithImpl(
+      _$FetchPurchaseOrderSuccessImpl _value,
+      $Res Function(_$FetchPurchaseOrderSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -743,7 +745,7 @@ class __$$_FetchPurchaseOrderSuccessCopyWithImpl<$Res>
     Object? hasReachedMax = null,
     Object? query = freezed,
   }) {
-    return _then(_$_FetchPurchaseOrderSuccess(
+    return _then(_$FetchPurchaseOrderSuccessImpl(
       records: null == records
           ? _value._records
           : records // ignore: cast_nullable_to_non_nullable
@@ -762,8 +764,8 @@ class __$$_FetchPurchaseOrderSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchPurchaseOrderSuccess implements _FetchPurchaseOrderSuccess {
-  const _$_FetchPurchaseOrderSuccess(
+class _$FetchPurchaseOrderSuccessImpl implements _FetchPurchaseOrderSuccess {
+  const _$FetchPurchaseOrderSuccessImpl(
       {required final List<PurchaseOrder> records,
       required this.hasReachedMax,
       this.query})
@@ -791,7 +793,7 @@ class _$_FetchPurchaseOrderSuccess implements _FetchPurchaseOrderSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchPurchaseOrderSuccess &&
+            other is _$FetchPurchaseOrderSuccessImpl &&
             const DeepCollectionEquality().equals(other._records, _records) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
@@ -805,9 +807,9 @@ class _$_FetchPurchaseOrderSuccess implements _FetchPurchaseOrderSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchPurchaseOrderSuccessCopyWith<_$_FetchPurchaseOrderSuccess>
-      get copyWith => __$$_FetchPurchaseOrderSuccessCopyWithImpl<
-          _$_FetchPurchaseOrderSuccess>(this, _$identity);
+  _$$FetchPurchaseOrderSuccessImplCopyWith<_$FetchPurchaseOrderSuccessImpl>
+      get copyWith => __$$FetchPurchaseOrderSuccessImplCopyWithImpl<
+          _$FetchPurchaseOrderSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -894,22 +896,22 @@ abstract class _FetchPurchaseOrderSuccess implements FetchPurchaseOrderState {
   const factory _FetchPurchaseOrderSuccess(
       {required final List<PurchaseOrder> records,
       required final bool hasReachedMax,
-      final String? query}) = _$_FetchPurchaseOrderSuccess;
+      final String? query}) = _$FetchPurchaseOrderSuccessImpl;
 
   List<PurchaseOrder> get records;
   bool get hasReachedMax;
   String? get query;
   @JsonKey(ignore: true)
-  _$$_FetchPurchaseOrderSuccessCopyWith<_$_FetchPurchaseOrderSuccess>
+  _$$FetchPurchaseOrderSuccessImplCopyWith<_$FetchPurchaseOrderSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchPurchaseOrderFailureCopyWith<$Res> {
-  factory _$$_FetchPurchaseOrderFailureCopyWith(
-          _$_FetchPurchaseOrderFailure value,
-          $Res Function(_$_FetchPurchaseOrderFailure) then) =
-      __$$_FetchPurchaseOrderFailureCopyWithImpl<$Res>;
+abstract class _$$FetchPurchaseOrderFailureImplCopyWith<$Res> {
+  factory _$$FetchPurchaseOrderFailureImplCopyWith(
+          _$FetchPurchaseOrderFailureImpl value,
+          $Res Function(_$FetchPurchaseOrderFailureImpl) then) =
+      __$$FetchPurchaseOrderFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Failure failure});
 
@@ -917,13 +919,13 @@ abstract class _$$_FetchPurchaseOrderFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FetchPurchaseOrderFailureCopyWithImpl<$Res>
+class __$$FetchPurchaseOrderFailureImplCopyWithImpl<$Res>
     extends _$FetchPurchaseOrderStateCopyWithImpl<$Res,
-        _$_FetchPurchaseOrderFailure>
-    implements _$$_FetchPurchaseOrderFailureCopyWith<$Res> {
-  __$$_FetchPurchaseOrderFailureCopyWithImpl(
-      _$_FetchPurchaseOrderFailure _value,
-      $Res Function(_$_FetchPurchaseOrderFailure) _then)
+        _$FetchPurchaseOrderFailureImpl>
+    implements _$$FetchPurchaseOrderFailureImplCopyWith<$Res> {
+  __$$FetchPurchaseOrderFailureImplCopyWithImpl(
+      _$FetchPurchaseOrderFailureImpl _value,
+      $Res Function(_$FetchPurchaseOrderFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -931,7 +933,7 @@ class __$$_FetchPurchaseOrderFailureCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$_FetchPurchaseOrderFailure(
+    return _then(_$FetchPurchaseOrderFailureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -950,8 +952,8 @@ class __$$_FetchPurchaseOrderFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchPurchaseOrderFailure implements _FetchPurchaseOrderFailure {
-  const _$_FetchPurchaseOrderFailure(this.failure);
+class _$FetchPurchaseOrderFailureImpl implements _FetchPurchaseOrderFailure {
+  const _$FetchPurchaseOrderFailureImpl(this.failure);
 
   @override
   final Failure failure;
@@ -965,7 +967,7 @@ class _$_FetchPurchaseOrderFailure implements _FetchPurchaseOrderFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchPurchaseOrderFailure &&
+            other is _$FetchPurchaseOrderFailureImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -975,9 +977,9 @@ class _$_FetchPurchaseOrderFailure implements _FetchPurchaseOrderFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchPurchaseOrderFailureCopyWith<_$_FetchPurchaseOrderFailure>
-      get copyWith => __$$_FetchPurchaseOrderFailureCopyWithImpl<
-          _$_FetchPurchaseOrderFailure>(this, _$identity);
+  _$$FetchPurchaseOrderFailureImplCopyWith<_$FetchPurchaseOrderFailureImpl>
+      get copyWith => __$$FetchPurchaseOrderFailureImplCopyWithImpl<
+          _$FetchPurchaseOrderFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1062,10 +1064,10 @@ class _$_FetchPurchaseOrderFailure implements _FetchPurchaseOrderFailure {
 
 abstract class _FetchPurchaseOrderFailure implements FetchPurchaseOrderState {
   const factory _FetchPurchaseOrderFailure(final Failure failure) =
-      _$_FetchPurchaseOrderFailure;
+      _$FetchPurchaseOrderFailureImpl;
 
   Failure get failure;
   @JsonKey(ignore: true)
-  _$$_FetchPurchaseOrderFailureCopyWith<_$_FetchPurchaseOrderFailure>
+  _$$FetchPurchaseOrderFailureImplCopyWith<_$FetchPurchaseOrderFailureImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

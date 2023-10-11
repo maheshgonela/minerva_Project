@@ -99,24 +99,25 @@ class _$FetchOrganizationEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_FetchInitialOrganizationCopyWith<$Res>
+abstract class _$$FetchInitialOrganizationImplCopyWith<$Res>
     implements $FetchOrganizationEventCopyWith<$Res> {
-  factory _$$_FetchInitialOrganizationCopyWith(
-          _$_FetchInitialOrganization value,
-          $Res Function(_$_FetchInitialOrganization) then) =
-      __$$_FetchInitialOrganizationCopyWithImpl<$Res>;
+  factory _$$FetchInitialOrganizationImplCopyWith(
+          _$FetchInitialOrganizationImpl value,
+          $Res Function(_$FetchInitialOrganizationImpl) then) =
+      __$$FetchInitialOrganizationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class __$$_FetchInitialOrganizationCopyWithImpl<$Res>
+class __$$FetchInitialOrganizationImplCopyWithImpl<$Res>
     extends _$FetchOrganizationEventCopyWithImpl<$Res,
-        _$_FetchInitialOrganization>
-    implements _$$_FetchInitialOrganizationCopyWith<$Res> {
-  __$$_FetchInitialOrganizationCopyWithImpl(_$_FetchInitialOrganization _value,
-      $Res Function(_$_FetchInitialOrganization) _then)
+        _$FetchInitialOrganizationImpl>
+    implements _$$FetchInitialOrganizationImplCopyWith<$Res> {
+  __$$FetchInitialOrganizationImplCopyWithImpl(
+      _$FetchInitialOrganizationImpl _value,
+      $Res Function(_$FetchInitialOrganizationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -124,7 +125,7 @@ class __$$_FetchInitialOrganizationCopyWithImpl<$Res>
   $Res call({
     Object? query = freezed,
   }) {
-    return _then(_$_FetchInitialOrganization(
+    return _then(_$FetchInitialOrganizationImpl(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -135,8 +136,8 @@ class __$$_FetchInitialOrganizationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchInitialOrganization implements _FetchInitialOrganization {
-  const _$_FetchInitialOrganization({this.query});
+class _$FetchInitialOrganizationImpl implements _FetchInitialOrganization {
+  const _$FetchInitialOrganizationImpl({this.query});
 
   @override
   final String? query;
@@ -150,7 +151,7 @@ class _$_FetchInitialOrganization implements _FetchInitialOrganization {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchInitialOrganization &&
+            other is _$FetchInitialOrganizationImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -160,9 +161,9 @@ class _$_FetchInitialOrganization implements _FetchInitialOrganization {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchInitialOrganizationCopyWith<_$_FetchInitialOrganization>
-      get copyWith => __$$_FetchInitialOrganizationCopyWithImpl<
-          _$_FetchInitialOrganization>(this, _$identity);
+  _$$FetchInitialOrganizationImplCopyWith<_$FetchInitialOrganizationImpl>
+      get copyWith => __$$FetchInitialOrganizationImplCopyWithImpl<
+          _$FetchInitialOrganizationImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -232,33 +233,35 @@ class _$_FetchInitialOrganization implements _FetchInitialOrganization {
 
 abstract class _FetchInitialOrganization implements FetchOrganizationEvent {
   const factory _FetchInitialOrganization({final String? query}) =
-      _$_FetchInitialOrganization;
+      _$FetchInitialOrganizationImpl;
 
   @override
   String? get query;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchInitialOrganizationCopyWith<_$_FetchInitialOrganization>
+  _$$FetchInitialOrganizationImplCopyWith<_$FetchInitialOrganizationImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchMoreOrganizationCopyWith<$Res>
+abstract class _$$FetchMoreOrganizationImplCopyWith<$Res>
     implements $FetchOrganizationEventCopyWith<$Res> {
-  factory _$$_FetchMoreOrganizationCopyWith(_$_FetchMoreOrganization value,
-          $Res Function(_$_FetchMoreOrganization) then) =
-      __$$_FetchMoreOrganizationCopyWithImpl<$Res>;
+  factory _$$FetchMoreOrganizationImplCopyWith(
+          _$FetchMoreOrganizationImpl value,
+          $Res Function(_$FetchMoreOrganizationImpl) then) =
+      __$$FetchMoreOrganizationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? query});
 }
 
 /// @nodoc
-class __$$_FetchMoreOrganizationCopyWithImpl<$Res>
-    extends _$FetchOrganizationEventCopyWithImpl<$Res, _$_FetchMoreOrganization>
-    implements _$$_FetchMoreOrganizationCopyWith<$Res> {
-  __$$_FetchMoreOrganizationCopyWithImpl(_$_FetchMoreOrganization _value,
-      $Res Function(_$_FetchMoreOrganization) _then)
+class __$$FetchMoreOrganizationImplCopyWithImpl<$Res>
+    extends _$FetchOrganizationEventCopyWithImpl<$Res,
+        _$FetchMoreOrganizationImpl>
+    implements _$$FetchMoreOrganizationImplCopyWith<$Res> {
+  __$$FetchMoreOrganizationImplCopyWithImpl(_$FetchMoreOrganizationImpl _value,
+      $Res Function(_$FetchMoreOrganizationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -266,7 +269,7 @@ class __$$_FetchMoreOrganizationCopyWithImpl<$Res>
   $Res call({
     Object? query = freezed,
   }) {
-    return _then(_$_FetchMoreOrganization(
+    return _then(_$FetchMoreOrganizationImpl(
       query: freezed == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -277,8 +280,8 @@ class __$$_FetchMoreOrganizationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchMoreOrganization implements _FetchMoreOrganization {
-  const _$_FetchMoreOrganization({this.query});
+class _$FetchMoreOrganizationImpl implements _FetchMoreOrganization {
+  const _$FetchMoreOrganizationImpl({this.query});
 
   @override
   final String? query;
@@ -292,7 +295,7 @@ class _$_FetchMoreOrganization implements _FetchMoreOrganization {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchMoreOrganization &&
+            other is _$FetchMoreOrganizationImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -302,9 +305,9 @@ class _$_FetchMoreOrganization implements _FetchMoreOrganization {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchMoreOrganizationCopyWith<_$_FetchMoreOrganization> get copyWith =>
-      __$$_FetchMoreOrganizationCopyWithImpl<_$_FetchMoreOrganization>(
-          this, _$identity);
+  _$$FetchMoreOrganizationImplCopyWith<_$FetchMoreOrganizationImpl>
+      get copyWith => __$$FetchMoreOrganizationImplCopyWithImpl<
+          _$FetchMoreOrganizationImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -374,14 +377,14 @@ class _$_FetchMoreOrganization implements _FetchMoreOrganization {
 
 abstract class _FetchMoreOrganization implements FetchOrganizationEvent {
   const factory _FetchMoreOrganization({final String? query}) =
-      _$_FetchMoreOrganization;
+      _$FetchMoreOrganizationImpl;
 
   @override
   String? get query;
   @override
   @JsonKey(ignore: true)
-  _$$_FetchMoreOrganizationCopyWith<_$_FetchMoreOrganization> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FetchMoreOrganizationImplCopyWith<_$FetchMoreOrganizationImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -462,27 +465,28 @@ class _$FetchOrganizationStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_FetchOrganizationInitialCopyWith<$Res> {
-  factory _$$_FetchOrganizationInitialCopyWith(
-          _$_FetchOrganizationInitial value,
-          $Res Function(_$_FetchOrganizationInitial) then) =
-      __$$_FetchOrganizationInitialCopyWithImpl<$Res>;
+abstract class _$$FetchOrganizationInitialImplCopyWith<$Res> {
+  factory _$$FetchOrganizationInitialImplCopyWith(
+          _$FetchOrganizationInitialImpl value,
+          $Res Function(_$FetchOrganizationInitialImpl) then) =
+      __$$FetchOrganizationInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchOrganizationInitialCopyWithImpl<$Res>
+class __$$FetchOrganizationInitialImplCopyWithImpl<$Res>
     extends _$FetchOrganizationStateCopyWithImpl<$Res,
-        _$_FetchOrganizationInitial>
-    implements _$$_FetchOrganizationInitialCopyWith<$Res> {
-  __$$_FetchOrganizationInitialCopyWithImpl(_$_FetchOrganizationInitial _value,
-      $Res Function(_$_FetchOrganizationInitial) _then)
+        _$FetchOrganizationInitialImpl>
+    implements _$$FetchOrganizationInitialImplCopyWith<$Res> {
+  __$$FetchOrganizationInitialImplCopyWithImpl(
+      _$FetchOrganizationInitialImpl _value,
+      $Res Function(_$FetchOrganizationInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchOrganizationInitial implements _FetchOrganizationInitial {
-  const _$_FetchOrganizationInitial();
+class _$FetchOrganizationInitialImpl implements _FetchOrganizationInitial {
+  const _$FetchOrganizationInitialImpl();
 
   @override
   String toString() {
@@ -493,7 +497,7 @@ class _$_FetchOrganizationInitial implements _FetchOrganizationInitial {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchOrganizationInitial);
+            other is _$FetchOrganizationInitialImpl);
   }
 
   @override
@@ -579,31 +583,32 @@ class _$_FetchOrganizationInitial implements _FetchOrganizationInitial {
 }
 
 abstract class _FetchOrganizationInitial implements FetchOrganizationState {
-  const factory _FetchOrganizationInitial() = _$_FetchOrganizationInitial;
+  const factory _FetchOrganizationInitial() = _$FetchOrganizationInitialImpl;
 }
 
 /// @nodoc
-abstract class _$$_FetchOrganizationLoadingCopyWith<$Res> {
-  factory _$$_FetchOrganizationLoadingCopyWith(
-          _$_FetchOrganizationLoading value,
-          $Res Function(_$_FetchOrganizationLoading) then) =
-      __$$_FetchOrganizationLoadingCopyWithImpl<$Res>;
+abstract class _$$FetchOrganizationLoadingImplCopyWith<$Res> {
+  factory _$$FetchOrganizationLoadingImplCopyWith(
+          _$FetchOrganizationLoadingImpl value,
+          $Res Function(_$FetchOrganizationLoadingImpl) then) =
+      __$$FetchOrganizationLoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FetchOrganizationLoadingCopyWithImpl<$Res>
+class __$$FetchOrganizationLoadingImplCopyWithImpl<$Res>
     extends _$FetchOrganizationStateCopyWithImpl<$Res,
-        _$_FetchOrganizationLoading>
-    implements _$$_FetchOrganizationLoadingCopyWith<$Res> {
-  __$$_FetchOrganizationLoadingCopyWithImpl(_$_FetchOrganizationLoading _value,
-      $Res Function(_$_FetchOrganizationLoading) _then)
+        _$FetchOrganizationLoadingImpl>
+    implements _$$FetchOrganizationLoadingImplCopyWith<$Res> {
+  __$$FetchOrganizationLoadingImplCopyWithImpl(
+      _$FetchOrganizationLoadingImpl _value,
+      $Res Function(_$FetchOrganizationLoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FetchOrganizationLoading implements _FetchOrganizationLoading {
-  const _$_FetchOrganizationLoading();
+class _$FetchOrganizationLoadingImpl implements _FetchOrganizationLoading {
+  const _$FetchOrganizationLoadingImpl();
 
   @override
   String toString() {
@@ -614,7 +619,7 @@ class _$_FetchOrganizationLoading implements _FetchOrganizationLoading {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchOrganizationLoading);
+            other is _$FetchOrganizationLoadingImpl);
   }
 
   @override
@@ -700,26 +705,27 @@ class _$_FetchOrganizationLoading implements _FetchOrganizationLoading {
 }
 
 abstract class _FetchOrganizationLoading implements FetchOrganizationState {
-  const factory _FetchOrganizationLoading() = _$_FetchOrganizationLoading;
+  const factory _FetchOrganizationLoading() = _$FetchOrganizationLoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$_FetchOrganizationSuccessCopyWith<$Res> {
-  factory _$$_FetchOrganizationSuccessCopyWith(
-          _$_FetchOrganizationSuccess value,
-          $Res Function(_$_FetchOrganizationSuccess) then) =
-      __$$_FetchOrganizationSuccessCopyWithImpl<$Res>;
+abstract class _$$FetchOrganizationSuccessImplCopyWith<$Res> {
+  factory _$$FetchOrganizationSuccessImplCopyWith(
+          _$FetchOrganizationSuccessImpl value,
+          $Res Function(_$FetchOrganizationSuccessImpl) then) =
+      __$$FetchOrganizationSuccessImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<IdName> records, bool hasReachedMax, String? query});
 }
 
 /// @nodoc
-class __$$_FetchOrganizationSuccessCopyWithImpl<$Res>
+class __$$FetchOrganizationSuccessImplCopyWithImpl<$Res>
     extends _$FetchOrganizationStateCopyWithImpl<$Res,
-        _$_FetchOrganizationSuccess>
-    implements _$$_FetchOrganizationSuccessCopyWith<$Res> {
-  __$$_FetchOrganizationSuccessCopyWithImpl(_$_FetchOrganizationSuccess _value,
-      $Res Function(_$_FetchOrganizationSuccess) _then)
+        _$FetchOrganizationSuccessImpl>
+    implements _$$FetchOrganizationSuccessImplCopyWith<$Res> {
+  __$$FetchOrganizationSuccessImplCopyWithImpl(
+      _$FetchOrganizationSuccessImpl _value,
+      $Res Function(_$FetchOrganizationSuccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -729,7 +735,7 @@ class __$$_FetchOrganizationSuccessCopyWithImpl<$Res>
     Object? hasReachedMax = null,
     Object? query = freezed,
   }) {
-    return _then(_$_FetchOrganizationSuccess(
+    return _then(_$FetchOrganizationSuccessImpl(
       records: null == records
           ? _value._records
           : records // ignore: cast_nullable_to_non_nullable
@@ -748,8 +754,8 @@ class __$$_FetchOrganizationSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchOrganizationSuccess implements _FetchOrganizationSuccess {
-  const _$_FetchOrganizationSuccess(
+class _$FetchOrganizationSuccessImpl implements _FetchOrganizationSuccess {
+  const _$FetchOrganizationSuccessImpl(
       {required final List<IdName> records,
       required this.hasReachedMax,
       this.query})
@@ -777,7 +783,7 @@ class _$_FetchOrganizationSuccess implements _FetchOrganizationSuccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchOrganizationSuccess &&
+            other is _$FetchOrganizationSuccessImpl &&
             const DeepCollectionEquality().equals(other._records, _records) &&
             (identical(other.hasReachedMax, hasReachedMax) ||
                 other.hasReachedMax == hasReachedMax) &&
@@ -791,9 +797,9 @@ class _$_FetchOrganizationSuccess implements _FetchOrganizationSuccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchOrganizationSuccessCopyWith<_$_FetchOrganizationSuccess>
-      get copyWith => __$$_FetchOrganizationSuccessCopyWithImpl<
-          _$_FetchOrganizationSuccess>(this, _$identity);
+  _$$FetchOrganizationSuccessImplCopyWith<_$FetchOrganizationSuccessImpl>
+      get copyWith => __$$FetchOrganizationSuccessImplCopyWithImpl<
+          _$FetchOrganizationSuccessImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -878,22 +884,22 @@ abstract class _FetchOrganizationSuccess implements FetchOrganizationState {
   const factory _FetchOrganizationSuccess(
       {required final List<IdName> records,
       required final bool hasReachedMax,
-      final String? query}) = _$_FetchOrganizationSuccess;
+      final String? query}) = _$FetchOrganizationSuccessImpl;
 
   List<IdName> get records;
   bool get hasReachedMax;
   String? get query;
   @JsonKey(ignore: true)
-  _$$_FetchOrganizationSuccessCopyWith<_$_FetchOrganizationSuccess>
+  _$$FetchOrganizationSuccessImplCopyWith<_$FetchOrganizationSuccessImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FetchOrganizationFailureCopyWith<$Res> {
-  factory _$$_FetchOrganizationFailureCopyWith(
-          _$_FetchOrganizationFailure value,
-          $Res Function(_$_FetchOrganizationFailure) then) =
-      __$$_FetchOrganizationFailureCopyWithImpl<$Res>;
+abstract class _$$FetchOrganizationFailureImplCopyWith<$Res> {
+  factory _$$FetchOrganizationFailureImplCopyWith(
+          _$FetchOrganizationFailureImpl value,
+          $Res Function(_$FetchOrganizationFailureImpl) then) =
+      __$$FetchOrganizationFailureImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Failure failure});
 
@@ -901,12 +907,13 @@ abstract class _$$_FetchOrganizationFailureCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FetchOrganizationFailureCopyWithImpl<$Res>
+class __$$FetchOrganizationFailureImplCopyWithImpl<$Res>
     extends _$FetchOrganizationStateCopyWithImpl<$Res,
-        _$_FetchOrganizationFailure>
-    implements _$$_FetchOrganizationFailureCopyWith<$Res> {
-  __$$_FetchOrganizationFailureCopyWithImpl(_$_FetchOrganizationFailure _value,
-      $Res Function(_$_FetchOrganizationFailure) _then)
+        _$FetchOrganizationFailureImpl>
+    implements _$$FetchOrganizationFailureImplCopyWith<$Res> {
+  __$$FetchOrganizationFailureImplCopyWithImpl(
+      _$FetchOrganizationFailureImpl _value,
+      $Res Function(_$FetchOrganizationFailureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -914,7 +921,7 @@ class __$$_FetchOrganizationFailureCopyWithImpl<$Res>
   $Res call({
     Object? failure = null,
   }) {
-    return _then(_$_FetchOrganizationFailure(
+    return _then(_$FetchOrganizationFailureImpl(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -933,8 +940,8 @@ class __$$_FetchOrganizationFailureCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FetchOrganizationFailure implements _FetchOrganizationFailure {
-  const _$_FetchOrganizationFailure(this.failure);
+class _$FetchOrganizationFailureImpl implements _FetchOrganizationFailure {
+  const _$FetchOrganizationFailureImpl(this.failure);
 
   @override
   final Failure failure;
@@ -948,7 +955,7 @@ class _$_FetchOrganizationFailure implements _FetchOrganizationFailure {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FetchOrganizationFailure &&
+            other is _$FetchOrganizationFailureImpl &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
@@ -958,9 +965,9 @@ class _$_FetchOrganizationFailure implements _FetchOrganizationFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FetchOrganizationFailureCopyWith<_$_FetchOrganizationFailure>
-      get copyWith => __$$_FetchOrganizationFailureCopyWithImpl<
-          _$_FetchOrganizationFailure>(this, _$identity);
+  _$$FetchOrganizationFailureImplCopyWith<_$FetchOrganizationFailureImpl>
+      get copyWith => __$$FetchOrganizationFailureImplCopyWithImpl<
+          _$FetchOrganizationFailureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1043,10 +1050,10 @@ class _$_FetchOrganizationFailure implements _FetchOrganizationFailure {
 
 abstract class _FetchOrganizationFailure implements FetchOrganizationState {
   const factory _FetchOrganizationFailure(final Failure failure) =
-      _$_FetchOrganizationFailure;
+      _$FetchOrganizationFailureImpl;
 
   Failure get failure;
   @JsonKey(ignore: true)
-  _$$_FetchOrganizationFailureCopyWith<_$_FetchOrganizationFailure>
+  _$$FetchOrganizationFailureImplCopyWith<_$FetchOrganizationFailureImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -93,11 +93,11 @@ class _$ShipmentLineCopyWithImpl<$Res, $Val extends ShipmentLine>
 }
 
 /// @nodoc
-abstract class _$$_ShipmentLineCopyWith<$Res>
+abstract class _$$ShipmentLineImplCopyWith<$Res>
     implements $ShipmentLineCopyWith<$Res> {
-  factory _$$_ShipmentLineCopyWith(
-          _$_ShipmentLine value, $Res Function(_$_ShipmentLine) then) =
-      __$$_ShipmentLineCopyWithImpl<$Res>;
+  factory _$$ShipmentLineImplCopyWith(
+          _$ShipmentLineImpl value, $Res Function(_$ShipmentLineImpl) then) =
+      __$$ShipmentLineImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -110,11 +110,11 @@ abstract class _$$_ShipmentLineCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ShipmentLineCopyWithImpl<$Res>
-    extends _$ShipmentLineCopyWithImpl<$Res, _$_ShipmentLine>
-    implements _$$_ShipmentLineCopyWith<$Res> {
-  __$$_ShipmentLineCopyWithImpl(
-      _$_ShipmentLine _value, $Res Function(_$_ShipmentLine) _then)
+class __$$ShipmentLineImplCopyWithImpl<$Res>
+    extends _$ShipmentLineCopyWithImpl<$Res, _$ShipmentLineImpl>
+    implements _$$ShipmentLineImplCopyWith<$Res> {
+  __$$ShipmentLineImplCopyWithImpl(
+      _$ShipmentLineImpl _value, $Res Function(_$ShipmentLineImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -127,7 +127,7 @@ class __$$_ShipmentLineCopyWithImpl<$Res>
     Object? storageBinName = null,
     Object? movementQty = null,
   }) {
-    return _then(_$_ShipmentLine(
+    return _then(_$ShipmentLineImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -158,8 +158,8 @@ class __$$_ShipmentLineCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ShipmentLine implements _ShipmentLine {
-  const _$_ShipmentLine(
+class _$ShipmentLineImpl implements _ShipmentLine {
+  const _$ShipmentLineImpl(
       {required this.id,
       required this.productId,
       required this.productName,
@@ -189,7 +189,7 @@ class _$_ShipmentLine implements _ShipmentLine {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ShipmentLine &&
+            other is _$ShipmentLineImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
@@ -209,8 +209,8 @@ class _$_ShipmentLine implements _ShipmentLine {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShipmentLineCopyWith<_$_ShipmentLine> get copyWith =>
-      __$$_ShipmentLineCopyWithImpl<_$_ShipmentLine>(this, _$identity);
+  _$$ShipmentLineImplCopyWith<_$ShipmentLineImpl> get copyWith =>
+      __$$ShipmentLineImplCopyWithImpl<_$ShipmentLineImpl>(this, _$identity);
 }
 
 abstract class _ShipmentLine implements ShipmentLine {
@@ -220,7 +220,7 @@ abstract class _ShipmentLine implements ShipmentLine {
       required final String productName,
       required final String uomName,
       required final String storageBinName,
-      required final double movementQty}) = _$_ShipmentLine;
+      required final double movementQty}) = _$ShipmentLineImpl;
 
   @override
   String get id;
@@ -236,6 +236,6 @@ abstract class _ShipmentLine implements ShipmentLine {
   double get movementQty;
   @override
   @JsonKey(ignore: true)
-  _$$_ShipmentLineCopyWith<_$_ShipmentLine> get copyWith =>
+  _$$ShipmentLineImplCopyWith<_$ShipmentLineImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

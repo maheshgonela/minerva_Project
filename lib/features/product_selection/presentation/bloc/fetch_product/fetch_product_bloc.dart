@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:core/failures/failure.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:minerva/features/rtv/domain/entity/entities.dart';
-import 'package:minerva/features/rtv/domain/repository/shipment_repo.dart';
 import 'package:injectable/injectable.dart';
+import 'package:minerva/features/product_selection/domain/entity/product.dart';
+import 'package:minerva/features/product_selection/domain/repository/productSelection_repo.dart';
 
 part 'fetch_product_bloc.freezed.dart';
 part 'fetch_product_event.dart';
@@ -11,7 +11,7 @@ part 'fetch_product_state.dart';
 
 @injectable
 class FetchProductBloc extends Bloc<FetchProductEvent, FetchProductState> {
-  final ShipmentRepo repo;
+  final ProductSelectionRepo repo;
   final int pageLength = 20;
 
   FetchProductBloc(

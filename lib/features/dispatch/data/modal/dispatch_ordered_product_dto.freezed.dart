@@ -151,12 +151,12 @@ class _$DispatchOrderedProductDtoCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DispatchOrderedProductDtoCopyWith<$Res>
+abstract class _$$DispatchOrderedProductDtoImplCopyWith<$Res>
     implements $DispatchOrderedProductDtoCopyWith<$Res> {
-  factory _$$_DispatchOrderedProductDtoCopyWith(
-          _$_DispatchOrderedProductDto value,
-          $Res Function(_$_DispatchOrderedProductDto) then) =
-      __$$_DispatchOrderedProductDtoCopyWithImpl<$Res>;
+  factory _$$DispatchOrderedProductDtoImplCopyWith(
+          _$DispatchOrderedProductDtoImpl value,
+          $Res Function(_$DispatchOrderedProductDtoImpl) then) =
+      __$$DispatchOrderedProductDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -175,13 +175,13 @@ abstract class _$$_DispatchOrderedProductDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DispatchOrderedProductDtoCopyWithImpl<$Res>
+class __$$DispatchOrderedProductDtoImplCopyWithImpl<$Res>
     extends _$DispatchOrderedProductDtoCopyWithImpl<$Res,
-        _$_DispatchOrderedProductDto>
-    implements _$$_DispatchOrderedProductDtoCopyWith<$Res> {
-  __$$_DispatchOrderedProductDtoCopyWithImpl(
-      _$_DispatchOrderedProductDto _value,
-      $Res Function(_$_DispatchOrderedProductDto) _then)
+        _$DispatchOrderedProductDtoImpl>
+    implements _$$DispatchOrderedProductDtoImplCopyWith<$Res> {
+  __$$DispatchOrderedProductDtoImplCopyWithImpl(
+      _$DispatchOrderedProductDtoImpl _value,
+      $Res Function(_$DispatchOrderedProductDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -200,7 +200,7 @@ class __$$_DispatchOrderedProductDtoCopyWithImpl<$Res>
     Object? pendingQty = null,
     Object? dispatchQty = null,
   }) {
-    return _then(_$_DispatchOrderedProductDto(
+    return _then(_$DispatchOrderedProductDtoImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -256,8 +256,8 @@ class __$$_DispatchOrderedProductDtoCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$_DispatchOrderedProductDto extends _DispatchOrderedProductDto {
-  const _$_DispatchOrderedProductDto(
+class _$DispatchOrderedProductDtoImpl extends _DispatchOrderedProductDto {
+  const _$DispatchOrderedProductDtoImpl(
       {required this.id,
       required this.organization,
       required this.product,
@@ -272,8 +272,8 @@ class _$_DispatchOrderedProductDto extends _DispatchOrderedProductDto {
       @JsonKey(name: 'dispatch_qty') required this.dispatchQty})
       : super._();
 
-  factory _$_DispatchOrderedProductDto.fromJson(Map<String, dynamic> json) =>
-      _$$_DispatchOrderedProductDtoFromJson(json);
+  factory _$DispatchOrderedProductDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DispatchOrderedProductDtoImplFromJson(json);
 
   @override
   final String id;
@@ -318,7 +318,7 @@ class _$_DispatchOrderedProductDto extends _DispatchOrderedProductDto {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DispatchOrderedProductDto &&
+            other is _$DispatchOrderedProductDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.organization, organization) ||
                 other.organization == organization) &&
@@ -361,13 +361,13 @@ class _$_DispatchOrderedProductDto extends _DispatchOrderedProductDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DispatchOrderedProductDtoCopyWith<_$_DispatchOrderedProductDto>
-      get copyWith => __$$_DispatchOrderedProductDtoCopyWithImpl<
-          _$_DispatchOrderedProductDto>(this, _$identity);
+  _$$DispatchOrderedProductDtoImplCopyWith<_$DispatchOrderedProductDtoImpl>
+      get copyWith => __$$DispatchOrderedProductDtoImplCopyWithImpl<
+          _$DispatchOrderedProductDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DispatchOrderedProductDtoToJson(
+    return _$$DispatchOrderedProductDtoImplToJson(
       this,
     );
   }
@@ -375,31 +375,24 @@ class _$_DispatchOrderedProductDto extends _DispatchOrderedProductDto {
 
 abstract class _DispatchOrderedProductDto extends DispatchOrderedProductDto {
   const factory _DispatchOrderedProductDto(
-      {required final String id,
-      required final String organization,
-      required final String product,
-      @JsonKey(name: 'code')
-          required final String productCode,
-      @JsonKey(name: 'productcat')
-          required final String productCategory,
-      @JsonKey(name: 'subcategory')
-          required final String subCategory,
-      @JsonKey(name: 'product_name')
-          required final String productName,
-      @JsonKey(name: 'uom')
-          required final String uOM,
-      @JsonKey(name: 'uom_name', defaultValue: '')
+          {required final String id,
+          required final String organization,
+          required final String product,
+          @JsonKey(name: 'code') required final String productCode,
+          @JsonKey(name: 'productcat') required final String productCategory,
+          @JsonKey(name: 'subcategory') required final String subCategory,
+          @JsonKey(name: 'product_name') required final String productName,
+          @JsonKey(name: 'uom') required final String uOM,
+          @JsonKey(name: 'uom_name', defaultValue: '')
           required final String uOMName,
-      @JsonKey(name: 'ordered_qty')
-          required final String orderedQuantity,
-      @JsonKey(name: 'pending_qty')
-          required final String pendingQty,
-      @JsonKey(name: 'dispatch_qty')
-          required final String dispatchQty}) = _$_DispatchOrderedProductDto;
+          @JsonKey(name: 'ordered_qty') required final String orderedQuantity,
+          @JsonKey(name: 'pending_qty') required final String pendingQty,
+          @JsonKey(name: 'dispatch_qty') required final String dispatchQty}) =
+      _$DispatchOrderedProductDtoImpl;
   const _DispatchOrderedProductDto._() : super._();
 
   factory _DispatchOrderedProductDto.fromJson(Map<String, dynamic> json) =
-      _$_DispatchOrderedProductDto.fromJson;
+      _$DispatchOrderedProductDtoImpl.fromJson;
 
   @override
   String get id;
@@ -436,6 +429,6 @@ abstract class _DispatchOrderedProductDto extends DispatchOrderedProductDto {
   String get dispatchQty;
   @override
   @JsonKey(ignore: true)
-  _$$_DispatchOrderedProductDtoCopyWith<_$_DispatchOrderedProductDto>
+  _$$DispatchOrderedProductDtoImplCopyWith<_$DispatchOrderedProductDtoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
