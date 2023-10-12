@@ -1,16 +1,14 @@
-import 'package:base_auth/entity/id_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:minerva/features/grn/domain/entities/PurchaseOrder_form.dart';
+import 'package:minerva/features/grn/presentation/blocs/new_purchase_order/new_purchase_order_bloc.dart';
 import 'package:minerva/features/product_selection/domain/entity/form_line.dart';
 import 'package:minerva/features/product_selection/presentation/bloc/fetch_product/fetch_product_bloc.dart';
 import 'package:minerva/features/product_selection/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
 import 'package:minerva/features/product_selection/presentation/screens/product_selection_widget.dart';
 import 'package:minerva/features/product_selection/presentation/widgets/edite_quantity_dialog.dart';
-import 'package:minerva/features/rtv/domain/entity/entities.dart';
-import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
-import 'package:minerva/features/rtv/presentation/widgets/bp_selected_widget.dart';
 import 'package:widgets/success_dialog.dart';
-
 import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/toast_message.dart';
 import 'package:widgets/loading_indicator.dart';
@@ -24,16 +22,7 @@ class NewPurchaseOrderForm extends StatefulWidget {
 }
 
 class _NewPurchaseOrderFormState extends State<NewPurchaseOrderForm> {
-  ShipmentForm _form = ShipmentForm.initial();
-  bool isfinalSelected = false;
-  void disablebtn(IdName f, bool isSelected) {
-    setState(() {
-      isfinalSelected = isSelected;
-      //_form.copyWith(businessPartnerId: f.id);
-      _form = _form.copyWith(businessPartnerId: f.id);
-      print('_form : ?? / $_form');
-    });
-  }
+  PurchaseOrderForm _form = PurchaseOrderForm.initial();
 
   @override
   Widget build(BuildContext context) {
@@ -41,86 +30,89 @@ class _NewPurchaseOrderFormState extends State<NewPurchaseOrderForm> {
       appBar: SimpleAppBar(
         height: 60,
         title: "NEW Purchase Order",
-        centerTitle: false,
-        actions: [
-          BlocConsumer<NewShipmentBloc, NewShipmentState>(
-            listener: (ctx, state) {
-              state.maybeWhen(
-                failure: (f) =>
-                    toastMessage(errorMessage: f.error, context: context),
-                success: () => _showSuccessDialog(),
-                orElse: () {},
-              );
-            },
-            builder: (ctx, state) {
-              return state.when(
-                initial: () => _buildCreateButton(context),
-                loading: () => Row(
-                  children: [
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    LoadingIndicator(),
-                    const SizedBox(
-                      width: 40,
-                    )
-                  ],
-                ),
-                success: () => const SizedBox(height: 0, width: 0),
-                failure: (f) => _buildCreateButton(context),
-              );
-            },
-          ),
-        ],
+        centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            BpSelectionWidget(
-              onSelected: (f, isSelected) {
-                disablebtn(f, isSelected);
+      body: _form.products.isEmpty
+          ? Center(
+              child: Text(
+                "Add products to crate Purchase order !",
+                style: GoogleFonts.istokWeb(
+                    textStyle: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(fontWeight: FontWeight.bold)),
+              ),
+            )
+          : Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 4, left: 4),
+                    child: Text(
+                      _form.products.length == 1
+                          ? "Selected Product"
+                          : "Selected Products",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall
+                          ?.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  _buildProductList(),
+                ],
+              ),
+            ),
+      bottomNavigationBar: BottomAppBar(
+        height: 60,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            OutlinedButton.icon(
+              onPressed: () => _openProductSelection(),
+              icon: const Icon(Icons.add),
+              label: Text(
+                'Add Product'.toUpperCase(),
+              ),
+            ),
+            BlocConsumer<NewPurchaseOrderBloc, NewPurchaseOrderState>(
+              listener: (ctx, state) {
+                state.maybeWhen(
+                  failure: (f) {
+                    //  print("failure");
+                    toastMessage(errorMessage: f.error, context: context);
+                  },
+                  success: () => _showSuccessDialog(),
+                  orElse: () {
+                    // print("orElse");
+                  },
+                );
+              },
+              builder: (ctx, state) {
+                return state.when(
+                  initial: () => _buildCreateButton(context),
+                  loading: () => Container(
+                    width: 120,
+                    child: Center(
+                      child: LoadingIndicator(),
+                    ),
+                  ),
+                  success: () => const SizedBox(height: 0, width: 0),
+                  failure: (f) => _buildCreateButton(context),
+                );
               },
             ),
-            const SizedBox(height: 8),
-            Container(
-              width: double.infinity,
-              padding: const EdgeInsets.all(16.0),
-              child: OutlinedButton.icon(
-                onPressed: isfinalSelected == false
-                    ? null
-                    : () {
-                        _openProductSelection();
-                      },
-                icon: const Icon(Icons.add),
-                label: Text(
-                  'Add Product'.toUpperCase(),
-                ),
-              ),
-            ),
-            const SizedBox(height: 8),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 4),
-              child: Text(
-                _form.products.isEmpty ? " " : "Selected Products",
-                style: Theme.of(context)
-                    .textTheme
-                    .titleMedium
-                    ?.copyWith(fontWeight: FontWeight.bold),
-              ),
-            ),
-            _buildProductList(),
           ],
         ),
       ),
     );
   }
 
-  Container _buildCreateButton(BuildContext context) {
-    return Container(
+  SizedBox _buildCreateButton(BuildContext context) {
+    return SizedBox(
       width: 120,
-      padding: const EdgeInsets.all(8.0),
+      // padding: const EdgeInsets.all(8.0),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           padding: EdgeInsets.zero,
@@ -128,8 +120,8 @@ class _NewPurchaseOrderFormState extends State<NewPurchaseOrderForm> {
         onPressed: () {
           print('HIHIH');
           print('_form $_form');
-          BlocProvider.of<NewShipmentBloc>(context)
-              .add(NewShipmentEvent.createShipment(_form));
+          BlocProvider.of<NewPurchaseOrderBloc>(context)
+              .add(NewPurchaseOrderEvent.createPurchaseOrder(_form));
         },
         child: const Text("CREATE"),
       ),

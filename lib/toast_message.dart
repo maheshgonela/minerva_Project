@@ -44,6 +44,7 @@ Future toastMessage({
         left: 15,
         right: 15,
         child: Material(
+          color: Colors.transparent,
           child: Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: Container(

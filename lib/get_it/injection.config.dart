@@ -8,7 +8,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:base_auth/base_auth.dart' as _i32;
+import 'package:base_auth/base_auth.dart' as _i33;
 import 'package:base_auth/repository/auth_repository.dart' as _i20;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:http/http.dart' as _i3;
@@ -44,6 +44,8 @@ import 'package:minerva/features/grn/presentation/blocs/fetch_orderedproduct/fet
     as _i25;
 import 'package:minerva/features/grn/presentation/blocs/fetch_purchase_order/fetch_purchase_order_bloc.dart'
     as _i28;
+import 'package:minerva/features/grn/presentation/blocs/new_purchase_order/new_purchase_order_bloc.dart'
+    as _i30;
 import 'package:minerva/features/product_selection/data/repository/productSelection_repo_impl.dart'
     as _i14;
 import 'package:minerva/features/product_selection/domain/repository/productSelection_repo.dart'
@@ -61,14 +63,14 @@ import 'package:minerva/features/rtv/presentation/bloc/fetch_bps/fetch_bps_bloc.
 import 'package:minerva/features/rtv/presentation/bloc/fetch_shipment/fetch_shipment_bloc.dart'
     as _i29;
 import 'package:minerva/features/rtv/presentation/bloc/new_shipment/new_shipment_bloc.dart'
-    as _i30;
+    as _i31;
 import 'package:minerva/features/sign_in/data/repository/sign_in_repo_impl.dart'
     as _i21;
 import 'package:minerva/features/sign_in/presentation/bloc/auth/auth_bloc.dart'
-    as _i33;
+    as _i34;
 import 'package:minerva/features/sign_in/presentation/bloc/sign_in_bloc/sign_in_bloc.dart'
-    as _i31;
-import 'package:minerva/get_it/external_libs_injection_module.dart' as _i34;
+    as _i32;
+import 'package:minerva/get_it/external_libs_injection_module.dart' as _i35;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -125,16 +127,18 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i28.FetchPurchaseOrderBloc(gh<_i11.GRNRepository>()));
     gh.factory<_i29.FetchShipmentBloc>(
         () => _i29.FetchShipmentBloc(gh<_i15.ShipmentRepo>()));
-    gh.factory<_i30.NewShipmentBloc>(
-        () => _i30.NewShipmentBloc(gh<_i15.ShipmentRepo>()));
-    gh.factory<_i31.SignInBloc>(
-        () => _i31.SignInBloc(signInRepo: gh<_i32.AuthRepository>()));
-    gh.factory<_i33.AuthBloc>(() => _i33.AuthBloc(
-          repository: gh<_i32.AuthRepository>(),
+    gh.factory<_i30.NewPurchaseOrderBloc>(
+        () => _i30.NewPurchaseOrderBloc(gh<_i15.ShipmentRepo>()));
+    gh.factory<_i31.NewShipmentBloc>(
+        () => _i31.NewShipmentBloc(gh<_i15.ShipmentRepo>()));
+    gh.factory<_i32.SignInBloc>(
+        () => _i32.SignInBloc(signInRepo: gh<_i33.AuthRepository>()));
+    gh.factory<_i34.AuthBloc>(() => _i34.AuthBloc(
+          repository: gh<_i33.AuthRepository>(),
           appVersionUseCase: gh<_i19.AppVersionUseCase>(),
         ));
     return this;
   }
 }
 
-class _$ExternalLibs extends _i34.ExternalLibs {}
+class _$ExternalLibs extends _i35.ExternalLibs {}

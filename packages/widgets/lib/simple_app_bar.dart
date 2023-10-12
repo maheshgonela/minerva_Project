@@ -32,11 +32,17 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: GoBackIcon(icon: const Icon(Icons.arrow_back_ios_new_rounded)),
       title: Text(
         title,
-        style: GoogleFonts.istokWeb(
-            textStyle: Theme.of(context)
-                .textTheme
-                .titleLarge!
-                .copyWith(fontWeight: FontWeight.bold)),
+        style: title.length >= 13
+            ? GoogleFonts.istokWeb(
+                textStyle: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(fontWeight: FontWeight.bold))
+            : GoogleFonts.istokWeb(
+                textStyle: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(fontWeight: FontWeight.bold)),
       ),
       iconTheme: const IconThemeData(
         size: 30,

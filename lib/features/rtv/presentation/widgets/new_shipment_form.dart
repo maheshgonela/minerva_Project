@@ -46,10 +46,14 @@ class _NewShipmentFormState extends State<NewShipmentForm> {
           BlocConsumer<NewShipmentBloc, NewShipmentState>(
             listener: (ctx, state) {
               state.maybeWhen(
-                failure: (f) =>
-                    toastMessage(errorMessage: f.error, context: context),
+                failure: (f) {
+                  // print("failure sh");
+                  toastMessage(errorMessage: f.error, context: context);
+                },
                 success: () => _showSuccessDialog(),
-                orElse: () {},
+                orElse: () {
+                  //print("orElse sh");
+                },
               );
             },
             builder: (ctx, state) {
