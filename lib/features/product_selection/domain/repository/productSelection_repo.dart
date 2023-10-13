@@ -13,4 +13,5 @@ abstract class ProductSelectionRepo {
       String? query});
 
   Future<Either<Failure, List<IdName>>> fetchProductCategory();
+  Future<Either<Failure, List<IdName>>> fetchBusinessPartners();
 }

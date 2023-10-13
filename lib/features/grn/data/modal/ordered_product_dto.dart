@@ -28,19 +28,18 @@ abstract class OrderedProductDto implements _$OrderedProductDto {
 
   factory OrderedProductDto.fromDomain(OrderedProduct orderProduct) {
     return OrderedProductDto(
-      id: orderProduct.id,
-      organization: orderProduct.organization,
-      product: orderProduct.product,
-      productCode: orderProduct.productCode,
-      productName: orderProduct.productName,
-      uOM: orderProduct.uOM,
-      uOMName: orderProduct.uOMName,
-      orderedQuantity: orderProduct.orderedQuantity,
-      pendingQty: orderProduct.pendingQty,
-      selectedReceivedQty: orderProduct.selectedReceivedQty,
-      productCategory: orderProduct.productCategory,
-      subCategory: orderProduct.subCategory
-    );
+        id: orderProduct.id,
+        organization: orderProduct.organization,
+        product: orderProduct.product,
+        productCode: orderProduct.productCode,
+        productName: orderProduct.productName,
+        uOM: orderProduct.uOM,
+        uOMName: orderProduct.uOMName,
+        orderedQuantity: orderProduct.orderedQuantity,
+        pendingQty: orderProduct.pendingQty,
+        selectedReceivedQty: orderProduct.selectedReceivedQty,
+        productCategory: orderProduct.productCategory,
+        subCategory: orderProduct.subCategory);
   }
 
   OrderedProduct toDomain() {
@@ -60,5 +59,6 @@ abstract class OrderedProductDto implements _$OrderedProductDto {
     );
   }
 
-  factory OrderedProductDto.fromJson(Map<String, dynamic> json) => _$OrderedProductDtoFromJson(json);
+  factory OrderedProductDto.fromJson(Map<String, dynamic> json) =>
+      _$OrderedProductDtoFromJson(json);
 }

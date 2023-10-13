@@ -14,9 +14,10 @@ abstract class ShipmentDto implements _$ShipmentDto {
     required String id,
     required String organization,
     required String documentNo,
-    @JsonKey(name: 'businessPartner') required  String bpId,
-    @JsonKey(name: 'businessPartner\$_identifier') required  String bpName,
-    @JsonKey(name: 'partnerAddress\$_identifier') required String partnerAddress,
+    @JsonKey(name: 'businessPartner') required String bpId,
+    @JsonKey(name: 'businessPartner\$_identifier') required String bpName,
+    @JsonKey(name: 'partnerAddress\$_identifier')
+    required String partnerAddress,
     required String movementDate,
     String? description,
   }) = _ShipmentDto;

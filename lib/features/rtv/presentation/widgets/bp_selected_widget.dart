@@ -1,7 +1,7 @@
 import 'package:base_auth/entity/id_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
+import 'package:minerva/features/product_selection/presentation/bloc/fetch_bps/fetch_bps_bloc.dart';
 import 'package:minerva/features/rtv/presentation/widgets/bpartners_list.dart';
 
 class BpSelectionWidget extends StatefulWidget {
@@ -36,7 +36,8 @@ class _BpSelectionWidgetState extends State<BpSelectionWidget> {
                 ?.copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        Card(elevation: 3,
+        Card(
+          elevation: 3,
           child: SizedBox(
             width: double.maxFinite,
             height: 50.0,
@@ -49,8 +50,7 @@ class _BpSelectionWidgetState extends State<BpSelectionWidget> {
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   side: const BorderSide(width: 1),
-                  borderRadius:
-                      BorderRadius.circular(8.0),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
               child: Text(
@@ -67,15 +67,14 @@ class _BpSelectionWidgetState extends State<BpSelectionWidget> {
   void _showSelectableBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      isScrollControlled: true, 
+      isScrollControlled: true,
       builder: (ctxt) {
         return BlocProvider.value(
           value: BlocProvider.of<FetchBusinessPartnerBloc>(context),
           child: Container(
             padding: const EdgeInsets.all(8),
             constraints: BoxConstraints(
-              maxHeight: MediaQuery.of(context).size.height *
-                  0.5, 
+              maxHeight: MediaQuery.of(context).size.height * 0.5,
             ),
             child: BPartnersList(
               initalValue: selectedValue,

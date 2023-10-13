@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:base_auth/entity/id_name.dart';
 import 'package:base_auth/entity/logged_in_user.dart';
 import 'package:core/core.dart';
 import 'package:dartz/dartz.dart';
@@ -22,50 +21,6 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
   final http.Client client;
 
   ShipmentRepoImpl(this.client);
-
-  @override
-  Future<Either<Failure, Shipment>> createShipment(ShipmentForm form) async {
-    const String defErrMsg = 'Could not create shipment';
-    try {
-      final user = sl.get<LoggedInUser>();
-      final shipment = await _createShipment(form);
-      if (shipment == null) return left(const Failure(error: defErrMsg));
-      await _addShipmentLines(
-          shipment.id, user.defaultWarehouse, form.products);
-      await _completeShipment(shipment.id);
-      return right(shipment);
-    } catch (e, st) {
-      logError(e, st, defErrMsg);
-      return left(const Failure(error: defErrMsg));
-    }
-  }
-
-  @override
-  Future<Either<Failure, List<IdName>>> fetchBusinessPartners() async {
-    const String defErrMsg = 'Could not fetch products';
-    try {
-      const String url =
-          "${Constants.jsonWs}/${Entities.businessPartner}?_selectedProperties=id,name&_sortBy=name";
-      print(url);
-      final data = await safeApiCall(
-        () => client.get(Uri.parse(url), headers: _authHeader()),
-        defErrMsg,
-      );
-      return data.fold(
-        (Failure l) => left(Failure(error: l.error)),
-        (r) {
-          final list = (r as List<dynamic>)
-              .map((e) => IdName.fromJson(e as Map<String, dynamic>))
-              .toList();
-          print('List SIze : ${list.length}');
-          return right(list);
-        },
-      );
-    } catch (e, st) {
-      logError(e, st, defErrMsg);
-      return left(const Failure(error: defErrMsg));
-    }
-  }
 
   @override
   Future<Either<Failure, List<Shipment>>> fetchShipments(
@@ -96,6 +51,23 @@ class ShipmentRepoImpl with AuthHelper, QueryHelper implements ShipmentRepo {
           return right(list);
         },
       );
+    } catch (e, st) {
+      logError(e, st, defErrMsg);
+      return left(const Failure(error: defErrMsg));
+    }
+  }
+
+  @override
+  Future<Either<Failure, Shipment>> createShipment(ShipmentForm form) async {
+    const String defErrMsg = 'Could not create shipment';
+    try {
+      final user = sl.get<LoggedInUser>();
+      final shipment = await _createShipment(form);
+      if (shipment == null) return left(const Failure(error: defErrMsg));
+      await _addShipmentLines(
+          shipment.id, user.defaultWarehouse, form.products);
+      await _completeShipment(shipment.id);
+      return right(shipment);
     } catch (e, st) {
       logError(e, st, defErrMsg);
       return left(const Failure(error: defErrMsg));

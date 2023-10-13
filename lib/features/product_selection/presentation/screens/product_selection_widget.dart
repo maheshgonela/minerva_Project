@@ -9,7 +9,6 @@ import 'package:minerva/features/product_selection/presentation/bloc/fetch_produ
 import 'package:minerva/features/product_selection/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
 import 'package:minerva/features/product_selection/presentation/widgets/category_selecter_alertdialog.dart';
 import 'package:minerva/features/product_selection/presentation/widgets/quantity_dialog.dart';
-import 'package:minerva/features/rtv/domain/entity/entities.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';

@@ -62,6 +62,8 @@ abstract class $NewPurchaseOrderEventCopyWith<$Res> {
       _$NewPurchaseOrderEventCopyWithImpl<$Res, NewPurchaseOrderEvent>;
   @useResult
   $Res call({PurchaseOrderForm form});
+
+  $PurchaseOrderFormCopyWith<$Res> get form;
 }
 
 /// @nodoc
@@ -78,14 +80,22 @@ class _$NewPurchaseOrderEventCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? form = freezed,
+    Object? form = null,
   }) {
     return _then(_value.copyWith(
-      form: freezed == form
+      form: null == form
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
               as PurchaseOrderForm,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PurchaseOrderFormCopyWith<$Res> get form {
+    return $PurchaseOrderFormCopyWith<$Res>(_value.form, (value) {
+      return _then(_value.copyWith(form: value) as $Val);
+    });
   }
 }
 
@@ -98,6 +108,9 @@ abstract class _$$CreatePurchaseOrderImplCopyWith<$Res>
   @override
   @useResult
   $Res call({PurchaseOrderForm form});
+
+  @override
+  $PurchaseOrderFormCopyWith<$Res> get form;
 }
 
 /// @nodoc
@@ -111,10 +124,10 @@ class __$$CreatePurchaseOrderImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? form = freezed,
+    Object? form = null,
   }) {
     return _then(_$CreatePurchaseOrderImpl(
-      freezed == form
+      null == form
           ? _value.form
           : form // ignore: cast_nullable_to_non_nullable
               as PurchaseOrderForm,
@@ -140,12 +153,11 @@ class _$CreatePurchaseOrderImpl implements _CreatePurchaseOrder {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreatePurchaseOrderImpl &&
-            const DeepCollectionEquality().equals(other.form, form));
+            (identical(other.form, form) || other.form == form));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(form));
+  int get hashCode => Object.hash(runtimeType, form);
 
   @JsonKey(ignore: true)
   @override

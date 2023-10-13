@@ -1,9 +1,11 @@
+import 'package:base_auth/entity/id_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/grn/domain/entities/PurchaseOrder_form.dart';
 import 'package:minerva/features/grn/presentation/blocs/new_purchase_order/new_purchase_order_bloc.dart';
 import 'package:minerva/features/product_selection/domain/entity/form_line.dart';
+import 'package:minerva/features/product_selection/presentation/bloc/fetch_bps/fetch_bps_bloc.dart';
 import 'package:minerva/features/product_selection/presentation/bloc/fetch_product/fetch_product_bloc.dart';
 import 'package:minerva/features/product_selection/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
 import 'package:minerva/features/product_selection/presentation/screens/product_selection_widget.dart';
@@ -23,6 +25,32 @@ class NewPurchaseOrderForm extends StatefulWidget {
 
 class _NewPurchaseOrderFormState extends State<NewPurchaseOrderForm> {
   PurchaseOrderForm _form = PurchaseOrderForm.initial();
+  @override
+  void initState() {
+    fetchBusinessPartnerId();
+    super.initState();
+  }
+
+  void fetchBusinessPartnerId() {
+    final curState = BlocProvider.of<FetchBusinessPartnerBloc>(context).state;
+    curState.maybeWhen(
+      orElse: () => String,
+      success: (businessPartners, __, _) {
+        final kitchenBusinessPartner = businessPartners.firstWhere(
+          (partner) => partner.name == 'Kitchen',
+        );
+
+        // ignore: unnecessary_null_comparison
+        if (kitchenBusinessPartner != null) {
+          _form = _form.copyWith(businessPartnerId: kitchenBusinessPartner.id);
+          print('Business Partner ID of Kitchen: ${kitchenBusinessPartner.id}');
+        } else {
+          _form = _form.copyWith(
+              businessPartnerId: "No kitchenBusinessPartnerId !");
+        }
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +120,7 @@ class _NewPurchaseOrderFormState extends State<NewPurchaseOrderForm> {
               builder: (ctx, state) {
                 return state.when(
                   initial: () => _buildCreateButton(context),
-                  loading: () => Container(
+                  loading: () => SizedBox(
                     width: 120,
                     child: Center(
                       child: LoadingIndicator(),
@@ -118,7 +146,7 @@ class _NewPurchaseOrderFormState extends State<NewPurchaseOrderForm> {
           padding: EdgeInsets.zero,
         ),
         onPressed: () {
-          print('HIHIH');
+          fetchBusinessPartnerId();
           print('_form $_form');
           BlocProvider.of<NewPurchaseOrderBloc>(context)
               .add(NewPurchaseOrderEvent.createPurchaseOrder(_form));

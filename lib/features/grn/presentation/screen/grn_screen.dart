@@ -12,9 +12,9 @@ import 'package:minerva/features/grn/presentation/blocs/fetch_purchase_order/fet
 import 'package:minerva/features/grn/presentation/blocs/new_purchase_order/new_purchase_order_bloc.dart';
 import 'package:minerva/features/grn/presentation/screen/create_grn_screen.dart';
 import 'package:minerva/features/grn/presentation/widgets/new_purchase_order_form.dart';
+import 'package:minerva/features/product_selection/presentation/bloc/fetch_bps/fetch_bps_bloc.dart';
 import 'package:minerva/features/product_selection/presentation/bloc/fetch_product/fetch_product_bloc.dart';
 import 'package:minerva/features/product_selection/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
-import 'package:minerva/features/rtv/presentation/bloc/fetch_bps/fetch_bps_bloc.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:widgets/widgets.dart';
 

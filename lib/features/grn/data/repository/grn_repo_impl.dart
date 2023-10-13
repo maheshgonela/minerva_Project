@@ -7,11 +7,13 @@ import 'package:minerva/constants.dart';
 import 'package:minerva/core/query_helper.dart';
 import 'package:minerva/features/grn/data/modal/ordered_product_dto.dart';
 import 'package:minerva/features/grn/data/modal/purchase_order_dto.dart';
+import 'package:minerva/features/grn/domain/entities/PurchaseOrder_form.dart';
 import 'package:minerva/features/grn/domain/entities/grn_item_ui_model.dart';
 import 'package:minerva/features/grn/domain/entities/ordered_product.dart';
 import 'package:minerva/features/grn/domain/entities/purchase_order.dart';
 import 'package:dartz/dartz.dart';
 import 'package:minerva/features/grn/domain/repository/grn_repository.dart';
+import 'package:minerva/features/product_selection/domain/entity/form_line.dart';
 import 'package:minerva/get_it/injection.dart';
 import 'package:minerva/log/app_logger.dart';
 import 'package:injectable/injectable.dart';
@@ -326,6 +328,133 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
     } catch (e, st) {
       logError(e, st, defErrMsg);
       return left(const Failure(error: defErrMsg));
+    }
+  }
+
+//creating PurchaseOrder
+
+  @override
+  Future<Either<Failure, PurchaseOrder>> createPurchaseOrder(
+      PurchaseOrderForm form) async {
+    const String defErrMsg = 'Could not create shipment';
+    try {
+      final user = sl.get<LoggedInUser>();
+      final purchaseOrder = await _createPurchaseOrder(form);
+      if (purchaseOrder == null) return left(const Failure(error: defErrMsg));
+      await _addPurchaseOrderLines(
+          purchaseOrder.id, user.defaultWarehouse, form.products);
+      await _completePurchaseOrder(purchaseOrder.id);
+      return right(purchaseOrder);
+    } catch (e, st) {
+      logError(e, st, defErrMsg);
+      return left(const Failure(error: defErrMsg));
+    }
+  }
+
+//https://minerva.easycloud.co.in/openbravo1/?tabId=167&recordId=2030AD7DD4284E2B936E261662EF735A
+  Future<PurchaseOrder?> _createPurchaseOrder(PurchaseOrderForm form) async {
+    const defErrMsg = 'Could not create shipment';
+    const url = "${Constants.jsonWs}/${Entities.goodsReceipt}";
+    print('createShipmenturl $url');
+    final user = sl.get<LoggedInUser>();
+    final requestBody = jsonEncode({
+      'data': {
+        '_entityName': Entities.goodsReceipt,
+        'documentType': '2030AD7DD4284E2B936E261662EF735A',
+        'warehouse': user.defaultWarehouse,
+        'businessPartner': form.businessPartnerId,
+        'partnerAddress': await _fetchBpLocationId(form.businessPartnerId),
+        'movementDate': DateFormat("yyyy-MM-dd").format(DateTime.now()),
+        'accountingDate': DateFormat("yyyy-MM-dd").format(DateTime.now()),
+      }
+    });
+    // print("");
+    print("form.businessPartnerId ${form.businessPartnerId}");
+    final data = await safeApiCall(
+      () => client.post(Uri.parse(url),
+          body: requestBody, headers: _authHeader()),
+      defErrMsg,
+    );
+    print(" data : $data");
+    return data.fold(
+      (l) => null,
+      //we have to change  PurchaseOrderDto
+      (r) => PurchaseOrderDto.fromJson(r[0] as Map<String, dynamic>).toDomain(),
+    );
+  }
+
+  Future<void> _addPurchaseOrderLines(
+      String receiptId, String warehouse, List<FormLine> products) async {
+    final url = Uri.parse("${Constants.jsonWs}/${Entities.goodsReceiptLines}");
+    print("url goodsReceiptLines : $url");
+    final storageBinId = await _fetchStorageBinId(warehouse);
+    if (storageBinId.isEmpty) {
+      throw Exception('Could not fetch storage bin details');
+    }
+
+    var lineNo = 0;
+    final reqBody = json.encode({
+      'data': [
+        ...products.map((e) {
+          lineNo = lineNo + 10;
+          return {
+            '_entityName': Entities.goodsReceiptLines,
+            'lineNo': lineNo,
+            'product': e.productId,
+            'uOM': e.uomId,
+            'movementQuantity': e.movementQty,
+            'storageBin': storageBinId,
+            'shipmentReceipt': receiptId,
+          };
+        })
+      ]
+    });
+
+    final result = await safeApiCall(
+      () => client.post(url, body: reqBody, headers: _authHeader()),
+      'Could not add goods receipt lines',
+    );
+
+    if (result.isLeft()) {
+      throw Exception('Could not add goods receipt lines');
+    }
+  }
+
+  Future<String> _fetchBpLocationId(String bpId) async {
+    // working $$
+    final url = Uri.parse(
+        "${Constants.jsonWs}/${Entities.businessPartnerLocation}?_where=businessPartner='$bpId'");
+    print("url businessPartnerLocation : $url");
+    final result = await safeApiCall(
+      () => client.get(url, headers: _authHeader()),
+      'Could not fetch bp location id',
+    );
+    return result.fold(
+      (l) => '',
+      (r) {
+        final list = r as List<dynamic>;
+        return list.isEmpty
+            ? ''
+            : (list[0] as Map<String, dynamic>)['id'].toString();
+      },
+    );
+  }
+
+  Future<void> _completePurchaseOrder(String receiptId) async {
+    final url = Uri.parse(
+        "${Constants.customWs}/${CustomWebservices.processGRNOrOrder}");
+    print("url processGRNOrOrder : $url");
+    final reqBody = json.encode({
+      'data': {"OrderID": "", "MinoutID": receiptId}
+    });
+
+    final result = await safeApiCall(
+      () => client.post(url, body: reqBody, headers: _authHeader()),
+      'Could not complete goods receipt',
+    );
+
+    if (result.isLeft()) {
+      throw Exception('Could not complete goods receipt');
     }
   }
 }
