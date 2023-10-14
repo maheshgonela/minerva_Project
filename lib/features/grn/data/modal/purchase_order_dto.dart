@@ -16,7 +16,7 @@ abstract class PurchaseOrderDto implements _$PurchaseOrderDto {
     required String organization,
     required String documentNo,
     required String businessPartner,
-    @JsonKey(name: 'partnerAddress') required  String businessPartnerLocation,
+    @JsonKey(name: 'partnerAddress') required String businessPartnerLocation,
     required String warehouse,
     required String scheduledDeliveryDate,
     String? deliveryLocation,

@@ -49,10 +49,11 @@ abstract class QueryHelper {
     final query = await getQuery(key);
     const url = "${Constants.customWs}/in.easycloud.commons.QueryService";
     print("fetchQueryResponse $url");
+    print(query);
     final response = await safeApiCall(() {
       final requestBody =
           jsonEncode(_constructRequestBody(query, placeholders: placeholders));
-
+      print(requestBody);
       final post = http.post(Uri.parse(url),
           headers: getAuthHeader(user.userName, user.password),
           body: requestBody);

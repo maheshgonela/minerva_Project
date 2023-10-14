@@ -336,7 +336,7 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
   @override
   Future<Either<Failure, PurchaseOrder>> createPurchaseOrder(
       PurchaseOrderForm form) async {
-    const String defErrMsg = 'Could not create shipment';
+    const String defErrMsg = 'Could not create Purchase Order';
     try {
       final user = sl.get<LoggedInUser>();
       final purchaseOrder = await _createPurchaseOrder(form);
@@ -353,18 +353,24 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
 
 //https://minerva.easycloud.co.in/openbravo1/?tabId=167&recordId=2030AD7DD4284E2B936E261662EF735A
   Future<PurchaseOrder?> _createPurchaseOrder(PurchaseOrderForm form) async {
-    const defErrMsg = 'Could not create shipment';
-    const url = "${Constants.jsonWs}/${Entities.goodsReceipt}";
+    const defErrMsg = 'Could not create Purchase Order';
+    const url = "${Constants.jsonWs}/${Entities.purchaseOrder}";
     print('createShipmenturl $url');
     final user = sl.get<LoggedInUser>();
     final requestBody = jsonEncode({
       'data': {
-        '_entityName': Entities.goodsReceipt,
-        'documentType': '2030AD7DD4284E2B936E261662EF735A',
+        '_entityName': Entities.purchaseOrder,
+        'documentType': '808F8818F724497D94282AC83493F394',
+        'paymentMethod': '7A6C1FD1E0F24B5880475FEA0D100A4C',
+        'paymentTerms': '3E40FAD5AA434585BD0F7B76B80D339F',
+        'priceList': '532163F118424727866E7D54EF0AEF5E',
+        'salesTransaction': false,
         'warehouse': user.defaultWarehouse,
         'businessPartner': form.businessPartnerId,
         'partnerAddress': await _fetchBpLocationId(form.businessPartnerId),
-        'movementDate': DateFormat("yyyy-MM-dd").format(DateTime.now()),
+        'orderDate': DateFormat("yyyy-MM-dd").format(DateTime.now()),
+        'scheduledDeliveryDate':
+            DateFormat("yyyy-MM-dd").format(DateTime.now()),
         'accountingDate': DateFormat("yyyy-MM-dd").format(DateTime.now()),
       }
     });
@@ -385,7 +391,7 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
 
   Future<void> _addPurchaseOrderLines(
       String receiptId, String warehouse, List<FormLine> products) async {
-    final url = Uri.parse("${Constants.jsonWs}/${Entities.goodsReceiptLines}");
+    final url = Uri.parse("${Constants.jsonWs}/${Entities.orderedProducts}");
     print("url goodsReceiptLines : $url");
     final storageBinId = await _fetchStorageBinId(warehouse);
     if (storageBinId.isEmpty) {
@@ -398,7 +404,7 @@ class GRNRepoImpl with AuthHelper, QueryHelper implements GRNRepository {
         ...products.map((e) {
           lineNo = lineNo + 10;
           return {
-            '_entityName': Entities.goodsReceiptLines,
+            '_entityName': Entities.orderedProducts,
             'lineNo': lineNo,
             'product': e.productId,
             'uOM': e.uomId,
