@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/create_dispatch/create_dispatch_cubit.dart';
+import 'package:widgets/loading_indicator.dart';
 
 class DispatchProgressDialog extends StatelessWidget {
   const DispatchProgressDialog({Key? key}) : super(key: key);
@@ -22,10 +23,8 @@ class DispatchProgressDialog extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.0)),
             title: state.isLoading
-                ? const Center(
-                    child: CircularProgressIndicator(
-                      strokeWidth: 8,
-                    ),
+                ? Center(
+                    child: LoadingIndicator(),
                   )
                 : state.isSuccess
                     ? const Icon(Icons.done, size: 48)

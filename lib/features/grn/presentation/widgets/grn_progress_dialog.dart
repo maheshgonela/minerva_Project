@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minerva/features/grn/presentation/blocs/create_grn/create_grn_cubit.dart';
+import 'package:widgets/loading_indicator.dart';
 
 class GrnProgressDialog extends StatelessWidget {
   const GrnProgressDialog({Key? key}) : super(key: key);
@@ -13,15 +14,16 @@ class GrnProgressDialog extends StatelessWidget {
           return false;
         },
         child: AlertDialog(
-          backgroundColor: state.isSuccess ? Colors.greenAccent.shade100 :
-          state.errorMessage.isNotEmpty ? Colors.orangeAccent.shade100 : Colors.white,
+          backgroundColor: state.isSuccess
+              ? Colors.greenAccent.shade100
+              : state.errorMessage.isNotEmpty
+                  ? Colors.orangeAccent.shade100
+                  : Colors.white,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
           title: state.isLoading
-              ? const Center(
-                  child: CircularProgressIndicator(
-                    strokeWidth: 8,
-                  ),
+              ? Center(
+                  child: LoadingIndicator(),
                 )
               : state.isSuccess
                   ? const Icon(Icons.done, size: 48)

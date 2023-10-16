@@ -68,10 +68,8 @@ class _ShipmentListScreenState extends State<ShipmentListScreen> {
                   itemCount: hasReachedMax ? l.length : l.length + 1,
                   itemBuilder: (ctx, idx) {
                     if (idx >= l.length) {
-                      return const Center(
-                          child: FittedBox(
-                              child:
-                                  CircularProgressIndicator(strokeWidth: 2.0)));
+                      return Center(
+                          child: FittedBox(child: LoadingIndicator()));
                     }
                     return Card(
                       elevation: 8.0,

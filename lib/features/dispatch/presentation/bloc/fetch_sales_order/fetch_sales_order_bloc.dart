@@ -22,8 +22,8 @@ class FetchSalesOrderBloc
       await event.map(fetchInitialSalesOrder: (e) async {
         emit(const FetchSalesOrderState.loading());
 
-        var result =
-            await repo.fetchSalesOrder(0, pageLength, e.businessPartnerId);
+        var result = await repo.fetchSalesOrder(
+            0, pageLength, e.businessPartnerId, e.organizationId);
         emit(result.fold(
           (l) => FetchSalesOrderState.failure(l),
           (r) => FetchSalesOrderState.success(
@@ -39,10 +39,10 @@ class FetchSalesOrderBloc
           success: (oldRecord, hasReachedMax, query) async {
             if (!hasReachedMax) {
               final result = await repo.fetchSalesOrder(
-                oldRecord.length,
-                oldRecord.length + pageLength,
-                e.businessPartnerId,
-              );
+                  oldRecord.length,
+                  oldRecord.length + pageLength,
+                  e.businessPartnerId,
+                  e.organizationId);
               return result.fold(
                 (f) => FetchSalesOrderState.failure(f),
                 (r) => FetchSalesOrderState.success(

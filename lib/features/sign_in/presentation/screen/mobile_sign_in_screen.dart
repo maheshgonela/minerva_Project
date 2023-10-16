@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/sign_in/presentation/bloc/sign_in_bloc/sign_in_bloc.dart';
 import 'package:minerva/widgets/minerva_textfield.dart';
+import 'package:widgets/loading_indicator.dart';
 
 class MobileSignInScreen extends StatefulWidget {
   const MobileSignInScreen({super.key});
@@ -146,8 +147,8 @@ class MobileSignInScreenState extends State<MobileSignInScreen> {
     return BlocBuilder<SignInBloc, SignInState>(builder: (ctx, state) {
       return state.maybeWhen(
         loading: () {
-          return const Align(
-            child: CircularProgressIndicator(),
+          return Align(
+            child: LoadingIndicator(),
           );
         },
         orElse: () {

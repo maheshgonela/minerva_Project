@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_sales_order/fetch_sales_order_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/cubit/tablet_dispatch_cubit.dart';
+import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class TabletShopsList extends StatefulWidget {
@@ -50,7 +51,6 @@ class _TabletShopsListState extends State<TabletShopsList> {
 
   RefreshIndicator _buildList(BuildContext context) {
     return RefreshIndicator(
-      strokeWidth: 1.0,
       onRefresh: () {
         _refresh(context);
         return Future.value(const Duration(microseconds: 300));
@@ -75,7 +75,7 @@ class _TabletShopsListState extends State<TabletShopsList> {
               ));
             },
             loading: () {
-              return const Center(child: CircularProgressIndicator());
+              return Center(child: LoadingIndicator());
             },
             success: (records, hasReachedMax, query) {
               if (records.isEmpty) {
@@ -95,10 +95,8 @@ class _TabletShopsListState extends State<TabletShopsList> {
                   separatorBuilder: (ctx, idx) => const Divider(),
                   itemBuilder: (ctx, idx) {
                     if (idx >= records.length) {
-                      return const Center(
-                          child: FittedBox(
-                              child:
-                                  CircularProgressIndicator(strokeWidth: 2.0)));
+                      return Center(
+                          child: FittedBox(child: LoadingIndicator()));
                     }
 
                     return _buildListItem(records, idx);
@@ -132,7 +130,7 @@ class _TabletShopsListState extends State<TabletShopsList> {
         onTap: () {
           context.read<TabletDispatchCubit>().onShopSelected(record);
           BlocProvider.of<FetchSalesOrderBloc>(context)
-              .add(FetchSalesOrderEvent.fetchInitialSalesOrder(record.id));
+              .add(FetchSalesOrderEvent.fetchInitialSalesOrder(record.id, ""));
         },
         leading: CircleAvatar(
           backgroundColor: Theme.of(context).primaryColorLight,

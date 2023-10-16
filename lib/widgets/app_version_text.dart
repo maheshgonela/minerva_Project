@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
+import 'package:widgets/loading_indicator.dart';
 
 class AppVersionText extends StatelessWidget {
   const AppVersionText({Key? key}) : super(key: key);
@@ -9,13 +10,11 @@ class AppVersionText extends StatelessWidget {
     return FutureBuilder<String?>(
       future: _getAppVersion(),
       builder: (ctx, snapshot) {
-        const loading = SizedBox(
+        var loading = SizedBox(
           width: 24,
           height: 24,
           child: FittedBox(
-            child: CircularProgressIndicator(
-              strokeWidth: 2.0,
-            ),
+            child: LoadingIndicator(),
           ),
         );
 
@@ -28,8 +27,7 @@ class AppVersionText extends StatelessWidget {
             return Center(
               child: Text(
                 'version ${snapshot.data!}',
-                style: const TextStyle(
-                    fontWeight: FontWeight.bold),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
             );
         }

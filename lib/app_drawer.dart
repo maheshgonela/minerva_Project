@@ -132,13 +132,11 @@ class AppDrawer extends StatelessWidget {
               trailing: FutureBuilder<String?>(
                 future: _getAppVersion(),
                 builder: (ctx, snapshot) {
-                  const loading = SizedBox(
+                  var loading = SizedBox(
                     width: 24,
                     height: 24,
                     child: FittedBox(
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2.0,
-                      ),
+                      child: LoadingIndicator(),
                     ),
                   );
 

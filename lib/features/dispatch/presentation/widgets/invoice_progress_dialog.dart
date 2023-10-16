@@ -7,10 +7,11 @@ import 'package:minerva/features/dispatch/presentation/bloc/download_invoice/dow
 import 'package:minerva/toast_message.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
-
+import 'package:widgets/loading_indicator.dart';
 
 class InvoiceProgressDialog extends StatelessWidget {
-  const InvoiceProgressDialog({Key? key, required this.shipmentId}) : super(key: key);
+  const InvoiceProgressDialog({Key? key, required this.shipmentId})
+      : super(key: key);
 
   final String shipmentId;
 
@@ -30,7 +31,8 @@ class InvoiceProgressDialog extends StatelessWidget {
                 toastMessage(errorMessage: open.message, context: context);
                 break;
               case ResultType.permissionDenied:
-                toastMessage(errorMessage: 'Permission denied', context: context);
+                toastMessage(
+                    errorMessage: 'Permission denied', context: context);
                 break;
               case ResultType.error:
                 toastMessage(errorMessage: open.message, context: context);
@@ -50,19 +52,15 @@ class InvoiceProgressDialog extends StatelessWidget {
           initial: () => _buildDialog(
             context,
             contentTile: 'Generating Invoice...',
-            title: const Center(
-              child: CircularProgressIndicator(
-                strokeWidth: 8,
-              ),
+            title: Center(
+              child: LoadingIndicator(),
             ),
           ),
           loading: () => _buildDialog(
             context,
             contentTile: 'Generating Invoice...',
-            title: const Center(
-              child: CircularProgressIndicator(
-                strokeWidth: 8,
-              ),
+            title: Center(
+              child: LoadingIndicator(),
             ),
           ),
           success: (d) => _buildDialog(

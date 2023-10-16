@@ -19,8 +19,10 @@ class SalesOrderList extends StatefulWidget {
     required this.businessPartnerId,
     required this.shop,
     required this.section,
+    required this.organizationId,
   }) : super(key: key);
   final String businessPartnerId;
+  final String organizationId;
   final Shop shop;
   final String section;
 
@@ -37,7 +39,8 @@ class _SalesOrderListState extends State<SalesOrderList> {
   void initState() {
     super.initState();
     BlocProvider.of<FetchSalesOrderBloc>(context).add(
-        FetchSalesOrderEvent.fetchInitialSalesOrder(widget.businessPartnerId));
+        FetchSalesOrderEvent.fetchInitialSalesOrder(
+            widget.businessPartnerId, widget.organizationId));
     _scrollController = ScrollController();
     _scrollController?.addListener(_onScroll);
   }
@@ -47,7 +50,8 @@ class _SalesOrderListState extends State<SalesOrderList> {
             _scrollController!.position.maxScrollExtent &&
         !_scrollController!.position.outOfRange) {
       BlocProvider.of<FetchSalesOrderBloc>(context).add(
-          FetchSalesOrderEvent.fetchMoreSalesOrder(widget.businessPartnerId));
+          FetchSalesOrderEvent.fetchMoreSalesOrder(
+              widget.businessPartnerId, widget.organizationId));
     }
   }
 
@@ -62,10 +66,10 @@ class _SalesOrderListState extends State<SalesOrderList> {
         //     preferredSize: Size.fromHeight(10), child: Text("Seles orders")),
       ),
       body: RefreshIndicator(
-        //strokeWidth: 1.0,
         onRefresh: () {
           _refresh(context);
 
+          // ignore: void_checks
           return Future.value(const Duration(microseconds: 300));
         },
         child: BlocBuilder<FetchSalesOrderBloc, FetchSalesOrderState>(
@@ -102,13 +106,10 @@ class _SalesOrderListState extends State<SalesOrderList> {
                 physics: const AlwaysScrollableScrollPhysics(),
                 itemBuilder: (ctx, idx) {
                   if (idx >= records.length) {
-                    return const Center(
-                        child: FittedBox(
-                            child:
-                                CircularProgressIndicator(strokeWidth: 2.0)));
+                    return Center(child: FittedBox(child: LoadingIndicator()));
                   }
 
-                  return _buildCard(records, idx);
+                  return _buildCard(records[idx]);
                 },
                 itemCount: hasReachedMax ? records.length : records.length + 1,
               );
@@ -124,8 +125,7 @@ class _SalesOrderListState extends State<SalesOrderList> {
     );
   }
 
-  Widget _buildCard(List<SalesOrder> records, int idx) {
-    final record = records[idx];
+  Widget _buildCard(SalesOrder record) {
     return Card(
       elevation: 2.0,
       shape: const RoundedRectangleBorder(
@@ -144,7 +144,7 @@ class _SalesOrderListState extends State<SalesOrderList> {
               ],
               child: CreateDispatchScreen(
                 shop: widget.shop,
-                order: records[idx],
+                order: record,
                 section: widget.section,
               ),
             ),
@@ -161,7 +161,7 @@ class _SalesOrderListState extends State<SalesOrderList> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              records[idx].scheduledDeliveryDate,
+              record.scheduledDeliveryDate,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(),
             ),
           ],
@@ -190,7 +190,8 @@ class _SalesOrderListState extends State<SalesOrderList> {
 
   void _refresh(BuildContext context) {
     BlocProvider.of<FetchSalesOrderBloc>(context).add(
-        FetchSalesOrderEvent.fetchInitialSalesOrder(widget.businessPartnerId));
+        FetchSalesOrderEvent.fetchInitialSalesOrder(
+            widget.businessPartnerId, widget.organizationId));
   }
 
   void _openTrips(String section, String id) {

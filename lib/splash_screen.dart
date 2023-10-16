@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:minerva/design/colors.dart';
+import 'package:widgets/loading_indicator.dart';
 
 class MinervaSplashScreen extends StatefulWidget {
   const MinervaSplashScreen({super.key});
@@ -59,10 +60,7 @@ class MinervaSplashScreenState extends State<MinervaSplashScreen>
               ),
             ),
             const SizedBox(height: 16),
-            const CircularProgressIndicator(
-                // semanticsLabel:
-                //     '1.0.0+1' //here we have to add version variable for auto
-                ),
+            LoadingIndicator(),
           ],
         ),
       ),

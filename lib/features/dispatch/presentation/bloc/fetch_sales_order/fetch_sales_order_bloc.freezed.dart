@@ -17,22 +17,29 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$FetchSalesOrderEvent {
   String get businessPartnerId => throw _privateConstructorUsedError;
+  String get organizationId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String businessPartnerId) fetchInitialSalesOrder,
-    required TResult Function(String businessPartnerId) fetchMoreSalesOrder,
+    required TResult Function(String businessPartnerId, String organizationId)
+        fetchInitialSalesOrder,
+    required TResult Function(String businessPartnerId, String organizationId)
+        fetchMoreSalesOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String businessPartnerId)? fetchInitialSalesOrder,
-    TResult? Function(String businessPartnerId)? fetchMoreSalesOrder,
+    TResult? Function(String businessPartnerId, String organizationId)?
+        fetchInitialSalesOrder,
+    TResult? Function(String businessPartnerId, String organizationId)?
+        fetchMoreSalesOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String businessPartnerId)? fetchInitialSalesOrder,
-    TResult Function(String businessPartnerId)? fetchMoreSalesOrder,
+    TResult Function(String businessPartnerId, String organizationId)?
+        fetchInitialSalesOrder,
+    TResult Function(String businessPartnerId, String organizationId)?
+        fetchMoreSalesOrder,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,7 +75,7 @@ abstract class $FetchSalesOrderEventCopyWith<$Res> {
           $Res Function(FetchSalesOrderEvent) then) =
       _$FetchSalesOrderEventCopyWithImpl<$Res, FetchSalesOrderEvent>;
   @useResult
-  $Res call({String businessPartnerId});
+  $Res call({String businessPartnerId, String organizationId});
 }
 
 /// @nodoc
@@ -86,11 +93,16 @@ class _$FetchSalesOrderEventCopyWithImpl<$Res,
   @override
   $Res call({
     Object? businessPartnerId = null,
+    Object? organizationId = null,
   }) {
     return _then(_value.copyWith(
       businessPartnerId: null == businessPartnerId
           ? _value.businessPartnerId
           : businessPartnerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      organizationId: null == organizationId
+          ? _value.organizationId
+          : organizationId // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -105,7 +117,7 @@ abstract class _$$FetchInitialSalesOrderImplCopyWith<$Res>
       __$$FetchInitialSalesOrderImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String businessPartnerId});
+  $Res call({String businessPartnerId, String organizationId});
 }
 
 /// @nodoc
@@ -122,11 +134,16 @@ class __$$FetchInitialSalesOrderImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? businessPartnerId = null,
+    Object? organizationId = null,
   }) {
     return _then(_$FetchInitialSalesOrderImpl(
       null == businessPartnerId
           ? _value.businessPartnerId
           : businessPartnerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == organizationId
+          ? _value.organizationId
+          : organizationId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -135,14 +152,17 @@ class __$$FetchInitialSalesOrderImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FetchInitialSalesOrderImpl implements _FetchInitialSalesOrder {
-  const _$FetchInitialSalesOrderImpl(this.businessPartnerId);
+  const _$FetchInitialSalesOrderImpl(
+      this.businessPartnerId, this.organizationId);
 
   @override
   final String businessPartnerId;
+  @override
+  final String organizationId;
 
   @override
   String toString() {
-    return 'FetchSalesOrderEvent.fetchInitialSalesOrder(businessPartnerId: $businessPartnerId)';
+    return 'FetchSalesOrderEvent.fetchInitialSalesOrder(businessPartnerId: $businessPartnerId, organizationId: $organizationId)';
   }
 
   @override
@@ -151,11 +171,14 @@ class _$FetchInitialSalesOrderImpl implements _FetchInitialSalesOrder {
         (other.runtimeType == runtimeType &&
             other is _$FetchInitialSalesOrderImpl &&
             (identical(other.businessPartnerId, businessPartnerId) ||
-                other.businessPartnerId == businessPartnerId));
+                other.businessPartnerId == businessPartnerId) &&
+            (identical(other.organizationId, organizationId) ||
+                other.organizationId == organizationId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, businessPartnerId);
+  int get hashCode =>
+      Object.hash(runtimeType, businessPartnerId, organizationId);
 
   @JsonKey(ignore: true)
   @override
@@ -167,30 +190,36 @@ class _$FetchInitialSalesOrderImpl implements _FetchInitialSalesOrder {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String businessPartnerId) fetchInitialSalesOrder,
-    required TResult Function(String businessPartnerId) fetchMoreSalesOrder,
+    required TResult Function(String businessPartnerId, String organizationId)
+        fetchInitialSalesOrder,
+    required TResult Function(String businessPartnerId, String organizationId)
+        fetchMoreSalesOrder,
   }) {
-    return fetchInitialSalesOrder(businessPartnerId);
+    return fetchInitialSalesOrder(businessPartnerId, organizationId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String businessPartnerId)? fetchInitialSalesOrder,
-    TResult? Function(String businessPartnerId)? fetchMoreSalesOrder,
+    TResult? Function(String businessPartnerId, String organizationId)?
+        fetchInitialSalesOrder,
+    TResult? Function(String businessPartnerId, String organizationId)?
+        fetchMoreSalesOrder,
   }) {
-    return fetchInitialSalesOrder?.call(businessPartnerId);
+    return fetchInitialSalesOrder?.call(businessPartnerId, organizationId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String businessPartnerId)? fetchInitialSalesOrder,
-    TResult Function(String businessPartnerId)? fetchMoreSalesOrder,
+    TResult Function(String businessPartnerId, String organizationId)?
+        fetchInitialSalesOrder,
+    TResult Function(String businessPartnerId, String organizationId)?
+        fetchMoreSalesOrder,
     required TResult orElse(),
   }) {
     if (fetchInitialSalesOrder != null) {
-      return fetchInitialSalesOrder(businessPartnerId);
+      return fetchInitialSalesOrder(businessPartnerId, organizationId);
     }
     return orElse();
   }
@@ -229,11 +258,14 @@ class _$FetchInitialSalesOrderImpl implements _FetchInitialSalesOrder {
 }
 
 abstract class _FetchInitialSalesOrder implements FetchSalesOrderEvent {
-  const factory _FetchInitialSalesOrder(final String businessPartnerId) =
+  const factory _FetchInitialSalesOrder(
+          final String businessPartnerId, final String organizationId) =
       _$FetchInitialSalesOrderImpl;
 
   @override
   String get businessPartnerId;
+  @override
+  String get organizationId;
   @override
   @JsonKey(ignore: true)
   _$$FetchInitialSalesOrderImplCopyWith<_$FetchInitialSalesOrderImpl>
@@ -248,7 +280,7 @@ abstract class _$$FetchMoreSalesOrderImplCopyWith<$Res>
       __$$FetchMoreSalesOrderImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String businessPartnerId});
+  $Res call({String businessPartnerId, String organizationId});
 }
 
 /// @nodoc
@@ -263,11 +295,16 @@ class __$$FetchMoreSalesOrderImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? businessPartnerId = null,
+    Object? organizationId = null,
   }) {
     return _then(_$FetchMoreSalesOrderImpl(
       null == businessPartnerId
           ? _value.businessPartnerId
           : businessPartnerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == organizationId
+          ? _value.organizationId
+          : organizationId // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -276,14 +313,16 @@ class __$$FetchMoreSalesOrderImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FetchMoreSalesOrderImpl implements _FetchMoreSalesOrder {
-  const _$FetchMoreSalesOrderImpl(this.businessPartnerId);
+  const _$FetchMoreSalesOrderImpl(this.businessPartnerId, this.organizationId);
 
   @override
   final String businessPartnerId;
+  @override
+  final String organizationId;
 
   @override
   String toString() {
-    return 'FetchSalesOrderEvent.fetchMoreSalesOrder(businessPartnerId: $businessPartnerId)';
+    return 'FetchSalesOrderEvent.fetchMoreSalesOrder(businessPartnerId: $businessPartnerId, organizationId: $organizationId)';
   }
 
   @override
@@ -292,11 +331,14 @@ class _$FetchMoreSalesOrderImpl implements _FetchMoreSalesOrder {
         (other.runtimeType == runtimeType &&
             other is _$FetchMoreSalesOrderImpl &&
             (identical(other.businessPartnerId, businessPartnerId) ||
-                other.businessPartnerId == businessPartnerId));
+                other.businessPartnerId == businessPartnerId) &&
+            (identical(other.organizationId, organizationId) ||
+                other.organizationId == organizationId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, businessPartnerId);
+  int get hashCode =>
+      Object.hash(runtimeType, businessPartnerId, organizationId);
 
   @JsonKey(ignore: true)
   @override
@@ -308,30 +350,36 @@ class _$FetchMoreSalesOrderImpl implements _FetchMoreSalesOrder {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String businessPartnerId) fetchInitialSalesOrder,
-    required TResult Function(String businessPartnerId) fetchMoreSalesOrder,
+    required TResult Function(String businessPartnerId, String organizationId)
+        fetchInitialSalesOrder,
+    required TResult Function(String businessPartnerId, String organizationId)
+        fetchMoreSalesOrder,
   }) {
-    return fetchMoreSalesOrder(businessPartnerId);
+    return fetchMoreSalesOrder(businessPartnerId, organizationId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String businessPartnerId)? fetchInitialSalesOrder,
-    TResult? Function(String businessPartnerId)? fetchMoreSalesOrder,
+    TResult? Function(String businessPartnerId, String organizationId)?
+        fetchInitialSalesOrder,
+    TResult? Function(String businessPartnerId, String organizationId)?
+        fetchMoreSalesOrder,
   }) {
-    return fetchMoreSalesOrder?.call(businessPartnerId);
+    return fetchMoreSalesOrder?.call(businessPartnerId, organizationId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String businessPartnerId)? fetchInitialSalesOrder,
-    TResult Function(String businessPartnerId)? fetchMoreSalesOrder,
+    TResult Function(String businessPartnerId, String organizationId)?
+        fetchInitialSalesOrder,
+    TResult Function(String businessPartnerId, String organizationId)?
+        fetchMoreSalesOrder,
     required TResult orElse(),
   }) {
     if (fetchMoreSalesOrder != null) {
-      return fetchMoreSalesOrder(businessPartnerId);
+      return fetchMoreSalesOrder(businessPartnerId, organizationId);
     }
     return orElse();
   }
@@ -370,11 +418,14 @@ class _$FetchMoreSalesOrderImpl implements _FetchMoreSalesOrder {
 }
 
 abstract class _FetchMoreSalesOrder implements FetchSalesOrderEvent {
-  const factory _FetchMoreSalesOrder(final String businessPartnerId) =
+  const factory _FetchMoreSalesOrder(
+          final String businessPartnerId, final String organizationId) =
       _$FetchMoreSalesOrderImpl;
 
   @override
   String get businessPartnerId;
+  @override
+  String get organizationId;
   @override
   @JsonKey(ignore: true)
   _$$FetchMoreSalesOrderImplCopyWith<_$FetchMoreSalesOrderImpl> get copyWith =>

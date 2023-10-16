@@ -17,7 +17,7 @@ abstract class DispatchRepository {
       int start, int end, String? query);
 
   Future<Either<Failure, List<SalesOrder>>> fetchSalesOrder(
-      int start, int end, String businessPartnerId);
+      int start, int end, String businessPartnerId, String organizationId);
 
   /// Create dispatch
   ///

@@ -10,6 +10,7 @@ import 'package:minerva/features/grn/presentation/blocs/fetch_orderedproduct/fet
 import 'package:minerva/features/grn/presentation/widgets/grn_product_list.dart';
 import 'package:minerva/features/grn/presentation/widgets/grn_progress_dialog.dart';
 import 'package:minerva/toast_message.dart';
+import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class CreateGRNScreen extends StatefulWidget {
@@ -140,7 +141,6 @@ class _CreateGRNScreenState extends State<CreateGRNScreen> {
 
   Widget _buildList(BuildContext context, List<GrnItemUiModel> grnProducts) {
     return RefreshIndicator(
-      strokeWidth: 1.0,
       onRefresh: () {
         _refresh(context);
         return Future.value(const Duration(microseconds: 400));
@@ -157,10 +157,10 @@ class _CreateGRNScreenState extends State<CreateGRNScreen> {
         builder: (context, state) {
           return state.when(
             initial: () {
-              return const Center(child: CircularProgressIndicator());
+              return Center(child: LoadingIndicator());
             },
             loading: () {
-              return const Center(child: CircularProgressIndicator());
+              return Center(child: LoadingIndicator());
             },
             success: (records, hasReachedMax, query) {
               if (records.isEmpty) {

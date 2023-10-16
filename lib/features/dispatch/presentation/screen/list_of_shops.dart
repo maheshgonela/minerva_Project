@@ -12,11 +12,12 @@ import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class ListOfShops extends StatefulWidget {
-  const ListOfShops({Key? key, required this.section, required this.OrgId})
+  const ListOfShops(
+      {Key? key, required this.section, required this.organizationId})
       : super(key: key);
 
   final String section;
-  final String OrgId;
+  final String organizationId;
 
   @override
   State<ListOfShops> createState() => _ListOfShopsState();
@@ -115,57 +116,37 @@ class _ListOfShopsState extends State<ListOfShops> {
   }
 
   Widget _buildCard(Shop record) {
-    return Card(
-      elevation: 2.0,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-        side: BorderSide(width: 1.5),
-      ),
-      child: ListTile(
-        onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (ctx) => MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (ctx) => sl.get<FetchSalesOrderBloc>(),
-                ),
-                // BlocProvider.value(
-                //   value: BlocProvider.of<CreateDispatchCubit>(context),
-                // ),
-                BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
-              ],
-              child: SalesOrderList(
-                businessPartnerId: record.id,
-                shop: record,
-                section: widget.section,
+    return SimpleListTile(
+      context: context,
+      title: record.name,
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (ctx) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (ctx) => sl.get<FetchSalesOrderBloc>(),
               ),
-            ),
-          ));
-        },
-        leading: CircleAvatar(
-          backgroundColor: Theme.of(context).primaryColorLight,
-          child: Text(
-            record.name.characters.first,
-            // style: const TextStyle(color: Colors.white),
-          ),
-        ),
-        title: Text(
-          record.name,
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-            fontFeatures: [
-              const FontFeature.oldstyleFigures(),
-              const FontFeature.slashedZero(),
+              // BlocProvider.value(
+              //   value: BlocProvider.of<CreateDispatchCubit>(context),
+              // ),
+              BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
             ],
+            child: SalesOrderList(
+              businessPartnerId: record.id,
+              shop: record,
+              section: widget.section,
+              organizationId: widget.organizationId,
+            ),
           ),
-        ),
-      ),
+        ));
+      },
+      trailing: const Icon(Icons.arrow_forward_ios_rounded),
     );
   }
 
   void _refresh(BuildContext context) {
+    //don't ignore this lines
     BlocProvider.of<FetchShopBloc>(context)
-        .add(FetchShopEvent.fetchInitialShop(query: widget.OrgId));
+        .add(FetchShopEvent.fetchInitialShop(query: widget.organizationId));
   }
 }

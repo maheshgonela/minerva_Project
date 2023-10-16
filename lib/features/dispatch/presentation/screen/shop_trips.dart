@@ -42,18 +42,19 @@ class _ShopTripsState extends State<ShopTrips> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.shop),
-        elevation: 0.0,
+      appBar: SimpleAppBar(
+        centerTitle: true,
+        height: 60,
+        title: widget.shop,
       ),
       body: BlocBuilder<ShopTripsBloc, ShopTripsState>(
         builder: (context, state) {
           return state.when(
             initial: () {
-              return const Center(child: CircularProgressIndicator());
+              return Center(child: LoadingIndicator());
             },
             loading: () {
-              return const Center(child: CircularProgressIndicator());
+              return Center(child: LoadingIndicator());
             },
             success: (records, hasReachedMax, query) {
               if (records.shipped.isEmpty) {

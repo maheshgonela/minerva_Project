@@ -16,6 +16,7 @@ import 'package:minerva/features/product_selection/presentation/bloc/fetch_bps/f
 import 'package:minerva/features/product_selection/presentation/bloc/fetch_product/fetch_product_bloc.dart';
 import 'package:minerva/features/product_selection/presentation/bloc/fetch_product_category/fetch_product_category_bloc.dart';
 import 'package:minerva/get_it/injection.dart';
+import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
 class GRNScreen extends StatefulWidget {
@@ -54,7 +55,6 @@ class _GRNScreenState extends State<GRNScreen> {
           SimpleAppBar(height: 60, title: "Purchase Orders", centerTitle: true),
       body: SafeArea(
         child: RefreshIndicator(
-          strokeWidth: 1.0,
           onRefresh: () {
             _refresh(context);
             return Future.value(const Duration(microseconds: 300));
@@ -74,7 +74,7 @@ class _GRNScreenState extends State<GRNScreen> {
                   ));
                 },
                 loading: () {
-                  return const Center(child: CircularProgressIndicator());
+                  return Center(child: LoadingIndicator());
                 },
                 success: (records, hasReachedMax, query) {
                   if (records.isEmpty) {
@@ -96,13 +96,11 @@ class _GRNScreenState extends State<GRNScreen> {
                       physics: const AlwaysScrollableScrollPhysics(),
                       itemBuilder: (ctx, idx) {
                         if (idx >= records.length) {
-                          return const Center(
-                              child: FittedBox(
-                                  child: CircularProgressIndicator(
-                                      strokeWidth: 2.0)));
+                          return Center(
+                              child: FittedBox(child: LoadingIndicator()));
                         }
 
-                        return _buildCard(records, idx);
+                        return _buildCard(records[idx]);
                       },
                       itemCount:
                           hasReachedMax ? records.length : records.length + 1,
@@ -153,13 +151,12 @@ class _GRNScreenState extends State<GRNScreen> {
     );
   }
 
-  Widget _buildCard(List<PurchaseOrder> records, int idx) {
-    final record = records[idx];
+  Widget _buildCard(PurchaseOrder record) {
     return Card(
       elevation: 2.0,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(8)),
-        side: BorderSide(width: 1.5),
+        // side: BorderSide(width: 1.5),
       ),
       child: ListTile(
         onTap: () {
@@ -171,7 +168,7 @@ class _GRNScreenState extends State<GRNScreen> {
                 ),
                 BlocProvider(create: (ctx) => sl.get<CreateGrnCubit>())
               ],
-              child: CreateGRNScreen(order: records[idx]),
+              child: CreateGRNScreen(order: record),
             ),
           ));
         },
@@ -187,7 +184,7 @@ class _GRNScreenState extends State<GRNScreen> {
             ],
           ),
         ),
-        subtitle: Text(records[idx].scheduledDeliveryDate),
+        subtitle: Text(record.scheduledDeliveryDate),
         trailing: PopupMenuButton<String>(
           onSelected: (value) {
             if (value == '1') {

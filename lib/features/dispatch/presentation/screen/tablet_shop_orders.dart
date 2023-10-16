@@ -156,7 +156,7 @@ class _TabletShopOrdersState extends State<TabletShopOrders> {
                   }
                 } else if (value == '2') {
                   BlocProvider.of<FetchSalesOrderBloc>(context).add(
-                      FetchSalesOrderEvent.fetchInitialSalesOrder(shop.id));
+                      FetchSalesOrderEvent.fetchInitialSalesOrder(shop.id, ""));
                 }
               },
               itemBuilder: (ctx) {
@@ -209,10 +209,10 @@ class _TabletShopOrdersState extends State<TabletShopOrders> {
         builder: (context, state) {
           return state.when(
             initial: () {
-              return const Center(child: CircularProgressIndicator());
+              return Center(child: LoadingIndicator());
             },
             loading: () {
-              return const Center(child: CircularProgressIndicator());
+              return Center(child: LoadingIndicator());
             },
             success: (records, hasReachedMax, query) {
               return DispatchProductList(records: records, order: _salesOrder!);

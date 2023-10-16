@@ -1,8 +1,6 @@
-import 'dart:ui';
 import 'package:base_auth/entity/id_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_organizations/fetch_organization_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/screen/list_of_shops.dart';
@@ -112,68 +110,27 @@ class _ListOfOrganizationsState extends State<ListOfOrganizations> {
   }
 
   Widget _buildCard(IdName record) {
-    return Card(
-      elevation: 2.0,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(8)),
-        side: BorderSide(width: 1.5),
-      ),
-      child: ListTile(
-        // onTap: () {
-        //   Navigator.of(context).push(MaterialPageRoute(
-        //     builder: (ctx) => MultiBlocProvider(
-        //       providers: [
-        //         BlocProvider(
-        //           create: (ctx) => sl.get<FetchSalesOrderBloc>(),
-        //         ),
-        //         BlocProvider.value(
-        //           value: BlocProvider.of<CreateDispatchCubit>(context),
-        //         ),
-        //       ],
-        //       child: SalesOrderList(
-        //         businessPartnerId: record.id,
-        //         shop: record,
-        //         section: widget.section,
-        //       ),
-        //     ),
-        //   ));
-        // },
-        onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (ctx) => MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                    create: (ctx) => sl.get<FetchShopBloc>()
-                      ..add(FetchShopEvent.fetchInitialShop(query: record.id))),
-                // we have to know about this , below this
-                // BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
-              ],
-              child: ListOfShops(
-                section: widget.section,
-                OrgId: record.id,
-              ),
-            ),
-          ));
-        },
-        leading: CircleAvatar(
-          backgroundColor: Theme.of(context).primaryColorLight,
-          child: Text(
-            record.name.characters.first,
-            // style: const TextStyle(color: Colors.white),
-          ),
-        ),
-        title: Text(
-          record.name,
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-            fontFeatures: [
-              const FontFeature.oldstyleFigures(),
-              const FontFeature.slashedZero(),
+    return SimpleListTile(
+      context: context,
+      title: record.name,
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (ctx) => MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                  create: (ctx) => sl.get<FetchShopBloc>()
+                    ..add(FetchShopEvent.fetchInitialShop(query: record.id))),
+              // we have to know about this , below this
+              // BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
             ],
+            child: ListOfShops(
+              section: widget.section,
+              organizationId: record.id,
+            ),
           ),
-        ),
-      ),
+        ));
+      },
+      trailing: const Icon(Icons.arrow_forward_ios_rounded),
     );
   }
 

@@ -53,7 +53,7 @@ class DispatchRepoImpl
       final String url = SelectedBusinessPartners.isEmpty
           ? "NO SelectedBusinessPartners"
           : "${Constants.jsonWs}/${Entities.businessPartner}?_where=$SelectedBusinessPartners&_sortBy=name";
-      print(" $url");
+      print("businessPartners $url");
       print(SelectedBusinessPartners);
       final authHeader = _authHeader();
 
@@ -231,7 +231,7 @@ class DispatchRepoImpl
     try {
       const url =
           "${Constants.jsonWs}/${Entities.organization}?_selectedProperties=id,name&_sortBy=name";
-      print(" $url");
+      print("organization : $url");
       final authHeader = _authHeader();
 
       final data = await safeApiCall(
@@ -416,8 +416,8 @@ class DispatchRepoImpl
   }
 
   @override
-  Future<Either<Failure, List<SalesOrder>>> fetchSalesOrder(
-      int start, int end, String businessPartnerId) async {
+  Future<Either<Failure, List<SalesOrder>>> fetchSalesOrder(int start, int end,
+      String businessPartnerId, String organizationId) async {
     const defErrMsg = 'could not fetch orders';
     try {
       final user = sl.get<LoggedInUser>();
@@ -429,7 +429,7 @@ class DispatchRepoImpl
       // final filters =
       //     "documentStatus='CO' and businessPartner='$businessPartnerId' and salesTransaction=true and date(orderDate)>=date('$yesterdayDate') and organization='${user.defaultOrganization}'";
       final filters =
-          "documentStatus='CO' and businessPartner='$businessPartnerId' and salesTransaction=true and organization='${user.defaultOrganization}'";
+          "documentStatus='CO' and businessPartner='$businessPartnerId' and salesTransaction=true and organization='$organizationId'";
       final url =
           "${Constants.jsonWs}/$entityName?_where=$filters&_startRow=$start&_endRow=$end&_sortBy=creationDate desc";
       print("/ ????? $url");

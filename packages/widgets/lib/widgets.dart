@@ -1,5 +1,7 @@
 library widgets;
 
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,5 +19,6 @@ part 'go_back_icon.dart';
 part 'input_field.dart';
 part 'labled_value_widget.dart';
 part 'simple_app_bar.dart';
+part 'simple_list_tile.dart';
 part 'simple_info_widget.dart';
 part 'spacings.dart';
