@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minerva/features/dispatch/domain/entities/shop.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/create_dispatch/create_dispatch_cubit.dart';
+import 'package:minerva/features/dispatch/presentation/bloc/fetch_organizations/fetch_organization_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_sales_order/fetch_sales_order_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/screen/sales_order_list.dart';
@@ -126,6 +127,13 @@ class _ListOfShopsState extends State<ListOfShops> {
               BlocProvider(
                 create: (ctx) => sl.get<FetchSalesOrderBloc>(),
               ),
+              BlocProvider(
+                  create: (ctx) => sl.get<FetchOrganizationBloc>()
+                    ..add(const FetchOrganizationEvent
+                        .fetchInitialOrganization())),
+              BlocProvider(
+                  create: (ctx) => sl.get<FetchShopBloc>()
+                    ..add(const FetchShopEvent.fetchInitialShop())),
               // BlocProvider.value(
               //   value: BlocProvider.of<CreateDispatchCubit>(context),
               // ),

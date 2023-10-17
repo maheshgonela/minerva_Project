@@ -85,20 +85,20 @@ class _HomePageState extends State<HomePage> {
   _buildMobileLayoutBtns(BuildContext context) {
     return Column(
       children: [
+        _createRTV(context),
+        const SizedBox(
+          height: 16,
+        ),
+        _createDISPATCH(context, Constants.sweetsSection),
+        const SizedBox(
+          height: 16,
+        ),
         _createGRN(context),
-        const SizedBox(
-          height: 16,
-        ),
-        _createIndent(context, Constants.sweetsSection),
-        const SizedBox(
-          height: 16,
-        ),
-        test_createGRN(context),
       ],
     );
   }
 
-  Widget _createIndent(
+  Widget _createDISPATCH(
     BuildContext context,
     String section,
   ) {
@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _createGRN(BuildContext context) {
+  Widget _createRTV(BuildContext context) {
     return MinervaButton(
       suffixIcon: Icons.arrow_forward_ios_rounded,
       onButtonPressed: () {
@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget test_createGRN(BuildContext context) {
+  Widget _createGRN(BuildContext context) {
     return MinervaButton(
       suffixIcon: Icons.arrow_forward_ios_rounded,
       onButtonPressed: () {
