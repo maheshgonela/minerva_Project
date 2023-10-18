@@ -1,7 +1,7 @@
+import 'package:base_auth/entity/id_name.dart';
 import 'package:bloc/bloc.dart';
 import 'package:core/failures/failure.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:minerva/features/dispatch/domain/entities/shop.dart';
 import 'package:minerva/features/dispatch/domain/repository/dispatch_repo.dart';
 import 'package:injectable/injectable.dart';
 

@@ -7,11 +7,11 @@ import 'package:minerva/features/dispatch/domain/entities/dispatch_info_wrapper.
 import 'package:minerva/features/dispatch/domain/entities/dispatch_item_ui_model.dart';
 import 'package:minerva/features/dispatch/domain/entities/dispatch_ordered_product.dart';
 import 'package:minerva/features/dispatch/domain/entities/sales_order.dart';
-import 'package:minerva/features/dispatch/domain/entities/shop.dart';
+
 import 'package:minerva/features/dispatch/domain/entities/shop_dispatch_products.dart';
 
 abstract class DispatchRepository {
-  Future<Either<Failure, List<Shop>>> fetchShops(
+  Future<Either<Failure, List<IdName>>> fetchShops(
       int start, int end, String? query);
   Future<Either<Failure, List<IdName>>> fetchOrganization(
       int start, int end, String? query);

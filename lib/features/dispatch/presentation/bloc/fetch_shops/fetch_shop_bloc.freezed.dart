@@ -377,7 +377,7 @@ mixin _$FetchShopState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            List<Shop> records, bool hasReachedMax, String? query)
+            List<IdName> records, bool hasReachedMax, String? query)
         success,
     required TResult Function(Failure failure) failure,
   }) =>
@@ -386,7 +386,7 @@ mixin _$FetchShopState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Shop> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult? Function(Failure failure)? failure,
   }) =>
@@ -395,7 +395,7 @@ mixin _$FetchShopState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Shop> records, bool hasReachedMax, String? query)?
+    TResult Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -487,7 +487,7 @@ class _$FetchShopInitialImpl implements _FetchShopInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            List<Shop> records, bool hasReachedMax, String? query)
+            List<IdName> records, bool hasReachedMax, String? query)
         success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -499,7 +499,7 @@ class _$FetchShopInitialImpl implements _FetchShopInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Shop> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -511,7 +511,7 @@ class _$FetchShopInitialImpl implements _FetchShopInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Shop> records, bool hasReachedMax, String? query)?
+    TResult Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -605,7 +605,7 @@ class _$FetchShopLoadingImpl implements _FetchShopLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            List<Shop> records, bool hasReachedMax, String? query)
+            List<IdName> records, bool hasReachedMax, String? query)
         success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -617,7 +617,7 @@ class _$FetchShopLoadingImpl implements _FetchShopLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Shop> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -629,7 +629,7 @@ class _$FetchShopLoadingImpl implements _FetchShopLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Shop> records, bool hasReachedMax, String? query)?
+    TResult Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -688,7 +688,7 @@ abstract class _$$FetchShopSuccessImplCopyWith<$Res> {
           $Res Function(_$FetchShopSuccessImpl) then) =
       __$$FetchShopSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Shop> records, bool hasReachedMax, String? query});
+  $Res call({List<IdName> records, bool hasReachedMax, String? query});
 }
 
 /// @nodoc
@@ -710,7 +710,7 @@ class __$$FetchShopSuccessImplCopyWithImpl<$Res>
       records: null == records
           ? _value._records
           : records // ignore: cast_nullable_to_non_nullable
-              as List<Shop>,
+              as List<IdName>,
       hasReachedMax: null == hasReachedMax
           ? _value.hasReachedMax
           : hasReachedMax // ignore: cast_nullable_to_non_nullable
@@ -727,14 +727,14 @@ class __$$FetchShopSuccessImplCopyWithImpl<$Res>
 
 class _$FetchShopSuccessImpl implements _FetchShopSuccess {
   const _$FetchShopSuccessImpl(
-      {required final List<Shop> records,
+      {required final List<IdName> records,
       required this.hasReachedMax,
       this.query})
       : _records = records;
 
-  final List<Shop> _records;
+  final List<IdName> _records;
   @override
-  List<Shop> get records {
+  List<IdName> get records {
     if (_records is EqualUnmodifiableListView) return _records;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_records);
@@ -778,7 +778,7 @@ class _$FetchShopSuccessImpl implements _FetchShopSuccess {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            List<Shop> records, bool hasReachedMax, String? query)
+            List<IdName> records, bool hasReachedMax, String? query)
         success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -790,7 +790,7 @@ class _$FetchShopSuccessImpl implements _FetchShopSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Shop> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -802,7 +802,7 @@ class _$FetchShopSuccessImpl implements _FetchShopSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Shop> records, bool hasReachedMax, String? query)?
+    TResult Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),
@@ -853,11 +853,11 @@ class _$FetchShopSuccessImpl implements _FetchShopSuccess {
 
 abstract class _FetchShopSuccess implements FetchShopState {
   const factory _FetchShopSuccess(
-      {required final List<Shop> records,
+      {required final List<IdName> records,
       required final bool hasReachedMax,
       final String? query}) = _$FetchShopSuccessImpl;
 
-  List<Shop> get records;
+  List<IdName> get records;
   bool get hasReachedMax;
   String? get query;
   @JsonKey(ignore: true)
@@ -943,7 +943,7 @@ class _$FetchShopFailureImpl implements _FetchShopFailure {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(
-            List<Shop> records, bool hasReachedMax, String? query)
+            List<IdName> records, bool hasReachedMax, String? query)
         success,
     required TResult Function(Failure failure) failure,
   }) {
@@ -955,7 +955,7 @@ class _$FetchShopFailureImpl implements _FetchShopFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Shop> records, bool hasReachedMax, String? query)?
+    TResult? Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult? Function(Failure failure)? failure,
   }) {
@@ -967,7 +967,7 @@ class _$FetchShopFailureImpl implements _FetchShopFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Shop> records, bool hasReachedMax, String? query)?
+    TResult Function(List<IdName> records, bool hasReachedMax, String? query)?
         success,
     TResult Function(Failure failure)? failure,
     required TResult orElse(),

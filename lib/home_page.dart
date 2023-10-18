@@ -1,9 +1,12 @@
+import 'package:base_auth/entity/logged_in_user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minerva/app_drawer.dart';
 import 'package:minerva/constants.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_organizations/fetch_organization_bloc.dart';
-import 'package:minerva/features/dispatch/presentation/screen/list_of_organizations.dart';
+import 'package:minerva/features/dispatch/presentation/bloc/fetch_sales_order/fetch_sales_order_bloc.dart';
+import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
+import 'package:minerva/features/dispatch/presentation/screen/sales_order_list.dart';
 import 'package:minerva/features/grn/presentation/blocs/fetch_purchase_order/fetch_purchase_order_bloc.dart';
 import 'package:minerva/features/grn/presentation/screen/grn_screen.dart';
 import 'package:minerva/features/rtv/presentation/bloc/blocs.dart';
@@ -20,6 +23,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final user = sl.get<LoggedInUser>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,14 +112,25 @@ class _HomePageState extends State<HomePage> {
         Navigator.of(context).push(MaterialPageRoute(
           builder: (ctx) => MultiBlocProvider(
             providers: [
+              BlocProvider.value(
+                value: sl.get<FetchOrganizationBloc>()
+                  ..add(
+                      const FetchOrganizationEvent.fetchInitialOrganization()),
+              ),
+              BlocProvider.value(
+                value: sl.get<FetchShopBloc>()
+                  ..add(const FetchShopEvent.fetchInitialShop()),
+              ),
               BlocProvider(
-                  create: (ctx) => sl.get<FetchOrganizationBloc>()
-                    ..add(const FetchOrganizationEvent
-                        .fetchInitialOrganization())),
+                  create: (ctx) => sl.get<FetchSalesOrderBloc>()
+                    ..add(FetchSalesOrderEvent.fetchInitialSalesOrder(
+                        user.businessPartner, user.defaultOrganization))),
               // we have to know about this , below this
               //BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
             ],
-            child: ListOfOrganizations(section: section),
+            child: const SalesOrderList(
+              section: "ggg",
+            ),
           ),
         ));
       },

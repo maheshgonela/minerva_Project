@@ -1,17 +1,13 @@
+import 'package:base_auth/entity/id_name.dart';
 import 'package:base_auth/entity/logged_in_user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minerva/features/dispatch/domain/entities/sales_order.dart';
-import 'package:minerva/features/dispatch/domain/entities/shop.dart';
-import 'package:minerva/features/dispatch/presentation/bloc/create_dispatch/create_dispatch_cubit.dart';
-import 'package:minerva/features/dispatch/presentation/bloc/fetch_dispatch_orderedproduct/fetch_dispatch_orderedproduct_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_organizations/fetch_organization_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_sales_order/fetch_sales_order_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
-import 'package:minerva/features/dispatch/presentation/bloc/shop_trips/shop_trips_bloc.dart';
-import 'package:minerva/features/dispatch/presentation/screen/create_dispatch_screen.dart';
 import 'package:minerva/features/dispatch/presentation/screen/org_bp_selecter_alertdialog.dart';
-import 'package:minerva/features/dispatch/presentation/screen/shop_trips.dart';
+
 import 'package:minerva/get_it/injection.dart';
 import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
@@ -19,14 +15,9 @@ import 'package:widgets/widgets.dart';
 class SalesOrderList extends StatefulWidget {
   const SalesOrderList({
     Key? key,
-    required this.businessPartnerId,
-    required this.shop,
     required this.section,
-    required this.organizationId,
   }) : super(key: key);
-  final String businessPartnerId;
-  final String organizationId;
-  final Shop shop;
+
   final String section;
 
   @override
@@ -34,16 +25,18 @@ class SalesOrderList extends StatefulWidget {
 }
 
 class _SalesOrderListState extends State<SalesOrderList> {
-  LoggedInUser? user;
+  final user = sl.get<LoggedInUser>();
   ScrollController? _scrollController;
   //String? _query;
-
+  List<IdName>? _orgbps;
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<FetchSalesOrderBloc>(context).add(
-        FetchSalesOrderEvent.fetchInitialSalesOrder(
-            widget.businessPartnerId, widget.organizationId));
+
+    super.initState();
+    // BlocProvider.of<FetchSalesOrderBloc>(context).add(
+    //     FetchSalesOrderEvent.fetchInitialSalesOrder(
+    //         widget.businessPartnerId, widget.organizationId));
     _scrollController = ScrollController();
     _scrollController?.addListener(_onScroll);
   }
@@ -52,9 +45,15 @@ class _SalesOrderListState extends State<SalesOrderList> {
     if (_scrollController!.offset >=
             _scrollController!.position.maxScrollExtent &&
         !_scrollController!.position.outOfRange) {
-      BlocProvider.of<FetchSalesOrderBloc>(context).add(
-          FetchSalesOrderEvent.fetchMoreSalesOrder(
-              widget.businessPartnerId, widget.organizationId));
+      if (_orgbps == null) {
+        BlocProvider.of<FetchSalesOrderBloc>(context).add(
+            FetchSalesOrderEvent.fetchMoreSalesOrder(
+                user.businessPartner, user.defaultOrganization));
+      } else {
+        BlocProvider.of<FetchSalesOrderBloc>(context).add(
+            FetchSalesOrderEvent.fetchMoreSalesOrder(
+                _orgbps![0].id, _orgbps![1].id));
+      }
     }
   }
 
@@ -63,7 +62,7 @@ class _SalesOrderListState extends State<SalesOrderList> {
     return Scaffold(
       appBar: SimpleAppBar(
         height: 60,
-        title: widget.shop.name,
+        title: "Sales Orders",
         centerTitle: true,
         // bottom: const PreferredSize(
         //     preferredSize: Size.fromHeight(10), child: Text("Seles orders")),
@@ -83,24 +82,114 @@ class _SalesOrderListState extends State<SalesOrderList> {
                 shape: const BeveledRectangleBorder(
                     borderRadius: BorderRadius.zero, side: BorderSide.none),
                 margin: const EdgeInsets.all(0),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  padding: const EdgeInsets.only(left: 8, right: 8),
+                  height: 50,
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "Organization > BusinessPartner",
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall
-                              ?.copyWith(fontWeight: FontWeight.bold),
-                        ),
+                        _orgbps != null
+                            ? Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(_orgbps![1].name,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(
+                                              fontWeight: FontWeight.w500,
+                                              color: const Color.fromARGB(
+                                                  170, 0, 0, 0))),
+                                  const Icon(
+                                    color: Colors.grey,
+                                    Icons.arrow_forward_ios_rounded,
+                                    size: 18,
+                                  ),
+                                  Text(_orgbps![0].name,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(
+                                              fontWeight: FontWeight.w500,
+                                              color: const Color.fromARGB(
+                                                  170, 0, 0, 0))),
+                                ],
+                              )
+                            : Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("Default Org",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(
+                                              fontWeight: FontWeight.w500,
+                                              color: const Color.fromARGB(
+                                                  170, 0, 0, 0))),
+                                  const Icon(
+                                    color: Colors.grey,
+                                    Icons.arrow_forward_ios_rounded,
+                                    size: 18,
+                                  ),
+                                  Text("Default Bp",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(
+                                              fontWeight: FontWeight.w500,
+                                              color: const Color.fromARGB(
+                                                  170, 0, 0, 0))),
+                                ],
+                              ),
                         ElevatedButton.icon(
                           onPressed: () {
-                            _askForOrgAndBp(context);
+                            showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (context) {
+                                return MultiBlocProvider(
+                                  providers: [
+                                    BlocProvider.value(
+                                      value: sl.get<FetchOrganizationBloc>()
+                                        ..add(const FetchOrganizationEvent
+                                            .fetchInitialOrganization()),
+                                    ),
+                                    BlocProvider.value(
+                                      value: sl.get<FetchShopBloc>()
+                                        ..add(const FetchShopEvent
+                                            .fetchInitialShop()),
+                                    ),
+                                    BlocProvider(
+                                      create: (ctx) =>
+                                          sl.get<FetchSalesOrderBloc>(),
+                                    ),
+                                  ],
+                                  child: const OrgBpSelecterAlertDialog(),
+                                );
+                              },
+                            ).then((value) {
+                              if (value is List<IdName>) {
+                                if (value.isNotEmpty) {
+                                  setState(() {
+                                    _orgbps = value;
+                                  });
+                                  BlocProvider.of<FetchSalesOrderBloc>(context)
+                                      .add(FetchSalesOrderEvent
+                                          .fetchInitialSalesOrder(
+                                              value[0].id, value[1].id));
+                                }
+                              } else {}
+                            });
                           },
-                          icon: const Icon(Icons.filter_list),
-                          label: const Text("Set"),
+                          icon: const Icon(Icons.filter_list_rounded, size: 26),
+                          label: const Text("Set",
+                              style: TextStyle(
+                                fontSize: 18,
+                              )),
                         ),
                       ]),
                 )),
@@ -108,25 +197,29 @@ class _SalesOrderListState extends State<SalesOrderList> {
                 builder: (context, state) {
               return state.when(initial: () {
                 return Center(
-                    child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    'Search by document number to see orders',
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleLarge,
+                    child: Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      'Search by document number to see orders',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
                   ),
                 ));
               }, loading: () {
-                return Center(child: LoadingIndicator());
+                return Expanded(child: Center(child: LoadingIndicator()));
               }, success: (records, hasReachedMax, query) {
                 if (records.isEmpty) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Center(
-                      child: AppErrorWidget(
-                        error:
-                            'No booked sales orders found for ${widget.shop.name} since yesterday',
-                        onRefresh: () => _refresh(context),
+                  return Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                        child: AppErrorWidget(
+                          error:
+                              'No booked sales orders found for  since yesterday',
+                          onRefresh: () => _refresh(context),
+                        ),
                       ),
                     ),
                   );
@@ -150,9 +243,11 @@ class _SalesOrderListState extends State<SalesOrderList> {
                   );
                 }
               }, failure: (e) {
-                return AppErrorWidget(
-                  onRefresh: () => _refresh(context),
-                  error: e.error,
+                return Expanded(
+                  child: AppErrorWidget(
+                    onRefresh: () => _refresh(context),
+                    error: e.error,
+                  ),
                 );
               });
             })
@@ -169,24 +264,24 @@ class _SalesOrderListState extends State<SalesOrderList> {
         side: BorderSide(width: 1.5),
       ),
       child: ListTile(
-        onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (ctx) => MultiBlocProvider(
-              providers: [
-                BlocProvider(
-                  create: (ctx) => sl.get<FetchDispatchOrderedproductBloc>(),
-                ),
-                BlocProvider.value(
-                    value: BlocProvider.of<CreateDispatchCubit>(context))
-              ],
-              child: CreateDispatchScreen(
-                shop: widget.shop,
-                order: record,
-                section: widget.section,
-              ),
-            ),
-          ));
-        },
+        // onTap: () {
+        //   Navigator.of(context).push(MaterialPageRoute(
+        //     builder: (ctx) => MultiBlocProvider(
+        //       providers: [
+        //         BlocProvider(
+        //           create: (ctx) => sl.get<FetchDispatchOrderedproductBloc>(),
+        //         ),
+        //         BlocProvider.value(
+        //             value: BlocProvider.of<CreateDispatchCubit>(context))
+        //       ],
+        //       child: CreateDispatchScreen(
+        //         shop: widget.shop,
+        //         order: record,
+        //         section: widget.section,
+        //       ),
+        //     ),
+        //   ));
+        // },
         title: Text(
           record.documentNo,
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -206,7 +301,7 @@ class _SalesOrderListState extends State<SalesOrderList> {
         trailing: PopupMenuButton<String>(
           onSelected: (value) {
             if (value == '1') {
-              _openTrips(widget.section, record.id);
+              // _openTrips(widget.section, record.id);
             }
           },
           itemBuilder: (ctx) {
@@ -226,46 +321,31 @@ class _SalesOrderListState extends State<SalesOrderList> {
   }
 
   void _refresh(BuildContext context) {
-    BlocProvider.of<FetchSalesOrderBloc>(context).add(
-        FetchSalesOrderEvent.fetchInitialSalesOrder(
-            widget.businessPartnerId, widget.organizationId));
+    if (_orgbps == null) {
+      BlocProvider.of<FetchSalesOrderBloc>(context).add(
+          FetchSalesOrderEvent.fetchMoreSalesOrder(
+              user.businessPartner, user.defaultOrganization));
+    } else {
+      BlocProvider.of<FetchSalesOrderBloc>(context).add(
+          FetchSalesOrderEvent.fetchMoreSalesOrder(
+              _orgbps![0].id, _orgbps![1].id));
+    }
   }
 
-  void _openTrips(String section, String id) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
-      return BlocProvider(
-        create: (ctx) => sl.get<ShopTripsBloc>(),
-        child: ShopTrips(
-          section: section,
-          orderId: id,
-          shop: widget.shop.name,
-        ),
-      );
-    }));
-  }
+  // void _openTrips(String section, String id) {
+  //   Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
+  //     return BlocProvider(
+  //       create: (ctx) => sl.get<ShopTripsBloc>(),
+  //       child: ShopTrips(
+  //         section: section,
+  //         orderId: id,
+  //         shop: widget.shop.name,
+  //       ),
+  //     );
+  //   }));
+  // }
 
   Future<void> _askForOrgAndBp(
     BuildContext context,
-  ) async {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) {
-        return MultiBlocProvider(
-          providers: [
-            BlocProvider(
-                create: (ctx) => sl.get<FetchOrganizationBloc>()
-                  ..add(
-                      const FetchOrganizationEvent.fetchInitialOrganization())),
-            BlocProvider(
-                create: (ctx) => sl.get<FetchShopBloc>()
-                  ..add(const FetchShopEvent.fetchInitialShop())),
-          ],
-          child: const OrgBpSelecterAlertDialog(),
-        );
-      },
-    ).then((value) {
-      Navigator.of(context).pop();
-    });
-  }
+  ) async {}
 }

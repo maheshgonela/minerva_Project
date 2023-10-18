@@ -4,7 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_organizations/fetch_organization_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
-import 'package:minerva/features/product_selection/presentation/bloc/fetch_bps/fetch_bps_bloc.dart';
+
+import 'package:minerva/toast_message.dart';
 import 'package:widgets/loading_indicator.dart';
 import 'package:widgets/widgets.dart';
 
@@ -30,7 +31,10 @@ class _OrgBpSelecterAlertDialogState extends State<OrgBpSelecterAlertDialog> {
   // }
   ScrollController? _scrollController;
   String? _query;
-  String? _selectedorganization;
+  IdName? _selectedorganization;
+
+  // ignore: unused_field
+  IdName? _selectedbusinessPartner;
 
   @override
   void initState() {
@@ -56,21 +60,32 @@ class _OrgBpSelecterAlertDialogState extends State<OrgBpSelecterAlertDialog> {
       insetPadding: const EdgeInsets.symmetric(horizontal: 18),
       content: SizedBox(
         width: 300,
-        height: 310,
+        height: 340,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              "Select organization",
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall
-                  ?.copyWith(fontWeight: FontWeight.bold),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Dispatch',
+                  style: GoogleFonts.istokWeb(
+                      textStyle: Theme.of(context)
+                          .textTheme
+                          .titleLarge!
+                          .copyWith(fontWeight: FontWeight.bold)),
+                ),
+                IconButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    icon: const Icon(
+                      Icons.close_rounded,
+                    ))
+              ],
             ),
             const Divider(),
-            _selectedorganization != null
+            _selectedorganization == null
                 ? Expanded(
                     child: BlocBuilder<FetchOrganizationBloc,
                         FetchOrganizationState>(
@@ -124,7 +139,18 @@ class _OrgBpSelecterAlertDialogState extends State<OrgBpSelecterAlertDialog> {
                                               onPressed: () {
                                                 setState(() {
                                                   _selectedorganization =
-                                                      organization.name;
+                                                      organizations[index];
+                                                  if (_selectedorganization !=
+                                                      null) {
+                                                    BlocProvider.of<
+                                                                FetchShopBloc>(
+                                                            context)
+                                                        .add(FetchShopEvent
+                                                            .fetchInitialShop(
+                                                                query:
+                                                                    _selectedorganization!
+                                                                        .id));
+                                                  }
                                                 });
                                               },
                                               child: Text(organization.name,
@@ -163,7 +189,7 @@ class _OrgBpSelecterAlertDialogState extends State<OrgBpSelecterAlertDialog> {
                                 Padding(
                                   padding: const EdgeInsets.all(6.0),
                                   child: Text(
-                                    '${businessPartners.length} Organizations',
+                                    '${businessPartners.length} Business Partners',
                                     style: GoogleFonts.istokWeb(
                                       textStyle: Theme.of(context)
                                           .textTheme
@@ -201,8 +227,8 @@ class _OrgBpSelecterAlertDialogState extends State<OrgBpSelecterAlertDialog> {
                                               ),
                                               onPressed: () {
                                                 setState(() {
-                                                  _selectedorganization =
-                                                      businessPartner.name;
+                                                  _selectedbusinessPartner =
+                                                      businessPartners[index];
                                                 });
                                               },
                                               child: Text(businessPartner.name,
@@ -220,10 +246,7 @@ class _OrgBpSelecterAlertDialogState extends State<OrgBpSelecterAlertDialog> {
                               ],
                             );
                           },
-                          failure: (f) => AppErrorWidget(
-                            error: f.error,
-                            onRefresh: () => _refresh(),
-                          ),
+                          failure: (f) => LoadingIndicator(),
                         );
                       },
                     ),
@@ -252,25 +275,58 @@ class _OrgBpSelecterAlertDialogState extends State<OrgBpSelecterAlertDialog> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 10, right: 0),
-                              child: Text(_selectedorganization!,
+                            TextButton(
+                              style: TextButton.styleFrom(
+                                padding: const EdgeInsets.only(left: 10),
+                                minimumSize: Size.zero,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _selectedorganization = null;
+                                  _selectedbusinessPartner = null;
+                                });
+                              },
+                              child: Text(_selectedorganization!.name,
                                   style: Theme.of(context)
                                       .textTheme
                                       .titleMedium
-                                      ?.copyWith(fontWeight: FontWeight.w500)),
+                                      ?.copyWith(
+                                          fontWeight: FontWeight.w500,
+                                          color: const Color.fromARGB(
+                                              170, 0, 0, 0))),
                             ),
                             const Icon(
                               color: Colors.grey,
                               Icons.arrow_forward_ios_rounded,
                               size: 18,
                             ),
+                            _selectedbusinessPartner != null
+                                ? Text(_selectedbusinessPartner!.name,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium
+                                        ?.copyWith(
+                                            fontWeight: FontWeight.w500,
+                                            color: const Color.fromARGB(
+                                                170, 0, 0, 0)))
+                                : const SizedBox(),
                           ],
                         ),
                         ElevatedButton(
-                            onPressed: () {},
-                            child: const Text("Next",
+                            onPressed: () {
+                              if (_selectedbusinessPartner != null &&
+                                  _selectedorganization != null) {
+                                List<IdName> orgbps = [];
+                                orgbps.add(_selectedbusinessPartner!);
+                                orgbps.add(_selectedorganization!);
+                                Navigator.of(context).pop(orgbps);
+                              } else {
+                                toastMessage(
+                                    context: context,
+                                    errorMessage: "Select Businesspartner !");
+                              }
+                            },
+                            child: const Text("Set",
                                 style: TextStyle(
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.bold))),

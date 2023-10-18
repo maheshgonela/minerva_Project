@@ -39,7 +39,7 @@ class DispatchRepoImpl
   DispatchRepoImpl(this.client);
 
   @override
-  Future<Either<Failure, List<Shop>>> fetchShops(
+  Future<Either<Failure, List<IdName>>> fetchShops(
       int start, int end, String? query) async {
     final user = sl.get<LoggedInUser>();
     const defErrMsg = 'could not fetch shops';
@@ -62,9 +62,11 @@ class DispatchRepoImpl
       return data.fold(
         (l) => left(l),
         (r) {
-          final resultList = r as List<dynamic>;
-          return right(
-              resultList.map((e) => ShopDto.fromJson(e).toDomain()).toList());
+          final list = (r as List<dynamic>)
+              .map((e) => IdName.fromJson(e as Map<String, dynamic>))
+              .toList();
+          print('List SIze : ${list.length}');
+          return right(list);
         },
       );
     } catch (e, st) {

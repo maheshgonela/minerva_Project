@@ -1,7 +1,6 @@
+import 'package:base_auth/entity/id_name.dart';
 import 'package:flutter/material.dart';
-import 'package:minerva/features/dispatch/domain/entities/shop.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:minerva/features/dispatch/presentation/bloc/fetch_sales_order/fetch_sales_order_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/cubit/tablet_dispatch_cubit.dart';
 import 'package:widgets/loading_indicator.dart';
@@ -118,7 +117,8 @@ class _TabletShopsListState extends State<TabletShopsList> {
     );
   }
 
-  Widget _buildListItem(List<Shop> records, int idx) {
+//we have to change Shops to IdName
+  Widget _buildListItem(List<IdName> records, int idx) {
     final record = records[idx];
     return BlocBuilder<TabletDispatchCubit, TabletDispatchState>(
       builder: (ctx, state) => ListTile(
@@ -128,9 +128,9 @@ class _TabletShopsListState extends State<TabletShopsList> {
             ? Colors.white
             : const Color(0xffeceff1),
         onTap: () {
-          context.read<TabletDispatchCubit>().onShopSelected(record);
-          BlocProvider.of<FetchSalesOrderBloc>(context)
-              .add(FetchSalesOrderEvent.fetchInitialSalesOrder(record.id, ""));
+          // context.read<TabletDispatchCubit>().onShopSelected(record);
+          // BlocProvider.of<FetchSalesOrderBloc>(context)
+          //     .add(FetchSalesOrderEvent.fetchInitialSalesOrder(record.id, ""));
         },
         leading: CircleAvatar(
           backgroundColor: Theme.of(context).primaryColorLight,
