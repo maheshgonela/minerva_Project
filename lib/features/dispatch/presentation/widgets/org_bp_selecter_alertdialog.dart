@@ -20,20 +20,9 @@ class OrgBpSelecterAlertDialog extends StatefulWidget {
 }
 
 class _OrgBpSelecterAlertDialogState extends State<OrgBpSelecterAlertDialog> {
-  // List<IdName> fetchOrganizations() {
-  //   final curState = BlocProvider.of<FetchOrganizationBloc>(context).state;
-  //   final organizations = curState.maybeWhen(
-  //     orElse: () => <IdName>[],
-  //     success: (organizations, hasReachedMax, query) =>
-  //         organizations,
-  //   );
-  //   return organizations;
-  // }
   ScrollController? _scrollController;
-  String? _query;
+  // String? _query;
   IdName? _selectedorganization;
-
-  // ignore: unused_field
   IdName? _selectedbusinessPartner;
 
   @override
@@ -48,7 +37,7 @@ class _OrgBpSelecterAlertDialogState extends State<OrgBpSelecterAlertDialog> {
             _scrollController!.position.maxScrollExtent &&
         !_scrollController!.position.outOfRange) {
       BlocProvider.of<FetchOrganizationBloc>(context)
-          .add(FetchOrganizationEvent.fetchMoreOrganization(query: _query));
+          .add(const FetchOrganizationEvent.fetchMoreOrganization());
     }
   }
 
@@ -347,7 +336,15 @@ class _OrgBpSelecterAlertDialogState extends State<OrgBpSelecterAlertDialog> {
   }
 
   void _refresh() {
-    BlocProvider.of<FetchOrganizationBloc>(context)
-        .add(const FetchOrganizationEvent.fetchInitialOrganization());
+    if (_selectedorganization == null) {
+      BlocProvider.of<FetchOrganizationBloc>(context)
+          .add(const FetchOrganizationEvent.fetchInitialOrganization());
+    } else {
+      BlocProvider.of<FetchOrganizationBloc>(context)
+          .add(const FetchOrganizationEvent.fetchInitialOrganization());
+
+      BlocProvider.of<FetchShopBloc>(context)
+          .add(const FetchShopEvent.fetchInitialShop());
+    }
   }
 }

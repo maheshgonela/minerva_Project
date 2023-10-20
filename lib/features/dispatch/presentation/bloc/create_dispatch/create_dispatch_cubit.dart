@@ -1,3 +1,4 @@
+import 'package:base_auth/entity/id_name.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -32,7 +33,7 @@ class CreateDispatchCubit extends Cubit<CreateDispatchState> {
 
   final DispatchRepository repository;
 
-  dynamic setOrder(Shop shop, SalesOrder order) async {
+  dynamic setOrder(IdName shop, SalesOrder order) async {
     final dispatchOrders2 = [...state.dispatchOrders];
     final selectedOrder = dispatchOrders2
         .singleWhereOrNull((element) => element.order.id == order.id);
@@ -52,7 +53,7 @@ class CreateDispatchCubit extends Cubit<CreateDispatchState> {
     emit(state.copyWith(dispatchOrders: dispatchOrders2));
   }
 
-  dynamic setOrderProductList(Shop shop, SalesOrder order,
+  dynamic setOrderProductList(IdName shop, SalesOrder order,
       List<DispatchOrderedProduct> products) async {
     final dispatchOrders2 = [...state.dispatchOrders];
     final DispatchInfoWrapper? selectedOrder = dispatchOrders2

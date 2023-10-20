@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DispatchInfoWrapper {
   SalesOrder get order => throw _privateConstructorUsedError;
-  Shop get shop => throw _privateConstructorUsedError;
+  IdName get shop => throw _privateConstructorUsedError;
   List<DispatchItemUiModel> get dispatchItems =>
       throw _privateConstructorUsedError;
   List<DispatchOrderedProduct> get allProducts =>
@@ -37,13 +37,13 @@ abstract class $DispatchInfoWrapperCopyWith<$Res> {
   @useResult
   $Res call(
       {SalesOrder order,
-      Shop shop,
+      IdName shop,
       List<DispatchItemUiModel> dispatchItems,
       List<DispatchOrderedProduct> allProducts,
       double totalQty});
 
   $SalesOrderCopyWith<$Res> get order;
-  $ShopCopyWith<$Res> get shop;
+  $IdNameCopyWith<$Res> get shop;
 }
 
 /// @nodoc
@@ -73,7 +73,7 @@ class _$DispatchInfoWrapperCopyWithImpl<$Res, $Val extends DispatchInfoWrapper>
       shop: null == shop
           ? _value.shop
           : shop // ignore: cast_nullable_to_non_nullable
-              as Shop,
+              as IdName,
       dispatchItems: null == dispatchItems
           ? _value.dispatchItems
           : dispatchItems // ignore: cast_nullable_to_non_nullable
@@ -99,8 +99,8 @@ class _$DispatchInfoWrapperCopyWithImpl<$Res, $Val extends DispatchInfoWrapper>
 
   @override
   @pragma('vm:prefer-inline')
-  $ShopCopyWith<$Res> get shop {
-    return $ShopCopyWith<$Res>(_value.shop, (value) {
+  $IdNameCopyWith<$Res> get shop {
+    return $IdNameCopyWith<$Res>(_value.shop, (value) {
       return _then(_value.copyWith(shop: value) as $Val);
     });
   }
@@ -116,7 +116,7 @@ abstract class _$$DispatchInfoWrapperImplCopyWith<$Res>
   @useResult
   $Res call(
       {SalesOrder order,
-      Shop shop,
+      IdName shop,
       List<DispatchItemUiModel> dispatchItems,
       List<DispatchOrderedProduct> allProducts,
       double totalQty});
@@ -124,7 +124,7 @@ abstract class _$$DispatchInfoWrapperImplCopyWith<$Res>
   @override
   $SalesOrderCopyWith<$Res> get order;
   @override
-  $ShopCopyWith<$Res> get shop;
+  $IdNameCopyWith<$Res> get shop;
 }
 
 /// @nodoc
@@ -152,7 +152,7 @@ class __$$DispatchInfoWrapperImplCopyWithImpl<$Res>
       shop: null == shop
           ? _value.shop
           : shop // ignore: cast_nullable_to_non_nullable
-              as Shop,
+              as IdName,
       dispatchItems: null == dispatchItems
           ? _value._dispatchItems
           : dispatchItems // ignore: cast_nullable_to_non_nullable
@@ -184,7 +184,7 @@ class _$DispatchInfoWrapperImpl implements _DispatchInfoWrapper {
   @override
   final SalesOrder order;
   @override
-  final Shop shop;
+  final IdName shop;
   final List<DispatchItemUiModel> _dispatchItems;
   @override
   List<DispatchItemUiModel> get dispatchItems {
@@ -244,7 +244,7 @@ class _$DispatchInfoWrapperImpl implements _DispatchInfoWrapper {
 abstract class _DispatchInfoWrapper implements DispatchInfoWrapper {
   const factory _DispatchInfoWrapper(
       {required final SalesOrder order,
-      required final Shop shop,
+      required final IdName shop,
       required final List<DispatchItemUiModel> dispatchItems,
       required final List<DispatchOrderedProduct> allProducts,
       required final double totalQty}) = _$DispatchInfoWrapperImpl;
@@ -252,7 +252,7 @@ abstract class _DispatchInfoWrapper implements DispatchInfoWrapper {
   @override
   SalesOrder get order;
   @override
-  Shop get shop;
+  IdName get shop;
   @override
   List<DispatchItemUiModel> get dispatchItems;
   @override

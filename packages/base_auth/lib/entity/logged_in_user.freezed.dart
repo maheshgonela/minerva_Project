@@ -25,15 +25,17 @@ mixin _$LoggedInUser {
   @JsonKey(name: "username")
   String get userName => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  String get organization => throw _privateConstructorUsedError;
+  String? get organization => throw _privateConstructorUsedError;
   @JsonKey(name: 'organization\$_identifier')
   String get organizationName => throw _privateConstructorUsedError;
   String get defaultOrganization => throw _privateConstructorUsedError;
   String get defaultWarehouse => throw _privateConstructorUsedError;
   String get businessPartner => throw _privateConstructorUsedError;
+  @JsonKey(name: 'businessPartner\$_identifier')
+  String get businessPartnerName => throw _privateConstructorUsedError;
   String get client => throw _privateConstructorUsedError;
   @JsonKey(name: 'partnerAddress')
-  String get businessPartnerAddress => throw _privateConstructorUsedError;
+  String? get businessPartnerAddress => throw _privateConstructorUsedError;
   @JsonKey(name: 'locked')
   bool get isLocked => throw _privateConstructorUsedError;
 
@@ -54,13 +56,14 @@ abstract class $LoggedInUserCopyWith<$Res> {
       String name,
       @JsonKey(name: "username") String userName,
       String password,
-      String organization,
+      String? organization,
       @JsonKey(name: 'organization\$_identifier') String organizationName,
       String defaultOrganization,
       String defaultWarehouse,
       String businessPartner,
+      @JsonKey(name: 'businessPartner\$_identifier') String businessPartnerName,
       String client,
-      @JsonKey(name: 'partnerAddress') String businessPartnerAddress,
+      @JsonKey(name: 'partnerAddress') String? businessPartnerAddress,
       @JsonKey(name: 'locked') bool isLocked});
 }
 
@@ -81,13 +84,14 @@ class _$LoggedInUserCopyWithImpl<$Res, $Val extends LoggedInUser>
     Object? name = null,
     Object? userName = null,
     Object? password = null,
-    Object? organization = null,
+    Object? organization = freezed,
     Object? organizationName = null,
     Object? defaultOrganization = null,
     Object? defaultWarehouse = null,
     Object? businessPartner = null,
+    Object? businessPartnerName = null,
     Object? client = null,
-    Object? businessPartnerAddress = null,
+    Object? businessPartnerAddress = freezed,
     Object? isLocked = null,
   }) {
     return _then(_value.copyWith(
@@ -107,10 +111,10 @@ class _$LoggedInUserCopyWithImpl<$Res, $Val extends LoggedInUser>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      organization: null == organization
+      organization: freezed == organization
           ? _value.organization
           : organization // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       organizationName: null == organizationName
           ? _value.organizationName
           : organizationName // ignore: cast_nullable_to_non_nullable
@@ -127,14 +131,18 @@ class _$LoggedInUserCopyWithImpl<$Res, $Val extends LoggedInUser>
           ? _value.businessPartner
           : businessPartner // ignore: cast_nullable_to_non_nullable
               as String,
+      businessPartnerName: null == businessPartnerName
+          ? _value.businessPartnerName
+          : businessPartnerName // ignore: cast_nullable_to_non_nullable
+              as String,
       client: null == client
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as String,
-      businessPartnerAddress: null == businessPartnerAddress
+      businessPartnerAddress: freezed == businessPartnerAddress
           ? _value.businessPartnerAddress
           : businessPartnerAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isLocked: null == isLocked
           ? _value.isLocked
           : isLocked // ignore: cast_nullable_to_non_nullable
@@ -144,11 +152,11 @@ class _$LoggedInUserCopyWithImpl<$Res, $Val extends LoggedInUser>
 }
 
 /// @nodoc
-abstract class _$$_LoggedInUserCopyWith<$Res>
+abstract class _$$LoggedInUserImplCopyWith<$Res>
     implements $LoggedInUserCopyWith<$Res> {
-  factory _$$_LoggedInUserCopyWith(
-          _$_LoggedInUser value, $Res Function(_$_LoggedInUser) then) =
-      __$$_LoggedInUserCopyWithImpl<$Res>;
+  factory _$$LoggedInUserImplCopyWith(
+          _$LoggedInUserImpl value, $Res Function(_$LoggedInUserImpl) then) =
+      __$$LoggedInUserImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -156,22 +164,23 @@ abstract class _$$_LoggedInUserCopyWith<$Res>
       String name,
       @JsonKey(name: "username") String userName,
       String password,
-      String organization,
+      String? organization,
       @JsonKey(name: 'organization\$_identifier') String organizationName,
       String defaultOrganization,
       String defaultWarehouse,
       String businessPartner,
+      @JsonKey(name: 'businessPartner\$_identifier') String businessPartnerName,
       String client,
-      @JsonKey(name: 'partnerAddress') String businessPartnerAddress,
+      @JsonKey(name: 'partnerAddress') String? businessPartnerAddress,
       @JsonKey(name: 'locked') bool isLocked});
 }
 
 /// @nodoc
-class __$$_LoggedInUserCopyWithImpl<$Res>
-    extends _$LoggedInUserCopyWithImpl<$Res, _$_LoggedInUser>
-    implements _$$_LoggedInUserCopyWith<$Res> {
-  __$$_LoggedInUserCopyWithImpl(
-      _$_LoggedInUser _value, $Res Function(_$_LoggedInUser) _then)
+class __$$LoggedInUserImplCopyWithImpl<$Res>
+    extends _$LoggedInUserCopyWithImpl<$Res, _$LoggedInUserImpl>
+    implements _$$LoggedInUserImplCopyWith<$Res> {
+  __$$LoggedInUserImplCopyWithImpl(
+      _$LoggedInUserImpl _value, $Res Function(_$LoggedInUserImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -181,16 +190,17 @@ class __$$_LoggedInUserCopyWithImpl<$Res>
     Object? name = null,
     Object? userName = null,
     Object? password = null,
-    Object? organization = null,
+    Object? organization = freezed,
     Object? organizationName = null,
     Object? defaultOrganization = null,
     Object? defaultWarehouse = null,
     Object? businessPartner = null,
+    Object? businessPartnerName = null,
     Object? client = null,
-    Object? businessPartnerAddress = null,
+    Object? businessPartnerAddress = freezed,
     Object? isLocked = null,
   }) {
-    return _then(_$_LoggedInUser(
+    return _then(_$LoggedInUserImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -207,10 +217,10 @@ class __$$_LoggedInUserCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
-      organization: null == organization
+      organization: freezed == organization
           ? _value.organization
           : organization // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       organizationName: null == organizationName
           ? _value.organizationName
           : organizationName // ignore: cast_nullable_to_non_nullable
@@ -227,14 +237,18 @@ class __$$_LoggedInUserCopyWithImpl<$Res>
           ? _value.businessPartner
           : businessPartner // ignore: cast_nullable_to_non_nullable
               as String,
+      businessPartnerName: null == businessPartnerName
+          ? _value.businessPartnerName
+          : businessPartnerName // ignore: cast_nullable_to_non_nullable
+              as String,
       client: null == client
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as String,
-      businessPartnerAddress: null == businessPartnerAddress
+      businessPartnerAddress: freezed == businessPartnerAddress
           ? _value.businessPartnerAddress
           : businessPartnerAddress // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isLocked: null == isLocked
           ? _value.isLocked
           : isLocked // ignore: cast_nullable_to_non_nullable
@@ -245,27 +259,26 @@ class __$$_LoggedInUserCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LoggedInUser implements _LoggedInUser {
-  const _$_LoggedInUser(
+class _$LoggedInUserImpl implements _LoggedInUser {
+  const _$LoggedInUserImpl(
       {required this.id,
       required this.name,
-      @JsonKey(name: "username")
-          required this.userName,
+      @JsonKey(name: "username") required this.userName,
       required this.password,
-      required this.organization,
+      this.organization,
       @JsonKey(name: 'organization\$_identifier')
-          required this.organizationName,
+      required this.organizationName,
       required this.defaultOrganization,
       required this.defaultWarehouse,
       required this.businessPartner,
+      @JsonKey(name: 'businessPartner\$_identifier')
+      required this.businessPartnerName,
       required this.client,
-      @JsonKey(name: 'partnerAddress')
-          required this.businessPartnerAddress,
-      @JsonKey(name: 'locked')
-          required this.isLocked});
+      @JsonKey(name: 'partnerAddress') this.businessPartnerAddress,
+      @JsonKey(name: 'locked') required this.isLocked});
 
-  factory _$_LoggedInUser.fromJson(Map<String, dynamic> json) =>
-      _$$_LoggedInUserFromJson(json);
+  factory _$LoggedInUserImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LoggedInUserImplFromJson(json);
 
   @override
   final String id;
@@ -277,7 +290,7 @@ class _$_LoggedInUser implements _LoggedInUser {
   @override
   final String password;
   @override
-  final String organization;
+  final String? organization;
   @override
   @JsonKey(name: 'organization\$_identifier')
   final String organizationName;
@@ -288,24 +301,27 @@ class _$_LoggedInUser implements _LoggedInUser {
   @override
   final String businessPartner;
   @override
+  @JsonKey(name: 'businessPartner\$_identifier')
+  final String businessPartnerName;
+  @override
   final String client;
   @override
   @JsonKey(name: 'partnerAddress')
-  final String businessPartnerAddress;
+  final String? businessPartnerAddress;
   @override
   @JsonKey(name: 'locked')
   final bool isLocked;
 
   @override
   String toString() {
-    return 'LoggedInUser(id: $id, name: $name, userName: $userName, password: $password, organization: $organization, organizationName: $organizationName, defaultOrganization: $defaultOrganization, defaultWarehouse: $defaultWarehouse, businessPartner: $businessPartner, client: $client, businessPartnerAddress: $businessPartnerAddress, isLocked: $isLocked)';
+    return 'LoggedInUser(id: $id, name: $name, userName: $userName, password: $password, organization: $organization, organizationName: $organizationName, defaultOrganization: $defaultOrganization, defaultWarehouse: $defaultWarehouse, businessPartner: $businessPartner, businessPartnerName: $businessPartnerName, client: $client, businessPartnerAddress: $businessPartnerAddress, isLocked: $isLocked)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoggedInUser &&
+            other is _$LoggedInUserImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.userName, userName) ||
@@ -322,6 +338,8 @@ class _$_LoggedInUser implements _LoggedInUser {
                 other.defaultWarehouse == defaultWarehouse) &&
             (identical(other.businessPartner, businessPartner) ||
                 other.businessPartner == businessPartner) &&
+            (identical(other.businessPartnerName, businessPartnerName) ||
+                other.businessPartnerName == businessPartnerName) &&
             (identical(other.client, client) || other.client == client) &&
             (identical(other.businessPartnerAddress, businessPartnerAddress) ||
                 other.businessPartnerAddress == businessPartnerAddress) &&
@@ -342,6 +360,7 @@ class _$_LoggedInUser implements _LoggedInUser {
       defaultOrganization,
       defaultWarehouse,
       businessPartner,
+      businessPartnerName,
       client,
       businessPartnerAddress,
       isLocked);
@@ -349,12 +368,12 @@ class _$_LoggedInUser implements _LoggedInUser {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoggedInUserCopyWith<_$_LoggedInUser> get copyWith =>
-      __$$_LoggedInUserCopyWithImpl<_$_LoggedInUser>(this, _$identity);
+  _$$LoggedInUserImplCopyWith<_$LoggedInUserImpl> get copyWith =>
+      __$$LoggedInUserImplCopyWithImpl<_$LoggedInUserImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LoggedInUserToJson(
+    return _$$LoggedInUserImplToJson(
       this,
     );
   }
@@ -362,25 +381,25 @@ class _$_LoggedInUser implements _LoggedInUser {
 
 abstract class _LoggedInUser implements LoggedInUser {
   const factory _LoggedInUser(
-      {required final String id,
-      required final String name,
-      @JsonKey(name: "username")
-          required final String userName,
-      required final String password,
-      required final String organization,
-      @JsonKey(name: 'organization\$_identifier')
+          {required final String id,
+          required final String name,
+          @JsonKey(name: "username") required final String userName,
+          required final String password,
+          final String? organization,
+          @JsonKey(name: 'organization\$_identifier')
           required final String organizationName,
-      required final String defaultOrganization,
-      required final String defaultWarehouse,
-      required final String businessPartner,
-      required final String client,
-      @JsonKey(name: 'partnerAddress')
-          required final String businessPartnerAddress,
-      @JsonKey(name: 'locked')
-          required final bool isLocked}) = _$_LoggedInUser;
+          required final String defaultOrganization,
+          required final String defaultWarehouse,
+          required final String businessPartner,
+          @JsonKey(name: 'businessPartner\$_identifier')
+          required final String businessPartnerName,
+          required final String client,
+          @JsonKey(name: 'partnerAddress') final String? businessPartnerAddress,
+          @JsonKey(name: 'locked') required final bool isLocked}) =
+      _$LoggedInUserImpl;
 
   factory _LoggedInUser.fromJson(Map<String, dynamic> json) =
-      _$_LoggedInUser.fromJson;
+      _$LoggedInUserImpl.fromJson;
 
   @override
   String get id;
@@ -392,7 +411,7 @@ abstract class _LoggedInUser implements LoggedInUser {
   @override
   String get password;
   @override
-  String get organization;
+  String? get organization;
   @override
   @JsonKey(name: 'organization\$_identifier')
   String get organizationName;
@@ -403,15 +422,18 @@ abstract class _LoggedInUser implements LoggedInUser {
   @override
   String get businessPartner;
   @override
+  @JsonKey(name: 'businessPartner\$_identifier')
+  String get businessPartnerName;
+  @override
   String get client;
   @override
   @JsonKey(name: 'partnerAddress')
-  String get businessPartnerAddress;
+  String? get businessPartnerAddress;
   @override
   @JsonKey(name: 'locked')
   bool get isLocked;
   @override
   @JsonKey(ignore: true)
-  _$$_LoggedInUserCopyWith<_$_LoggedInUser> get copyWith =>
+  _$$LoggedInUserImplCopyWith<_$LoggedInUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

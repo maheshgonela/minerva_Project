@@ -1,8 +1,8 @@
+import 'package:base_auth/base_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minerva/constants.dart';
 import 'package:minerva/features/dispatch/domain/entities/sales_order.dart';
-import 'package:minerva/features/dispatch/domain/entities/shop.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/create_dispatch/create_dispatch_cubit.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/download_invoice/download_invoice_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_dispatch_orderedproduct/fetch_dispatch_orderedproduct_bloc.dart';
@@ -23,7 +23,7 @@ class CreateDispatchScreen extends StatefulWidget {
 
   final String section;
   final SalesOrder order;
-  final Shop shop;
+  final IdName shop;
 
   @override
   State<CreateDispatchScreen> createState() => _CreateDispatchScreenState();

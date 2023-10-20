@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TabletDispatchState {
-  Shop? get shop => throw _privateConstructorUsedError;
+  IdName? get shop => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TabletDispatchStateCopyWith<TabletDispatchState> get copyWith =>
@@ -29,9 +29,9 @@ abstract class $TabletDispatchStateCopyWith<$Res> {
           TabletDispatchState value, $Res Function(TabletDispatchState) then) =
       _$TabletDispatchStateCopyWithImpl<$Res, TabletDispatchState>;
   @useResult
-  $Res call({Shop? shop});
+  $Res call({IdName? shop});
 
-  $ShopCopyWith<$Res>? get shop;
+  $IdNameCopyWith<$Res>? get shop;
 }
 
 /// @nodoc
@@ -53,18 +53,18 @@ class _$TabletDispatchStateCopyWithImpl<$Res, $Val extends TabletDispatchState>
       shop: freezed == shop
           ? _value.shop
           : shop // ignore: cast_nullable_to_non_nullable
-              as Shop?,
+              as IdName?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ShopCopyWith<$Res>? get shop {
+  $IdNameCopyWith<$Res>? get shop {
     if (_value.shop == null) {
       return null;
     }
 
-    return $ShopCopyWith<$Res>(_value.shop!, (value) {
+    return $IdNameCopyWith<$Res>(_value.shop!, (value) {
       return _then(_value.copyWith(shop: value) as $Val);
     });
   }
@@ -78,10 +78,10 @@ abstract class _$$TabletDispatchStateImplCopyWith<$Res>
       __$$TabletDispatchStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Shop? shop});
+  $Res call({IdName? shop});
 
   @override
-  $ShopCopyWith<$Res>? get shop;
+  $IdNameCopyWith<$Res>? get shop;
 }
 
 /// @nodoc
@@ -101,7 +101,7 @@ class __$$TabletDispatchStateImplCopyWithImpl<$Res>
       shop: freezed == shop
           ? _value.shop
           : shop // ignore: cast_nullable_to_non_nullable
-              as Shop?,
+              as IdName?,
     ));
   }
 }
@@ -112,7 +112,7 @@ class _$TabletDispatchStateImpl implements _TabletDispatchState {
   const _$TabletDispatchStateImpl({this.shop});
 
   @override
-  final Shop? shop;
+  final IdName? shop;
 
   @override
   String toString() {
@@ -139,11 +139,11 @@ class _$TabletDispatchStateImpl implements _TabletDispatchState {
 }
 
 abstract class _TabletDispatchState implements TabletDispatchState {
-  const factory _TabletDispatchState({final Shop? shop}) =
+  const factory _TabletDispatchState({final IdName? shop}) =
       _$TabletDispatchStateImpl;
 
   @override
-  Shop? get shop;
+  IdName? get shop;
   @override
   @JsonKey(ignore: true)
   _$$TabletDispatchStateImplCopyWith<_$TabletDispatchStateImpl> get copyWith =>

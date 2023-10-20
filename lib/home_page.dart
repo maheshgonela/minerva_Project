@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minerva/app_drawer.dart';
 import 'package:minerva/constants.dart';
+import 'package:minerva/features/dispatch/presentation/bloc/create_dispatch/create_dispatch_cubit.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_organizations/fetch_organization_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_sales_order/fetch_sales_order_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
@@ -125,8 +126,7 @@ class _HomePageState extends State<HomePage> {
                   create: (ctx) => sl.get<FetchSalesOrderBloc>()
                     ..add(FetchSalesOrderEvent.fetchInitialSalesOrder(
                         user.businessPartner, user.defaultOrganization))),
-              // we have to know about this , below this
-              //BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
+              BlocProvider(create: (ctx) => sl.get<CreateDispatchCubit>()),
             ],
             child: const SalesOrderList(
               section: "ggg",

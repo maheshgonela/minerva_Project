@@ -6,12 +6,13 @@ part of 'id_name.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_IdName _$$_IdNameFromJson(Map<String, dynamic> json) => _$_IdName(
+_$IdNameImpl _$$IdNameImplFromJson(Map<String, dynamic> json) => _$IdNameImpl(
       id: json['id'] as String,
       name: json['name'] as String? ?? '',
     );
 
-Map<String, dynamic> _$$_IdNameToJson(_$_IdName instance) => <String, dynamic>{
+Map<String, dynamic> _$$IdNameImplToJson(_$IdNameImpl instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
     };

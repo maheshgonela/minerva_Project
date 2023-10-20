@@ -189,8 +189,8 @@ class _GRNScreenState extends State<GRNScreen> {
           onSelected: (value) {
             if (value == '1') {
               final loggedInUser = sl.get<LoggedInUser>();
-              _openTrips(loggedInUser.organizationName, record.id,
-                  loggedInUser.organizationName);
+              _openTrips(loggedInUser.organizationName!, record.id,
+                  loggedInUser.organizationName!);
             }
           },
           itemBuilder: (ctx) {

@@ -38,10 +38,9 @@ abstract class $MobileAccessCopyWith<$Res> {
       _$MobileAccessCopyWithImpl<$Res, MobileAccess>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'gPRMobilemaster')
-          String id,
+      {@JsonKey(name: 'gPRMobilemaster') String id,
       @JsonKey(name: r'gPRMobilemaster$_identifier', defaultValue: '')
-          String name});
+      String name});
 }
 
 /// @nodoc
@@ -74,26 +73,25 @@ class _$MobileAccessCopyWithImpl<$Res, $Val extends MobileAccess>
 }
 
 /// @nodoc
-abstract class _$$_MobileAccessCopyWith<$Res>
+abstract class _$$MobileAccessImplCopyWith<$Res>
     implements $MobileAccessCopyWith<$Res> {
-  factory _$$_MobileAccessCopyWith(
-          _$_MobileAccess value, $Res Function(_$_MobileAccess) then) =
-      __$$_MobileAccessCopyWithImpl<$Res>;
+  factory _$$MobileAccessImplCopyWith(
+          _$MobileAccessImpl value, $Res Function(_$MobileAccessImpl) then) =
+      __$$MobileAccessImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'gPRMobilemaster')
-          String id,
+      {@JsonKey(name: 'gPRMobilemaster') String id,
       @JsonKey(name: r'gPRMobilemaster$_identifier', defaultValue: '')
-          String name});
+      String name});
 }
 
 /// @nodoc
-class __$$_MobileAccessCopyWithImpl<$Res>
-    extends _$MobileAccessCopyWithImpl<$Res, _$_MobileAccess>
-    implements _$$_MobileAccessCopyWith<$Res> {
-  __$$_MobileAccessCopyWithImpl(
-      _$_MobileAccess _value, $Res Function(_$_MobileAccess) _then)
+class __$$MobileAccessImplCopyWithImpl<$Res>
+    extends _$MobileAccessCopyWithImpl<$Res, _$MobileAccessImpl>
+    implements _$$MobileAccessImplCopyWith<$Res> {
+  __$$MobileAccessImplCopyWithImpl(
+      _$MobileAccessImpl _value, $Res Function(_$MobileAccessImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +100,7 @@ class __$$_MobileAccessCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
   }) {
-    return _then(_$_MobileAccess(
+    return _then(_$MobileAccessImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -117,16 +115,15 @@ class __$$_MobileAccessCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MobileAccess extends _MobileAccess {
-  const _$_MobileAccess(
-      {@JsonKey(name: 'gPRMobilemaster')
-          required this.id,
+class _$MobileAccessImpl extends _MobileAccess {
+  const _$MobileAccessImpl(
+      {@JsonKey(name: 'gPRMobilemaster') required this.id,
       @JsonKey(name: r'gPRMobilemaster$_identifier', defaultValue: '')
-          required this.name})
+      required this.name})
       : super._();
 
-  factory _$_MobileAccess.fromJson(Map<String, dynamic> json) =>
-      _$$_MobileAccessFromJson(json);
+  factory _$MobileAccessImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MobileAccessImplFromJson(json);
 
   @override
   @JsonKey(name: 'gPRMobilemaster')
@@ -144,7 +141,7 @@ class _$_MobileAccess extends _MobileAccess {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MobileAccess &&
+            other is _$MobileAccessImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name));
   }
@@ -156,12 +153,12 @@ class _$_MobileAccess extends _MobileAccess {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MobileAccessCopyWith<_$_MobileAccess> get copyWith =>
-      __$$_MobileAccessCopyWithImpl<_$_MobileAccess>(this, _$identity);
+  _$$MobileAccessImplCopyWith<_$MobileAccessImpl> get copyWith =>
+      __$$MobileAccessImplCopyWithImpl<_$MobileAccessImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MobileAccessToJson(
+    return _$$MobileAccessImplToJson(
       this,
     );
   }
@@ -169,14 +166,13 @@ class _$_MobileAccess extends _MobileAccess {
 
 abstract class _MobileAccess extends MobileAccess {
   const factory _MobileAccess(
-      {@JsonKey(name: 'gPRMobilemaster')
-          required final String id,
+      {@JsonKey(name: 'gPRMobilemaster') required final String id,
       @JsonKey(name: r'gPRMobilemaster$_identifier', defaultValue: '')
-          required final String name}) = _$_MobileAccess;
+      required final String name}) = _$MobileAccessImpl;
   const _MobileAccess._() : super._();
 
   factory _MobileAccess.fromJson(Map<String, dynamic> json) =
-      _$_MobileAccess.fromJson;
+      _$MobileAccessImpl.fromJson;
 
   @override
   @JsonKey(name: 'gPRMobilemaster')
@@ -186,6 +182,6 @@ abstract class _MobileAccess extends MobileAccess {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$_MobileAccessCopyWith<_$_MobileAccess> get copyWith =>
+  _$$MobileAccessImplCopyWith<_$MobileAccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

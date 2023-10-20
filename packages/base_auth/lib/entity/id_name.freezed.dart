@@ -70,9 +70,10 @@ class _$IdNameCopyWithImpl<$Res, $Val extends IdName>
 }
 
 /// @nodoc
-abstract class _$$_IdNameCopyWith<$Res> implements $IdNameCopyWith<$Res> {
-  factory _$$_IdNameCopyWith(_$_IdName value, $Res Function(_$_IdName) then) =
-      __$$_IdNameCopyWithImpl<$Res>;
+abstract class _$$IdNameImplCopyWith<$Res> implements $IdNameCopyWith<$Res> {
+  factory _$$IdNameImplCopyWith(
+          _$IdNameImpl value, $Res Function(_$IdNameImpl) then) =
+      __$$IdNameImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -81,10 +82,11 @@ abstract class _$$_IdNameCopyWith<$Res> implements $IdNameCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_IdNameCopyWithImpl<$Res>
-    extends _$IdNameCopyWithImpl<$Res, _$_IdName>
-    implements _$$_IdNameCopyWith<$Res> {
-  __$$_IdNameCopyWithImpl(_$_IdName _value, $Res Function(_$_IdName) _then)
+class __$$IdNameImplCopyWithImpl<$Res>
+    extends _$IdNameCopyWithImpl<$Res, _$IdNameImpl>
+    implements _$$IdNameImplCopyWith<$Res> {
+  __$$IdNameImplCopyWithImpl(
+      _$IdNameImpl _value, $Res Function(_$IdNameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +95,7 @@ class __$$_IdNameCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
   }) {
-    return _then(_$_IdName(
+    return _then(_$IdNameImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -108,14 +110,14 @@ class __$$_IdNameCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_IdName extends _IdName {
-  const _$_IdName(
+class _$IdNameImpl extends _IdName {
+  const _$IdNameImpl(
       {@JsonKey(name: 'id') required this.id,
       @JsonKey(name: 'name', defaultValue: '') required this.name})
       : super._();
 
-  factory _$_IdName.fromJson(Map<String, dynamic> json) =>
-      _$$_IdNameFromJson(json);
+  factory _$IdNameImpl.fromJson(Map<String, dynamic> json) =>
+      _$$IdNameImplFromJson(json);
 
   @override
   @JsonKey(name: 'id')
@@ -133,7 +135,7 @@ class _$_IdName extends _IdName {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_IdName &&
+            other is _$IdNameImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name));
   }
@@ -145,12 +147,12 @@ class _$_IdName extends _IdName {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_IdNameCopyWith<_$_IdName> get copyWith =>
-      __$$_IdNameCopyWithImpl<_$_IdName>(this, _$identity);
+  _$$IdNameImplCopyWith<_$IdNameImpl> get copyWith =>
+      __$$IdNameImplCopyWithImpl<_$IdNameImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_IdNameToJson(
+    return _$$IdNameImplToJson(
       this,
     );
   }
@@ -158,13 +160,12 @@ class _$_IdName extends _IdName {
 
 abstract class _IdName extends IdName {
   const factory _IdName(
-      {@JsonKey(name: 'id')
-          required final String id,
+      {@JsonKey(name: 'id') required final String id,
       @JsonKey(name: 'name', defaultValue: '')
-          required final String name}) = _$_IdName;
+      required final String name}) = _$IdNameImpl;
   const _IdName._() : super._();
 
-  factory _IdName.fromJson(Map<String, dynamic> json) = _$_IdName.fromJson;
+  factory _IdName.fromJson(Map<String, dynamic> json) = _$IdNameImpl.fromJson;
 
   @override
   @JsonKey(name: 'id')
@@ -174,6 +175,6 @@ abstract class _IdName extends IdName {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$_IdNameCopyWith<_$_IdName> get copyWith =>
+  _$$IdNameImplCopyWith<_$IdNameImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

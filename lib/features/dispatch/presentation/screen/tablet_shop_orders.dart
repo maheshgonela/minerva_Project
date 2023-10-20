@@ -1,3 +1,4 @@
+import 'package:base_auth/base_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:minerva/constants.dart';
@@ -29,7 +30,7 @@ class TabletShopOrders extends StatefulWidget {
 
 class _TabletShopOrdersState extends State<TabletShopOrders> {
   SalesOrder? _salesOrder;
-  late Shop shop;
+  late IdName shop;
 
   @override
   void initState() {
