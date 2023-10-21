@@ -8,7 +8,9 @@ import 'package:minerva/features/dispatch/presentation/bloc/fetch_dispatch_order
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_organizations/fetch_organization_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_sales_order/fetch_sales_order_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/bloc/fetch_shops/fetch_shop_bloc.dart';
+import 'package:minerva/features/dispatch/presentation/bloc/shop_trips/shop_trips_bloc.dart';
 import 'package:minerva/features/dispatch/presentation/screen/create_dispatch_screen.dart';
+import 'package:minerva/features/dispatch/presentation/screen/shop_trips.dart';
 import 'package:minerva/features/dispatch/presentation/widgets/org_bp_selecter_alertdialog.dart';
 
 import 'package:minerva/get_it/injection.dart';
@@ -278,7 +280,7 @@ class _SalesOrderListState extends State<SalesOrderList> {
         trailing: PopupMenuButton<String>(
           onSelected: (value) {
             if (value == '1') {
-              // _openTrips(widget.section, record.id);
+              _openTrips(widget.section, record.id);
             }
           },
           itemBuilder: (ctx) {
@@ -310,16 +312,16 @@ class _SalesOrderListState extends State<SalesOrderList> {
     }
   }
 
-  // void _openTrips(String section, String id) {
-  //   Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
-  //     return BlocProvider(
-  //       create: (ctx) => sl.get<ShopTripsBloc>(),
-  //       child: ShopTrips(
-  //         section: section,
-  //         orderId: id,
-  //         shop: widget.shop.name,
-  //       ),
-  //     );
-  //   }));
-  // }
+  void _openTrips(String section, String id) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
+      return BlocProvider(
+        create: (ctx) => sl.get<ShopTripsBloc>(),
+        child: ShopTrips(
+          section: section,
+          orderId: id,
+          shop: _orgbps.isNotEmpty ? _orgbps[0].name : fetchShop().name,
+        ),
+      );
+    }));
+  }
 }
